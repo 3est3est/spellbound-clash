@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: 'Chakra Petch', monospace, sans-serif;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #020617; /* slate-950 */
+  /* Remove anti-aliasing for a more pixelated retro look */
+  -webkit-font-smoothing: none;
+}
+
+/* Sharp, blocky animations for retro feel */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-10px); }
+  50% { transform: translateX(10px); }
+  75% { transform: translateX(-10px); }
+  100% { transform: translateX(0); }
+}
+
+@keyframes blink {
+  0%, 100% { opacity: 1; }
+  50% { opacity: 0; }
+}
+
+.animate-blink {
+  animation: blink 1s step-end infinite;
+}
+
+/* Minimalist thick borders */
+.retro-border {
+  border: 4px solid white;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.8);
+}
+.retro-border-red {
+  border: 4px solid #ef4444;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.8);
+}
+.retro-border-amber {
+  border: 4px solid #f59e0b;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.8);
+}
+.retro-border-emerald {
+  border: 4px solid #10b981;
+  box-shadow: 6px 6px 0px 0px rgba(0,0,0,0.8);
+}

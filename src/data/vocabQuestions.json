@@ -1,0 +1,362 @@
+[
+  {
+    "id": 1,
+    "word": "Abundant",
+    "phonetic": "/əˈbʌndənt/",
+    "choices": [
+      { "text": "อุดมสมบูรณ์", "isCorrect": true },
+      { "text": "ขาดแคลน", "isCorrect": false },
+      { "text": "เล็กน้อย", "isCorrect": false },
+      { "text": "ห่างไกล", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 2,
+    "word": "Courage",
+    "phonetic": "/ˈkɜːrɪdʒ/",
+    "choices": [
+      { "text": "ความกลัว", "isCorrect": false },
+      { "text": "ความกล้าหาญ", "isCorrect": true },
+      { "text": "ความเศร้า", "isCorrect": false },
+      { "text": "ความสุข", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 3,
+    "word": "Diligent",
+    "phonetic": "/ˈdɪlɪdʒənt/",
+    "choices": [
+      { "text": "ขี้เกียจ", "isCorrect": false },
+      { "text": "ฉลาด", "isCorrect": false },
+      { "text": "ขยันขันแข็ง", "isCorrect": true },
+      { "text": "ร่ำรวย", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 4,
+    "word": "Generous",
+    "phonetic": "/ˈdʒenərəs/",
+    "choices": [
+      { "text": "ใจดี เอื้อเฟื้อ", "isCorrect": true },
+      { "text": "ขี้งก", "isCorrect": false },
+      { "text": "เจ้าเล่ห์", "isCorrect": false },
+      { "text": "เข้มงวด", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 5,
+    "word": "Obstacle",
+    "phonetic": "/ˈɒbstəkl/",
+    "choices": [
+      { "text": "โอกาส", "isCorrect": false },
+      { "text": "อุปสรรค", "isCorrect": true },
+      { "text": "ทางลัด", "isCorrect": false },
+      { "text": "รางวัล", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 6,
+    "word": "Reluctant",
+    "phonetic": "/rɪˈlʌktənt/",
+    "choices": [
+      { "text": "กระตือรือร้น", "isCorrect": false },
+      { "text": "ไม่เต็มใจ", "isCorrect": true },
+      { "text": "มั่นใจ", "isCorrect": false },
+      { "text": "สงสัย", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 7,
+    "word": "Grateful",
+    "phonetic": "/ˈɡreɪtfʊl/",
+    "choices": [
+      { "text": "ซาบซึ้ง ขอบคุณ", "isCorrect": true },
+      { "text": "โกรธเคือง", "isCorrect": false },
+      { "text": "เฉยเมย", "isCorrect": false },
+      { "text": "อิจฉา", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 8,
+    "word": "Peculiar",
+    "phonetic": "/pɪˈkjuːliər/",
+    "choices": [
+      { "text": "ธรรมดา", "isCorrect": false },
+      { "text": "แปลกประหลาด", "isCorrect": true },
+      { "text": "สวยงาม", "isCorrect": false },
+      { "text": "น่ากลัว", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 9,
+    "word": "Benevolent",
+    "phonetic": "/bəˈnevələnt/",
+    "choices": [
+      { "text": "มีเมตตา", "isCorrect": true },
+      { "text": "โหดร้าย", "isCorrect": false },
+      { "text": "เห็นแก่ตัว", "isCorrect": false },
+      { "text": "ไม่สนใจ", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 10,
+    "word": "Ambiguous",
+    "phonetic": "/æmˈbɪɡjuəs/",
+    "choices": [
+      { "text": "ชัดเจน", "isCorrect": false },
+      { "text": "กำกวม คลุมเครือ", "isCorrect": true },
+      { "text": "แม่นยำ", "isCorrect": false },
+      { "text": "รวดเร็ว", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 11,
+    "word": "Contemplate",
+    "phonetic": "/ˈkɒntəmpleɪt/",
+    "choices": [
+      { "text": "ครุ่นคิด ใคร่ครวญ", "isCorrect": true },
+      { "text": "เพิกเฉย", "isCorrect": false },
+      { "text": "รีบร้อน", "isCorrect": false },
+      { "text": "ต่อสู้", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 12,
+    "word": "Inevitable",
+    "phonetic": "/ɪnˈevɪtəbl/",
+    "choices": [
+      { "text": "หลีกเลี่ยงได้", "isCorrect": false },
+      { "text": "ไม่อาจหลีกเลี่ยงได้", "isCorrect": true },
+      { "text": "ไม่สำคัญ", "isCorrect": false },
+      { "text": "น่าสงสัย", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 13,
+    "word": "Meticulous",
+    "phonetic": "/məˈtɪkjʊləs/",
+    "choices": [
+      { "text": "สะเพร่า", "isCorrect": false },
+      { "text": "ใจร้อน", "isCorrect": false },
+      { "text": "พิถีพิถัน ละเอียด", "isCorrect": true },
+      { "text": "เฉื่อยชา", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 14,
+    "word": "Perseverance",
+    "phonetic": "/ˌpɜːsɪˈvɪərəns/",
+    "choices": [
+      { "text": "ความอดทน มุ่งมั่น", "isCorrect": true },
+      { "text": "ความท้อแท้", "isCorrect": false },
+      { "text": "ความประมาท", "isCorrect": false },
+      { "text": "ความรีบร้อน", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 15,
+    "word": "Scrutinize",
+    "phonetic": "/ˈskruːtɪnaɪz/",
+    "choices": [
+      { "text": "มองข้าม", "isCorrect": false },
+      { "text": "ตรวจสอบอย่างละเอียด", "isCorrect": true },
+      { "text": "ทำลาย", "isCorrect": false },
+      { "text": "ชื่นชม", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 16,
+    "word": "Pragmatic",
+    "phonetic": "/præɡˈmætɪk/",
+    "choices": [
+      { "text": "เพ้อฝัน", "isCorrect": false },
+      { "text": "อนุรักษ์นิยม", "isCorrect": false },
+      { "text": "ยึดหลักปฏิบัติ", "isCorrect": true },
+      { "text": "โรแมนติก", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 17,
+    "word": "Ubiquitous",
+    "phonetic": "/juːˈbɪkwɪtəs/",
+    "choices": [
+      { "text": "หายาก", "isCorrect": false },
+      { "text": "แพร่หลาย พบเห็นทั่วไป", "isCorrect": true },
+      { "text": "ล้ำสมัย", "isCorrect": false },
+      { "text": "โบราณ", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 18,
+    "word": "Ephemeral",
+    "phonetic": "/ɪˈfemərəl/",
+    "choices": [
+      { "text": "ชั่วนิรันดร์", "isCorrect": false },
+      { "text": "ชั่วคราว ไม่ยั่งยืน", "isCorrect": true },
+      { "text": "มั่นคง", "isCorrect": false },
+      { "text": "มีค่า", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 19,
+    "word": "Sycophant",
+    "phonetic": "/ˈsɪkəfænt/",
+    "choices": [
+      { "text": "ผู้นำ", "isCorrect": false },
+      { "text": "คนประจบสอพลอ", "isCorrect": true },
+      { "text": "นักวิจารณ์", "isCorrect": false },
+      { "text": "ผู้เชี่ยวชาญ", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 20,
+    "word": "Recalcitrant",
+    "phonetic": "/rɪˈkælsɪtrənt/",
+    "choices": [
+      { "text": "ว่านอนสอนง่าย", "isCorrect": false },
+      { "text": "ดื้อรั้น ไม่ยอมทำตาม", "isCorrect": true },
+      { "text": "ใจเย็น", "isCorrect": false },
+      { "text": "ฉลาดหลักแหลม", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 21,
+    "word": "Magnanimous",
+    "phonetic": "/mæɡˈnænɪməs/",
+    "choices": [
+      { "text": "ใจแคบ", "isCorrect": false },
+      { "text": "เจ้าเล่ห์", "isCorrect": false },
+      { "text": "ใจกว้าง มีน้ำใจ", "isCorrect": true },
+      { "text": "ขี้ขลาด", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 22,
+    "word": "Obfuscate",
+    "phonetic": "/ˈɒbfʌskeɪt/",
+    "choices": [
+      { "text": "ทำให้ชัดเจน", "isCorrect": false },
+      { "text": "ทำให้สับสน คลุมเครือ", "isCorrect": true },
+      { "text": "ทำให้ง่ายขึ้น", "isCorrect": false },
+      { "text": "ทำให้สวยงาม", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 23,
+    "word": "Cacophony",
+    "phonetic": "/kəˈkɒfəni/",
+    "choices": [
+      { "text": "เสียงไพเราะ", "isCorrect": false },
+      { "text": "ความเงียบ", "isCorrect": false },
+      { "text": "เสียงอึกทึก ไม่เป็นระเบียบ", "isCorrect": true },
+      { "text": "เพลงคลาสสิก", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 24,
+    "word": "Perfunctory",
+    "phonetic": "/pəˈfʌŋktəri/",
+    "choices": [
+      { "text": "ทำอย่างจริงจัง", "isCorrect": false },
+      { "text": "ทำอย่างสมบูรณ์แบบ", "isCorrect": false },
+      { "text": "ทำแบบขอไปที ไม่ตั้งใจ", "isCorrect": true },
+      { "text": "ทำอย่างรวดเร็ว", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 25,
+    "word": "Serendipity",
+    "phonetic": "/ˌserənˈdɪpɪti/",
+    "choices": [
+      { "text": "โชคร้าย", "isCorrect": false },
+      { "text": "การค้นพบสิ่งดีๆ โดยบังเอิญ", "isCorrect": true },
+      { "text": "ความพยายาม", "isCorrect": false },
+      { "text": "การวางแผน", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 26,
+    "word": "Loquacious",
+    "phonetic": "/ləˈkweɪʃəs/",
+    "choices": [
+      { "text": "เงียบขรึม", "isCorrect": false },
+      { "text": "พูดมาก ช่างพูด", "isCorrect": true },
+      { "text": "ขี้อาย", "isCorrect": false },
+      { "text": "น่าเบื่อ", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 27,
+    "word": "Tenacious",
+    "phonetic": "/tɪˈneɪʃəs/",
+    "choices": [
+      { "text": "อ่อนแอ", "isCorrect": false },
+      { "text": "เหนียวแน่น ไม่ย่อท้อ", "isCorrect": true },
+      { "text": "ประมาท", "isCorrect": false },
+      { "text": "ใจร้อน", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 28,
+    "word": "Eloquent",
+    "phonetic": "/ˈeləkwənt/",
+    "choices": [
+      { "text": "พูดไม่เก่ง", "isCorrect": false },
+      { "text": "พูดจาคมคาย ไพเราะ", "isCorrect": true },
+      { "text": "เสียงดัง", "isCorrect": false },
+      { "text": "พูดเร็ว", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 29,
+    "word": "Candid",
+    "phonetic": "/ˈkændɪd/",
+    "choices": [
+      { "text": "ตรงไปตรงมา จริงใจ", "isCorrect": true },
+      { "text": "เจ้าเล่ห์", "isCorrect": false },
+      { "text": "เฉื่อยชา", "isCorrect": false },
+      { "text": "สับสน", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 30,
+    "word": "Quintessential",
+    "phonetic": "/ˌkwɪntɪˈsenʃəl/",
+    "choices": [
+      { "text": "ไม่สำคัญ", "isCorrect": false },
+      { "text": "เป็นแก่นแท้ เป็นตัวอย่างที่ดีที่สุด", "isCorrect": true },
+      { "text": "ธรรมดา", "isCorrect": false },
+      { "text": "ล้าสมัย", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  }
+]

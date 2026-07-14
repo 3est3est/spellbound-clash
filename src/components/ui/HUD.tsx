@@ -11,8 +11,8 @@ export default function HUD() {
       <div className="flex items-center justify-between">
         
         {/* Player HP */}
-        <div className="bg-black retro-border px-6 py-4 flex flex-col gap-1 w-64">
-          <div className="flex justify-between text-sm font-bold tracking-widest text-white">
+        <div className="bg-black retro-border px-6 py-4 flex flex-col gap-2 w-64">
+          <div className="flex justify-between font-pixel text-[10px] font-bold tracking-widest text-white">
             <span>HP</span>
             <span>{playerHP} / {maxPlayerHP}</span>
           </div>
@@ -33,12 +33,12 @@ export default function HUD() {
         {/* Enemies Defeated */}
         <div className="bg-black retro-border px-6 py-4 flex items-center gap-6">
           <div className="flex items-center gap-3">
-            <span className="text-white font-bold text-xl tracking-widest">
+            <span className="font-pixel text-white font-bold text-[10px] tracking-widest leading-relaxed">
               ENEMIES: <span className="text-red-400">{enemiesDefeated}</span>/{totalEnemies}
             </span>
           </div>
           <div className="w-1 h-6 bg-white" />
-          <div className={`font-bold text-xl tracking-widest ${diffColor}`}>
+          <div className={`font-pixel font-bold text-[10px] tracking-widest ${diffColor}`}>
             {diffLabel}
           </div>
         </div>

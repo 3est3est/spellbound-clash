@@ -52,12 +52,12 @@ export default function BattleTransition() {
           phase >= 2 ? 'opacity-100' : 'opacity-0'
         }`}
       >
-        <div className="text-6xl mb-6">⚔️</div>
-        <h2 className="text-4xl font-bold text-white mb-4 bg-black px-6 py-2 retro-border">
+        <div className="text-6xl mb-6 animate-blink">⚔️</div>
+        <h2 className="font-pixel text-lg font-bold text-white mb-4 bg-black px-6 py-3 retro-border">
           ENEMY ENCOUNTER!
         </h2>
         {currentEnemy && (
-          <p className="text-3xl text-red-500 font-bold bg-black px-4 py-1 retro-border-red animate-blink">
+          <p className="font-pixel text-sm text-red-500 font-bold bg-black px-4 py-2 retro-border-red animate-blink">
             {currentEnemy.name}
           </p>
         )}

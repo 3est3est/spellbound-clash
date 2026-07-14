@@ -43,7 +43,7 @@ function App() {
       {isPaused && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 font-sans">
           <div className="bg-black border-4 border-white p-8 max-w-sm w-full text-center retro-border">
-            <h2 className="text-4xl font-bold text-white mb-8 tracking-widest uppercase" style={{ textShadow: '2px 2px 0 #333' }}>
+            <h2 className="font-pixel text-2xl text-white mb-8 tracking-widest uppercase" style={{ textShadow: '2px 2px 0 #333' }}>
               PAUSED
             </h2>
             <div className="flex flex-col gap-4">
@@ -66,6 +66,9 @@ function App() {
           </div>
         </div>
       )}
+
+      {/* CRT / scanline overlay (decorative, non-interactive) */}
+      <div className="scanlines fixed inset-0 z-[150]" />
     </div>
   );
 }

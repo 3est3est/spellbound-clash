@@ -17,12 +17,12 @@ export default function MainMenu() {
       
       {/* Title */}
       <div className="text-center mb-12 relative z-10">
-        <h1 className="text-6xl font-bold text-white mb-2 uppercase tracking-widest" style={{ textShadow: '4px 4px 0 #333' }}>
+        <h1 className="font-pixel text-4xl sm:text-5xl font-bold text-white mb-4 uppercase tracking-widest leading-relaxed" style={{ textShadow: '4px 4px 0 #333' }}>
           Spellbound
           <br/>
           Clash
         </h1>
-        <p className="text-slate-400 mt-4 text-xl uppercase tracking-widest">
+        <p className="font-pixel text-slate-400 mt-4 text-xs uppercase tracking-widest">
           - Select Difficulty -
         </p>
       </div>
@@ -50,18 +50,18 @@ export default function MainMenu() {
               )}
 
               <div className="text-center">
-                <h3 className="text-2xl font-bold uppercase mb-2">{config.label}</h3>
-                
+                <h3 className="font-pixel text-sm font-bold uppercase mb-2 leading-relaxed">{config.label}</h3>
+
                 <div className="space-y-3 text-sm text-left mt-6 bg-black/50 p-4 retro-border">
-                  <div className="flex justify-between">
+                  <div className="flex justify-between font-pixel text-[10px]">
                     <span>HP:</span>
                     <span>{config.playerHP}</span>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between font-pixel text-[10px]">
                     <span>ENEMIES:</span>
                     <span>{config.totalEnemies}</span>
                   </div>
-                  <div className="flex justify-between">
+                  <div className="flex justify-between font-pixel text-[10px]">
                     <span>TIME:</span>
                     <span>{config.timerSeconds}s</span>
                   </div>
@@ -76,7 +76,7 @@ export default function MainMenu() {
       <button
         onClick={startGame}
         className="
-          relative z-10 px-12 py-5 text-2xl font-bold
+          font-pixel relative z-10 px-12 py-5 text-sm font-bold
           bg-white text-black retro-border
           hover:bg-slate-200 active:translate-y-1 active:translate-x-1 active:shadow-none
           cursor-pointer uppercase tracking-widest transition-none
@@ -87,7 +87,7 @@ export default function MainMenu() {
       </button>
 
       {/* Footer hint */}
-      <p className="text-slate-500 text-sm mt-12 relative z-10 uppercase animate-blink">
+      <p className="font-pixel text-slate-500 text-[10px] mt-12 relative z-10 uppercase animate-blink">
         [ USE WASD TO MOVE ]
       </p>
     </div>

@@ -61,11 +61,12 @@ export default function Player() {
       }
     }
 
-    // Camera follow — smooth lerp toward the player so movement stays
-    // fluid and the low-res pixel render doesn't jitter.
+    // Camera follow — smooth lerp toward the player for fluid movement.
+    // Using a lower factor (0.05 vs 0.001) reduces pixel-level jitter
+    // from the orthographic low-res render.
     const targetX = groupRef.current.position.x;
     const targetZ = groupRef.current.position.z + 10;
-    const t = 1 - Math.pow(0.001, delta); // frame-rate independent lerp
+    const t = 1 - Math.pow(0.05, delta);
     camera.position.x += (targetX - camera.position.x) * t;
     camera.position.z += (targetZ - camera.position.z) * t;
     camera.lookAt(

@@ -37,9 +37,11 @@ interface GameStore {
   battleResult: BattleResult | null;
   totalCorrect: number;
   totalWrong: number;
+  isPaused: boolean;
 
   // Actions
   setDifficulty: (difficulty: Difficulty) => void;
+  setIsPaused: (isPaused: boolean) => void;
   startGame: () => void;
   enterBattleTransition: (enemyId: string) => void;
   enterBattle: () => void;
@@ -126,8 +128,13 @@ export const useGameStore = create<GameStore>((set, get) => ({
   battleResult: null,
   totalCorrect: 0,
   totalWrong: 0,
+  isPaused: false,
 
   // ===== Actions =====
+
+  setIsPaused: (isPaused) => {
+    set({ isPaused });
+  },
 
   setDifficulty: (difficulty) => {
     const config = DIFFICULTY_CONFIGS[difficulty];
@@ -160,6 +167,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       battleResult: null,
       totalCorrect: 0,
       totalWrong: 0,
+      isPaused: false,
     });
   },
 
@@ -317,6 +325,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       battleResult: null,
       totalCorrect: 0,
       totalWrong: 0,
+      isPaused: false,
     });
   },
 }));

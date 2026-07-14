@@ -11,19 +11,22 @@ export default function HUD() {
       <div className="flex items-center justify-between">
         
         {/* Player HP */}
-        <div className="bg-black retro-border px-6 py-4 flex items-center gap-3">
-          <span className="text-xl text-white font-bold tracking-widest mr-2">HP:</span>
-          <div className="flex gap-1">
-            {Array.from({ length: maxPlayerHP }).map((_, i) => (
-              <span
-                key={i}
-                className={`text-2xl transition-none ${
-                  i < playerHP ? 'opacity-100' : 'opacity-30 grayscale'
-                }`}
-              >
-                {i < playerHP ? '❤️' : '🖤'}
-              </span>
-            ))}
+        <div className="bg-black retro-border px-6 py-4 flex flex-col gap-1 w-64">
+          <div className="flex justify-between text-sm font-bold tracking-widest text-white">
+            <span>HP</span>
+            <span>{playerHP} / {maxPlayerHP}</span>
+          </div>
+          <div className="w-full h-4 border-2 border-white bg-slate-900 p-[2px]">
+            <div
+              className={`h-full transition-all duration-300 ${
+                (playerHP / maxPlayerHP) <= 0.2
+                  ? 'bg-red-500'
+                  : (playerHP / maxPlayerHP) <= 0.5
+                  ? 'bg-amber-500'
+                  : 'bg-emerald-500'
+              }`}
+              style={{ width: `${(playerHP / maxPlayerHP) * 100}%` }}
+            />
           </div>
         </div>
 

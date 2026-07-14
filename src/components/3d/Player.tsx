@@ -69,9 +69,9 @@ export default function Player() {
     camera.position.x += (targetX - camera.position.x) * t;
     camera.position.z += (targetZ - camera.position.z) * t;
     camera.lookAt(
-      groupRef.current.position.x,
-      groupRef.current.position.y,
-      groupRef.current.position.z
+      camera.position.x,
+      0,
+      camera.position.z - 10
     );
 
     // Enemy collision check

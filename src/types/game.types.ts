@@ -1,6 +1,6 @@
 // ===== Game State Types =====
 
-export type GameState = 'MENU' | 'EXPLORE' | 'BATTLE_TRANSITION' | 'BATTLE' | 'GAMEOVER' | 'WIN';
+export type GameState = 'MENU' | 'EXPLORE' | 'PAUSED' | 'BATTLE_TRANSITION' | 'BATTLE' | 'GAMEOVER' | 'WIN';
 
 export type Difficulty = 'EASY' | 'MEDIUM' | 'HARD';
 
@@ -34,7 +34,7 @@ export const DIFFICULTY_CONFIGS: Record<Difficulty, DifficultyConfig> = {
     questionCount: 7,
     timerSeconds: 7,
     vocabLevel: 'intermediate',
-    totalEnemies: 5,
+    totalEnemies: 3,
     label: 'Medium',
     labelTh: 'ปานกลาง',
   },
@@ -44,7 +44,7 @@ export const DIFFICULTY_CONFIGS: Record<Difficulty, DifficultyConfig> = {
     questionCount: 10,
     timerSeconds: 5,
     vocabLevel: 'advanced',
-    totalEnemies: 7,
+    totalEnemies: 3,
     label: 'Hard',
     labelTh: 'ยาก',
   },

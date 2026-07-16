@@ -1,23 +1,43 @@
+import { useMemo } from 'react';
 import { useGameStore } from '../../store/useGameStore';
 import { DIFFICULTY_CONFIGS } from '../../types/game.types';
 
 export default function VictoryScreen() {
-  const { totalCorrect, totalWrong, difficulty, resetGame } = useGameStore();
+  const { totalCorrect, totalWrong, difficulty, gameStartedAt, resetGame } = useGameStore();
   const config = DIFFICULTY_CONFIGS[difficulty];
+
+  // Celebration particles: positions are generated once so they don't
+  // re-randomize on every re-render.
+  const particles = useMemo(
+    () =>
+      Array.from({ length: 40 }, () => ({
+        left: Math.random() * 100,
+        top: Math.random() * 100,
+        dur: 0.5 + Math.random(),
+      })),
+    []
+  );
+
+  const elapsed = gameStartedAt
+    ? Math.max(0, Math.floor((Date.now() - gameStartedAt) / 1000))
+    : 0;
+  const mm = String(Math.floor(elapsed / 60)).padStart(2, '0');
+  const ss = String(elapsed % 60).padStart(2, '0');
+  const totalQuestions = totalCorrect + totalWrong;
 
   return (
     <div className="fixed inset-0 flex flex-col items-center justify-center bg-black z-[100] p-4 text-center font-sans">
       
-      {/* Celebration Effects (Blocky particles) */}
+      {/* Celebration Effects (Blocky particles) — positions fixed once via useMemo */}
       <div className="absolute inset-0 pointer-events-none">
-        {Array.from({ length: 40 }).map((_, i) => (
+        {particles.map((p, i) => (
           <div
             key={i}
             className="absolute w-4 h-4 bg-amber-400"
             style={{
-              left: `${Math.random() * 100}%`,
-              top: `${Math.random() * 100}%`,
-              animation: `blink ${0.5 + Math.random()}s step-end infinite`
+              left: `${p.left}%`,
+              top: `${p.top}%`,
+              animation: `blink ${p.dur}s step-end infinite`,
             }}
           />
         ))}
@@ -44,6 +64,14 @@ export default function VictoryScreen() {
             <div className="flex justify-between items-center font-pixel text-[11px]">
               <span className="text-white">MISS/TIMEOUT:</span>
               <span className="font-bold text-red-400">{totalWrong}</span>
+            </div>
+            <div className="flex justify-between items-center font-pixel text-[11px]">
+              <span className="text-white">QUESTIONS:</span>
+              <span className="font-bold text-slate-200">{totalQuestions}</span>
+            </div>
+            <div className="flex justify-between items-center font-pixel text-[11px]">
+              <span className="text-white">TIME:</span>
+              <span className="font-bold text-slate-200">{mm}:{ss}</span>
             </div>
             <div className="flex justify-between items-center font-pixel text-[11px] pt-6 border-t-4 border-amber-900 mt-4">
               <span className="text-white">ACCURACY:</span>

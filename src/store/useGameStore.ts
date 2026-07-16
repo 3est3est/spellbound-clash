@@ -38,6 +38,7 @@ interface GameStore {
   totalCorrect: number;
   totalWrong: number;
   isPaused: boolean;
+  gameStartedAt: number | null;
 
   // Actions
   setDifficulty: (difficulty: Difficulty) => void;
@@ -129,6 +130,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
   totalCorrect: 0,
   totalWrong: 0,
   isPaused: false,
+  gameStartedAt: null,
 
   // ===== Actions =====
 
@@ -168,6 +170,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       totalCorrect: 0,
       totalWrong: 0,
       isPaused: false,
+      gameStartedAt: Date.now(),
     });
   },
 
@@ -326,6 +329,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       totalCorrect: 0,
       totalWrong: 0,
       isPaused: false,
+      gameStartedAt: null,
     });
   },
 }));

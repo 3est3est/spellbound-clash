@@ -1,7 +1,13 @@
 import { useGameStore } from '../../store/useGameStore';
 
 export default function GameOver() {
-  const { totalCorrect, totalWrong, enemiesDefeated, totalEnemies, resetGame } = useGameStore();
+  const { totalCorrect, totalWrong, enemiesDefeated, totalEnemies, gameStartedAt, resetGame } = useGameStore();
+
+  const elapsed = gameStartedAt
+    ? Math.max(0, Math.floor((Date.now() - gameStartedAt) / 1000))
+    : 0;
+  const mm = String(Math.floor(elapsed / 60)).padStart(2, '0');
+  const ss = String(elapsed % 60).padStart(2, '0');
 
   return (
     <div className="fixed inset-0 flex flex-col items-center justify-center bg-black z-[100] p-4 text-center font-sans">
@@ -28,6 +34,10 @@ export default function GameOver() {
             <div className="flex justify-between items-center font-pixel text-[11px]">
               <span className="text-white">MISS/TIMEOUT:</span>
               <span className="font-bold text-red-400">{totalWrong}</span>
+            </div>
+            <div className="flex justify-between items-center font-pixel text-[11px] pt-6 border-t-4 border-slate-700 mt-4">
+              <span className="text-white">TIME:</span>
+              <span className="font-bold text-amber-400">{mm}:{ss}</span>
             </div>
             <div className="flex justify-between items-center font-pixel text-[11px] pt-6 border-t-4 border-slate-700 mt-4">
               <span className="text-white">ACCURACY:</span>

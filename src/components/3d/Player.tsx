@@ -49,6 +49,14 @@ export default function Player() {
     if (moveDir.lengthSq() > 0) {
       moveDir.normalize().multiplyScalar(SPEED * delta);
 
+      // Face the direction of travel (snappy 8-way, RPG style).
+      const targetRotY = Math.atan2(moveDir.x, moveDir.z);
+      let cur = groupRef.current.rotation.y;
+      let diff = targetRotY - cur;
+      while (diff > Math.PI) diff -= Math.PI * 2;
+      while (diff < -Math.PI) diff += Math.PI * 2;
+      groupRef.current.rotation.y = cur + diff * Math.min(1, delta * 12);
+
       const pos = groupRef.current.position;
 
       const tryX = pos.x + moveDir.x;
@@ -62,18 +70,15 @@ export default function Player() {
     }
 
     // Camera follow — smooth lerp toward the player for fluid movement.
-    // Using a lower factor (0.05 vs 0.001) reduces pixel-level jitter
-    // from the orthographic low-res render.
+    // Camera rotation is LOCKED (fixed pitch, zero yaw/roll) so the map
+    // never tilts when the player strafes left/right. We only translate.
     const targetX = groupRef.current.position.x;
     const targetZ = groupRef.current.position.z + 10;
-    const t = 1 - Math.pow(0.05, delta);
+    const t = 1 - Math.pow(0.001, delta);
     camera.position.x += (targetX - camera.position.x) * t;
     camera.position.z += (targetZ - camera.position.z) * t;
-    camera.lookAt(
-      camera.position.x,
-      0,
-      camera.position.z - 10
-    );
+    camera.position.y = 10;
+    camera.rotation.set(-Math.PI / 4, 0, 0);
 
     // Enemy collision check
     const playerPos = groupRef.current.position;
@@ -92,20 +97,43 @@ export default function Player() {
 
   return (
     <group ref={groupRef} position={[0, 0, 0]}>
-      {/* Body / robe */}
-      <Box ref={bodyRef} args={[0.8, 1.0, 0.6]} position={[0, 0.5, 0]} castShadow>
-        <meshStandardMaterial color="#2563eb" flatShading />
+      {/* Cloak / robe — tapered pixel-wizard body */}
+      <Box ref={bodyRef} args={[0.85, 1.0, 0.6]} position={[0, 0.5, 0]} castShadow>
+        <meshStandardMaterial color="#3b3f9e" flatShading />
       </Box>
-      {/* Head */}
-      <Box args={[0.6, 0.6, 0.6]} position={[0, 1.3, 0]} castShadow>
+      {/* Robe trim (lighter band at the bottom) */}
+      <Box args={[0.9, 0.18, 0.64]} position={[0, 0.09, 0]} castShadow>
+        <meshStandardMaterial color="#6d71e0" flatShading />
+      </Box>
+      {/* Head / face */}
+      <Box args={[0.55, 0.55, 0.55]} position={[0, 1.25, 0]} castShadow>
         <meshStandardMaterial color="#f1c27d" flatShading />
       </Box>
-      {/* Hat */}
-      <Box args={[0.8, 0.35, 0.7]} position={[0, 1.7, 0]} castShadow>
+      {/* Eyes (dark pixels facing +z by default) */}
+      <Box args={[0.1, 0.12, 0.05]} position={[-0.14, 1.3, 0.28]}>
+        <meshStandardMaterial color="#1f2937" flatShading />
+      </Box>
+      <Box args={[0.1, 0.12, 0.05]} position={[0.14, 1.3, 0.28]}>
+        <meshStandardMaterial color="#1f2937" flatShading />
+      </Box>
+      {/* Wide-brim wizard hat */}
+      <Box args={[1.0, 0.16, 1.0]} position={[0, 1.62, 0]} castShadow>
         <meshStandardMaterial color="#1e3a8a" flatShading />
       </Box>
-      <Box args={[0.3, 0.5, 0.3]} position={[0, 2.0, 0]} castShadow>
-        <meshStandardMaterial color="#1e3a8a" flatShading />
+      {/* Hat cone */}
+      <Box args={[0.5, 0.6, 0.5]} position={[0, 2.0, 0]} castShadow>
+        <meshStandardMaterial color="#2747c4" flatShading />
+      </Box>
+      {/* Hat star (gold emblem) */}
+      <Box args={[0.22, 0.22, 0.06]} position={[0, 1.85, 0.26]}>
+        <meshStandardMaterial color="#fbbf24" emissive="#f59e0b" emissiveIntensity={0.6} flatShading />
+      </Box>
+      {/* Staff (held to the side) */}
+      <Box args={[0.08, 1.7, 0.08]} position={[0.6, 0.85, 0.1]} castShadow>
+        <meshStandardMaterial color="#7c4a1e" flatShading />
+      </Box>
+      <Box args={[0.26, 0.26, 0.26]} position={[0.6, 1.75, 0.1]}>
+        <meshStandardMaterial color="#38bdf8" emissive="#0ea5e9" emissiveIntensity={1.2} flatShading />
       </Box>
     </group>
   );

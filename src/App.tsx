@@ -67,8 +67,6 @@ function App() {
         </div>
       )}
 
-      {/* CRT / scanline overlay (decorative, non-interactive) */}
-      <div className="scanlines fixed inset-0 z-[150]" />
     </div>
   );
 }

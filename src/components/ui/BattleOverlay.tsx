@@ -5,6 +5,7 @@ import { useGameStore } from '../../store/useGameStore';
 import { DIFFICULTY_CONFIGS } from '../../types/game.types';
 import BattlePlayer from '../3d/BattlePlayer';
 import BattleEnemy from '../3d/BattleEnemy';
+import PixelHeart from './PixelHeart';
 
 export default function BattleOverlay() {
   const {
@@ -16,6 +17,7 @@ export default function BattleOverlay() {
     currentQuestion,
     questionIndex,
     difficulty,
+    isPaused,
     battleResult,
     answerQuestion,
     timeUp,
@@ -29,26 +31,34 @@ export default function BattleOverlay() {
   const [enemyShake, setEnemyShake] = useState(false);
   const [selectedChoice, setSelectedChoice] = useState<number | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
+  const timedOutRef = useRef(false);
 
+  // Reset the countdown (and the one-shot timeout guard) for each new question.
   useEffect(() => {
-    if (battleResult) return;
-
     setTimeLeft(config.timerSeconds);
+    timedOutRef.current = false;
+  }, [currentQuestion, config.timerSeconds]);
+
+  // Tick the countdown only while actively battling and not paused.
+  useEffect(() => {
+    if (battleResult || isPaused || timedOutRef.current) return;
+
     timerRef.current = setInterval(() => {
-      setTimeLeft((prev) => {
-        if (prev <= 1) {
-          if (timerRef.current) clearInterval(timerRef.current);
-          timeUp();
-          return 0;
-        }
-        return prev - 1;
-      });
+      setTimeLeft((prev) => (prev <= 1 ? 0 : prev - 1));
     }, 1000);
 
     return () => {
       if (timerRef.current) clearInterval(timerRef.current);
     };
-  }, [currentQuestion, battleResult, config.timerSeconds, timeUp]);
+  }, [currentQuestion, battleResult, isPaused]);
+
+  // Fire the timeout exactly once when the countdown reaches zero.
+  useEffect(() => {
+    if (timeLeft === 0 && !battleResult && !timedOutRef.current) {
+      timedOutRef.current = true;
+      timeUp();
+    }
+  }, [timeLeft, battleResult, timeUp]);
 
   useEffect(() => {
     if (battleResult === 'CORRECT') {
@@ -98,23 +108,25 @@ export default function BattleOverlay() {
 
         {/* Player side - 3D Canvas */}
         <div className="flex flex-col items-center gap-2 mr-12 relative z-10">
-          <div className="bg-black retro-border px-3 py-1.5 flex gap-1">
+          <div className="bg-black retro-border px-3 py-1.5 flex gap-1 flex-wrap justify-center max-w-44">
             {Array.from({ length: maxPlayerHP }).map((_, i) => (
-              <span key={i} className={`text-xl ${i < playerHP ? '' : 'opacity-30 grayscale'}`}>
-                {i < playerHP ? '❤️' : '🖤'}
-              </span>
+              <PixelHeart key={i} filled={i < playerHP} />
             ))}
           </div>
 
           <div
-            className={`w-40 h-40 bg-black border-4 border-white flex items-center justify-center ${playerShake ? 'animate-shake bg-red-600' : ''}`}
+            className={`w-40 h-40 bg-black border-4 border-white flex items-center justify-center ${
+              battleResult === 'CORRECT' ? 'animate-lunge-right'
+              : playerShake ? 'animate-shake bg-red-600'
+              : ''
+            }`}
           >
             <Canvas
               dpr={1}
               gl={{ antialias: false, powerPreference: 'high-performance' }}
-              camera={{ position: [0, 5, 8], zoom: 15, fov: undefined }}
+              camera={{ position: [0, 5, 8], zoom: 10, fov: undefined }}
             >
-              <OrthographicCamera makeDefault position={[0, 5, 8]} zoom={15} />
+              <OrthographicCamera makeDefault position={[0, 5, 8]} zoom={10} />
               <ambientLight intensity={1.5} />
               <BattlePlayer shake={playerShake} />
             </Canvas>
@@ -131,11 +143,9 @@ export default function BattleOverlay() {
 
         {/* Enemy side - 3D Canvas */}
         <div className="flex flex-col items-center gap-2 ml-12 relative z-10">
-          <div className="bg-black retro-border px-3 py-1.5 flex gap-1 flex-wrap justify-center max-w-40">
+          <div className="bg-black retro-border px-3 py-1.5 flex gap-1 flex-wrap justify-center max-w-44">
             {Array.from({ length: maxEnemyHP }).map((_, i) => (
-              <span key={i} className={`text-xl ${i < enemyHP ? '' : 'opacity-30 grayscale'}`}>
-                {i < enemyHP ? '🖤' : '💀'}
-              </span>
+              <PixelHeart key={i} filled={i < enemyHP} />
             ))}
           </div>
 
@@ -145,9 +155,9 @@ export default function BattleOverlay() {
             <Canvas
               dpr={1}
               gl={{ antialias: false, powerPreference: 'high-performance' }}
-              camera={{ position: [0, 5, 8], zoom: 15, fov: undefined }}
+              camera={{ position: [0, 5, 8], zoom: 10, fov: undefined }}
             >
-              <OrthographicCamera makeDefault position={[0, 5, 8]} zoom={15} />
+              <OrthographicCamera makeDefault position={[0, 5, 8]} zoom={10} />
               <ambientLight intensity={1.5} />
               <BattleEnemy shake={enemyShake} />
             </Canvas>

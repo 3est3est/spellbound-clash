@@ -39,7 +39,7 @@ export default function Environment() {
     const ponds: Prop[] = [];
 
     // --- Walkable path tiles: mix grass + dirt so it feels like a trail ---
-    const pathColors = ['#9c8354', '#a88d5d', '#7a9e4a', '#8a7a4a', '#6e8a3e'];
+    const pathColors = ['#caa86a', '#b8954f', '#9c8354', '#b3a06a', '#a88d5d'];
     for (let z = MAP_MAX_Z; z >= MAP_MIN_Z; z -= TILE) {
       for (let x = -MAP_HALF_X; x <= MAP_HALF_X; x += TILE) {
         if (isOnPath(x, z, -0.3)) {
@@ -54,12 +54,12 @@ export default function Environment() {
 
     // --- Natural forest: scatter props across the WHOLE map, but keep a
     //     WIDE margin around the path so it's always clearly walkable. ---
-    const trunkColors = ['#3b2814', '#2e1f10', '#45301a', '#33210f'];
-    const leafColors = ['#1f3613', '#274617', '#2f5320', '#1a2e10', '#244018', '#356024'];
-    const bushColors = ['#2f5320', '#274617', '#356024', '#1f3613'];
-    const rockColors = ['#6b6b6b', '#5a5a5a', '#787878', '#647074'];
-    const flowerColors = ['#fbbf24', '#f472b6', '#a78bfa', '#fb7185', '#f87171'];
-    const grassColors = ['#3a6e24', '#2f5a1c', '#427a2a'];
+    const trunkColors = ['#5b3a1a', '#4a2f14', '#6b4423', '#523415'];
+    const leafColors = ['#2f7d32', '#388e3c', '#43a047', '#256d27', '#1b5e20', '#4caf50'];
+    const bushColors = ['#2f7d32', '#388e3c', '#43a047', '#256d27'];
+    const rockColors = ['#9e9e9e', '#8a8a8a', '#b0b0b0', '#878a8f'];
+    const flowerColors = ['#ffd54f', '#f472b6', '#b388ff', '#ff8a80', '#80d8ff', '#ffeb3b'];
+    const grassColors = ['#4caf50', '#43a047', '#5cb85c', '#3d9140'];
     // Keep props well away from the path so they never block the view.
     const margin = PATH_HALF_WIDTH + 1.2;
 
@@ -80,9 +80,15 @@ export default function Environment() {
             scale: [w, h, w],
             color: trunkColors[Math.floor(rng() * trunkColors.length)],
           });
+          // Two stacked canopy blocks → chunky Pokémon-style tree top.
           foliage.push({
             pos: [px, h * 0.85, pz],
-            scale: [w * 1.6, h * 0.9, w * 1.6],
+            scale: [w * 1.9, h * 0.7, w * 1.9],
+            color: leafColors[Math.floor(rng() * leafColors.length)],
+          });
+          foliage.push({
+            pos: [px, h * 1.35, pz],
+            scale: [w * 1.4, h * 0.5, w * 1.4],
             color: leafColors[Math.floor(rng() * leafColors.length)],
           });
         } else if (r < 0.13) {
@@ -149,7 +155,7 @@ export default function Environment() {
         rotation={[-Math.PI / 2, 0, 0]}
         receiveShadow
       >
-        <meshStandardMaterial color="#2d5a1b" />
+        <meshStandardMaterial color="#4caf50" />
       </Plane>
 
       {/* Ponds (drawn under the path tiles & props) */}

@@ -358,5 +358,485 @@
       { "text": "ล้าสมัย", "isCorrect": false }
     ],
     "difficulty": "advanced"
+  },
+  {
+    "id": 31,
+    "word": "Happy",
+    "phonetic": "/ˈhæpi/",
+    "choices": [
+      { "text": "มีความสุข", "isCorrect": true },
+      { "text": "โกรธเคือง", "isCorrect": false },
+      { "text": "เศร้าสร้อย", "isCorrect": false },
+      { "text": "หิวโหย", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 32,
+    "word": "Big",
+    "phonetic": "/bɪɡ/",
+    "choices": [
+      { "text": "ใหญ่", "isCorrect": true },
+      { "text": "เล็ก", "isCorrect": false },
+      { "text": "น้อย", "isCorrect": false },
+      { "text": "สั้น", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 33,
+    "word": "Small",
+    "phonetic": "/smɔːl/",
+    "choices": [
+      { "text": "เล็ก", "isCorrect": true },
+      { "text": "ใหญ่", "isCorrect": false },
+      { "text": "ยาว", "isCorrect": false },
+      { "text": "หนา", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 34,
+    "word": "Fast",
+    "phonetic": "/fɑːst/",
+    "choices": [
+      { "text": "เร็ว", "isCorrect": true },
+      { "text": "ช้า", "isCorrect": false },
+      { "text": "นิ่ง", "isCorrect": false },
+      { "text": "หนัก", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 35,
+    "word": "Slow",
+    "phonetic": "/sləʊ/",
+    "choices": [
+      { "text": "ช้า", "isCorrect": true },
+      { "text": "เร็ว", "isCorrect": false },
+      { "text": "ร้อน", "isCorrect": false },
+      { "text": "เย็น", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 36,
+    "word": "Hot",
+    "phonetic": "/hɒt/",
+    "choices": [
+      { "text": "ร้อน", "isCorrect": true },
+      { "text": "เย็น", "isCorrect": false },
+      { "text": "หนาว", "isCorrect": false },
+      { "text": "เปียก", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 37,
+    "word": "Cold",
+    "phonetic": "/kəʊld/",
+    "choices": [
+      { "text": "เย็น หนาว", "isCorrect": true },
+      { "text": "ร้อน", "isCorrect": false },
+      { "text": "สุก", "isCorrect": false },
+      { "text": "ขม", "isCorrect": false }
+    ],
+    "difficulty": "basic"
+  },
+  {
+    "id": 38,
+    "word": "Calm",
+    "phonetic": "/kɑːm/",
+    "choices": [
+      { "text": "สงบ", "isCorrect": true },
+      { "text": "วุ่นวาย", "isCorrect": false },
+      { "text": "โกรธ", "isCorrect": false },
+      { "text": "ร้อน", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 39,
+    "word": "Cruel",
+    "phonetic": "/ˈkruːəl/",
+    "choices": [
+      { "text": "โหดร้าย", "isCorrect": true },
+      { "text": "ใจดี", "isCorrect": false },
+      { "text": "อ่อนโยน", "isCorrect": false },
+      { "text": "เมตตา", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 40,
+    "word": "Loyal",
+    "phonetic": "/ˈlɔɪəl/",
+    "choices": [
+      { "text": "จงรักภักดี", "isCorrect": true },
+      { "text": "ทรยศ", "isCorrect": false },
+      { "text": "หนี", "isCorrect": false },
+      { "text": "ลืมเลือน", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 41,
+    "word": "Patient",
+    "phonetic": "/ˈpeɪʃnt/",
+    "choices": [
+      { "text": "อดทน", "isCorrect": true },
+      { "text": "ใจร้อน", "isCorrect": false },
+      { "text": "รีบร้อน", "isCorrect": false },
+      { "text": "โกรธ", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 42,
+    "word": "Curious",
+    "phonetic": "/ˈkjʊəriəs/",
+    "choices": [
+      { "text": "สงสัย อยากรู้อยากเห็น", "isCorrect": true },
+      { "text": "มั่นใจ", "isCorrect": false },
+      { "text": "เฉยเมย", "isCorrect": false },
+      { "text": "ไร้เดียงสา", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 43,
+    "word": "Mighty",
+    "phonetic": "/ˈmaɪti/",
+    "choices": [
+      { "text": "ทรงพลัง", "isCorrect": true },
+      { "text": "อ่อนแอ", "isCorrect": false },
+      { "text": "เล็ก", "isCorrect": false },
+      { "text": "วูบไหว", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 44,
+    "word": "Hidden",
+    "phonetic": "/ˈhɪdn/",
+    "choices": [
+      { "text": "ซ่อนเร้น", "isCorrect": true },
+      { "text": "เปิดเผย", "isCorrect": false },
+      { "text": "ชัดเจน", "isCorrect": false },
+      { "text": "สว่าง", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 45,
+    "word": "Rough",
+    "phonetic": "/rʌf/",
+    "choices": [
+      { "text": "ขรุขระ", "isCorrect": true },
+      { "text": "เรียบ", "isCorrect": false },
+      { "text": "นุ่ม", "isCorrect": false },
+      { "text": "ลื่น", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 46,
+    "word": "Bright",
+    "phonetic": "/braɪt/",
+    "choices": [
+      { "text": "สว่าง", "isCorrect": true },
+      { "text": "มืด", "isCorrect": false },
+      { "text": "หมอง", "isCorrect": false },
+      { "text": "ทึบ", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 47,
+    "word": "Wealthy",
+    "phonetic": "/ˈwelθi/",
+    "choices": [
+      { "text": "รวย", "isCorrect": true },
+      { "text": "จน", "isCorrect": false },
+      { "text": "หนี้สิน", "isCorrect": false },
+      { "text": "ขาดแคลน", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 48,
+    "word": "Gather",
+    "phonetic": "/ˈɡæðə(r)/",
+    "choices": [
+      { "text": "รวมกัน", "isCorrect": true },
+      { "text": "แยกกัน", "isCorrect": false },
+      { "text": "กระจาย", "isCorrect": false },
+      { "text": "หายไป", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 49,
+    "word": "Vanish",
+    "phonetic": "/ˈvænɪʃ/",
+    "choices": [
+      { "text": "หายไป", "isCorrect": true },
+      { "text": "ปรากฏ", "isCorrect": false },
+      { "text": "โผล่", "isCorrect": false },
+      { "text": "เดินเข้า", "isCorrect": false }
+    ],
+    "difficulty": "intermediate"
+  },
+  {
+    "id": 50,
+    "word": "Profound",
+    "phonetic": "/prəˈfaʊnd/",
+    "choices": [
+      { "text": "ลึกซึ้ง", "isCorrect": true },
+      { "text": "ตื้นเขิน", "isCorrect": false },
+      { "text": "ผิวเผิน", "isCorrect": false },
+      { "text": "เล็กน้อย", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 51,
+    "word": "Resilient",
+    "phonetic": "/rɪˈzɪliənt/",
+    "choices": [
+      { "text": "ยืดหยุ่นได้ ฟื้นตัวได้", "isCorrect": true },
+      { "text": "เปราะบาง", "isCorrect": false },
+      { "text": "หักง่าย", "isCorrect": false },
+      { "text": "ตายตัว", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 52,
+    "word": "Pristine",
+    "phonetic": "/ˈprɪstiːn/",
+    "choices": [
+      { "text": "บริสุทธิ์ ปราศจากมลทิน", "isCorrect": true },
+      { "text": "สกปรก", "isCorrect": false },
+      { "text": "เสื่อม", "isCorrect": false },
+      { "text": "เก่า", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 53,
+    "word": "Obscure",
+    "phonetic": "/əbˈskjʊə(r)/",
+    "choices": [
+      { "text": "คลุมเครือ ลึกลับ", "isCorrect": true },
+      { "text": "ชัดเจน", "isCorrect": false },
+      { "text": "เปิดเผย", "isCorrect": false },
+      { "text": "สว่าง", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 54,
+    "word": "Whimsical",
+    "phonetic": "/ˈwɪmzɪkl/",
+    "choices": [
+      { "text": "แปลกประหลาด ขี้เล่น", "isCorrect": true },
+      { "text": "จริงจัง", "isCorrect": false },
+      { "text": "จัดระเบียบ", "isCorrect": false },
+      { "text": "ธรรมดา", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 55,
+    "word": "Gregarious",
+    "phonetic": "/ɡrɪˈɡeəriəs/",
+    "choices": [
+      { "text": "รักการเข้าสังคม", "isCorrect": true },
+      { "text": "เก็บตัว", "isCorrect": false },
+      { "text": "เงียบ", "isCorrect": false },
+      { "text": "หลบซ่อน", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 56,
+    "word": "Pervasive",
+    "phonetic": "/pəˈveɪsɪv/",
+    "choices": [
+      { "text": "แผ่กระจายทั่ว", "isCorrect": true },
+      { "text": "จำกัด", "isCorrect": false },
+      { "text": "หายาก", "isCorrect": false },
+      { "text": "หยุดนิ่ง", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 57,
+    "word": "Enigmatic",
+    "phonetic": "/ˌenɪɡˈmætɪk/",
+    "choices": [
+      { "text": "ลึกลับ น่าค้นหา", "isCorrect": true },
+      { "text": "ชัดเจน", "isCorrect": false },
+      { "text": "ธรรมดา", "isCorrect": false },
+      { "text": "เปิดเผย", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 58,
+    "word": "Tedious",
+    "phonetic": "/ˈtiːdiəs/",
+    "choices": [
+      { "text": "น่าเบื่อ", "isCorrect": true },
+      { "text": "น่าสนใจ", "isCorrect": false },
+      { "text": "สนุก", "isCorrect": false },
+      { "text": "เร็ว", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 59,
+    "word": "Insidious",
+    "phonetic": "/ɪnˈsɪdiəs/",
+    "choices": [
+      { "text": "แอบแฝงร้ายกาจ", "isCorrect": true },
+      { "text": "ชัดเจน", "isCorrect": false },
+      { "text": "ปลอดภัย", "isCorrect": false },
+      { "text": "บริสุทธิ์", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 60,
+    "word": "Sagacious",
+    "phonetic": "/səˈɡeɪʃəs/",
+    "choices": [
+      { "text": "มีปัญญา รอบรู้", "isCorrect": true },
+      { "text": "โง่เขลา", "isCorrect": false },
+      { "text": "เชื่องช้า", "isCorrect": false },
+      { "text": "อ่อนแอ", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 61,
+    "word": "Vociferous",
+    "phonetic": "/vəˈsɪfərəs/",
+    "choices": [
+      { "text": "ส่งเสียงดัง เอะอะ", "isCorrect": true },
+      { "text": "เงียบ", "isCorrect": false },
+      { "text": "กระซิบ", "isCorrect": false },
+      { "text": "หายใจเบา", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 62,
+    "word": "Labyrinthine",
+    "phonetic": "/ˌlæbəˈrɪnθaɪn/",
+    "choices": [
+      { "text": "วกวนเหมือนเขาวงกต", "isCorrect": true },
+      { "text": "ตรงไปตรงมา", "isCorrect": false },
+      { "text": "เรียบง่าย", "isCorrect": false },
+      { "text": "ชัดเจน", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 63,
+    "word": "Ineffable",
+    "phonetic": "/ɪnˈefəbl/",
+    "choices": [
+      { "text": "อธิบายไม่ได้", "isCorrect": true },
+      { "text": "อธิบายได้", "isCorrect": false },
+      { "text": "ชัดเจน", "isCorrect": false },
+      { "text": "เข้าใจง่าย", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 64,
+    "word": "Capricious",
+    "phonetic": "/kəˈprɪʃəs/",
+    "choices": [
+      { "text": "พลุ่งพลั่น ไร้เสถียร", "isCorrect": true },
+      { "text": "มั่นคง", "isCorrect": false },
+      { "text": "แน่นอน", "isCorrect": false },
+      { "text": "นิ่ง", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 65,
+    "word": "Lugubrious",
+    "phonetic": "/luˈɡuːbriəs/",
+    "choices": [
+      { "text": "เศร้าหมอง น่าเศร้า", "isCorrect": true },
+      { "text": "ร่าเริง", "isCorrect": false },
+      { "text": "สว่าง", "isCorrect": false },
+      { "text": "สนุก", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 66,
+    "word": "Surreptitious",
+    "phonetic": "/ˌsʌrəpˈtɪʃəs/",
+    "choices": [
+      { "text": "ลับๆ หลบๆซ่อนๆ", "isCorrect": true },
+      { "text": "เปิดเผย", "isCorrect": false },
+      { "text": "ชัดเจน", "isCorrect": false },
+      { "text": "ตะโกน", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 67,
+    "word": "Esoteric",
+    "phonetic": "/ˌesəˈterɪk/",
+    "choices": [
+      { "text": "เฉพาะกลุ่ม ลับๆ", "isCorrect": true },
+      { "text": "สาธารณะ", "isCorrect": false },
+      { "text": "ทั่วไป", "isCorrect": false },
+      { "text": "เข้าใจง่าย", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 68,
+    "word": "Nefarious",
+    "phonetic": "/nɪˈfeəriəs/",
+    "choices": [
+      { "text": "เลวทราม ชั่วร้าย", "isCorrect": true },
+      { "text": "ดีงาม", "isCorrect": false },
+      { "text": "บริสุทธิ์", "isCorrect": false },
+      { "text": "ใจกว้าง", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 69,
+    "word": "Voracious",
+    "phonetic": "/vəˈreɪʃəs/",
+    "choices": [
+      { "text": "หิวโหย กินจุ", "isCorrect": true },
+      { "text": "อิ่ม", "isCorrect": false },
+      { "text": "เบื่อ", "isCorrect": false },
+      { "text": "ละทิ้ง", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "id": 70,
+    "word": "Immutable",
+    "phonetic": "/ɪˈmjuːtəbl/",
+    "choices": [
+      { "text": "ไม่เปลี่ยนแปลง คงที่", "isCorrect": true },
+      { "text": "เปลี่ยนแปลงได้", "isCorrect": false },
+      { "text": "ลื่นไหล", "isCorrect": false },
+      { "text": "แปรผัน", "isCorrect": false }
+    ],
+    "difficulty": "advanced"
   }
 ]

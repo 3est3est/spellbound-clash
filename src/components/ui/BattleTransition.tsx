@@ -1,74 +1,44 @@
 import { useEffect, useState } from 'react';
 import { useGameStore } from '../../store/useGameStore';
 
+// A lightweight 2D Pokémon-style battle transition: a quick white flash +
+// wipe, drawn with plain divs (no 3D). Mounted only during BATTLE_TRANSITION.
 export default function BattleTransition() {
-  const { enterBattle, currentEnemy } = useGameStore();
   const [phase, setPhase] = useState(0);
+  const enterBattle = useGameStore((s) => s.enterBattle);
 
   useEffect(() => {
-    // Phase 0: Flash white
-    const t1 = setTimeout(() => setPhase(1), 150);
-    // Phase 1: Black bars slide in
-    const t2 = setTimeout(() => setPhase(2), 600);
-    // Phase 2: Show enemy name
-    const t3 = setTimeout(() => setPhase(3), 1400);
-    // Phase 3: Transition out → enter battle
-    const t4 = setTimeout(() => {
-      enterBattle();
-    }, 2200);
-
+    const t1 = setTimeout(() => setPhase(1), 120);
+    const t2 = setTimeout(() => setPhase(2), 320);
+    // After the flash, actually enter the battle so the quiz appears.
+    const t3 = setTimeout(() => enterBattle(), 520);
     return () => {
       clearTimeout(t1);
       clearTimeout(t2);
       clearTimeout(t3);
-      clearTimeout(t4);
     };
   }, [enterBattle]);
 
   return (
-    <div className="fixed inset-0 z-[100] overflow-hidden">
-      {/* Flash overlay */}
+    <div className="fixed inset-0 z-[180] pointer-events-none flex items-center justify-center">
+      {/* expanding white flash */}
       <div
-        className={`absolute inset-0 bg-white transition-opacity duration-200 ${
-          phase === 0 ? 'opacity-80' : 'opacity-0'
-        }`}
+        className="absolute inset-0 bg-white transition-opacity duration-200"
+        style={{ opacity: phase >= 1 ? 0 : 1 }}
       />
-
-      {/* Black bars slide in from top and bottom (Pokémon style) */}
+      {/* center slash bar */}
       <div
-        className={`absolute top-0 left-0 right-0 bg-slate-950 transition-all duration-500 ease-in-out ${
-          phase >= 1 ? 'h-1/2' : 'h-0'
-        }`}
+        className="bg-[#0b1020] transition-all duration-200"
+        style={{
+          height: phase === 0 ? '0%' : phase === 1 ? '14%' : '0%',
+          width: '100%',
+        }}
       />
-      <div
-        className={`absolute bottom-0 left-0 right-0 bg-slate-950 transition-all duration-500 ease-in-out ${
-          phase >= 1 ? 'h-1/2' : 'h-0'
-        }`}
-      />
-
-      {/* Enemy encounter text */}
-      <div
-        className={`absolute inset-0 flex flex-col items-center justify-center transition-none z-10 font-sans uppercase tracking-widest ${
-          phase >= 2 ? 'opacity-100' : 'opacity-0'
-        }`}
-      >
-        <div className="text-6xl mb-6 animate-blink">⚔️</div>
-        <h2 className="font-pixel text-lg font-bold text-white mb-4 bg-black px-6 py-3 retro-border">
-          ENEMY ENCOUNTER!
-        </h2>
-        {currentEnemy && (
-          <p className="font-pixel text-sm text-red-500 font-bold bg-black px-4 py-2 retro-border-red animate-blink">
-            {currentEnemy.name}
-          </p>
-        )}
-      </div>
-
-      {/* Fade out */}
-      <div
-        className={`absolute inset-0 bg-slate-950 transition-opacity duration-300 z-20 ${
-          phase >= 3 ? 'opacity-100' : 'opacity-0 pointer-events-none'
-        }`}
-      />
+      {phase < 2 && (
+        <div className="font-pixel text-2xl text-[#0b1020] tracking-widest uppercase animate-blink">
+          BATTLE!
+        </div>
+      )}
     </div>
   );
 }

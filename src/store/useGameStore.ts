@@ -8,7 +8,7 @@ import {
   DIFFICULTY_CONFIGS,
 } from '../types/game.types';
 import vocabData from '../data/vocabQuestions.json';
-import { getSpacedPathPoints } from '../components/3d/mapPath';
+import { getSpacedPathPoints } from '../game/enemyPlacement';
 
 // ===== Store Interface =====
 
@@ -87,16 +87,16 @@ function generateEnemies(count: number): EnemyData[] {
   const names = ['Shadow Goblin', 'Dark Sprite', 'Forest Wraith', 'Swamp Troll', 'Nightmare Bat', 'Cave Spider', 'Toxic Slime'];
   const enemies: EnemyData[] = [];
 
-  // Place enemies evenly spaced along the winding path. We use a shorter
-  // stretch (8%–60% of the path) so the first enemies appear close to the
-  // player's start point and battles start quickly.
-  const pathPoints = getSpacedPathPoints(count, 0.08, 0.6);
+  // Place enemies on walkable path tiles near the player's start so battles
+  // trigger in a natural sequence.
+  const pathPoints = getSpacedPathPoints(count);
 
   for (let i = 0; i < count; i++) {
-    const [xPos, zPos] = pathPoints[i] ?? [0, -15 - i * 20];
+    const [tx, ty] = pathPoints[i] ?? [10, 10];
     enemies.push({
       id: `enemy-${i + 1}`,
-      position: [xPos, 0.5, zPos],
+      // position keeps the [x,y,z] shape; here x=tx, z=ty (tile coords).
+      position: [tx, 0.5, ty],
       defeated: false,
       name: names[i % names.length],
     });

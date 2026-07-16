@@ -6,14 +6,13 @@ export default function VictoryScreen() {
   const { totalCorrect, totalWrong, difficulty, gameStartedAt, resetGame } = useGameStore();
   const config = DIFFICULTY_CONFIGS[difficulty];
 
-  // Celebration particles: positions are generated once so they don't
-  // re-randomize on every re-render.
   const particles = useMemo(
     () =>
       Array.from({ length: 40 }, () => ({
         left: Math.random() * 100,
         top: Math.random() * 100,
         dur: 0.5 + Math.random(),
+        color: ['#f4c430', '#2e8b57', '#2b3a8c', '#c0392b'][Math.floor(Math.random() * 4)],
       })),
     []
   );
@@ -23,78 +22,71 @@ export default function VictoryScreen() {
     : 0;
   const mm = String(Math.floor(elapsed / 60)).padStart(2, '0');
   const ss = String(elapsed % 60).padStart(2, '0');
-  const totalQuestions = totalCorrect + totalWrong;
+  const total = totalCorrect + totalWrong;
+  const acc = total > 0 ? Math.round((totalCorrect / total) * 100) : 0;
 
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center bg-black z-[100] p-4 text-center font-sans">
-      
-      {/* Celebration Effects (Blocky particles) — positions fixed once via useMemo */}
+    <div className="fixed inset-0 flex flex-col items-center justify-center rpg-backdrop z-[100] p-4 text-center font-sans">
+      {/* Celebration particles */}
       <div className="absolute inset-0 pointer-events-none">
         {particles.map((p, i) => (
           <div
             key={i}
-            className="absolute w-4 h-4 bg-amber-400"
+            className="absolute w-3 h-3"
             style={{
               left: `${p.left}%`,
               top: `${p.top}%`,
+              background: p.color,
               animation: `blink ${p.dur}s step-end infinite`,
             }}
           />
         ))}
       </div>
-      
-      <div className="relative z-10 bg-black retro-border p-12">
-        <h1 className="font-pixel text-4xl sm:text-5xl font-black text-amber-400 mb-8 tracking-widest uppercase" style={{ textShadow: '6px 6px 0 #b45309' }}>
-          VICTORY
+
+      <div className="relative z-10 rpg-panel px-10 py-8 max-w-xl w-full">
+        <h1 className="font-pixel text-4xl sm:text-5xl font-black text-[#f4c430] mb-3 tracking-widest uppercase rpg-title-dark">
+          <span className="rpg-star">★</span> VICTORY <span className="rpg-star">★</span>
         </h1>
-        <p className="font-pixel text-white text-xs mb-10 font-bold uppercase tracking-widest">
-          MISSION COMPLETE
+        <div className="rpg-divider mb-5" />
+        <p className="font-pixel text-[#2b3a8c] text-xs mb-6 font-bold uppercase tracking-widest">
+          ผจญภัยสำเร็จ!
         </p>
 
-        <div className="bg-black retro-border-amber p-8 max-w-xl mx-auto mb-12">
-          <h2 className="font-pixel text-xs font-bold text-white mb-6 border-b-4 border-amber-600 pb-4 uppercase tracking-widest">
-            PERFORMANCE <span className="text-amber-400 ml-2">({config.label})</span>
+        <div className="rpg-panel-blue p-6 mb-6">
+          <h2 className="font-pixel text-xs font-bold text-[#fdf3d8] mb-5 uppercase tracking-widest">
+            ผลงาน <span className="text-[#f4c430] ml-2">({config.label})</span>
           </h2>
 
-          <div className="space-y-6 text-left">
-            <div className="flex justify-between items-center font-pixel text-[11px]">
-              <span className="text-white">CORRECT:</span>
-              <span className="font-bold text-emerald-400">{totalCorrect}</span>
+          <div className="space-y-3 text-left">
+            <div className="flex justify-between items-center font-pixel text-[11px] text-[#fdf3d8]">
+              <span>ตอบถูก:</span>
+              <span className="font-bold text-emerald-300">{totalCorrect}</span>
             </div>
-            <div className="flex justify-between items-center font-pixel text-[11px]">
-              <span className="text-white">MISS/TIMEOUT:</span>
-              <span className="font-bold text-red-400">{totalWrong}</span>
+            <div className="flex justify-between items-center font-pixel text-[11px] text-[#fdf3d8]">
+              <span>ผิด/หมดเวลา:</span>
+              <span className="font-bold text-red-300">{totalWrong}</span>
             </div>
-            <div className="flex justify-between items-center font-pixel text-[11px]">
-              <span className="text-white">QUESTIONS:</span>
-              <span className="font-bold text-slate-200">{totalQuestions}</span>
+            <div className="flex justify-between items-center font-pixel text-[11px] text-[#fdf3d8]">
+              <span>ข้อทั้งหมด:</span>
+              <span className="font-bold">{total}</span>
             </div>
-            <div className="flex justify-between items-center font-pixel text-[11px]">
-              <span className="text-white">TIME:</span>
-              <span className="font-bold text-slate-200">{mm}:{ss}</span>
+            <div className="rpg-divider" />
+            <div className="flex justify-between items-center font-pixel text-[11px] text-[#fdf3d8]">
+              <span>เวลา:</span>
+              <span className="font-bold">{mm}:{ss}</span>
             </div>
-            <div className="flex justify-between items-center font-pixel text-[11px] pt-6 border-t-4 border-amber-900 mt-4">
-              <span className="text-white">ACCURACY:</span>
-              <span className="font-bold text-amber-400 text-sm">
-                {totalCorrect + totalWrong > 0
-                  ? Math.round((totalCorrect / (totalCorrect + totalWrong)) * 100)
-                  : 0}%
-              </span>
+            <div className="flex justify-between items-center font-pixel text-[11px] text-[#fdf3d8]">
+              <span>ความแม่นยำ:</span>
+              <span className="font-bold text-[#f4c430] text-sm">{acc}%</span>
             </div>
           </div>
         </div>
 
         <button
           onClick={resetGame}
-          className="
-            font-pixel px-10 py-5 text-sm font-bold text-black uppercase tracking-widest
-            bg-amber-400 retro-border-amber
-            hover:bg-amber-300
-            active:translate-y-1 active:translate-x-1 active:shadow-none
-            transition-none cursor-pointer animate-blink
-          "
+          className="font-pixel px-10 py-4 text-sm font-bold rpg-btn rpg-btn-blue uppercase tracking-widest animate-blink"
         >
-          [ PLAY AGAIN ]
+          [ เล่นอีกครั้ง ]
         </button>
       </div>
     </div>

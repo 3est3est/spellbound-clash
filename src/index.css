@@ -1,11 +1,12 @@
-@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Chakra+Petch:wght@400;600;700&family=Kanit:wght@400;500;600;700&display=swap');
 @import "tailwindcss";
 
 @theme {
   /* Readable font (supports Thai) used for body / answer text */
-  --font-sans: 'Chakra Petch', monospace, sans-serif;
-  /* Pixel font for headings, labels, buttons and numbers (Latin only) */
-  --font-pixel: 'Press Start 2P', 'Chakra Petch', monospace, sans-serif;
+  --font-sans: 'Kanit', 'Chakra Petch', monospace, sans-serif;
+  /* Pixel font for headings, labels, buttons and numbers (Latin only).
+     Falls back to Kanit for Thai glyphs so Thai text stays readable. */
+  --font-pixel: 'Press Start 2P', 'Kanit', 'Chakra Petch', monospace, sans-serif;
 }
 
 body {
@@ -17,27 +18,25 @@ body {
   -webkit-font-smoothing: none;
 }
 
-/* Pixel font helper (also generated as `font-pixel` utility by Tailwind v4) */
+/* Pixel font helper (also generated as `font-pixel` utility by Tailwind v4).
+   Press Start 2P has no Thai glyphs, so Thai text renders in Kanit — bump the
+   size & line-height a touch so the Thai fallback stays easy to read. */
 .font-pixel {
-  font-family: 'Press Start 2P', 'Chakra Petch', monospace, sans-serif;
+  font-family: 'Press Start 2P', 'Kanit', 'Chakra Petch', monospace, sans-serif;
   /* crisp pixel rendering */
   font-smooth: never;
   -webkit-font-smoothing: none;
+  line-height: 1.6;
 }
 
-/* ===== CRT / scanline overlay for a retro pixel-RPG feel ===== */
+/* ===== CRT / scanline overlay (disabled — kept for reference) ===== */
 .scanlines {
-  pointer-events: none;
-  background:
-    repeating-linear-gradient(
-      to bottom,
-      rgba(0, 0, 0, 0) 0px,
-      rgba(0, 0, 0, 0) 2px,
-      rgba(0, 0, 0, 0.14) 3px,
-      rgba(0, 0, 0, 0.14) 4px
-    );
-  /* subtle vignette to focus the eye on the centre */
-  box-shadow: inset 0 0 140px 20px rgba(0, 0, 0, 0.55);
+  display: none;
+}
+
+@keyframes slideUp {
+  0% { transform: translateY(40px); opacity: 0; }
+  100% { transform: translateY(0); opacity: 1; }
 }
 
 /* Sharp, blocky animations for retro feel */
@@ -56,6 +55,121 @@ body {
 
 .animate-blink {
   animation: blink 1s step-end infinite;
+}
+
+/* ============================================================
+   RPG ADVENTURE THEME — SNES-style chunky panels & buttons
+   ============================================================ */
+
+/* Color palette (warm parchment + deep blue + gold) */
+:root {
+  --rpg-ink: #1a1430;
+  --rpg-panel: #fdf3d8;
+  --rpg-panel-2: #f3e2b3;
+  --rpg-line: #3a2a5a;
+  --rpg-gold: #f4c430;
+  --rpg-blue: #2b3a8c;
+  --rpg-blue-d: #1b2350;
+  --rpg-red: #c0392b;
+  --rpg-green: #2e8b57;
+}
+
+/* A classic RPG dialog box: double bevel (light top-left, dark bottom-right)
+   on a parchment fill, with a hard pixel drop-shadow. */
+.rpg-panel {
+  background: var(--rpg-panel);
+  border: 4px solid var(--rpg-line);
+  box-shadow:
+    inset 3px 3px 0 0 rgba(255, 255, 255, 0.55),
+    inset -3px -3px 0 0 rgba(0, 0, 0, 0.25),
+    0 0 0 4px var(--rpg-gold),
+    8px 8px 0 0 rgba(0, 0, 0, 0.55);
+  color: var(--rpg-ink);
+}
+
+.rpg-panel-blue {
+  background: var(--rpg-blue);
+  border: 4px solid #0e1430;
+  box-shadow:
+    inset 3px 3px 0 0 rgba(255, 255, 255, 0.18),
+    inset -3px -3px 0 0 rgba(0, 0, 0, 0.4),
+    0 0 0 4px var(--rpg-gold),
+    8px 8px 0 0 rgba(0, 0, 0, 0.55);
+  color: #fdf3d8;
+}
+
+.rpg-panel-red {
+  background: #7a1f1f;
+  border: 4px solid #2a0808;
+  box-shadow:
+    inset 3px 3px 0 0 rgba(255, 255, 255, 0.15),
+    inset -3px -3px 0 0 rgba(0, 0, 0, 0.4),
+    0 0 0 4px var(--rpg-gold),
+    8px 8px 0 0 rgba(0, 0, 0, 0.55);
+  color: #fde3d3;
+}
+
+/* Chunky pixel button with a hard press-down effect. */
+.rpg-btn {
+  background: var(--rpg-gold);
+  border: 4px solid var(--rpg-line);
+  box-shadow:
+    inset 2px 2px 0 0 rgba(255, 255, 255, 0.5),
+    inset -2px -2px 0 0 rgba(0, 0, 0, 0.3),
+    5px 5px 0 0 rgba(0, 0, 0, 0.55);
+  color: var(--rpg-ink);
+  transition: none;
+  cursor: pointer;
+}
+.rpg-btn:hover {
+  filter: brightness(1.08);
+}
+.rpg-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow:
+    inset 2px 2px 0 0 rgba(255, 255, 255, 0.4),
+    inset -2px -2px 0 0 rgba(0, 0, 0, 0.3),
+    2px 2px 0 0 rgba(0, 0, 0, 0.55);
+}
+
+.rpg-btn-blue {
+  background: var(--rpg-blue);
+  color: #fdf3d8;
+  border-color: #0e1430;
+}
+
+/* Big title with a hard pixel drop shadow (no soft blur). */
+.rpg-title {
+  color: var(--rpg-gold);
+  text-shadow:
+    3px 3px 0 var(--rpg-blue-d),
+    6px 6px 0 rgba(0, 0, 0, 0.6);
+}
+.rpg-title-dark {
+  text-shadow:
+    3px 3px 0 rgba(0, 0, 0, 0.35),
+    6px 6px 0 rgba(0, 0, 0, 0.55);
+}
+
+/* Decorative star sparkle used in headings. */
+.rpg-star {
+  color: var(--rpg-gold);
+}
+
+/* Pixel sky backdrop for menus (soft SNES gradient). */
+.rpg-backdrop {
+  background:
+    radial-gradient(circle at 20% 18%, #fff3c4 0 2px, transparent 3px),
+    radial-gradient(circle at 70% 30%, #fff3c4 0 2px, transparent 3px),
+    radial-gradient(circle at 45% 60%, #fff3c4 0 2px, transparent 3px),
+    linear-gradient(180deg, #8ecbff 0%, #bfe9ff 45%, #d8f3c8 100%);
+}
+
+/* thin pixel divider */
+.rpg-divider {
+  height: 4px;
+  background: var(--rpg-line);
+  box-shadow: 0 4px 0 0 rgba(0, 0, 0, 0.2);
 }
 
 /* Minimalist thick borders with a beveled pixel-RPG frame */
@@ -96,6 +210,7 @@ body {
   grid-template-columns: repeat(8, 2px);
   grid-template-rows: repeat(7, 2px);
   gap: 0;
+  margin-right: -3px;
   image-rendering: pixelated;
 }
 .pixel-heart span {

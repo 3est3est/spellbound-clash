@@ -6,7 +6,7 @@ import BattleTransition from './components/ui/BattleTransition';
 import BattleOverlay from './components/ui/BattleOverlay';
 import GameOver from './components/ui/GameOver';
 import VictoryScreen from './components/ui/VictoryScreen';
-import Scene from './components/3d/Scene';
+import GameCanvas from './components/render/GameCanvas';
 
 function App() {
   const { gameState, isPaused, setIsPaused, resetGame } = useGameStore();
@@ -23,8 +23,8 @@ function App() {
 
   return (
     <div className="w-screen h-screen overflow-hidden bg-slate-950 font-sans text-slate-100 select-none">
-      {/* 3D Exploration Scene (renders underneath UI) */}
-      {(gameState === 'EXPLORE' || gameState === 'BATTLE_TRANSITION' || gameState === 'BATTLE') && <Scene />}
+      {/* 2D Pixel Exploration Scene (renders underneath UI) */}
+      {(gameState === 'EXPLORE' || gameState === 'BATTLE_TRANSITION' || gameState === 'BATTLE') && <GameCanvas />}
 
       {/* UI Overlays based on state */}
       {gameState === 'MENU' && <MainMenu />}

@@ -77,6 +77,15 @@ interface GameStore {
 
 // ===== Helper: Get random questions =====
 
+function shuffleArray<T>(array: T[]): T[] {
+  const arr = [...array];
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arr[i], arr[j]] = [arr[j], arr[i]];
+  }
+  return arr;
+}
+
 function getRandomQuestions(count: number, vocabLevel: string, usedIds: number[]): VocabQuestion[] {
   const allQuestions = vocabData as VocabQuestion[];
 
@@ -89,11 +98,11 @@ function getRandomQuestions(count: number, vocabLevel: string, usedIds: number[]
     available = [...available, ...otherQuestions];
   }
 
-  // Shuffle and pick
-  const shuffled = [...available].sort(() => Math.random() - 0.5);
+  // Shuffle and pick using Fisher-Yates
+  const shuffled = shuffleArray(available);
   return shuffled.slice(0, count).map((q) => ({
     ...q,
-    choices: [...q.choices].sort(() => Math.random() - 0.5),
+    choices: shuffleArray(q.choices),
   }));
 }
 

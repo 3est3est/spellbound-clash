@@ -2,13 +2,13 @@
 // SNES / Pokémon-style sprite sheets we'll drop in later.
 export const TILE = 16;
 
-// Short, single-screen-ish forest map (in tiles). 25 x 18 fits comfortably
-// on a desktop viewport at a readable zoom and keeps battles close.
-export const MAP_COLS = 25;
-export const MAP_ROWS = 18;
+// Short, single-screen-ish forest map (in tiles). 35 x 28 gives a bigger
+// world with room for multiple paths, lakes, and forest clearings.
+export const MAP_COLS = 35;
+export const MAP_ROWS = 28;
 
-export const VIEW_TILES_X = 20;
-export const VIEW_TILES_Y = 14;
+export const VIEW_TILES_X = 22;
+export const VIEW_TILES_Y = 16;
 
 // Tile codes used by the tilemap grid.
 export const T = {

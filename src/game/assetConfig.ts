@@ -30,27 +30,21 @@ export interface SheetConfig {
 }
 
 export const SHEETS: SheetConfig[] = [
-  {
-    name: 'player',
-    url: '/sprites/player.png',
-    frameW: 16,
-    frameH: 16,
-    enabled: false,
-    colorKey: '#c2c6cf',
-  },
-  {
-    name: 'all',
-    url: '/sprites/all.png',
-    frameW: 16,
-    frameH: 16,
-    enabled: false,
-    colorKey: '#9ba0ab',
-  },
+  // The project's original generated pixel sprites. They use the familiar
+  // 6-frame walk rows and a dedicated spell-cast row in one sheet.
   {
     name: 'hero',
-    url: '/sprites/hero.png',
-    frameW: 16,
-    frameH: 16,
+    url: '/sprites/player_new.png',
+    frameW: 64,
+    frameH: 64,
+    enabled: false,
+    colorKey: null,
+  },
+  {
+    name: 'enemy',
+    url: '/sprites/enemy_new.png',
+    frameW: 64,
+    frameH: 64,
     enabled: false,
     colorKey: null,
   },
@@ -71,17 +65,17 @@ export interface CharLayout {
 
 export const LAYOUT: Record<'hero' | 'enemy', CharLayout> = {
   hero: {
-    sheet: 'all',
-    col: 23,
-    row: 28,
-    walkFrames: 2,
+    sheet: 'hero',
+    col: 0,
+    row: 39,
+    walkFrames: 6,
     dirRow: [0, 1, 2, 3],
   },
   enemy: {
-    sheet: 'all',
-    col: 45,
-    row: 29,
-    walkFrames: 2,
+    sheet: 'enemy',
+    col: 0,
+    row: 39,
+    walkFrames: 6,
     dirRow: [0, 1, 2, 3],
   },
 };

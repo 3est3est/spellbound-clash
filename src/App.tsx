@@ -22,7 +22,7 @@ function App() {
   }, [gameState, isPaused, setIsPaused]);
 
   return (
-    <div className="w-screen h-screen overflow-hidden bg-slate-950 font-sans text-slate-100 select-none">
+    <div className="w-screen h-screen overflow-hidden font-sans select-none">
       {/* 2D Pixel Exploration Scene (renders underneath UI) */}
       {(gameState === 'EXPLORE' || gameState === 'BATTLE_TRANSITION' || gameState === 'BATTLE') && <GameCanvas />}
 
@@ -41,26 +41,35 @@ function App() {
 
       {/* Pause Menu Overlay */}
       {isPaused && (
-        <div className="fixed inset-0 z-[200] flex items-center justify-center bg-black/80 font-sans">
-          <div className="bg-black border-4 border-white p-8 max-w-sm w-full text-center retro-border">
-            <h2 className="font-pixel text-2xl text-white mb-8 tracking-widest uppercase" style={{ textShadow: '2px 2px 0 #333' }}>
-              PAUSED
+        <div className="fixed inset-0 z-[200] flex items-center justify-center" style={{ background: 'rgba(0,0,0,0.5)' }}>
+          <div className="rpg-panel p-6 max-w-xs w-full text-center" style={{ minWidth: '260px' }}>
+            
+            <h2
+              className="font-pixel font-black mb-2 animate-blink rpg-title-gold"
+              style={{
+                fontSize: '24px',
+                letterSpacing: '0.05em',
+              }}
+            >
+              ⏸ พักเกม
             </h2>
-            <div className="flex flex-col gap-4">
+            <div className="rpg-divider mb-5" />
+
+            <div className="flex flex-col gap-3">
               <button
                 onClick={() => setIsPaused(false)}
-                className="w-full py-3 text-xl font-bold bg-white text-black border-4 border-white hover:bg-slate-200 cursor-pointer uppercase tracking-widest transition-none"
+                className="rpg-btn-green py-3 w-full font-bold text-base shadow-[4px_4px_0_rgba(0,0,0,0.2)]"
               >
-                เล่นต่อ (Resume)
+                ▶ เล่นต่อ
               </button>
               <button
                 onClick={() => {
                   setIsPaused(false);
                   resetGame();
                 }}
-                className="w-full py-3 text-xl font-bold bg-red-600 text-white border-4 border-red-500 hover:bg-red-500 cursor-pointer uppercase tracking-widest transition-none"
+                className="rpg-btn-red py-3 w-full font-bold text-base shadow-[4px_4px_0_rgba(0,0,0,0.2)]"
               >
-                ออก (Exit)
+                ✕ ออกจากเกม
               </button>
             </div>
           </div>

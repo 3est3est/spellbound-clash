@@ -1,18 +1,14 @@
-// Enemy placement for the 2D map. Returns tile coordinates so enemies sit
-// on walkable path tiles near the player's start. Kept separate from the
-// tilemap so the store can place them without importing rendering code.
-
 export interface PlacedEnemy {
   tx: number;
   ty: number;
 }
 
-// A few hand-picked spots along the S-path in tilemap.ts, ordered by distance
-// from the player's start (3,3) so battles trigger in a natural sequence.
+// Only 3 enemies, each placed at a very different corner of the
+// map so the player has to truly explore to find them all.
 const PATH_SPOTS: [number, number][] = [
-  [7, 7],
-  [12, 10],
-  [7, 15],
+  [8, 4],    // West — near the player's start area
+  [30, 8],   // North-east — deep in the eastern woods
+  [10, 23],  // South — at the bottom of the map
 ];
 
 export function getSpacedPathPoints(count: number): [number, number][] {

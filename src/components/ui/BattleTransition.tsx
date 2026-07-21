@@ -1,42 +1,65 @@
 import { useEffect, useState } from 'react';
 import { useGameStore } from '../../store/useGameStore';
 
-// A lightweight 2D Pokémon-style battle transition: a quick white flash +
-// wipe, drawn with plain divs (no 3D). Mounted only during BATTLE_TRANSITION.
 export default function BattleTransition() {
   const [phase, setPhase] = useState(0);
   const enterBattle = useGameStore((s) => s.enterBattle);
 
   useEffect(() => {
-    const t1 = setTimeout(() => setPhase(1), 120);
-    const t2 = setTimeout(() => setPhase(2), 320);
-    // After the flash, actually enter the battle so the quiz appears.
-    const t3 = setTimeout(() => enterBattle(), 520);
+    const t1 = setTimeout(() => setPhase(1), 100);
+    const t2 = setTimeout(() => setPhase(2), 350);
+    const t3 = setTimeout(() => setPhase(3), 500);
+    const t4 = setTimeout(() => enterBattle(), 650);
     return () => {
-      clearTimeout(t1);
-      clearTimeout(t2);
-      clearTimeout(t3);
+      clearTimeout(t1); clearTimeout(t2); clearTimeout(t3); clearTimeout(t4);
     };
   }, [enterBattle]);
 
   return (
-    <div className="fixed inset-0 z-[180] pointer-events-none flex items-center justify-center">
-      {/* expanding white flash */}
+    <div className="fixed inset-0 z-[180] pointer-events-none overflow-hidden">
+      {/* Flash ขาว */}
       <div
-        className="absolute inset-0 bg-white transition-opacity duration-200"
-        style={{ opacity: phase >= 1 ? 0 : 1 }}
-      />
-      {/* center slash bar */}
-      <div
-        className="bg-[#0b1020] transition-all duration-200"
+        className="absolute inset-0 bg-white"
         style={{
-          height: phase === 0 ? '0%' : phase === 1 ? '14%' : '0%',
-          width: '100%',
+          opacity: phase === 0 ? 1 : 0,
+          transition: 'opacity 0.1s ease-out',
         }}
       />
-      {phase < 2 && (
-        <div className="font-pixel text-2xl text-[#0b1020] tracking-widest uppercase animate-blink">
-          BATTLE!
+
+      {/* แถบกวาดบน สีชมพู */}
+      <div
+        className="absolute left-0 right-0 top-0"
+        style={{
+          background: '#a31c5d',
+          borderBottom: '8px solid #ff66aa',
+          height: phase >= 1 ? '50%' : '0%',
+          transition: 'height 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+        }}
+      />
+
+      {/* แถบกวาดล่าง สีชมพู */}
+      <div
+        className="absolute left-0 right-0 bottom-0"
+        style={{
+          background: '#a31c5d',
+          borderTop: '8px solid #ff66aa',
+          height: phase >= 1 ? '50%' : '0%',
+          transition: 'height 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
+        }}
+      />
+
+      {/* ตัวหนังสือตรงกลาง */}
+      {phase >= 1 && phase < 3 && (
+        <div className="absolute inset-0 flex items-center justify-center z-10">
+          <div
+            className="font-pixel font-black animate-pop-in rpg-title-gold"
+            style={{
+              fontSize: 'clamp(32px, 7vw, 56px)',
+              letterSpacing: '0.05em',
+            }}
+          >
+            ⚔ ปะทะศัตรู! ⚔
+          </div>
         </div>
       )}
     </div>

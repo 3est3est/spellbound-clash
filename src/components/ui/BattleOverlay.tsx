@@ -5,23 +5,17 @@ import PixelHeart from './PixelHeart';
 
 export default function BattleOverlay() {
   const {
-    playerHP,
-    maxPlayerHP,
-    enemyHP,
-    maxEnemyHP,
-    currentEnemy,
-    currentQuestion,
-    questionIndex,
-    difficulty,
-    isPaused,
-    battleResult,
-    answerQuestion,
-    timeUp,
-    nextQuestion,
-    clearBattleResult,
+    playerHP, maxPlayerHP,
+    enemyHP, maxEnemyHP,
+    currentEnemy, currentQuestion,
+    questionIndex, difficulty,
+    isPaused, battleResult,
+    answerQuestion, timeUp, nextQuestion, clearBattleResult,
   } = useGameStore();
 
   const config = DIFFICULTY_CONFIGS[difficulty];
+  const diffLabel = { EASY: 'ง่าย', MEDIUM: 'กลาง', HARDCORE: 'ยาก' }[difficulty];
+
   const [timeLeft, setTimeLeft] = useState(config.timerSeconds);
   const [selectedChoice, setSelectedChoice] = useState<number | null>(null);
   const timerRef = useRef<ReturnType<typeof setInterval> | null>(null);
@@ -37,9 +31,7 @@ export default function BattleOverlay() {
     timerRef.current = setInterval(() => {
       setTimeLeft((prev) => (prev <= 1 ? 0 : prev - 1));
     }, 1000);
-    return () => {
-      if (timerRef.current) clearInterval(timerRef.current);
-    };
+    return () => { if (timerRef.current) clearInterval(timerRef.current); };
   }, [currentQuestion, battleResult, isPaused]);
 
   useEffect(() => {
@@ -52,115 +44,138 @@ export default function BattleOverlay() {
   useEffect(() => {
     if (!battleResult) return;
     if (playerHP <= 0 || enemyHP <= 0) return;
-    const timeout = setTimeout(() => {
+    const t = setTimeout(() => {
       clearBattleResult();
       setSelectedChoice(null);
       nextQuestion();
     }, 1500);
-    return () => clearTimeout(timeout);
+    return () => clearTimeout(t);
   }, [battleResult, playerHP, enemyHP, clearBattleResult, nextQuestion]);
 
   const handleAnswer = useCallback(
-    (choiceIndex: number, isCorrect: boolean) => {
+    (i: number, isCorrect: boolean) => {
       if (battleResult) return;
       if (timerRef.current) clearInterval(timerRef.current);
-      setSelectedChoice(choiceIndex);
+      setSelectedChoice(i);
       answerQuestion(isCorrect);
     },
     [battleResult, answerQuestion]
   );
 
-  const timerColor =
-    timeLeft <= 3 ? 'bg-red-500' : timeLeft <= 5 ? 'bg-amber-400' : 'bg-emerald-400';
-  const timerBarWidth = (timeLeft / config.timerSeconds) * 100;
+  const timerPct = (timeLeft / config.timerSeconds) * 100;
+  const timerClass =
+    timeLeft <= 3 ? 'rpg-bar-fill-timer-danger' :
+    timeLeft <= 5 ? 'rpg-bar-fill-timer-warn' :
+    'rpg-bar-fill-timer';
+
+  const labels = ['ก', 'ข', 'ค', 'ง'];
+  
+  // Use simple text shadows to make text readable without a panel background for HP
+  const textShadowStyle = { textShadow: '2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000, 1px 1px 0 #000' };
 
   return (
     <div className="fixed inset-0 z-50 flex flex-col justify-end overflow-hidden pointer-events-none">
-      {/* HP bars pinned to the very top, over the live duel stage */}
-      <div className="absolute top-3 left-4 right-4 flex justify-between items-start gap-3 pointer-events-none">
-        <div className="rpg-panel px-3 py-2 flex flex-col gap-1 pointer-events-none">
-          <span className="font-pixel text-[10px] text-[#2b3a8c] tracking-wide uppercase">
-            ผู้กล้า {playerHP}/{maxPlayerHP}
-          </span>
-          <div className="flex gap-0.5 flex-wrap max-w-52">
+
+      {/* ── เลือดด้านบนซ้าย / ขวา (ไม่มีกรอบสี่เหลี่ยม) ── */}
+      <div className="absolute top-4 left-4 right-4 flex justify-between items-start pointer-events-none">
+
+        {/* ผู้กล้า */}
+        <div className="flex flex-col gap-1 animate-slide-down">
+          <div className="flex items-center gap-2">
+            <span className="font-pixel font-bold text-sm" style={{ color: '#ffffff', ...textShadowStyle }}>ผู้กล้า</span>
+          </div>
+          <div className="flex gap-1 flex-wrap" style={{ maxWidth: '160px' }}>
             {Array.from({ length: maxPlayerHP }).map((_, i) => (
               <PixelHeart key={i} filled={i < playerHP} />
             ))}
           </div>
         </div>
-        <div className="rpg-panel-red px-3 py-2 flex flex-col gap-1 items-end pointer-events-none">
-          <span className="font-pixel text-[10px] text-[#ffe3d3] tracking-wide uppercase">
-            {currentEnemy?.name ?? 'ศัตรู'} {enemyHP}/{maxEnemyHP}
-          </span>
-          <div className="flex gap-0.5 flex-wrap max-w-52 justify-end">
+
+        {/* ศัตรู */}
+        <div className="flex flex-col gap-1 items-end animate-slide-down">
+          <div className="flex items-center gap-2">
+            <span className="font-pixel text-xs" style={{ color: '#aaaaaa', ...textShadowStyle }}>{diffLabel}</span>
+            <span className="font-pixel font-bold text-sm" style={{ color: '#ffaaaa', ...textShadowStyle }}>
+              {currentEnemy?.name ?? 'ศัตรู'}
+            </span>
+          </div>
+          <div className="flex gap-1 flex-wrap justify-end" style={{ maxWidth: '160px' }}>
             {Array.from({ length: maxEnemyHP }).map((_, i) => (
-              <PixelHeart key={i} filled={i < enemyHP} />
+              <PixelHeart key={i} filled={i < enemyHP} color="#ff6050" />
             ))}
           </div>
         </div>
       </div>
 
-      {/* Battle result flash */}
+      {/* ── ผลการตอบ ── */}
       {battleResult && (
         <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
           <div
-            className={`font-pixel text-4xl sm:text-5xl px-10 py-5 uppercase tracking-widest drop-shadow-[4px_4px_0_#000] ${
-              battleResult === 'CORRECT'
-                ? 'text-emerald-300'
-                : battleResult === 'TIMEOUT'
-                ? 'text-amber-300'
-                : 'text-red-400'
-            }`}
+            className="font-pixel font-black animate-pop-in px-10 py-5 bg-white/90 border-4 border-[#a31c5d] rounded shadow-[8px_8px_0_rgba(0,0,0,0.2)]"
+            style={{
+              fontSize: 'clamp(28px, 6vw, 48px)',
+              color: battleResult === 'CORRECT' ? '#22aa22'
+                   : battleResult === 'TIMEOUT' ? '#f8a820'
+                   : '#cc2222',
+            }}
           >
-            {battleResult === 'CORRECT' ? 'HIT!' : battleResult === 'TIMEOUT' ? "TIME'S UP!" : 'MISS!'}
+            {battleResult === 'CORRECT' ? '✓ ถูกต้อง!' : battleResult === 'TIMEOUT' ? '⏰ หมดเวลา!' : '✗ พลาด!'}
           </div>
         </div>
       )}
 
-      {/* ===== Bottom: Quiz dialog box (slides up from bottom, kept slim) ===== */}
-      <div className="pointer-events-auto w-full flex justify-center p-3 sm:p-4">
+      {/* ── กล่องคำถาม ── */}
+      <div className="pointer-events-auto w-full flex justify-center p-2 sm:p-4 mb-2">
         {currentQuestion && (
-          <div className="w-full max-w-2xl rpg-panel p-4 sm:p-5 flex flex-col animate-[slideUp_0.25s_ease-out]">
-            <div className="flex justify-between items-center mb-2 border-b-4 border-[#3a2a5a] pb-2 gap-4">
-              <span className="font-pixel text-[#2b3a8c] text-xs tracking-widest uppercase whitespace-nowrap">
-                ข้อที่ {questionIndex + 1}/{config.questionCount}
+          <div className="w-full max-w-2xl rpg-panel animate-slide-up">
+
+            {/* หัว: ข้อที่ + เวลา */}
+            <div className="flex justify-between items-center mb-3 gap-4">
+              <span className="font-pixel text-sm font-semibold" style={{ color: '#a31c5d' }}>
+                ข้อ {questionIndex + 1}/{config.questionCount}
               </span>
-              <div className="flex items-center gap-3 w-1/2">
-                <span className="font-pixel text-[#2b3a8c] text-xs tracking-widest uppercase whitespace-nowrap">
-                  ⏱ {timeLeft}
+              <div className="flex items-center gap-2 flex-1 max-w-xs">
+                <span
+                  className={`font-pixel font-bold text-base w-6 text-right ${timeLeft <= 3 ? 'animate-blink' : ''}`}
+                  style={{ color: timeLeft <= 3 ? '#cc2222' : '#a31c5d' }}
+                >
+                  {timeLeft}
                 </span>
-                <div className="flex-1 h-4 border-2 border-[#3a2a5a] bg-[#1a1430]">
+                <div className="rpg-bar-track h-4 flex-1">
                   <div
-                    className={`h-full transition-all duration-1000 ease-linear ${timerColor}`}
-                    style={{ width: `${timerBarWidth}%` }}
+                    className={`${timerClass} h-full`}
+                    style={{ width: `${timerPct}%`, transition: 'width 1s linear' }}
                   />
                 </div>
               </div>
             </div>
 
-            <div className="text-center mb-3 mt-1">
-              <h2 className="font-pixel text-[#1a1430] leading-snug mb-1 text-2xl sm:text-3xl md:text-4xl rpg-title-dark">
+            <div className="rpg-divider mb-4" />
+
+            {/* คำศัพท์ */}
+            <div className="text-center mb-6">
+              <h2
+                className="font-pixel font-black leading-tight rpg-title"
+                style={{
+                  fontSize: 'clamp(28px, 6vw, 42px)',
+                  letterSpacing: '0.04em',
+                }}
+              >
                 {currentQuestion.word}
               </h2>
-              {currentQuestion.phonetic && (
-                <p className="text-[#7a5a1a] text-lg">{currentQuestion.phonetic}</p>
-              )}
             </div>
 
+            {/* ตัวเลือก */}
             <div className="grid grid-cols-2 gap-3 w-full">
               {currentQuestion.choices.map((choice, i) => {
                 const isSelected = selectedChoice === i;
                 const showResult = battleResult !== null;
-                let btnClass = 'rpg-btn';
 
+                let extraClass = '';
                 if (showResult) {
-                  if (choice.isCorrect) {
-                    btnClass = 'rpg-btn bg-emerald-500 text-white border-emerald-800';
-                  } else if (isSelected && !choice.isCorrect) {
-                    btnClass = 'rpg-btn bg-red-600 text-white border-red-900';
-                  } else {
-                    btnClass = 'rpg-btn bg-[#cdbf95] text-[#7a7050] border-[#3a2a5a] opacity-70';
-                  }
+                  if (choice.isCorrect) extraClass = 'correct';
+                  else if (isSelected && !choice.isCorrect) extraClass = 'wrong';
+                  else extraClass = 'dimmed';
                 }
 
                 return (
@@ -168,16 +183,21 @@ export default function BattleOverlay() {
                     key={i}
                     onClick={() => handleAnswer(i, choice.isCorrect)}
                     disabled={!!battleResult}
-                    className={`
-                      px-4 py-3 text-base sm:text-lg font-bold uppercase tracking-widest text-left
-                      ${btnClass}
-                      ${!battleResult ? 'cursor-pointer' : 'cursor-default'}
-                    `}
+                    className={`rpg-choice-btn flex items-center gap-3 ${extraClass} ${!battleResult ? 'hover:-translate-y-1' : 'cursor-default'}`}
                   >
-                    <span className="font-pixel mr-2 inline-block w-6">
-                      {['A', 'B', 'C', 'D'][i]}.
+                    <span
+                      className="font-pixel font-bold shrink-0 w-6 text-center text-sm"
+                      style={{
+                        color: extraClass === 'correct' ? '#006600'
+                             : extraClass === 'wrong' ? '#660000'
+                             : '#a31c5d',
+                      }}
+                    >
+                      {labels[i]}
                     </span>
-                    {choice.text}
+                    <span className="font-sans font-semibold text-lg" style={{ color: extraClass === 'dimmed' ? '#888888' : '#a31c5d' }}>
+                      {choice.text}
+                    </span>
                   </button>
                 );
               })}

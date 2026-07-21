@@ -3,90 +3,128 @@ import { useGameStore } from '../../store/useGameStore';
 import { DIFFICULTY_CONFIGS } from '../../types/game.types';
 
 export default function VictoryScreen() {
-  const { totalCorrect, totalWrong, difficulty, gameStartedAt, resetGame } = useGameStore();
+  const { totalCorrect, totalWrong, difficulty, gameStartedAt, resetGame, score, coins } =
+    useGameStore();
   const config = DIFFICULTY_CONFIGS[difficulty];
 
   const particles = useMemo(
     () =>
-      Array.from({ length: 40 }, () => ({
-        left: Math.random() * 100,
-        top: Math.random() * 100,
-        dur: 0.5 + Math.random(),
-        color: ['#f4c430', '#2e8b57', '#2b3a8c', '#c0392b'][Math.floor(Math.random() * 4)],
+      Array.from({ length: 32 }, (_, i) => ({
+        left: (i * 73.1) % 100,
+        top: (i * 53.7) % 100,
+        dur: 0.8 + (i % 5) * 0.4,
+        color: ['#f8a820', '#44cc44', '#ff66aa', '#ffbbee', '#ffffff'][i % 5],
+        size: (i % 3) * 2 + 4,
       })),
     []
   );
 
-  const elapsed = gameStartedAt
-    ? Math.max(0, Math.floor((Date.now() - gameStartedAt) / 1000))
-    : 0;
+  const elapsed = gameStartedAt ? Math.max(0, Math.floor((Date.now() - gameStartedAt) / 1000)) : 0;
   const mm = String(Math.floor(elapsed / 60)).padStart(2, '0');
   const ss = String(elapsed % 60).padStart(2, '0');
   const total = totalCorrect + totalWrong;
   const acc = total > 0 ? Math.round((totalCorrect / total) * 100) : 0;
 
   return (
-    <div className="fixed inset-0 flex flex-col items-center justify-center rpg-backdrop z-[100] p-4 text-center font-sans">
-      {/* Celebration particles */}
-      <div className="absolute inset-0 pointer-events-none">
+    <div
+      className="fixed inset-0 flex flex-col items-center justify-center z-[100] p-4 text-center"
+      style={{ background: 'rgba(255, 255, 255, 0.4)', backdropFilter: 'blur(2px)' }}
+    >
+      {/* Particle background */}
+      <div className="absolute inset-0 pointer-events-none overflow-hidden">
         {particles.map((p, i) => (
           <div
             key={i}
-            className="absolute w-3 h-3"
+            className="absolute animate-float"
             style={{
               left: `${p.left}%`,
               top: `${p.top}%`,
+              width: `${p.size}px`,
+              height: `${p.size}px`,
               background: p.color,
-              animation: `blink ${p.dur}s step-end infinite`,
+              border: '2px solid #000000',
+              animationDuration: `${p.dur}s`,
+              opacity: 0.8,
             }}
           />
         ))}
       </div>
 
-      <div className="relative z-10 rpg-panel px-10 py-8 max-w-xl w-full">
-        <h1 className="font-pixel text-4xl sm:text-5xl font-black text-[#f4c430] mb-3 tracking-widest uppercase rpg-title-dark">
-          <span className="rpg-star">★</span> VICTORY <span className="rpg-star">★</span>
+      <div className="relative z-10 rpg-panel-pink px-8 py-7 max-w-lg w-full animate-pop-in">
+        {/* ดาว */}
+        <div className="flex justify-center gap-3 mb-4">
+          {['★', '★', '★'].map((s, i) => (
+            <span
+              key={i}
+              className="font-pixel text-4xl animate-float"
+              style={{
+                color: '#f8a820',
+                textShadow: '3px 3px 0 #a31c5d',
+                animationDelay: `${i * 0.2}s`,
+              }}
+            >
+              {s}
+            </span>
+          ))}
+        </div>
+
+        {/* Title */}
+        <h1
+          className="font-pixel font-black mb-1 rpg-title-gold"
+          style={{
+            fontSize: 'clamp(32px, 7vw, 56px)',
+            letterSpacing: '0.05em',
+          }}
+        >
+          ชนะแล้ว!
         </h1>
-        <div className="rpg-divider mb-5" />
-        <p className="font-pixel text-[#2b3a8c] text-xs mb-6 font-bold uppercase tracking-widest">
-          ผจญภัยสำเร็จ!
+        <div className="rpg-divider mb-4" />
+        
+        <p className="font-pixel font-bold text-base mb-5 text-[#a31c5d]">
+          คุณเคลียร์ดันเจี้ยนระดับ {config.labelTh} สำเร็จ
         </p>
 
-        <div className="rpg-panel-blue p-6 mb-6">
-          <h2 className="font-pixel text-xs font-bold text-[#fdf3d8] mb-5 uppercase tracking-widest">
-            ผลงาน <span className="text-[#f4c430] ml-2">({config.label})</span>
+        {/* สรุปผล */}
+        <div className="bg-white/70 border-4 border-[#ff66aa] px-5 py-4 mb-6 text-left shadow-inner">
+          <h2 className="font-pixel font-semibold text-center text-sm mb-4 text-[#a31c5d]">
+            สรุปผลงาน
           </h2>
 
-          <div className="space-y-3 text-left">
-            <div className="flex justify-between items-center font-pixel text-[11px] text-[#fdf3d8]">
-              <span>ตอบถูก:</span>
-              <span className="font-bold text-emerald-300">{totalCorrect}</span>
-            </div>
-            <div className="flex justify-between items-center font-pixel text-[11px] text-[#fdf3d8]">
-              <span>ผิด/หมดเวลา:</span>
-              <span className="font-bold text-red-300">{totalWrong}</span>
-            </div>
-            <div className="flex justify-between items-center font-pixel text-[11px] text-[#fdf3d8]">
-              <span>ข้อทั้งหมด:</span>
-              <span className="font-bold">{total}</span>
-            </div>
-            <div className="rpg-divider" />
-            <div className="flex justify-between items-center font-pixel text-[11px] text-[#fdf3d8]">
-              <span>เวลา:</span>
-              <span className="font-bold">{mm}:{ss}</span>
-            </div>
-            <div className="flex justify-between items-center font-pixel text-[11px] text-[#fdf3d8]">
-              <span>ความแม่นยำ:</span>
-              <span className="font-bold text-[#f4c430] text-sm">{acc}%</span>
-            </div>
-          </div>
+          {([
+            { label: 'ตอบถูก', value: String(totalCorrect), color: '#006600' },
+            { label: 'ตอบผิด', value: String(totalWrong), color: '#cc2222' },
+            { label: 'คำถามทั้งหมด', value: String(total), color: '#a31c5d' },
+            null,
+            { label: 'เวลาที่ใช้', value: `${mm}:${ss}`, color: '#a31c5d' },
+            { label: 'ความแม่นยำ', value: `${acc}%`, color: '#a31c5d', big: true },
+            null,
+            { label: '★ คะแนนรวม', value: score.toLocaleString(), color: '#a31c5d', big: true },
+            { label: '🪙 เหรียญที่ได้', value: String(coins), color: '#f8a820' },
+          ] as Array<null | { label: string; value: string; color: string; big?: boolean }>)
+            .map((row, i) => {
+              if (row === null) return <div key={i} className="rpg-divider-thin border-[#ff66aa] my-2" style={{ background: '#ff66aa' }} />;
+              return (
+                <div key={i} className="flex justify-between items-center py-1">
+                  <span className="font-pixel font-semibold text-sm" style={{ color: '#a31c5d' }}>{row.label}</span>
+                  <span
+                    className="font-pixel font-bold"
+                    style={{
+                      fontSize: row.big ? '18px' : '14px',
+                      color: row.color,
+                    }}
+                  >
+                    {row.value}
+                  </span>
+                </div>
+              );
+            })}
         </div>
 
         <button
           onClick={resetGame}
-          className="font-pixel px-10 py-4 text-sm font-bold rpg-btn rpg-btn-blue uppercase tracking-widest animate-blink"
+          className="rpg-btn-green py-4 px-10 font-bold text-base w-full shadow-[4px_4px_0_rgba(0,0,0,0.2)]"
         >
-          [ เล่นอีกครั้ง ]
+          ▶ กลับสู่เมนูหลัก
         </button>
       </div>
     </div>

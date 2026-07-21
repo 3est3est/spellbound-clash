@@ -92,6 +92,10 @@ export function getSheet(name: string): SpriteSheet | null {
 // Returns true if the given frame cell has real (non-background) content.
 // Used to auto-fallback to procedural sprites if a layout points at an empty
 // cell, so a wrong layout never renders a "broken" sheet.
+// RESULTS ARE CACHED: getImageData + the pixel scan are expensive, so we must
+// NOT run this every frame (the old code did, which caused heavy jank while
+// walking). Each (sheet,col,row) cell is scanned at most once.
+const contentCache = new Map<string, boolean>();
 export function sheetFrameHasContent(
   sheet: SpriteSheet,
   col: number,
@@ -100,12 +104,18 @@ export function sheetFrameHasContent(
   key = '#9ba0ab'
 ): boolean {
   if (!sheet.image) return false;
+  const cacheKey = `${sheet.name}:${col}:${row}:${tolerance}:${key}`;
+  const cached = contentCache.get(cacheKey);
+  if (cached !== undefined) return cached;
   const img = sheet.image;
   const cw = sheet.frameW;
   const ch = sheet.frameH;
   const x0 = col * cw;
   const y0 = row * ch;
-  if (x0 + cw > img.naturalWidth || y0 + ch > img.naturalHeight) return false;
+  if (x0 + cw > img.naturalWidth || y0 + ch > img.naturalHeight) {
+    contentCache.set(cacheKey, false);
+    return false;
+  }
   const canvas = document.createElement('canvas');
   canvas.width = cw;
   canvas.height = ch;
@@ -126,7 +136,9 @@ export function sheetFrameHasContent(
       content++;
     }
   }
-  return content > cw * ch * 0.05;
+  const result = content > cw * ch * 0.05;
+  contentCache.set(cacheKey, result);
+  return result;
 }
 
 export function isLayoutValid(char: 'hero' | 'enemy'): boolean {
@@ -135,8 +147,14 @@ export function isLayoutValid(char: 'hero' | 'enemy'): boolean {
   if (!cfg || !cfg.enabled) return false;
   const sheet = getSheet(layout.sheet);
   if (!sheet || !sheet.ready || !sheet.image) return false;
-  for (let d = 0; d < 4; d++) {
-    if (!sheetFrameHasContent(sheet, layout.col, layout.row + d)) return false;
+  const maxRow = Math.floor(sheet.image.naturalHeight / sheet.frameH) - 1;
+  // Check 3 direction rows: side (row+0), down (row+1), up (row+2).
+  // Custom sheets only need these 3 rows to be valid — the 4th was causing
+  // fallback to procedural because row+3 is typically empty.
+  for (let d = 0; d < 3; d++) {
+    const rr = layout.row + d;
+    if (rr > maxRow) continue;
+    if (!sheetFrameHasContent(sheet, layout.col, rr)) return false;
   }
   return true;
 }
@@ -155,47 +173,84 @@ export interface FrameRef {
   row: number;
 }
 
-const DIR_ROW: Record<Dir, number> = { down: 0, left: 1, right: 2, up: 3 };
-
 export type AnimName = 'idle' | 'walk';
 
 // Resolve which sheet a character should use: the configured real sheet if
 // enabled AND its layout actually points at sprite content, otherwise the
-// procedural fallback.
+// procedural fallback. The VALID result is cached so we don't re-run the
+// (now-cached but still non-trivial) layout check on every frame.
+const resolvedCache = new Map<'hero' | 'enemy', string>();
 function resolveSheet(char: 'hero' | 'enemy'): string {
-  if (isLayoutValid(char)) return LAYOUT[char].sheet;
-  return PROC_SHEET;
+  const cached = resolvedCache.get(char);
+  if (cached !== undefined) return cached;
+  if (isLayoutValid(char)) {
+    const sheet = LAYOUT[char].sheet;
+    resolvedCache.set(char, sheet);
+    return sheet;
+  }
+  return PROC_SHEET; // not cached — recomputed next frame (cheap until ready)
 }
 
-// Manifest: where each sprite lives in its sheet.
+// Original generated sheets: rows 39/40/41 contain side/down/up walking;
+// row 51 is the six-frame magic cast. The renderer mirrors the side row for
+// left movement.
+const GEN_WALK = { down: 40, up: 41, side: 39, frames: 6, sideFrames: 6 } as const;
+const GEN_ATTACK = { down: 51, frames: 6 } as const;
+
+function heroRow(dir: Dir): number {
+  if (dir === 'up') return GEN_WALK.up;
+  if (dir === 'down') return GEN_WALK.down;
+  return GEN_WALK.side;
+}
+
+// Manifest: where each sprite lives in its sheet. Each character exposes
+// idle / walk / attack poses so the game can support many sprite sheets —
+// only the row numbers above need tweaking when the art changes.
 export const SPRITE_MAP = {
   hero: {
     walk: (dir: Dir, frame: number): FrameRef => {
-      const l = LAYOUT.hero;
-      const d = DIR_ROW[dir];
+      const side = dir === 'left' || dir === 'right';
       return {
         sheet: resolveSheet('hero'),
-        col: l.col + (frame % l.walkFrames),
-        row: l.row + l.dirRow[d],
+        col: side ? frame % GEN_WALK.sideFrames : frame % GEN_WALK.frames,
+        row: heroRow(dir),
       };
     },
     idle: (dir: Dir): FrameRef => {
-      const l = LAYOUT.hero;
-      const d = DIR_ROW[dir];
       return {
         sheet: resolveSheet('hero'),
-        col: l.col,
-        row: l.row + l.dirRow[d],
+        col: 0,
+        row: heroRow(dir),
+      };
+    },
+    attack: (_dir: Dir, frame: number): FrameRef => {
+      return {
+        sheet: resolveSheet('hero'),
+        col: frame % GEN_ATTACK.frames,
+        row: GEN_ATTACK.down,
       };
     },
   },
   enemy: {
-    idle: (frame: number): FrameRef => {
-      const l = LAYOUT.enemy;
+    idle: (): FrameRef => {
       return {
         sheet: resolveSheet('enemy'),
-        col: l.col + (frame % l.walkFrames),
-        row: l.row,
+        col: 0,
+        row: GEN_WALK.down,
+      };
+    },
+    walk: (frame: number): FrameRef => {
+      return {
+        sheet: resolveSheet('enemy'),
+        col: frame % GEN_WALK.frames,
+        row: GEN_WALK.down,
+      };
+    },
+    attack: (frame: number): FrameRef => {
+      return {
+        sheet: resolveSheet('enemy'),
+        col: frame % GEN_ATTACK.frames,
+        row: GEN_ATTACK.down,
       };
     },
   },

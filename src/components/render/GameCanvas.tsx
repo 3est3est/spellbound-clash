@@ -437,13 +437,14 @@ export default function GameCanvas() {
       if (inBattle && spellRef.current.active && hasEnemy) {
         const sp = spellRef.current;
         const ah = sp.from === "hero";
-        const battleScale = 3.8;
-        const scaleA = battleScale;
-        const scaleB = battleScale;
+        const heroScale = 1;
+        const enemyScale = 1.6;
+        const scaleA = ah ? heroScale : enemyScale;
+        const scaleB = ah ? enemyScale : heroScale;
         const fromX = (ah ? heroSX : enemySX) + (TILE * SCALE * scaleA) / 2;
-        const fromY = (ah ? heroSY : enemySY) + TILE * SCALE * scaleA * 0.45;
+        const fromY = (ah ? heroSY : enemySY) + TILE * SCALE * scaleA * 0.5;
         const toX = (ah ? enemySX : heroSX) + (TILE * SCALE * scaleB) / 2;
-        const toY = (ah ? enemySY : heroSY) + TILE * SCALE * scaleB * 0.45;
+        const toY = (ah ? enemySY : heroSY) + TILE * SCALE * scaleB * 0.5;
         const color = ah ? "#7fd4ff" : "#ff7a7a";
         const travel = Math.min(1, sp.t / 0.6);
 

@@ -97,7 +97,7 @@ function getRandomQuestions(count: number, vocabLevel: string, usedIds: number[]
 // ===== Helper: Generate Enemies =====
 
 function generateEnemies(count: number): EnemyData[] {
-  const names = ["Shadow Goblin", "Dark Sprite", "Forest Wraith", "Swamp Troll", "Nightmare Bat", "Cave Spider", "Toxic Slime"];
+  const names = ["ก็อบลินเงา", "ภูตมืด", "วิญญาณแห่งป่า", "โทรลล์บึง", "ค้างคาวฝันร้าย", "แมงมุมถ้ำ", "สไลม์พิษ"];
   const enemies: EnemyData[] = [];
 
   // Place enemies on walkable path tiles near the player's start so battles

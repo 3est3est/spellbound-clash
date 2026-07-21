@@ -26,23 +26,23 @@ export default function BattleTransition() {
         }}
       />
 
-      {/* แถบกวาดบน สีชมพู */}
+      {/* แถบกวาดบน สีดำ */}
       <div
         className="absolute left-0 right-0 top-0"
         style={{
-          background: '#a31c5d',
-          borderBottom: '8px solid #ff66aa',
+          background: '#000000',
+          borderBottom: '8px solid #333333',
           height: phase >= 1 ? '50%' : '0%',
           transition: 'height 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
         }}
       />
 
-      {/* แถบกวาดล่าง สีชมพู */}
+      {/* แถบกวาดล่าง สีดำ */}
       <div
         className="absolute left-0 right-0 bottom-0"
         style={{
-          background: '#a31c5d',
-          borderTop: '8px solid #ff66aa',
+          background: '#000000',
+          borderTop: '8px solid #333333',
           height: phase >= 1 ? '50%' : '0%',
           transition: 'height 0.25s cubic-bezier(0.4, 0, 0.2, 1)',
         }}

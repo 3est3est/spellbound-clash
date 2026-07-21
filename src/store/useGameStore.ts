@@ -91,7 +91,10 @@ function getRandomQuestions(count: number, vocabLevel: string, usedIds: number[]
 
   // Shuffle and pick
   const shuffled = [...available].sort(() => Math.random() - 0.5);
-  return shuffled.slice(0, count);
+  return shuffled.slice(0, count).map((q) => ({
+    ...q,
+    choices: [...q.choices].sort(() => Math.random() - 0.5),
+  }));
 }
 
 // ===== Helper: Generate Enemies =====

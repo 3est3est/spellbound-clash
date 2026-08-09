@@ -2,7 +2,7 @@ import { useGameStore } from '../../store/useGameStore';
 import PixelHeart from './PixelHeart';
 
 export default function HUD() {
-  const { playerHP, maxPlayerHP, enemiesDefeated, totalEnemies, difficulty, coins, score } = useGameStore();
+  const { playerHP, maxPlayerHP, difficulty, coins, score } = useGameStore();
 
   const diffLabel = { EASY: 'ง่าย', MEDIUM: 'กลาง', HARDCORE: 'ยาก' }[difficulty];
   const diffColor = { EASY: '#60d860', MEDIUM: '#f5c842', HARDCORE: '#ff6050' }[difficulty];
@@ -34,57 +34,70 @@ export default function HUD() {
             </span>
           </div>
 
-          {/* คะแนน */}
+          {/* คะแนน & เหรียญ */}
+          <div className="flex items-center gap-4 mt-1">
+            <div className="flex items-center gap-1">
+              <span className="font-pixel text-sm" style={{ color: '#f5c842', ...textShadowStyle }}>★</span>
+              <span
+                className="font-pixel font-bold text-sm"
+                style={{ color: '#ffffff', ...textShadowStyle }}
+              >
+                {score.toLocaleString()}
+              </span>
+            </div>
+            <div className="flex items-center gap-1">
+              <span className="font-pixel text-sm" style={{ color: '#f5c842', ...textShadowStyle }}>🪙</span>
+              <span
+                className="font-pixel font-bold text-sm"
+                style={{ color: '#ffffff', ...textShadowStyle }}
+              >
+                {coins.toLocaleString()}
+              </span>
+            </div>
+          </div>
+
+          {/* ปุ่มกระเป๋าสัตว์เลี้ยง & ร้านค้า */}
           <div className="flex items-center gap-2 mt-1">
-            <span className="font-pixel text-sm" style={{ color: '#f5c842', ...textShadowStyle }}>★</span>
-            <span
-              className="font-pixel font-bold text-sm"
-              style={{ color: '#ffffff', ...textShadowStyle }}
+            <button
+              onClick={() => useGameStore.getState().setInventoryOpen(true)}
+              className="pointer-events-auto flex items-center gap-2 bg-[#1e1b18] hover:bg-[#322d28] border-2 border-[#ffd700] px-3 py-1 cursor-pointer transition-all hover:scale-105 active:scale-95 shadow-[2px_2px_0_rgba(0,0,0,0.3)]"
             >
-              {score.toLocaleString()}
-            </span>
+              <span className="text-sm">🎒</span>
+              <span className="font-pixel text-[9px] font-bold text-[#ffd700]">กระเป๋าเป้</span>
+            </button>
+            <button
+              onClick={() => useGameStore.getState().setShopOpen(true)}
+              className="pointer-events-auto flex items-center gap-2 bg-[#1e1b18] hover:bg-[#322d28] border-2 border-[#ff9900] px-3 py-1 cursor-pointer transition-all hover:scale-105 active:scale-95 shadow-[2px_2px_0_rgba(0,0,0,0.3)]"
+            >
+              <span className="text-sm">🛒</span>
+              <span className="font-pixel text-[9px] font-bold text-[#ff9900]">ร้านค้า</span>
+            </button>
           </div>
         </div>
 
-        {/* ── ขวา: ศัตรู + เหรียญ + ระดับ ── */}
-        <div className="flex gap-6 animate-slide-down">
-          {/* ศัตรู */}
-          <div className="flex flex-col items-center gap-1">
-            <span className="font-pixel text-xs" style={{ color: '#ff7060', ...textShadowStyle }}>
-              ปราบ
-            </span>
-            <span className="font-pixel font-bold text-sm">
-              <span style={{ color: '#ffffff', ...textShadowStyle }}>{enemiesDefeated}</span>
-              <span style={{ color: '#aaaaaa', ...textShadowStyle }}>/</span>
-              <span style={{ color: '#ffffff', ...textShadowStyle }}>{totalEnemies}</span>
-            </span>
-          </div>
-
-          {/* เหรียญ */}
-          <div className="flex flex-col items-center gap-1">
-            <span className="font-pixel text-xs" style={{ color: '#f5c842', ...textShadowStyle }}>
-              เหรียญ
-            </span>
-            <span
-              className="font-pixel font-bold text-sm"
-              style={{ color: '#ffffff', ...textShadowStyle }}
-            >
-              {coins}
-            </span>
-          </div>
-
+        {/* ── ขวา: ปุ่มหยุดเกม + ระดับ ── */}
+        <div className="flex items-center gap-4 animate-slide-down">
           {/* ระดับความยาก */}
-          <div className="flex flex-col items-center gap-1">
-            <span className="font-pixel text-xs" style={{ color: '#b0d8ff', ...textShadowStyle }}>
+          <div className="flex flex-col items-center gap-1 justify-center">
+            <span className="font-pixel text-[10px]" style={{ color: '#b0d8ff', ...textShadowStyle }}>
               ระดับ
             </span>
             <span
-              className="font-pixel font-bold text-sm"
+              className="font-pixel font-bold text-xs"
               style={{ color: diffColor, ...textShadowStyle }}
             >
               {diffLabel}
             </span>
           </div>
+
+          {/* ปุ่มหยุดเกม */}
+          <button
+            onClick={() => useGameStore.getState().setIsPaused(true)}
+            className="pointer-events-auto w-10 h-10 flex items-center justify-center bg-[#1e1b18] hover:bg-[#322d28] border-2 border-[#ffd700] cursor-pointer transition-all hover:scale-105 active:scale-95 shadow-[2px_2px_0_rgba(0,0,0,0.3)]"
+            title="หยุดเกม (Esc)"
+          >
+            <span className="text-base text-[#ffd700] font-bold">⏸</span>
+          </button>
         </div>
       </div>
     </div>

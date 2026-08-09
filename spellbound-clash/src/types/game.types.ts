@@ -73,6 +73,7 @@ export interface EnemyData {
   defeated: boolean;
   name: string;
   zone: 1 | 2 | 3 | 4;
+  respawnTime?: number;
 }
 
 // ===== Battle Result =====
@@ -94,6 +95,14 @@ export interface SaveData {
   enemies: EnemyData[];
   playerPos: { tx: number; ty: number };
   unlockedZones: number[];
+  petsOwned?: string[];
+  equippedPet?: string | null;
+  itemsOwned?: string[];
+  equippedHat?: string | null;
+  equippedSword?: string | null;
+  equippedShoes?: string | null;
+  hatUpgradeLevel?: number;
+  swordUpgradeLevel?: number;
 }
 
 export interface LeaderboardEntry {

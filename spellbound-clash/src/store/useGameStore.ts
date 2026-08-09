@@ -58,7 +58,7 @@ interface GameStore {
   setDifficulty: (difficulty: Difficulty) => void;
   setIsPaused: (isPaused: boolean) => void;
   startGame: () => void;
-  enterBattleTransition: (enemyId: string) => void;
+  enterBattleTransition: (enemyId: string, playerPos?: { tx: number; ty: number }) => void;
   enterBattle: () => void;
   answerQuestion: (isCorrect: boolean) => void;
   timeUp: () => void;
@@ -78,6 +78,31 @@ interface GameStore {
   clearSave: () => void;
   recordScore: () => void;
   getLeaderboard: () => LeaderboardEntry[];
+
+  // Pets & Gacha System
+  petsOwned: string[];
+  equippedPet: string | null;
+  isGachaOpen: boolean;
+  isInventoryOpen: boolean;
+  buyGacha: () => string | null;
+  equipPet: (pet: string | null) => void;
+  setGachaOpen: (open: boolean) => void;
+  setInventoryOpen: (open: boolean) => void;
+  tickRespawns: () => void;
+
+  // Equipment & Shop System
+  itemsOwned: string[];
+  equippedHat: string | null;
+  equippedSword: string | null;
+  equippedShoes: string | null;
+  isShopOpen: boolean;
+  hatUpgradeLevel: number;
+  swordUpgradeLevel: number;
+  setShopOpen: (open: boolean) => void;
+  buyItem: (item: string) => boolean;
+  upgradeItem: (item: "hat" | "sword") => boolean;
+  equipItem: (item: string, slot: string) => void;
+  unequipItem: (slot: string) => void;
 }
 
 // ===== Helper: Get random questions =====
@@ -118,6 +143,16 @@ function generateEnemies(): EnemyData[] {
     name: spec.name,
     zone: spec.zone,
   }));
+}
+
+// ===== Helper: Upgrade Cost =====
+
+export function getUpgradeCost(item: 'hat' | 'sword', nextLevel: number): number {
+  if (item === 'hat') {
+    return 15 + Math.floor(nextLevel * nextLevel * 2.5 + nextLevel * 5);
+  } else {
+    return 30 + Math.floor(nextLevel * nextLevel * 4.5 + nextLevel * 8);
+  }
 }
 
 // ===== Store =====
@@ -210,6 +245,19 @@ export const useGameStore = create<GameStore>((set, get) => ({
   unlockedZones: [1],
   zoneBanner: null,
 
+  petsOwned: [],
+  equippedPet: null,
+  isGachaOpen: false,
+  isInventoryOpen: false,
+
+  itemsOwned: [],
+  equippedHat: null,
+  equippedSword: null,
+  equippedShoes: null,
+  isShopOpen: false,
+  hatUpgradeLevel: 0,
+  swordUpgradeLevel: 0,
+
   enemies: [],
   currentEnemy: null,
   enemyHP: 5,
@@ -274,30 +322,47 @@ export const useGameStore = create<GameStore>((set, get) => ({
       totalWrong: 0,
       isPaused: false,
       gameStartedAt: Date.now(),
+      petsOwned: continuing ? (saved!.petsOwned ?? []) : [],
+      equippedPet: continuing ? (saved!.equippedPet ?? null) : null,
+      isGachaOpen: false,
+      isInventoryOpen: false,
+      itemsOwned: continuing ? (saved!.itemsOwned ?? []) : [],
+      equippedHat: continuing ? (saved!.equippedHat ?? null) : null,
+      equippedSword: continuing ? (saved!.equippedSword ?? null) : null,
+      equippedShoes: continuing ? (saved!.equippedShoes ?? null) : null,
+      isShopOpen: false,
+      hatUpgradeLevel: continuing ? (saved!.hatUpgradeLevel ?? 0) : 0,
+      swordUpgradeLevel: continuing ? (saved!.swordUpgradeLevel ?? 0) : 0,
     });
   },
 
-  enterBattleTransition: (enemyId) => {
+  enterBattleTransition: (enemyId, playerPos) => {
     const { enemies } = get();
     const enemy = enemies.find((e) => e.id === enemyId);
     if (enemy && !enemy.defeated) {
       set({
         gameState: "BATTLE_TRANSITION",
         currentEnemy: enemy,
+        ...(playerPos ? { playerPos } : {}),
       });
     }
   },
 
   enterBattle: () => {
-    const { difficulty, usedQuestionIds } = get();
+    const { difficulty, usedQuestionIds, currentEnemy } = get();
     const config = DIFFICULTY_CONFIGS[difficulty];
     const questions = getRandomQuestions(config.questionCount, config.vocabLevel, usedQuestionIds);
+
+    // Zone-based enemy HP: zone1 = difficulty config, zone2 = 7, zone3 = 10, zone4 = 15
+    const zoneHPMap: Record<number, number> = { 1: config.enemyHP, 2: 7, 3: 10, 4: 15 };
+    const zone = currentEnemy?.zone ?? 1;
+    const enemyHP = zoneHPMap[zone] ?? config.enemyHP;
 
     if (questions.length > 0) {
       set({
         gameState: "BATTLE",
-        enemyHP: config.enemyHP,
-        maxEnemyHP: config.enemyHP,
+        enemyHP,
+        maxEnemyHP: enemyHP,
         questionIndex: 0,
         currentQuestion: questions[0],
         battleResult: null,
@@ -309,7 +374,11 @@ export const useGameStore = create<GameStore>((set, get) => ({
   answerQuestion: (isCorrect) => {
     const state = get();
     if (isCorrect) {
-      const newEnemyHP = state.enemyHP - 1;
+      const isCatEquipped = state.equippedPet === "cat";
+      const isSwordEquipped = state.equippedSword === "sword";
+      const swordBonus = isSwordEquipped ? (1 + (state.swordUpgradeLevel > 0 ? 0.5 + state.swordUpgradeLevel * 0.5 : 0)) : 0;
+      const dmg = (isCatEquipped ? 2 : 1) + swordBonus;
+      const newEnemyHP = Math.max(0, state.enemyHP - dmg);
       set({
         enemyHP: newEnemyHP,
         battleResult: "CORRECT",
@@ -380,53 +449,52 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const state = get();
     if (!state.currentEnemy) return;
 
-    const updatedEnemies = state.enemies.map((e) => (e.id === state.currentEnemy!.id ? { ...e, defeated: true } : e));
+    const updatedEnemies = state.enemies.map((e) =>
+      e.id === state.currentEnemy!.id ? { ...e, defeated: true, respawnTime: Date.now() + 60000 } : e
+    );
     const newDefeated = state.enemiesDefeated + 1;
-    const reward = state.difficulty === "HARDCORE" ? 5 : state.difficulty === "MEDIUM" ? 3 : 2;
-
     const defeatedEnemyZone = state.currentEnemy.zone;
-    const currentZoneEnemies = updatedEnemies.filter((e) => e.zone === defeatedEnemyZone);
-    const isZoneCleared = currentZoneEnemies.every((e) => e.defeated);
+    const rewardMap: Record<number, number> = { 1: 2, 2: 5, 3: 10, 4: 15 };
+    const reward = rewardMap[defeatedEnemyZone] || 2;
+    const isPigEquipped = state.equippedPet === 'pig';
+    const finalCoinReward = isPigEquipped ? reward * 2 : reward;
+
+    let finalPlayerHP = state.playerHP;
+    if (state.equippedPet === 'dog') {
+      const healAmount = state.playerHP <= 2 ? 2 : 1;
+      finalPlayerHP = Math.min(state.maxPlayerHP, state.playerHP + healAmount);
+    }
 
     const newUnlockedZones = [...state.unlockedZones];
     let banner: string | null = null;
 
-    if (isZoneCleared) {
-      if (defeatedEnemyZone === 1 && !newUnlockedZones.includes(2)) {
-        newUnlockedZones.push(2);
-        banner = "🔓 ปราบศัตรูโซน 1 สำเร็จ! ประตูสู่โซน 2 ปลดล็อคแล้ว!";
-      } else if (defeatedEnemyZone === 2 && !newUnlockedZones.includes(3)) {
-        newUnlockedZones.push(3);
-        banner = "🔓 ปราบศัตรูโซน 2 สำเร็จ! ประตูสู่โซน 3 ปลดล็อคแล้ว!";
-      } else if (defeatedEnemyZone === 3 && !newUnlockedZones.includes(4)) {
-        newUnlockedZones.push(4);
-        banner = "🔓 ปราบศัตรูโซน 3 สำเร็จ! ประตูสู่โซน 4 ปลดล็อคแล้ว!";
-      }
+    if (defeatedEnemyZone === 1 && !newUnlockedZones.includes(2)) {
+      newUnlockedZones.push(2);
+      banner = "🔓 กำจัดมอนสเตอร์ในโซน 1 สำเร็จ 1 ตัว! ประตูสู่โซน 2 ปลดล็อคแล้ว!";
+    } else if (defeatedEnemyZone === 2 && !newUnlockedZones.includes(3)) {
+      newUnlockedZones.push(3);
+      banner = "🔓 กำจัดมอนสเตอร์ในโซน 2 สำเร็จ 1 ตัว! ประตูสู่โซน 3 ปลดล็อคแล้ว!";
+    } else if (defeatedEnemyZone === 3 && !newUnlockedZones.includes(4)) {
+      newUnlockedZones.push(4);
+      banner = "🔓 กำจัดมอนสเตอร์ในโซน 3 สำเร็จ 1 ตัว! ประตูสู่โซน 4 ปลดล็อคแล้ว!";
     }
 
-    if (newDefeated >= state.totalEnemies) {
-      set({
-        enemies: updatedEnemies,
-        enemiesDefeated: newDefeated,
-        coins: state.coins + reward,
-        currentEnemy: null,
-        unlockedZones: newUnlockedZones,
-        zoneBanner: "🎉 ชัยชนะครั้งใหญ่! คุณปราบศัตรูครบทั้ง 4 โซน!",
-        gameState: "WIN",
-      });
-    } else {
-      set({
-        enemies: updatedEnemies,
-        enemiesDefeated: newDefeated,
-        coins: state.coins + reward,
-        currentEnemy: null,
-        unlockedZones: newUnlockedZones,
-        zoneBanner: banner,
-        gameState: "EXPLORE",
-        battleResult: null,
-        currentQuestion: null,
-      });
+    if (newDefeated === state.totalEnemies) {
+      banner = `🎉 ชัยชนะครั้งใหญ่! คุณปราบศัตรูครบทั้ง 4 โซน (${state.totalEnemies} ตัว)! คุณสามารถผจญภัยสะสมคะแนนต่อได้เรื่อยๆ!`;
     }
+
+    set({
+      enemies: updatedEnemies,
+      enemiesDefeated: newDefeated,
+      coins: state.coins + finalCoinReward,
+      playerHP: finalPlayerHP,
+      currentEnemy: null,
+      unlockedZones: newUnlockedZones,
+      zoneBanner: banner,
+      gameState: "EXPLORE",
+      battleResult: null,
+      currentQuestion: null,
+    });
 
     get().saveProgress();
     if (newDefeated >= state.totalEnemies) get().recordScore();
@@ -460,6 +528,17 @@ export const useGameStore = create<GameStore>((set, get) => ({
       playerName: saved.name,
       pin: saved.pin,
       difficulty: saved.difficulty,
+      petsOwned: saved.petsOwned ?? [],
+      equippedPet: saved.equippedPet ?? null,
+      isGachaOpen: false,
+      isInventoryOpen: false,
+      itemsOwned: saved.itemsOwned ?? [],
+      equippedHat: saved.equippedHat ?? null,
+      equippedSword: saved.equippedSword ?? null,
+      equippedShoes: saved.equippedShoes ?? null,
+      isShopOpen: false,
+      hatUpgradeLevel: saved.hatUpgradeLevel ?? 0,
+      swordUpgradeLevel: saved.swordUpgradeLevel ?? 0,
     });
     return true;
   },
@@ -480,6 +559,14 @@ export const useGameStore = create<GameStore>((set, get) => ({
       enemies: s.enemies,
       playerPos: s.playerPos,
       unlockedZones: s.unlockedZones,
+      petsOwned: s.petsOwned,
+      equippedPet: s.equippedPet,
+      itemsOwned: s.itemsOwned,
+      equippedHat: s.equippedHat,
+      equippedSword: s.equippedSword,
+      equippedShoes: s.equippedShoes,
+      hatUpgradeLevel: s.hatUpgradeLevel,
+      swordUpgradeLevel: s.swordUpgradeLevel,
     };
     writeSave(data);
   },
@@ -537,6 +624,171 @@ export const useGameStore = create<GameStore>((set, get) => ({
       totalWrong: 0,
       isPaused: false,
       gameStartedAt: null,
+      petsOwned: [],
+      equippedPet: null,
+      isGachaOpen: false,
+      itemsOwned: [],
+      equippedHat: null,
+      equippedSword: null,
+      equippedShoes: null,
+      isShopOpen: false,
+      hatUpgradeLevel: 0,
+      swordUpgradeLevel: 0,
     });
+  },
+
+  buyGacha: () => {
+    const { coins } = get();
+    if (coins < 5) return null;
+
+    const newCoins = coins - 5;
+    const pets = ["dog", "cat", "pig"];
+    const pulledPet = pets[Math.floor(Math.random() * pets.length)];
+    const newPets = [...(get().petsOwned || []), pulledPet];
+
+    set({
+      coins: newCoins,
+      petsOwned: newPets,
+    });
+
+    get().saveProgress();
+    return pulledPet;
+  },
+
+  equipPet: (pet) => {
+    set({ equippedPet: pet });
+    get().saveProgress();
+  },
+
+  setGachaOpen: (open) => {
+    set({ isGachaOpen: open });
+  },
+
+  setInventoryOpen: (open) => {
+    set({ isInventoryOpen: open });
+  },
+
+  tickRespawns: () => {
+    const now = Date.now();
+    const { enemies } = get();
+    let changed = false;
+    const updatedEnemies = enemies.map((e) => {
+      if (e.defeated && e.respawnTime && now >= e.respawnTime) {
+        changed = true;
+        const { respawnTime: _, ...rest } = e;
+        return { ...rest, defeated: false };
+      }
+      return e;
+    });
+
+    if (changed) {
+      set({ enemies: updatedEnemies });
+      get().saveProgress();
+    }
+  },
+
+  setShopOpen: (open) => {
+    set({ isShopOpen: open });
+  },
+
+  buyItem: (item) => {
+    const state = get();
+    const priceMap: Record<string, number> = { hat: 15, sword: 30, shoes: 50 };
+    const price = priceMap[item] ?? 999;
+    if (state.coins < price) return false;
+    if (state.itemsOwned.includes(item)) return false;
+
+    // Check unlocks
+    if (item === "sword" && !state.unlockedZones.includes(2)) return false;
+    if (item === "shoes" && !state.unlockedZones.includes(4)) return false;
+
+    set({
+      coins: state.coins - price,
+      itemsOwned: [...state.itemsOwned, item],
+    });
+    get().saveProgress();
+    return true;
+  },
+
+  upgradeItem: (item) => {
+    const state = get();
+    if (!state.itemsOwned.includes(item)) return false;
+
+    const currentLevel = item === 'hat' ? (state.hatUpgradeLevel ?? 0) : (state.swordUpgradeLevel ?? 0);
+    if (currentLevel >= 12) return false;
+
+    const cost = getUpgradeCost(item, currentLevel + 1);
+    if (state.coins < cost) return false;
+
+    const nextLevel = currentLevel + 1;
+    const newCoins = state.coins - cost;
+
+    if (item === 'hat') {
+      const isEquipped = state.equippedHat === 'hat';
+      const prevLevel = state.hatUpgradeLevel ?? 0;
+      const prevBonus = 1 + (prevLevel > 0 ? 0.5 + prevLevel * 0.5 : 0);
+      const nextBonus = 1 + (nextLevel > 0 ? 0.5 + nextLevel * 0.5 : 0);
+      const bonusDiff = nextBonus - prevBonus;
+
+      set({
+        coins: newCoins,
+        hatUpgradeLevel: nextLevel,
+        ...(isEquipped ? {
+          maxPlayerHP: state.maxPlayerHP + bonusDiff,
+          playerHP: state.playerHP + bonusDiff,
+        } : {}),
+      });
+    } else {
+      set({
+        coins: newCoins,
+        swordUpgradeLevel: nextLevel,
+      });
+    }
+
+    get().saveProgress();
+    return true;
+  },
+
+  equipItem: (item, slot) => {
+    const state = get();
+    if (!state.itemsOwned.includes(item)) return;
+
+    if (slot === "hat") {
+      const isAlreadyEquipped = state.equippedHat === item;
+      if (!isAlreadyEquipped) {
+        const hatBonus = 1 + (state.hatUpgradeLevel > 0 ? 0.5 + state.hatUpgradeLevel * 0.5 : 0);
+        set({
+          equippedHat: item,
+          maxPlayerHP: state.maxPlayerHP + hatBonus,
+          playerHP: state.playerHP + hatBonus,
+        });
+      }
+    } else if (slot === "sword") {
+      set({ equippedSword: item });
+    } else if (slot === "shoes") {
+      set({ equippedShoes: item });
+    }
+    get().saveProgress();
+  },
+
+  unequipItem: (slot) => {
+    const state = get();
+    if (slot === "hat") {
+      if (state.equippedHat) {
+        const hatBonus = 1 + (state.hatUpgradeLevel > 0 ? 0.5 + state.hatUpgradeLevel * 0.5 : 0);
+        const nextMax = Math.max(1, state.maxPlayerHP - hatBonus);
+        const nextHP = Math.min(state.playerHP, nextMax);
+        set({
+          equippedHat: null,
+          maxPlayerHP: nextMax,
+          playerHP: nextHP,
+        });
+      }
+    } else if (slot === "sword") {
+      set({ equippedSword: null });
+    } else if (slot === "shoes") {
+      set({ equippedShoes: null });
+    }
+    get().saveProgress();
   },
 }));

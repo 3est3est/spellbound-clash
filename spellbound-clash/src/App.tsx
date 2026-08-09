@@ -7,9 +7,12 @@ import BattleOverlay from './components/ui/BattleOverlay';
 import GameOver from './components/ui/GameOver';
 import VictoryScreen from './components/ui/VictoryScreen';
 import GameCanvas from './components/render/GameCanvas';
+import GachaModal from './components/ui/GachaModal';
+import InventoryModal from './components/ui/InventoryModal';
+import ShopModal from './components/ui/ShopModal';
 
 function App() {
-  const { gameState, isPaused, setIsPaused, resetGame } = useGameStore();
+  const { gameState, isPaused, setIsPaused, resetGame, isGachaOpen, isInventoryOpen, isShopOpen } = useGameStore();
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
@@ -28,22 +31,31 @@ function App() {
 
       {/* UI Overlays based on state */}
       {gameState === 'MENU' && <MainMenu />}
-      
+
       {gameState === 'EXPLORE' && <HUD />}
-      
+
       {gameState === 'BATTLE_TRANSITION' && <BattleTransition />}
-      
+
       {gameState === 'BATTLE' && <BattleOverlay />}
-      
+
       {gameState === 'GAMEOVER' && <GameOver />}
-      
+
       {gameState === 'WIN' && <VictoryScreen />}
+
+      {/* Gacha Modal Overlay */}
+      {isGachaOpen && <GachaModal />}
+
+      {/* Inventory Modal Overlay */}
+      {isInventoryOpen && <InventoryModal />}
+
+      {/* Shop Modal Overlay */}
+      {isShopOpen && <ShopModal />}
 
       {/* Pause Menu Overlay */}
       {isPaused && (
         <div className="fixed inset-0 z-[200] flex items-center justify-center" style={{ background: 'rgba(0,0,0,0.5)' }}>
           <div className="rpg-panel p-6 max-w-xs w-full text-center" style={{ minWidth: '260px' }}>
-            
+
             <h2
               className="font-pixel font-black mb-2 animate-blink rpg-title-gold"
               style={{

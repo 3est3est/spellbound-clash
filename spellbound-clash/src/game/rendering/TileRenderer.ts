@@ -86,10 +86,10 @@ function drawPath(ctx: CanvasRenderingContext2D, x: number, y: number, full: num
   }
 
   const t = seeded(tx, ty, 2);
-  if (zone === 1)      ctx.fillStyle = t > 0.5 ? '#d5bb80' : '#cbaf72';
+  if (zone === 1) ctx.fillStyle = t > 0.5 ? '#d5bb80' : '#cbaf72';
   else if (zone === 2) ctx.fillStyle = t > 0.5 ? '#f0d3a0' : '#e4c48c';
   else if (zone === 3) ctx.fillStyle = t > 0.5 ? '#9dc6e6' : '#8bb4d4';
-  else                 ctx.fillStyle = t > 0.5 ? '#685047' : '#573f37';
+  else ctx.fillStyle = t > 0.5 ? '#685047' : '#573f37';
   ctx.fillRect(x, y, full, full);
 
   ctx.fillStyle = 'rgba(0,0,0,0.09)';
@@ -102,9 +102,9 @@ function drawPath(ctx: CanvasRenderingContext2D, x: number, y: number, full: num
 
 // ─── Water ───────────────────────────────────────────────────────────────────
 function drawWater(ctx: CanvasRenderingContext2D, x: number, y: number, full: number, tx: number, ty: number, zone: number, now: number) {
-  if (zone === 4)      { ctx.fillStyle = '#5e1830'; }
+  if (zone === 4) { ctx.fillStyle = '#5e1830'; }
   else if (zone === 3) { ctx.fillStyle = '#4aa8d4'; }
-  else                 { ctx.fillStyle = '#48a8bc'; }
+  else { ctx.fillStyle = '#48a8bc'; }
   ctx.fillRect(x, y, full, full);
 
   const waveColor = zone === 4 ? '#9c2848' : zone === 3 ? '#88d8ff' : '#80d8d8';
@@ -175,8 +175,8 @@ export function drawZoneFogOverlay(
   tilePx: number,
   zone: number,
   unlockedZones: number[],
-  playerTileX: number,
-  playerTileY: number,
+  _playerTileX: number,
+  _playerTileY: number,
 ) {
   if (unlockedZones.includes(zone)) return;
 
@@ -272,3 +272,102 @@ export function drawForestTile(
     ctx.fillRect(x + full * 0.32, y + full * 0.38, SCALE, SCALE);
   }
 }
+
+export function drawGachaMachine(ctx: CanvasRenderingContext2D, x: number, y: number, _full: number, now: number) {
+  // Base
+  ctx.fillStyle = '#a31c5d';
+  ctx.fillRect(x + 2 * SCALE, y + 8 * SCALE, 12 * SCALE, 8 * SCALE);
+  ctx.fillStyle = '#ff3366';
+  ctx.fillRect(x + 2 * SCALE, y + 8 * SCALE, 12 * SCALE, 2 * SCALE);
+  ctx.fillStyle = '#5c1035';
+  ctx.fillRect(x + 2 * SCALE, y + 14 * SCALE, 12 * SCALE, 2 * SCALE);
+
+  // Glass Globe
+  ctx.fillStyle = 'rgba(200, 240, 255, 0.6)';
+  ctx.fillRect(x + 3 * SCALE, y + 2 * SCALE, 10 * SCALE, 6 * SCALE);
+
+  // Capsule inventory colors
+  const colors = ['#ff3366', '#ffd700', '#33ccff', '#99ff33', '#e066ff'];
+  for (let i = 0; i < 6; i++) {
+    const cx = x + (4 + (i % 3) * 2.8) * SCALE;
+    const cy = y + (3 + Math.floor(i / 3) * 2.2) * SCALE;
+    ctx.fillStyle = colors[i % colors.length];
+    ctx.fillRect(cx, cy, 2 * SCALE, 2 * SCALE);
+  }
+
+  // Dial
+  ctx.fillStyle = '#ffd700';
+  ctx.fillRect(x + 7 * SCALE, y + 10 * SCALE, 2 * SCALE, 2 * SCALE);
+
+  // Prize Opening
+  ctx.fillStyle = '#111';
+  ctx.fillRect(x + 6 * SCALE, y + 13 * SCALE, 4 * SCALE, 2.5 * SCALE);
+
+  // Floating Arrow indicator
+  const angle = now / 180;
+  const hoverOffset = Math.sin(angle) * 1.5 * SCALE;
+  ctx.fillStyle = '#ffd700';
+  ctx.beginPath();
+  ctx.moveTo(x + 8 * SCALE, y - 3 * SCALE + hoverOffset);
+  ctx.lineTo(x + 6 * SCALE, y - 6 * SCALE + hoverOffset);
+  ctx.lineTo(x + 10 * SCALE, y - 6 * SCALE + hoverOffset);
+  ctx.closePath();
+  ctx.fill();
+}
+
+export function drawShopNPC(ctx: CanvasRenderingContext2D, x: number, y: number, _full: number, now: number) {
+  const s = SCALE;
+  const bob = Math.sin(now / 200) * 1.5;
+  const sy = y + bob;
+
+  // Shadow
+  ctx.fillStyle = 'rgba(0,0,0,0.15)';
+  ctx.beginPath();
+  ctx.ellipse(x + 8 * s, y + 14 * s, 6 * s, 2 * s, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  // Shop counter table
+  ctx.fillStyle = '#6b4020'; // wood
+  ctx.fillRect(x + 1 * s, y + 10 * s, 14 * s, 5 * s);
+  ctx.fillStyle = '#4a2c16';
+  ctx.fillRect(x + 1 * s, y + 14 * s, 14 * s, 1 * s);
+
+  // Table cloth / stripes
+  ctx.fillStyle = '#d97706'; // gold/yellow Accent
+  ctx.fillRect(x + 3 * s, y + 10 * s, 2 * s, 2 * s);
+  ctx.fillRect(x + 11 * s, y + 10 * s, 2 * s, 2 * s);
+
+  // Merchant Body
+  ctx.fillStyle = '#4f46e5'; // Blue purple tunic
+  ctx.fillRect(x + 5 * s, sy + 4 * s, 6 * s, 6 * s);
+
+  // Merchant Skin (Face)
+  ctx.fillStyle = '#fed7aa';
+  ctx.fillRect(x + 6 * s, sy + 2 * s, 4 * s, 3 * s);
+
+  // Eyes (cunning merchant eyes)
+  ctx.fillStyle = '#0f172a';
+  ctx.fillRect(x + 6.5 * s, sy + 3 * s, 1 * s, 1 * s);
+  ctx.fillRect(x + 8.5 * s, sy + 3 * s, 1 * s, 1 * s);
+
+  // Red/Gold Merchant Turban or Tassle Hat
+  ctx.fillStyle = '#dc2626';
+  ctx.fillRect(x + 4 * s, sy + 0 * s, 8 * s, 2 * s);
+  ctx.fillStyle = '#f59e0b';
+  ctx.fillRect(x + 7 * s, sy - 1 * s, 2 * s, 1 * s);
+
+  // Golden Floating Coin icon above NPC (indicates shop)
+  const coinAngle = now / 150;
+  const floatY = Math.sin(coinAngle) * 2.5 * s;
+  ctx.fillStyle = '#f5c842';
+  ctx.beginPath();
+  ctx.arc(x + 8 * s, y - 5 * s + floatY, 3 * s, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.fillStyle = '#b45309';
+  ctx.font = `bold ${5 * s}px monospace`;
+  ctx.textAlign = 'center';
+  ctx.textBaseline = 'middle';
+  ctx.fillText('$', x + 8.2 * s, y - 4.5 * s + floatY);
+}
+

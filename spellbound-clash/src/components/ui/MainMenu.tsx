@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import { useGameStore } from "../../store/useGameStore";
 import { DIFFICULTY_CONFIGS, type Difficulty, type LeaderboardEntry } from "../../types/game.types";
 
@@ -13,16 +13,19 @@ export default function MainMenu() {
   const [pin, setPin] = useState("");
   const [mode, setMode] = useState<"new" | "continue">(savedName ? "continue" : "new");
   const [error, setError] = useState("");
-  const [showBoard, setShowBoard] = useState(false);
   const [board, setBoard] = useState<LeaderboardEntry[]>([]);
 
-  const openBoard = () => { setBoard(getLeaderboard()); setShowBoard(true); };
+  useEffect(() => {
+    setBoard(getLeaderboard());
+  }, [getLeaderboard]);
+
   const handleStart = () => {
     setError("");
     if (!name.trim()) { setError("กรุณาใส่ชื่อผู้เล่นก่อน"); return; }
     createProfile(name, pin || "0000");
     startGame();
   };
+
   const handleContinue = () => {
     setError("");
     if (!name.trim()) { setError("กรุณาใส่ชื่อผู้เล่น"); return; }
@@ -49,14 +52,15 @@ export default function MainMenu() {
 
   return (
     <div
-      className="fixed inset-0 flex flex-col items-center justify-center overflow-y-auto"
+      className="fixed inset-0 flex flex-col lg:flex-row items-center justify-center overflow-y-auto p-4 lg:p-10"
       style={{
         background: 'linear-gradient(180deg, #fdf5df 0%, #fdf5df 25%, #ffbbee 60%, #b4e0b4 100%)',
       }}
     >
-      <div className="w-full max-w-4xl flex flex-col items-center p-4 gap-8 py-10">
+      {/* ── ส่วนหลัก: หัวข้อเกม + ปรับเป็น 2 คอลัมน์แบบเดิม ── */}
+      <div className="w-full max-w-4xl flex flex-col items-center gap-8 py-10 lg:my-auto lg:mr-72">
 
-        {/* ชื่อเกม (กึ่งกลาง ด้านบนสุด) */}
+        {/* ชื่อเกม */}
         <div className="text-center w-full max-w-2xl bg-[#fdf5df] border-4 border-[#f8a820] outline outline-4 outline-[#a31c5d] -outline-offset-8 p-4 shadow-[8px_8px_0_rgba(0,0,0,0.15)] relative">
           <div className="absolute -top-4 left-1/2 -translate-x-1/2">
             <span className="font-pixel text-4xl" style={{ color: '#f8a820', textShadow: '2px 2px 0px #a31c5d' }}>★</span>
@@ -76,10 +80,10 @@ export default function MainMenu() {
           </h1>
         </div>
 
-        {/* แบ่ง 2 ฝั่ง: ซ้าย (เลือกความยาก) / ขวา (ข้อมูลผู้เล่น + เริ่มเกม) */}
+        {/* แบ่ง 2 คอลัมน์: เลือกระดับความยาก (ซ้าย) / ข้อมูลผู้เล่นและเริ่มเกม (ขวา) */}
         <div className="flex flex-col md:flex-row w-full gap-8 md:gap-12 items-start mt-2">
-          
-          {/* ── ซ้าย: เลือกระดับ ── */}
+
+          {/* ซ้าย: เลือกระดับ */}
           <div className="flex-1 w-full flex flex-col gap-4">
             <div className="flex items-center gap-4 w-full">
               <div className="h-1 flex-1 bg-[#a31c5d]"></div>
@@ -106,7 +110,7 @@ export default function MainMenu() {
                       </span>
                     </div>
                     <div className="h-[2px] bg-current mb-2 opacity-30"></div>
-                    
+
                     <div className="grid grid-cols-3 gap-2 font-pixel text-[10px] leading-none text-center">
                       <div className="flex flex-col gap-1 items-center">
                         <span className="opacity-80">❤ HP</span>
@@ -127,7 +131,7 @@ export default function MainMenu() {
             </div>
           </div>
 
-          {/* ── ขวา: ข้อมูลผู้เล่น + ปุ่มเริ่ม ── */}
+          {/* ขวา: ข้อมูลผู้เล่น + เริ่มเกม */}
           <div className="flex-1 w-full flex flex-col gap-4">
             <div className="flex items-center gap-4 w-full">
               <div className="h-1 flex-1 bg-[#a31c5d]"></div>
@@ -141,11 +145,10 @@ export default function MainMenu() {
                   <button
                     key={m}
                     onClick={() => { setMode(m); setError(""); }}
-                    className={`flex-1 font-pixel text-xs py-3 border-4 outline outline-4 -outline-offset-8 transition-colors ${
-                      mode === m
-                        ? 'bg-[#a31c5d] border-[#ff66aa] outline-[#5a0b30] text-white'
-                        : 'bg-[#e8e8e8] border-[#cccccc] outline-[#888888] text-[#666666]'
-                    }`}
+                    className={`flex-1 font-pixel text-xs py-3 border-4 outline outline-4 -outline-offset-8 transition-colors ${mode === m
+                      ? 'bg-[#a31c5d] border-[#ff66aa] outline-[#5a0b30] text-white'
+                      : 'bg-[#e8e8e8] border-[#cccccc] outline-[#888888] text-[#666666]'
+                      }`}
                   >
                     {m === 'new' ? 'ผู้เล่นใหม่' : 'เล่นต่อ'}
                   </button>
@@ -172,12 +175,6 @@ export default function MainMenu() {
                 </p>
               )}
             </div>
-            
-            <div className="flex justify-center -mt-2">
-              <button onClick={openBoard} className="py-2 font-pixel text-xs text-[#a31c5d] underline hover:text-[#ff66aa] bg-transparent border-none cursor-pointer">
-                ★ ดูตารางคะแนนสูงสุด ★
-              </button>
-            </div>
 
             <div className="mt-auto pt-2">
               <button onClick={mode === "continue" ? handleContinue : handleStart} className="rpg-btn w-full py-6 text-xl shadow-[6px_6px_0_rgba(0,0,0,0.15)]">
@@ -190,46 +187,40 @@ export default function MainMenu() {
 
       </div>
 
-      {/* Leaderboard Popup */}
-      {showBoard && (
-        <div
-          className="fixed inset-0 z-[200] flex items-center justify-center p-4 bg-black/50"
-          onClick={() => setShowBoard(false)}
-        >
-          <div
-            className="rpg-panel max-w-md w-full max-h-[80vh] overflow-y-auto"
-            onClick={(e) => e.stopPropagation()}
-          >
-            <div className="flex items-center justify-between mb-4">
-              <h2 className="font-pixel text-lg text-[#a31c5d]">ตารางคะแนน</h2>
-              <button onClick={() => setShowBoard(false)} className="font-pixel text-xl text-red-600">✕</button>
-            </div>
-
-            {board.length === 0 ? (
-              <p className="font-pixel text-xs text-center py-6 text-gray-500">
-                ยังไม่มีข้อมูล
-              </p>
-            ) : (
-              <ol className="space-y-2">
-                {board.map((e, i) => (
-                  <li
-                    key={`${e.name}-${e.difficulty}-${i}`}
-                    className="flex justify-between items-center p-2 bg-white border-2 border-[#a31c5d]"
-                  >
-                    <span className="font-pixel text-xs flex gap-2">
-                      <span className="font-bold text-[#f8a820] w-6">{i + 1}.</span>
-                      <span className="text-[#a31c5d]">{e.name}</span>
-                    </span>
-                    <span className="font-pixel text-xs text-[#a31c5d]">
-                      {e.score.toLocaleString()} <span className="text-[8px] text-[#ff66aa]">({e.difficulty.substring(0,1)})</span>
-                    </span>
-                  </li>
-                ))}
-              </ol>
-            )}
-          </div>
+      {/* ── ขวาสุดของจอ: ตารางคะแนนสูงสุด (แนวยาวจากบนลงล่าง) ── */}
+      <div className="hidden lg:flex fixed right-0 top-0 h-full w-72 z-50 flex-col bg-[#fdf5df]/80 backdrop-blur-sm border-l-4 border-[#f8a820] shadow-[-4px_0_12px_rgba(0,0,0,0.1)]">
+        {/* หัวข้อ */}
+        <div className="flex items-center gap-3 px-4 py-4 border-b-2 border-[#f8a820] bg-[#fdf5df]">
+          <span className="font-pixel text-sm font-bold" style={{ color: '#a31c5d' }}>🏆 ตารางคะแนนสูงสุด</span>
         </div>
-      )}
+
+        {/* รายการคะแนน */}
+        <div className="flex-1 overflow-y-auto px-3 py-3">
+          {board.length === 0 ? (
+            <p className="font-pixel text-xs text-center py-6 text-gray-500">
+              ยังไม่มีข้อมูลคะแนน
+            </p>
+          ) : (
+            <ol className="space-y-2">
+              {board.slice(0, 20).map((e, i) => (
+                <li
+                  key={`${e.name}-${e.difficulty}-${i}`}
+                  className="flex justify-between items-center p-2 bg-white/80 border-2 border-[#a31c5d] rounded"
+                >
+                  <span className="font-pixel text-xs flex gap-2">
+                    <span className="font-bold text-[#f8a820] w-6">{i + 1}.</span>
+                    <span className="text-[#a31c5d] truncate max-w-[100px]">{e.name}</span>
+                  </span>
+                  <span className="font-pixel text-xs text-[#a31c5d]">
+                    {e.score.toLocaleString()} <span className="text-[8px] text-[#ff66aa]">({e.difficulty.substring(0, 1)})</span>
+                  </span>
+                </li>
+              ))}
+            </ol>
+          )}
+        </div>
+      </div>
+
     </div>
   );
 }

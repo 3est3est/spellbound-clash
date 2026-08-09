@@ -1,4 +1,4 @@
-import { useEffect, useRef } from "react";
+import { useEffect, useRef, useState } from "react";
 import { useGameStore } from "../../store/useGameStore";
 import { TILE, SCALE, MAP_COLS, MAP_ROWS, T, type Dir } from "../../game/constants";
 import { MAP } from "../../game/tilemap";
@@ -12,6 +12,9 @@ import {
   drawBattleBackground,
   drawMagicCircle,
   drawSpellEffect,
+  drawGachaMachine,
+  drawPet,
+  drawShopNPC,
 } from "../../game/rendering";
 
 const SPEED = 4.5; // tiles per second
@@ -41,6 +44,7 @@ export default function GameCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const keys = useRef<Record<string, boolean>>({});
   const player = useRef({ tx: 3, ty: 4, dir: "down" as Dir, anim: 0, moving: false });
+  const playerHistory = useRef<{ tx: number; ty: number; dir: Dir }[]>([]);
   const cam = useRef({ x: 0, y: 0 });
   const enemiesRef = useRef<EnemyView[]>([]);
   const lungeRef = useRef(0);
@@ -48,6 +52,11 @@ export default function GameCanvas() {
   // Zone fog reveal: tracks alpha (0=fully revealed, 1=black) per zone unlock sequence
   const zoneRevealRef = useRef<Map<number, number>>(new Map());
   const lastZoneRef = useRef<number>(1);
+  const [isNearGacha, setIsNearGacha] = useState(false);
+  const isNearGachaRef = useRef(false);
+  const [isNearShop, setIsNearShop] = useState(false);
+  const isNearShopRef = useRef(false);
+  const respawnTickTimer = useRef(0);
 
   const gameState = useGameStore((s) => s.gameState);
   const enemies = useGameStore((s) => s.enemies);
@@ -67,6 +76,7 @@ export default function GameCanvas() {
       const pos = useGameStore.getState().playerPos;
       player.current.tx = pos.tx;
       player.current.ty = pos.ty;
+      playerHistory.current = [];
     }
   }, [gameState]);
 
@@ -130,7 +140,22 @@ export default function GameCanvas() {
   }, [battleResult]);
 
   useEffect(() => {
-    const onDown = (e: KeyboardEvent) => (keys.current[e.code] = true);
+    const onDown = (e: KeyboardEvent) => {
+      keys.current[e.code] = true;
+      if (e.code === "KeyE" || e.code === "Space") {
+        const sp = player.current;
+        const dist = Math.hypot(sp.tx - 36, sp.ty - 12);
+        if (dist < 1.6 && useGameStore.getState().gameState === "EXPLORE") {
+          useGameStore.getState().setGachaOpen(true);
+          return;
+        }
+        const distShop = Math.hypot(sp.tx - 43, sp.ty - 12);
+        if (distShop < 1.6 && useGameStore.getState().gameState === "EXPLORE") {
+          useGameStore.getState().setShopOpen(true);
+          return;
+        }
+      }
+    };
     const onUp = (e: KeyboardEvent) => (keys.current[e.code] = false);
     window.addEventListener("keydown", onDown);
     window.addEventListener("keyup", onUp);
@@ -181,6 +206,26 @@ export default function GameCanvas() {
       const currentUnlocked = useGameStore.getState().unlockedZones;
 
       if (gameState === "EXPLORE") {
+        respawnTickTimer.current += dt;
+        if (respawnTickTimer.current >= 1.0) {
+          respawnTickTimer.current = 0;
+          useGameStore.getState().tickRespawns();
+        }
+
+        const dist = Math.hypot(p.tx - 36, p.ty - 12);
+        const near = dist < 1.6;
+        if (near !== isNearGachaRef.current) {
+          isNearGachaRef.current = near;
+          setIsNearGacha(near);
+        }
+
+        const distShop = Math.hypot(p.tx - 43, p.ty - 12);
+        const nearShop = distShop < 1.6;
+        if (nearShop !== isNearShopRef.current) {
+          isNearShopRef.current = nearShop;
+          setIsNearShop(nearShop);
+        }
+
         let dx = 0;
         let dy = 0;
         if (keys.current["KeyW"] || keys.current["ArrowUp"]) dy -= 1;
@@ -194,7 +239,9 @@ export default function GameCanvas() {
           else if (dy > 0) p.dir = "down";
           else if (dy < 0) p.dir = "up";
 
-          const step = SPEED * dt;
+          const hasShoes = useGameStore.getState().equippedShoes === "shoes";
+          const currentSpeed = SPEED * (hasShoes ? 1.35 : 1.0);
+          const step = currentSpeed * dt;
           const tryX = p.tx + dx * step;
           const tryY = p.ty + dy * step;
           const tileX = Math.floor(tryX + 0.5);
@@ -206,6 +253,11 @@ export default function GameCanvas() {
 
           p.moving = true;
           p.anim += dt * 8;
+
+          playerHistory.current.push({ tx: p.tx, ty: p.ty, dir: p.dir });
+          if (playerHistory.current.length > 50) {
+            playerHistory.current.shift();
+          }
         }
 
         const eStep = SPEED * 0.28 * dt;
@@ -273,7 +325,7 @@ export default function GameCanvas() {
           const ddx = p.tx - e.tx;
           const ddy = p.ty - e.ty;
           if (ddx * ddx + ddy * ddy < 0.8) {
-            enterBattleTransition(e.id);
+            enterBattleTransition(e.id, { tx: p.tx, ty: p.ty });
             break;
           }
         }
@@ -319,6 +371,12 @@ export default function GameCanvas() {
                 ? 0
                 : MAP[row][col];
             drawForestTile(ctx, code, col, row, col * TILE * SCALE - camX, row * TILE * SCALE - camY, now, currentUnlocked);
+            if (col === 36 && row === 12) {
+              drawGachaMachine(ctx, col * TILE * SCALE - camX, row * TILE * SCALE - camY, TILE * SCALE, now);
+            }
+            if (col === 43 && row === 12) {
+              drawShopNPC(ctx, col * TILE * SCALE - camX, row * TILE * SCALE - camY, TILE * SCALE, now);
+            }
           }
         }
 
@@ -339,10 +397,10 @@ export default function GameCanvas() {
         for (const { zone, revealAlpha } of fogZones) {
           // Determine screen rect of this zone
           let zx1: number, zy1: number, zx2: number, zy2: number;
-          if (zone === 1)      { zx1 = 2;  zy1 = 2;  zx2 = 24; zy2 = 20; }
-          else if (zone === 2) { zx1 = 31; zy1 = 2;  zx2 = 53; zy2 = 20; }
+          if (zone === 1) { zx1 = 2; zy1 = 2; zx2 = 24; zy2 = 20; }
+          else if (zone === 2) { zx1 = 31; zy1 = 2; zx2 = 53; zy2 = 20; }
           else if (zone === 3) { zx1 = 31; zy1 = 27; zx2 = 53; zy2 = 45; }
-          else                 { zx1 = 2;  zy1 = 27; zx2 = 24; zy2 = 45; }
+          else { zx1 = 2; zy1 = 27; zx2 = 24; zy2 = 45; }
           const sx = zx1 * TILE * SCALE - camX;
           const sy = zy1 * TILE * SCALE - camY;
           const sw = (zx2 - zx1) * TILE * SCALE;
@@ -353,9 +411,34 @@ export default function GameCanvas() {
         }
       }
 
-      type Drawable = { ty: number; tx: number; fx: number; fy: number; kind: "hero" | "enemy"; id?: string };
+      type Drawable = {
+        ty: number;
+        tx: number;
+        fx: number;
+        fy: number;
+        kind: "hero" | "enemy" | "pet";
+        id?: string;
+        petKind?: 'dog' | 'cat' | 'pig';
+        petDir?: Dir;
+      };
       const list: Drawable[] = [];
       list.push({ ty: p.ty, tx: p.tx, fx: p.tx, fy: p.ty, kind: "hero" });
+
+      const equippedPet = useGameStore.getState().equippedPet;
+      if (equippedPet && gameState === "EXPLORE") {
+        const petIdx = Math.max(0, playerHistory.current.length - 15);
+        const petPos = playerHistory.current[petIdx] || { tx: p.tx, ty: p.ty, dir: p.dir };
+        list.push({
+          ty: petPos.ty,
+          tx: petPos.tx,
+          fx: petPos.tx,
+          fy: petPos.ty,
+          kind: "pet",
+          petKind: equippedPet as 'dog' | 'cat' | 'pig',
+          petDir: petPos.dir
+        });
+      }
+
       for (const e of enemiesRef.current) {
         if (e.defeated) continue;
         const eZone = e.tx < 28 ? (e.ty < 24 ? 1 : 4) : e.ty < 24 ? 2 : 3;
@@ -412,6 +495,8 @@ export default function GameCanvas() {
             const offX = p.dir === "left" ? lungeRef.current * -18 * SCALE : p.dir === "right" ? lungeRef.current * 18 * SCALE : 0;
             drawHero(ctx, sx + offX, sy, p.dir, frame, p.moving && !inBattle);
             if (playerName) drawNameTag(ctx, sx + offX + (TILE * SCALE) / 2, sy - 4, playerName);
+          } else if (d.kind === "pet") {
+            drawPet(ctx, sx, sy, d.petKind!, frame, d.petDir!);
           } else {
             const isCurrent = currentEnemy && d.id === currentEnemy.id;
             if (isCurrent) {
@@ -462,12 +547,32 @@ export default function GameCanvas() {
           </div>
         </div>
       )}
+
+      {/* Gacha Machine Proximity Interaction Alert */}
+      {isNearGacha && gameState === "EXPLORE" && (
+        <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-bounce">
+          <div className="bg-[#1e1b18] border-2 border-[#ffd700] px-4 py-2 text-center text-xs text-[#ffd700] font-pixel shadow-md pointer-events-auto">
+            🪙 ใกล้ตู้สุ่มสัตว์เลี้ยง! กด <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">Space</span> หรือ <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">E</span> เพื่อเปิดตู้นี้
+          </div>
+        </div>
+      )}
+
+      {/* Shop Proximity Interaction Alert */}
+      {isNearShop && gameState === "EXPLORE" && (
+        <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-bounce">
+          <div className="bg-[#1e1b18] border-2 border-[#ff9900] px-4 py-2 text-center text-xs text-[#ff9900] font-pixel shadow-md pointer-events-auto">
+            🛒 ใกล้ร้านค้าอุปกรณ์! กด <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">Space</span> หรือ <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">E</span> เพื่อเปิดร้านค้า
+          </div>
+        </div>
+      )}
     </div>
   );
 }
 
 function canWalk(tx: number, ty: number, unlockedZones: number[] = [1]): boolean {
   if (ty < 0 || ty >= MAP_ROWS || tx < 0 || tx >= MAP_COLS) return false;
+  if (tx === 36 && ty === 12) return false; // Gacha machine collision
+  if (tx === 43 && ty === 12) return false;   // Shop NPC collision
   const code = MAP[ty][tx];
   if (code === T.TREE || code === T.ROCK || code === T.WATER) return false;
   if (code === T.GATE_1_2) return unlockedZones.includes(2);

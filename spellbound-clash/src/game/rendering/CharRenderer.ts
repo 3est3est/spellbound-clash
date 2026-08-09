@@ -181,8 +181,8 @@ export function drawHero(
     usePose === 'attack'
       ? SPRITE_MAP.hero.attack(dir, frame)
       : usePose === 'walk'
-      ? SPRITE_MAP.hero.walk(dir, frame)
-      : SPRITE_MAP.hero.idle(dir);
+        ? SPRITE_MAP.hero.walk(dir, frame)
+        : SPRITE_MAP.hero.idle(dir);
   const flip = dir === 'left';
   if (!drawSpriteFrame(ctx, ref, screenX, screenY, scaleBoost, flip)) {
     if (scaleBoost === 1) drawProceduralHero(ctx, screenX, screenY, dir, frame, moving);
@@ -204,8 +204,8 @@ export function drawEnemy(
     pose === 'attack'
       ? SPRITE_MAP.enemy.attack(frame)
       : pose === 'walk'
-      ? SPRITE_MAP.enemy.walk(frame)
-      : SPRITE_MAP.enemy.idle();
+        ? SPRITE_MAP.enemy.walk(frame)
+        : SPRITE_MAP.enemy.idle();
   if (!drawSpriteFrame(ctx, ref, screenX, screenY, scaleBoost, flip)) {
     if (scaleBoost === 1) drawProceduralEnemy(ctx, screenX, screenY, frame, hit);
     else drawProceduralEnemyScaled(ctx, screenX, screenY, frame, hit, scaleBoost);
@@ -228,6 +228,103 @@ export function drawNameTag(ctx: CanvasRenderingContext2D, cx: number, boxBottom
 
   ctx.fillStyle = '#ff66aa';
   ctx.fillText(name, cx, y);
+
+  ctx.restore();
+}
+
+export function drawPet(
+  ctx: CanvasRenderingContext2D,
+  screenX: number,
+  screenY: number,
+  kind: 'dog' | 'cat' | 'pig',
+  frame: number,
+  dir: Dir
+) {
+  const s = SCALE;
+  const bob = (frame % 2 === 0 ? 0 : -0.7) * s;
+  const x = Math.round(screenX);
+  const y = Math.round(screenY + bob);
+  const flip = dir === 'left' || dir === 'up';
+
+  // Draw shadow
+  ctx.fillStyle = COLORS.shadow;
+  ctx.beginPath();
+  ctx.ellipse(x + 8 * s, y + 14 * s, 4 * s, 2 * s, 0, 0, Math.PI * 2);
+  ctx.fill();
+
+  ctx.save();
+  if (flip) {
+    ctx.translate(x + 8 * s, 0);
+    ctx.scale(-1, 1);
+    ctx.translate(-(x + 8 * s), 0);
+  }
+
+  if (kind === 'dog') {
+    // Dog: Golden yellow/brown body
+    ctx.fillStyle = '#d97706';
+    ctx.fillRect(x + 5 * s, y + 8 * s, 7 * s, 5 * s);
+    ctx.fillStyle = '#b45309';
+    ctx.fillRect(x + 4 * s, y + 9 * s, 1 * s, 4 * s);
+    ctx.fillRect(x + 5 * s, y + 12 * s, 1 * s, 2 * s);
+    ctx.fillRect(x + 10 * s, y + 12 * s, 1 * s, 2 * s);
+
+    // Head
+    ctx.fillStyle = '#f59e0b';
+    ctx.fillRect(x + 8 * s, y + 5 * s, 5 * s, 4 * s);
+    // Ears
+    ctx.fillStyle = '#78350f';
+    ctx.fillRect(x + 9 * s, y + 4 * s, 2 * s, 2 * s);
+    // Eye
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(x + 12 * s, y + 6 * s, 1 * s, 1 * s);
+    // Snout
+    ctx.fillStyle = '#f59e0b';
+    ctx.fillRect(x + 13 * s, y + 7 * s, 1 * s, 1 * s);
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(x + 14 * s, y + 7 * s, 0.6 * s, 0.6 * s);
+
+  } else if (kind === 'cat') {
+    // Cat: Orange tabby/white
+    ctx.fillStyle = '#ea580c';
+    ctx.fillRect(x + 6 * s, y + 9 * s, 6 * s, 4 * s);
+    ctx.fillStyle = '#f97316';
+    ctx.fillRect(x + 8 * s, y + 6 * s, 4 * s, 4 * s);
+    // Tail
+    ctx.fillStyle = '#ea580c';
+    ctx.fillRect(x + 4 * s, y + 7 * s, 2 * s, 2 * s);
+    ctx.fillRect(x + 4 * s, y + 6 * s, 1 * s, 1 * s);
+    // Legs
+    ctx.fillStyle = '#c2410c';
+    ctx.fillRect(x + 7 * s, y + 12 * s, 1 * s, 2 * s);
+    ctx.fillRect(x + 10 * s, y + 12 * s, 1 * s, 2 * s);
+    // Ears
+    ctx.fillStyle = '#ea580c';
+    ctx.fillRect(x + 8 * s, y + 5 * s, 1 * s, 1 * s);
+    ctx.fillRect(x + 11 * s, y + 5 * s, 1 * s, 1 * s);
+    // Eye
+    ctx.fillStyle = '#22c55e';
+    ctx.fillRect(x + 11 * s, y + 7 * s, 1 * s, 1 * s);
+
+  } else if (kind === 'pig') {
+    // Pig: Cute pink
+    ctx.fillStyle = '#ec4899';
+    ctx.fillRect(x + 5 * s, y + 8 * s, 7 * s, 5 * s);
+    ctx.fillStyle = '#db2777';
+    ctx.fillRect(x + 5 * s, y + 12 * s, 1 * s, 2 * s);
+    ctx.fillRect(x + 10 * s, y + 12 * s, 1 * s, 2 * s);
+    // Head
+    ctx.fillStyle = '#f472b6';
+    ctx.fillRect(x + 9 * s, y + 6 * s, 4 * s, 4 * s);
+    // Snout
+    ctx.fillStyle = '#f43f5e';
+    ctx.fillRect(x + 12 * s, y + 8 * s, 2 * s, 1.5 * s);
+    // Eyes
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(x + 11 * s, y + 7 * s, 1 * s, 1 * s);
+    // Tail
+    ctx.fillStyle = '#ec4899';
+    ctx.fillRect(x + 4 * s, y + 9 * s, 1 * s, 1 * s);
+  }
 
   ctx.restore();
 }

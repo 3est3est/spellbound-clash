@@ -276,6 +276,19 @@ function buildMap(): TileCode[][] {
     for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) safeSet.add(`${ex + dx},${ey + dy}`);
   }
 
+  // Gate entrances — tiles just outside each corridor mouth must stay clear
+  const gateClear: [number, number, number, number][] = [
+    [22, 9, 23, 11],   // Gate 1↔2, Zone 1 side
+    [32, 9, 33, 11],   // Gate 1↔2, Zone 2 side
+    [41, 18, 43, 19],  // Gate 2↔3, Zone 2 side
+    [41, 28, 43, 29],  // Gate 2↔3, Zone 3 side
+    [32, 35, 33, 37],  // Gate 3↔4, Zone 3 side
+    [22, 35, 23, 37],  // Gate 3↔4, Zone 4 side
+  ];
+  for (const [gx1, gy1, gx2, gy2] of gateClear) {
+    for (let y = gy1; y <= gy2; y++) for (let x = gx1; x <= gx2; x++) safeSet.add(`${x},${y}`);
+  }
+
   const isSafe = (x: number, y: number) => safeSet.has(`${x},${y}`);
 
   // Zone 1: x 3..23, y 3..19 — dense scatter so the map feels alive

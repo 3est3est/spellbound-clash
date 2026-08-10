@@ -143,6 +143,134 @@
         "technical_checks_passed": false,
         "approved_by": ""
       }
+    },
+    {
+      "id": "battle_bg_z1",
+      "role": "battle background — emerald forest zone (z1)",
+      "path": "public/assets/gen/zones/z1-battle-bg.png",
+      "status": "pending_review",
+      "technical": {
+        "dimensions": "1280x768",
+        "alpha": false,
+        "anchor": "fullscreen cover-crop",
+        "frames": 1,
+        "filtering": "nearest"
+      },
+      "visual_locks": [
+        "green forest clearing",
+        "chunky pixel art, flat cel shading",
+        "no characters / no text / no watermark"
+      ],
+      "source": {
+        "kind": "generated",
+        "url_or_tool": "QwenCloud qwen-image-2.0-pro via scripts/gen-sprite-qwen.mjs",
+        "creator": "AI (Qwen-Image)",
+        "created_at": "",
+        "license": "user API key, generated per project",
+        "attribution": ""
+      },
+      "verification": {
+        "native_scale_reviewed": false,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": false,
+        "approved_by": ""
+      }
+    },
+    {
+      "id": "battle_bg_z2",
+      "role": "battle background — arid barren plains zone (z2)",
+      "path": "public/assets/gen/zones/z2-battle-bg.png",
+      "status": "pending_review",
+      "technical": {
+        "dimensions": "1280x768",
+        "alpha": false,
+        "anchor": "fullscreen cover-crop",
+        "frames": 1,
+        "filtering": "nearest"
+      },
+      "visual_locks": [
+        "dry cracked earth + pale sky",
+        "chunky pixel art, flat cel shading",
+        "no characters / no text / no watermark"
+      ],
+      "source": {
+        "kind": "generated",
+        "url_or_tool": "QwenCloud qwen-image-2.0-pro via scripts/gen-sprite-qwen.mjs",
+        "creator": "AI (Qwen-Image)",
+        "created_at": "",
+        "license": "user API key, generated per project",
+        "attribution": ""
+      },
+      "verification": {
+        "native_scale_reviewed": false,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": false,
+        "approved_by": ""
+      }
+    },
+    {
+      "id": "battle_bg_z3",
+      "role": "battle background — frozen snow zone (z3)",
+      "path": "public/assets/gen/zones/z3-battle-bg.png",
+      "status": "pending_review",
+      "technical": {
+        "dimensions": "1280x768",
+        "alpha": false,
+        "anchor": "fullscreen cover-crop",
+        "frames": 1,
+        "filtering": "nearest"
+      },
+      "visual_locks": [
+        "snow + ice + frosty pines",
+        "chunky pixel art, flat cel shading",
+        "no characters / no text / no watermark"
+      ],
+      "source": {
+        "kind": "generated",
+        "url_or_tool": "QwenCloud qwen-image-2.0-pro via scripts/gen-sprite-qwen.mjs",
+        "creator": "AI (Qwen-Image)",
+        "created_at": "",
+        "license": "user API key, generated per project",
+        "attribution": ""
+      },
+      "verification": {
+        "native_scale_reviewed": false,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": false,
+        "approved_by": ""
+      }
+    },
+    {
+      "id": "battle_bg_z4",
+      "role": "battle background — volcanic hell zone (z4)",
+      "path": "public/assets/gen/zones/z4-battle-bg.png",
+      "status": "pending_review",
+      "technical": {
+        "dimensions": "1280x768",
+        "alpha": false,
+        "anchor": "fullscreen cover-crop",
+        "frames": 1,
+        "filtering": "nearest"
+      },
+      "visual_locks": [
+        "dark rocks + lava pools + embers",
+        "chunky pixel art, flat cel shading",
+        "no characters / no text / no watermark"
+      ],
+      "source": {
+        "kind": "generated",
+        "url_or_tool": "QwenCloud qwen-image-2.0-pro via scripts/gen-sprite-qwen.mjs",
+        "creator": "AI (Qwen-Image)",
+        "created_at": "",
+        "license": "user API key, generated per project",
+        "attribution": ""
+      },
+      "verification": {
+        "native_scale_reviewed": false,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": false,
+        "approved_by": ""
+      }
     }
   ]
 }

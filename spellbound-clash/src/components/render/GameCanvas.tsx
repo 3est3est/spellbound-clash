@@ -2,7 +2,6 @@ import { useEffect, useRef, useState } from "react";
 import { useGameStore, GATE_UNLOCK_PRICES } from "../../store/useGameStore";
 import { TILE, SCALE, MAP_COLS, MAP_ROWS, T, type Dir } from "../../game/constants";
 import { MAP } from "../../game/tilemap";
-import { pickRandomNatureBg, setNatureBg } from "../../game/assets";
 import { ZONE_ENEMY_KEY, type EnemyKey } from "../../game/sprites/enemySprites";
 import {
   prepareCtx,
@@ -11,7 +10,6 @@ import {
   drawEnemy,
   drawNameTag,
   drawBattleBackground,
-  drawMagicCircle,
   drawSpellEffect,
   drawGachaMachine,
   drawPet,
@@ -97,11 +95,6 @@ export default function GameCanvas() {
     }
     fogSeenUnlockedRef.current = unlockedZonesStore;
   }, [unlockedZonesStore]);
-
-  useEffect(() => {
-    const idx = pickRandomNatureBg();
-    setNatureBg(idx);
-  }, []);
 
   useEffect(() => {
     if (gameState === "EXPLORE") {
@@ -407,7 +400,7 @@ export default function GameCanvas() {
       }
 
       if (inBattle) {
-        drawBattleBackground(ctx, vw, vh, now);
+        drawBattleBackground(ctx, vw, vh, now, currentEnemy?.zone ?? 1);
       } else {
         const startCol = Math.floor(camX / (TILE * SCALE));
         const startRow = Math.floor(camY / (TILE * SCALE));
@@ -516,11 +509,6 @@ export default function GameCanvas() {
         enemySX = enemyX;
         enemySY = topY;
         hasEnemy = true;
-
-        const hcx = heroX + (TILE * SCALE * battleScale) / 2;
-        const ecx = enemyX + (TILE * SCALE * battleScale) / 2;
-        drawMagicCircle(ctx, hcx, groundY, TILE * SCALE * battleScale * 0.62, "#7c3aed", now / 600);
-        drawMagicCircle(ctx, ecx, groundY, TILE * SCALE * battleScale * 0.62, "#ef4444", now / 600 + 1.7);
 
         const casting = spellRef.current.active;
         const fromHero = spellRef.current.from === "hero";

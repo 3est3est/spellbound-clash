@@ -2,7 +2,7 @@ import { useGameStore } from '../../store/useGameStore';
 import PixelHeart from './PixelHeart';
 
 export default function HUD() {
-  const { playerHP, maxPlayerHP, difficulty, coins, score } = useGameStore();
+  const { playerHP, maxPlayerHP, difficulty, coins, score, unlockedZones } = useGameStore();
 
   const diffLabel = { EASY: 'ง่าย', MEDIUM: 'กลาง', HARDCORE: 'ยาก' }[difficulty];
   const diffColor = { EASY: '#60d860', MEDIUM: '#f5c842', HARDCORE: '#ff6050' }[difficulty];
@@ -65,13 +65,15 @@ export default function HUD() {
               <span className="text-sm">🎒</span>
               <span className="font-pixel text-[9px] font-bold text-[#ffd700]">กระเป๋าเป้</span>
             </button>
-            <button
-              onClick={() => useGameStore.getState().setShopOpen(true)}
-              className="pointer-events-auto flex items-center gap-2 bg-[#1e1b18] hover:bg-[#322d28] border-2 border-[#ff9900] px-3 py-1 cursor-pointer transition-all hover:scale-105 active:scale-95 shadow-[2px_2px_0_rgba(0,0,0,0.3)]"
-            >
-              <span className="text-sm">🛒</span>
-              <span className="font-pixel text-[9px] font-bold text-[#ff9900]">ร้านค้า</span>
-            </button>
+            {unlockedZones.includes(2) && (
+              <button
+                onClick={() => useGameStore.getState().setShopOpen(true)}
+                className="pointer-events-auto flex items-center gap-2 bg-[#1e1b18] hover:bg-[#322d28] border-2 border-[#ff9900] px-3 py-1 cursor-pointer transition-all hover:scale-105 active:scale-95 shadow-[2px_2px_0_rgba(0,0,0,0.3)]"
+              >
+                <span className="text-sm">🛒</span>
+                <span className="font-pixel text-[9px] font-bold text-[#ff9900]">ร้านค้า</span>
+              </button>
+            )}
           </div>
         </div>
 

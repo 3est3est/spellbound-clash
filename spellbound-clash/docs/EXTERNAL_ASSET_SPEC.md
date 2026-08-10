@@ -164,7 +164,7 @@ art, flat cel shading, NO anti-aliasing, palette per zone, no text no watermark
 |---|---|---|---|
 | `z5-cave-48.png` | 48×48 | ประตูถ้ำ (โหลดใน `tileAssets.ts` ยังไม่ได้เรนเดอร์) | ❌ ยังไม่มี |
 | `z6-barrier-96.png` | **96×96** | แผงกั้นเวทระหว่างโซน (ดึงขนาด 2 tiles = 96) | ✅ มี (`z6-barrier-48` ก็มี) |
-| `natureBgs` (battle bg) | ฟรี ~16:9 | พื้นหลัง battle ต่อโซน (ตอนนี้ fallback procedural) | ❌ ว่าง |
+| `natureBgs` (battle bg) | 1280×768 ต่อโซน | พื้นหลัง battle ต่อโซน (`z1` ป่าเขียว, `z2` ที่ราบแห้งแล้ง, `z3` หิมะ, `z4` ลาวา) ผ่าน `getNatureBg(zone)` | ✅ มี (`z1..z4-battle-bg.png`) |
 
 ---
 

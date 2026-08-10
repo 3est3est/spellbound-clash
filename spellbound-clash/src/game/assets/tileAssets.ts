@@ -48,18 +48,10 @@ export const forestUndergrowth = zone1Bushes;
 
 export const waterSparkles = loadAsset('');
 
-export const natureBgs = loadAssets([]);
+export const natureBgs = loadAssets([z('z1-battle-bg'), z('z2-battle-bg'), z('z3-battle-bg'), z('z4-battle-bg')]);
 
-let currentNatureBg = -1;
-
-export function setNatureBg(index: number) {
-  currentNatureBg = index;
-}
-
-export function getNatureBg(): number {
-  return currentNatureBg;
-}
-
-export function pickRandomNatureBg(): number {
-  return Math.floor(Math.random() * natureBgs.length);
+export function getNatureBg(zone: number): number {
+  const idx = zone - 1;
+  if (idx >= 0 && idx < natureBgs.length) return idx;
+  return -1;
 }

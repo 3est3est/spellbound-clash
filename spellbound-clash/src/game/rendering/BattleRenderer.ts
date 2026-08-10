@@ -5,13 +5,19 @@ export function drawBattleBackground(
   ctx: CanvasRenderingContext2D,
   vw: number,
   vh: number,
-  now: number
+  now: number,
+  zone: number
 ) {
-  const bgIndex = getNatureBg();
+  const bgIndex = getNatureBg(zone);
   if (bgIndex >= 0 && bgIndex < natureBgs.length) {
     const img = natureBgs[bgIndex];
     if (img.complete && img.naturalWidth > 0) {
-      ctx.drawImage(img, 0, 0, vw, vh);
+      const iw = img.naturalWidth;
+      const ih = img.naturalHeight;
+      const scale = Math.max(vw / iw, vh / ih);
+      const dw = iw * scale;
+      const dh = ih * scale;
+      ctx.drawImage(img, (vw - dw) / 2, (vh - dh) / 2, dw, dh);
       const vig = ctx.createRadialGradient(vw / 2, vh * 0.5, vh * 0.3, vw / 2, vh * 0.5, vh * 0.8);
       vig.addColorStop(0, 'rgba(0,0,0,0)');
       vig.addColorStop(1, 'rgba(0,0,0,0.35)');
@@ -57,42 +63,4 @@ export function drawBattleBackground(
   ground.addColorStop(1, '#140e2c');
   ctx.fillStyle = ground;
   ctx.fillRect(0, vh * 0.55, vw, vh * 0.45);
-}
-
-export function drawMagicCircle(
-  ctx: CanvasRenderingContext2D,
-  cx: number,
-  cy: number,
-  r: number,
-  color: string,
-  phase: number
-) {
-  ctx.save();
-  ctx.translate(cx, cy);
-  ctx.scale(1, 0.42);
-  const g = ctx.createRadialGradient(0, 0, 0, 0, 0, r);
-  g.addColorStop(0, color);
-  g.addColorStop(1, 'rgba(0,0,0,0)');
-  ctx.globalAlpha = 0.18 + 0.12 * Math.sin(phase * Math.PI * 2);
-  ctx.fillStyle = g;
-  ctx.beginPath();
-  ctx.arc(0, 0, r, 0, Math.PI * 2);
-  ctx.fill();
-  ctx.globalAlpha = 0.6 + 0.25 * Math.sin(phase * Math.PI * 2);
-  ctx.strokeStyle = color;
-  ctx.lineWidth = 3;
-  ctx.beginPath();
-  ctx.arc(0, 0, r, 0, Math.PI * 2);
-  ctx.stroke();
-  ctx.rotate(phase);
-  ctx.globalAlpha = 0.4;
-  ctx.lineWidth = 2;
-  for (let i = 0; i < 8; i++) {
-    ctx.rotate(Math.PI / 4);
-    ctx.beginPath();
-    ctx.moveTo(r * 0.72, 0);
-    ctx.lineTo(r, 0);
-    ctx.stroke();
-  }
-  ctx.restore();
 }

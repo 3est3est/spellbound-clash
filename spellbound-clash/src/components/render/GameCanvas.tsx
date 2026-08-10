@@ -1,8 +1,9 @@
 import { useEffect, useRef, useState } from "react";
-import { useGameStore } from "../../store/useGameStore";
+import { useGameStore, GATE_UNLOCK_PRICES } from "../../store/useGameStore";
 import { TILE, SCALE, MAP_COLS, MAP_ROWS, T, type Dir } from "../../game/constants";
 import { MAP } from "../../game/tilemap";
 import { pickRandomNatureBg, setNatureBg } from "../../game/assets";
+import { ZONE_ENEMY_KEY, type EnemyKey } from "../../game/sprites/enemySprites";
 import {
   prepareCtx,
   drawForestTile,
@@ -19,10 +20,18 @@ import {
 
 const SPEED = 4.5; // tiles per second
 
+// ประตูปลดล็อคด้วยเหรียญ: pos = ตำแหน่งป้ายประตู, unlockZone = โซนที่กดแล้วปลด
+const ZONE_GATES: { tx: number; ty: number; unlockZone: 2 | 3 | 4 }[] = [
+  { tx: 27, ty: 10, unlockZone: 2 },
+  { tx: 42, ty: 23, unlockZone: 3 },
+  { tx: 27, ty: 36, unlockZone: 4 },
+];
+
 interface EnemyView {
   id: string;
   tx: number;
   ty: number;
+  zone: number;
   defeated: boolean;
   name: string;
   fx: number;
@@ -41,6 +50,10 @@ function enemyToTile(pos: [number, number, number]): { tx: number; ty: number } 
   return { tx: Math.max(1, Math.min(MAP_COLS - 2, tx)), ty: Math.max(1, Math.min(MAP_ROWS - 2, ty)) };
 }
 
+export function zoneAt(tx: number, ty: number): number {
+  return tx < 28 ? (ty < 24 ? 1 : 4) : ty < 24 ? 2 : 3;
+}
+
 export default function GameCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const keys = useRef<Record<string, boolean>>({});
@@ -52,11 +65,12 @@ export default function GameCanvas() {
   const wasPausedRef = useRef(false);
   // Zone fog reveal: tracks alpha (0=fully revealed, 1=black) per zone unlock sequence
   const zoneRevealRef = useRef<Map<number, number>>(new Map());
-  const lastZoneRef = useRef<number>(1);
   const [isNearGacha, setIsNearGacha] = useState(false);
   const isNearGachaRef = useRef(false);
   const [isNearShop, setIsNearShop] = useState(false);
   const isNearShopRef = useRef(false);
+  const [nearGateZone, setNearGateZone] = useState<2 | 3 | 4 | null>(null);
+  const nearGateZoneRef = useRef<2 | 3 | 4 | null>(null);
   const respawnTickTimer = useRef(0);
 
   const gameState = useGameStore((s) => s.gameState);
@@ -66,6 +80,23 @@ export default function GameCanvas() {
   const playerName = useGameStore((s) => s.playerName);
   const zoneBanner = useGameStore((s) => s.zoneBanner);
   const clearZoneBanner = useGameStore((s) => s.clearZoneBanner);
+  const unlockedZonesStore = useGameStore((s) => s.unlockedZones);
+
+  // Seed fog: zones the player can already enter start revealed; a newly
+  // unlocked zone starts dark and fades in on first entry (avoiding the old
+  // bug where re-entering a zone re-blackened it).
+  const fogSeenUnlockedRef = useRef<number[]>([]);
+  useEffect(() => {
+    const map = zoneRevealRef.current;
+    for (const z of [1, 2, 3, 4]) {
+      const isUnlocked = unlockedZonesStore.includes(z);
+      const wasUnlocked = fogSeenUnlockedRef.current.includes(z);
+      if (isUnlocked && !wasUnlocked) {
+        map.set(z, z === 1 ? 0 : 1.0);
+      }
+    }
+    fogSeenUnlockedRef.current = unlockedZonesStore;
+  }, [unlockedZonesStore]);
 
   useEffect(() => {
     const idx = pickRandomNatureBg();
@@ -95,6 +126,7 @@ export default function GameCanvas() {
         id: e.id,
         tx,
         ty,
+        zone: zoneAt(tx, ty),
         defeated: e.defeated,
         name: e.name,
         fx: existing?.fx ?? tx,
@@ -144,16 +176,22 @@ export default function GameCanvas() {
   useEffect(() => {
     const onDown = (e: KeyboardEvent) => {
       keys.current[e.code] = true;
-      if (e.code === "KeyE" || e.code === "Space") {
+      if (e.code === "KeyE" || e.code === "Space" || e.code === "Enter") {
         const sp = player.current;
+        if (useGameStore.getState().gameState !== "EXPLORE") return;
         const dist = Math.hypot(sp.tx - 36, sp.ty - 12);
-        if (dist < 1.6 && useGameStore.getState().gameState === "EXPLORE") {
+        if (dist < 1.6) {
           useGameStore.getState().setGachaOpen(true);
           return;
         }
         const distShop = Math.hypot(sp.tx - 43, sp.ty - 12);
-        if (distShop < 1.6 && useGameStore.getState().gameState === "EXPLORE") {
+        if (distShop < 1.6) {
           useGameStore.getState().setShopOpen(true);
+          return;
+        }
+        const gateZone = nearGateZoneRef.current;
+        if (gateZone != null) {
+          useGameStore.getState().buyGateUnlock(gateZone);
           return;
         }
       }
@@ -226,6 +264,19 @@ export default function GameCanvas() {
         if (nearShop !== isNearShopRef.current) {
           isNearShopRef.current = nearShop;
           setIsNearShop(nearShop);
+        }
+
+        let nearGate: 2 | 3 | 4 | null = null;
+        for (const g of ZONE_GATES) {
+          if (currentUnlocked.includes(g.unlockZone)) continue;
+          if (Math.hypot(p.tx - g.tx, p.ty - g.ty) < 1.6) {
+            nearGate = g.unlockZone;
+            break;
+          }
+        }
+        if (nearGate !== nearGateZoneRef.current) {
+          nearGateZoneRef.current = nearGate;
+          setNearGateZone(nearGate);
         }
 
         let dx = 0;
@@ -349,14 +400,6 @@ export default function GameCanvas() {
       const camY = Math.round(cam.current.y);
 
       // Track player zone — trigger fade-in when entering a newly unlocked zone
-      const pZone = p.tx < 28 ? (p.ty < 24 ? 1 : 4) : p.ty < 24 ? 2 : 3;
-      if (pZone !== lastZoneRef.current) {
-        lastZoneRef.current = pZone;
-        // Start a fade-in for this zone if not already fully revealed
-        if (!zoneRevealRef.current.has(pZone)) {
-          zoneRevealRef.current.set(pZone, 1.0); // start dark
-        }
-      }
       // Tick zone reveal alpha toward 0 (revealed) at ~0.5/s
       for (const [z, alpha] of zoneRevealRef.current) {
         const next = Math.max(0, alpha - dt * 0.5);
@@ -457,13 +500,17 @@ export default function GameCanvas() {
       let enemySX = 0;
       let enemySY = 0;
       let hasEnemy = false;
+      let battleScale = 1;
 
       if (inBattle) {
-        const battleScale = 3.8;
-        const groundY = vh * 0.64;
-        const topY = groundY - TILE * SCALE * battleScale;
-        const heroX = vw * 0.3 - (TILE * SCALE) / 2;
-        const enemyX = vw * 0.62 - (TILE * SCALE) / 2;
+        battleScale = Math.min(10, vh * 0.45 / (TILE * SCALE), vw / 150);
+        const groundY = vh * 0.58;
+        const topY = groundY - TILE * SCALE;
+        // Position fighter centers at 24% / 76% of viewport width (sprite center = screenX + unit/2)
+        const unit = TILE * SCALE;
+        const heroX = vw * 0.24 - unit / 2;
+        const enemyX = vw * 0.76 - unit / 2;
+        const enemyKey: EnemyKey = ZONE_ENEMY_KEY[currentEnemy?.zone ?? 1] ?? "enemy";
         heroSX = heroX;
         heroSY = topY;
         enemySX = enemyX;
@@ -477,8 +524,9 @@ export default function GameCanvas() {
 
         const casting = spellRef.current.active;
         const fromHero = spellRef.current.from === "hero";
-        const heroWasHit = battleResult === "WRONG" || battleResult === "TIMEOUT";
-        const enemyWasHit = spellRef.current.active && fromHero;
+        const hitImpacted = spellRef.current.active && spellRef.current.t > 0.6;
+        const heroWasHit = (battleResult === "WRONG" || battleResult === "TIMEOUT") && hitImpacted;
+        const enemyWasHit = spellRef.current.active && fromHero && hitImpacted;
         const heroPose = heroWasHit ? "hurt" : casting && fromHero ? "attack" : "idle";
         const enemyPose = enemyWasHit ? "hurt" : casting && !fromHero ? "attack" : "idle";
         const aFrame = casting ? Math.floor(now / 90) : 0;
@@ -494,7 +542,7 @@ export default function GameCanvas() {
         const hit = enemyWasHit;
         const enemyBattleScale = battleScale;
         const enemyTopY = topY + enemyShake;
-        drawEnemy(ctx, enemyX + eOffX, enemyTopY, aFrame, hit, enemyBattleScale, enemyPose, false);
+        drawEnemy(ctx, enemyX + eOffX, enemyTopY, aFrame, hit, enemyBattleScale, enemyPose, false, enemyKey);
       } else {
         for (const d of list) {
           const sx = d.fx * TILE * SCALE - camX;
@@ -521,13 +569,14 @@ export default function GameCanvas() {
             const hit = !!(isCurrent && battleResult === "WRONG");
             const eFrame = enemyMoving ? Math.floor(now / 110) : 0;
             const enemyFlip = enemyMoving && !!(ev && ev.facing > 0);
-            drawEnemy(ctx, sx, sy, eFrame, hit, scaleBoost, enemyMoving ? "walk" : "idle", enemyFlip);
+            const eKey: EnemyKey = ZONE_ENEMY_KEY[zoneAt(d.tx, d.ty)] ?? "enemy";
+            drawEnemy(ctx, sx, sy, eFrame, hit, scaleBoost, enemyMoving ? "walk" : "idle", enemyFlip, eKey);
           }
         }
       }
 
       if (inBattle && spellRef.current.active && hasEnemy) {
-        drawSpellEffect(ctx, spellRef.current, heroSX, heroSY, enemySX, enemySY);
+        drawSpellEffect(ctx, spellRef.current, heroSX, heroSY, enemySX, enemySY, ZONE_ENEMY_KEY[currentEnemy?.zone ?? 1] ?? "enemy", battleScale);
       }
 
       if (inBattle) {
@@ -564,7 +613,7 @@ export default function GameCanvas() {
       {isNearGacha && gameState === "EXPLORE" && (
         <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-bounce">
           <div className="bg-[#1e1b18] border-2 border-[#ffd700] px-4 py-2 text-center text-xs text-[#ffd700] font-pixel shadow-md pointer-events-auto">
-            🪙 ใกล้ตู้สุ่มสัตว์เลี้ยง! กด <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">Space</span> หรือ <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">E</span> เพื่อเปิดตู้นี้
+            🪙 ใกล้ตู้สุ่มสัตว์เลี้ยง! กด <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">Space</span> หรือ <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">E</span> หรือ <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">Enter</span> เพื่อเปิดตู้นี้
           </div>
         </div>
       )}
@@ -573,7 +622,24 @@ export default function GameCanvas() {
       {isNearShop && gameState === "EXPLORE" && (
         <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-bounce">
           <div className="bg-[#1e1b18] border-2 border-[#ff9900] px-4 py-2 text-center text-xs text-[#ff9900] font-pixel shadow-md pointer-events-auto">
-            🛒 ใกล้ร้านค้าอุปกรณ์! กด <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">Space</span> หรือ <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">E</span> เพื่อเปิดร้านค้า
+            🛒 ใกล้ร้านค้าอุปกรณ์! กด <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">Space</span> หรือ <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">E</span> หรือ <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">Enter</span> เพื่อเปิดร้านค้า
+          </div>
+        </div>
+      )}
+
+      {/* Gate Unlock Proximity Alert */}
+      {nearGateZone != null && gameState === "EXPLORE" && (
+        <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-bounce">
+          <div
+            className={`px-4 py-2 text-center text-xs font-pixel shadow-md pointer-events-auto border-2 ${
+              (useGameStore.getState().coins ?? 0) >= (GATE_UNLOCK_PRICES[nearGateZone] ?? 0)
+                ? "bg-[#1e1b18] border-[#39d98a] text-[#39d98a]"
+                : "bg-[#1e1b18] border-[#ff6050] text-[#ff6050]"
+            }`}
+          >
+            🔒 ประตูสู่โซน {nearGateZone}: ต้องใช้ 🪙 {GATE_UNLOCK_PRICES[nearGateZone] ?? "?"} เหรียญ กด{" "}
+            <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">Enter</span> หรือ{" "}
+            <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">E</span> เพื่อซื้อปลดล็อค
           </div>
         </div>
       )}

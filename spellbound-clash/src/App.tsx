@@ -5,7 +5,6 @@ import HUD from './components/ui/HUD';
 import BattleTransition from './components/ui/BattleTransition';
 import BattleOverlay from './components/ui/BattleOverlay';
 import GameOver from './components/ui/GameOver';
-import VictoryScreen from './components/ui/VictoryScreen';
 import GameCanvas from './components/render/GameCanvas';
 import GachaModal from './components/ui/GachaModal';
 import InventoryModal from './components/ui/InventoryModal';
@@ -39,8 +38,6 @@ function App() {
       {gameState === 'BATTLE' && <BattleOverlay />}
 
       {gameState === 'GAMEOVER' && <GameOver />}
-
-      {gameState === 'WIN' && <VictoryScreen />}
 
       {/* Gacha Modal Overlay */}
       {isGachaOpen && <GachaModal />}

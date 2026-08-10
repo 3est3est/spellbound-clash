@@ -1,5 +1,6 @@
 import { COLORS, SCALE, TILE, type Dir } from '../constants';
 import { type SpriteSheet, getSheet, PROC_SHEET, SPRITE_MAP } from '../sprites';
+import type { EnemyKey } from '../sprites/enemySprites';
 
 export function drawSheetFrame(
   ctx: CanvasRenderingContext2D,
@@ -206,16 +207,17 @@ export function drawEnemy(
   hit: boolean,
   scaleBoost = 1,
   pose: 'idle' | 'walk' | 'attack' | 'hurt' | 'auto' = 'auto',
-  flip = false
+  flip = false,
+  enemyKey: EnemyKey = 'enemy'
 ) {
   const ref =
     pose === 'attack'
-      ? SPRITE_MAP.enemy.attack(frame)
+      ? SPRITE_MAP.enemy.attack(enemyKey, frame)
       : pose === 'hurt'
-        ? SPRITE_MAP.enemy.hurt()
+        ? SPRITE_MAP.enemy.hurt(enemyKey)
         : pose === 'walk'
-          ? SPRITE_MAP.enemy.walk(frame)
-          : SPRITE_MAP.enemy.idle();
+          ? SPRITE_MAP.enemy.walk(enemyKey, frame)
+          : SPRITE_MAP.enemy.idle(enemyKey);
   if (!drawSpriteFrame(ctx, ref, screenX, screenY, scaleBoost, flip)) {
     if (scaleBoost === 1) drawProceduralEnemy(ctx, screenX, screenY, frame, hit);
     else drawProceduralEnemyScaled(ctx, screenX, screenY, frame, hit, scaleBoost);

@@ -1,6 +1,6 @@
 // ===== Game State Types =====
 
-export type GameState = "MENU" | "EXPLORE" | "PAUSED" | "BATTLE_TRANSITION" | "BATTLE" | "GAMEOVER" | "WIN";
+export type GameState = "MENU" | "EXPLORE" | "PAUSED" | "BATTLE_TRANSITION" | "BATTLE" | "GAMEOVER";
 
 export type Difficulty = "EASY" | "MEDIUM" | "HARDCORE";
 

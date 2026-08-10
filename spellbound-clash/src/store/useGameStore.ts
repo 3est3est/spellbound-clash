@@ -15,6 +15,9 @@ import { ZONE_ENEMIES } from "../game/enemyPlacement";
 const SAVE_KEY = "spellbound_save";
 const LEADERBOARD_KEY = "spellbound_leaderboard";
 
+// ราคาซื้อปลดล็อคประตูไปโซนถัดไป (key = โซนที่ต้องการปลด)
+export const GATE_UNLOCK_PRICES: Record<number, number> = { 2: 10, 3: 30, 4: 60 };
+
 // ===== Store Interface =====
 
 interface GameStore {
@@ -103,6 +106,7 @@ interface GameStore {
   upgradeItem: (item: "hat" | "sword") => boolean;
   equipItem: (item: string, slot: string) => void;
   unequipItem: (slot: string) => void;
+  buyGateUnlock: (zone: 2 | 3 | 4) => boolean;
 }
 
 // ===== Helper: Get random questions =====
@@ -298,10 +302,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const config = DIFFICULTY_CONFIGS[difficulty];
     const saved = readSave();
     const continuing = !!saved && saved.name === get().playerName && saved.pin === get().pin;
-    // ถ้าเกมเคยชนะครบทั้ง 12 ตัวแล้ว กลับมาเล่นต่อควรเข้าหน้าจอชนะโดยตรง (ไม่กลับไป EXPLORE)
-    const continueVictory = continuing && saved!.enemiesDefeated >= (saved!.totalEnemies ?? 12);
     set({
-      gameState: continueVictory ? "WIN" : "EXPLORE",
+      gameState: "EXPLORE",
       difficulty: continuing ? saved!.difficulty : difficulty,
       playerHP: continuing ? saved!.playerHP : config.playerHP,
       maxPlayerHP: continuing ? saved!.maxPlayerHP : config.playerHP,
@@ -468,28 +470,6 @@ export const useGameStore = create<GameStore>((set, get) => ({
     }
 
     const newUnlockedZones = [...state.unlockedZones];
-    let banner: string | null = null;
-
-    // ปลดล็อคอุโมงค์ไปโซนถัดไปเฉพาะเมื่อกำจัดมอนสเตอร์ครบทั้ง 3 ตัวในโซนปัจจุบันแล้ว
-    const defeatedInThisZone = updatedEnemies.filter((e) => e.zone === defeatedEnemyZone && e.defeated).length;
-    const ZONE_ENEMIES_PER_ZONE = 3;
-
-    if (defeatedEnemyZone === 1 && defeatedInThisZone >= ZONE_ENEMIES_PER_ZONE && !newUnlockedZones.includes(2)) {
-      newUnlockedZones.push(2);
-      banner = "🔓 กำจัดมอนสเตอร์ครบทั้ง 3 ตัวในโซน 1 แล้ว! ประตูสู่โซน 2 ปลดล็อคแล้ว!";
-    } else if (defeatedEnemyZone === 2 && defeatedInThisZone >= ZONE_ENEMIES_PER_ZONE && !newUnlockedZones.includes(3)) {
-      newUnlockedZones.push(3);
-      banner = "🔓 กำจัดมอนสเตอร์ครบทั้ง 3 ตัวในโซน 2 แล้ว! ประตูสู่โซน 3 ปลดล็อคแล้ว!";
-    } else if (defeatedEnemyZone === 3 && defeatedInThisZone >= ZONE_ENEMIES_PER_ZONE && !newUnlockedZones.includes(4)) {
-      newUnlockedZones.push(4);
-      banner = "🔓 กำจัดมอนสเตอร์ครบทั้ง 3 ตัวในโซน 3 แล้ว! ประตูสู่โซน 4 ปลดล็อคแล้ว!";
-    }
-
-    // ชัยชนะ: กำจัดศัตรูครบทั้ง 12 ตัว (ทั้ง 4 โซน) → เข้าสู่หน้าจอแสดงชัยชนะ
-    const isVictory = newDefeated >= state.totalEnemies;
-    if (isVictory) {
-      banner = `🎉 ชัยชนะครั้งใหญ่! คุณปราบศัตรูครบทั้ง 4 โซน (${state.totalEnemies} ตัว)!`;
-    }
 
     set({
       enemies: updatedEnemies,
@@ -498,14 +478,13 @@ export const useGameStore = create<GameStore>((set, get) => ({
       playerHP: finalPlayerHP,
       currentEnemy: null,
       unlockedZones: newUnlockedZones,
-      zoneBanner: banner,
-      gameState: isVictory ? "WIN" : "EXPLORE",
+      zoneBanner: null,
+      gameState: "EXPLORE",
       battleResult: null,
       currentQuestion: null,
     });
 
     get().saveProgress();
-    if (newDefeated >= state.totalEnemies) get().recordScore();
   },
 
   clearBattleResult: () => {
@@ -697,6 +676,25 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
   setShopOpen: (open) => {
     set({ isShopOpen: open });
+  },
+
+  buyGateUnlock: (zone) => {
+    const state = get();
+    // ต้องปลดโซนก่อนหน้าแล้วก่อน (1 → 2 → 3 → 4)
+    const prevZone = (zone - 1) as 1 | 2 | 3;
+    if (state.unlockedZones.includes(zone)) return false;
+    if (!state.unlockedZones.includes(prevZone)) return false;
+    const price = GATE_UNLOCK_PRICES[zone];
+    if (price == null || state.coins < price) return false;
+
+    const zoneName: Record<number, string> = { 2: "โซน 2 (ทะเลทราย)", 3: "โซน 3 (เขตน้ำแข็ง)", 4: "โซน 4 (ดินแดนลาวา)" };
+    set({
+      coins: state.coins - price,
+      unlockedZones: [...state.unlockedZones, zone],
+      zoneBanner: `🔓 ซื้อปลดล็อคประตูสำเร็จ! เปิดทางสู่ ${zoneName[zone] ?? `โซน ${zone}`} แล้ว (ใช้เหรียญ ${price})`,
+    });
+    get().saveProgress();
+    return true;
   },
 
   buyItem: (item) => {

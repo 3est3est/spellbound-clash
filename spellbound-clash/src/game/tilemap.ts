@@ -46,36 +46,33 @@ function buildMap(): TileCode[][] {
   carveRoom(31, 27, 53, 45);  // Zone 3 (Bottom-Right)
   carveRoom(2, 27, 24, 45);   // Zone 4 (Bottom-Left)
 
-  // ── Corridor 1↔2: Horizontal between x=24..31, rows 10-11 ──────────────
+  // ── Corridor 1↔2: Horizontal between x=24..31, row 10 (1 tile) ───────────
   for (let x = 24; x <= 31; x++) {
     set(x, 9, T.TREE);
     set(x, 10, T.PATH);
-    set(x, 11, T.PATH);
+    set(x, 11, T.TREE);
     set(x, 12, T.TREE);
   }
   // Gate (passable only when zone 2 unlocked) at midpoint
   set(27, 10, T.GATE_1_2);
-  set(27, 11, T.GATE_1_2);
 
-  // ── Corridor 2↔3: Vertical between y=20..27, cols 42-43 ─────────────────
+  // ── Corridor 2↔3: Vertical between y=20..27, col 42 (1 tile) ──────────────
   for (let y = 20; y <= 27; y++) {
     set(41, y, T.TREE);
     set(42, y, T.PATH);
-    set(43, y, T.PATH);
+    set(43, y, T.TREE);
     set(44, y, T.TREE);
   }
   set(42, 23, T.GATE_2_3);
-  set(43, 23, T.GATE_2_3);
 
-  // ── Corridor 3↔4: Horizontal between x=24..31, rows 36-37 ──────────────
+  // ── Corridor 3↔4: Horizontal between x=24..31, row 36 (1 tile) ──────────────
   for (let x = 24; x <= 31; x++) {
     set(x, 35, T.TREE);
     set(x, 36, T.PATH);
-    set(x, 37, T.PATH);
+    set(x, 37, T.TREE);
     set(x, 38, T.TREE);
   }
   set(27, 36, T.GATE_3_4);
-  set(27, 37, T.GATE_3_4);
 
   // ── Organic scatter helper: Only place on GRASS tiles, never blocking path ─
   const scatter = (x: number, y: number, code: TileCode) => {
@@ -96,12 +93,6 @@ function buildMap(): TileCode[][] {
   // Branch trail down-right
   for (let y = 8; y <= 17; y++) scatter(20, y, T.PATH);
   for (let x = 12; x <= 20; x++) scatter(x, 17, T.PATH);
-
-  // Small pond (top-left area)
-  for (const [px, py] of [
-    [4, 3], [5, 3], [6, 3],
-    [4, 4], [5, 4], [6, 4],
-  ] as [number, number][]) scatter(px, py, T.WATER);
 
   // Scattered tree clusters (small 2×2 and 1×2 groves dotted across interior)
   const z1Trees: [number, number][] = [
@@ -153,12 +144,6 @@ function buildMap(): TileCode[][] {
   for (let y = 6; y <= 18; y++) scatter(50, y, T.PATH);
   for (let x = 44; x <= 50; x++) scatter(x, 18, T.PATH);
 
-  // Sandy lake / oasis
-  for (const [px, py] of [
-    [34, 3], [35, 3], [36, 3],
-    [34, 4], [35, 4], [36, 4],
-  ] as [number, number][]) scatter(px, py, T.WATER);
-
   const z2Trees: [number, number][] = [
     // Near oasis
     [37, 3], [37, 4], [38, 3],
@@ -198,12 +183,6 @@ function buildMap(): TileCode[][] {
   for (let x = 40; x <= 52; x++) scatter(x, 36, T.PATH);
   for (let y = 36; y <= 44; y++) scatter(52, y, T.PATH);
   for (let x = 35; x <= 52; x++) scatter(x, 44, T.PATH);
-
-  // Frozen lake
-  for (const [px, py] of [
-    [33, 32], [34, 32], [35, 32],
-    [33, 33], [34, 33], [35, 33],
-  ] as [number, number][]) scatter(px, py, T.WATER);
 
   const z3Trees: [number, number][] = [
     // Near frozen lake

@@ -1,7 +1,9 @@
 import type { Dir } from '../constants';
-import { HERO_SHEET_CONFIG, HERO_LAYOUT, type CharLayout } from './heroSprites';
-import { ENEMY_SHEET_CONFIG, ENEMY_LAYOUT } from './enemySprites';
+import { HERO_SHEET_CONFIG, HERO_LAYOUT, type CharLayout, type SheetConfig } from './heroSprites';
+import { ENEMY_SHEET_CONFIGS, ENEMY_LAYOUTS, type EnemyKey } from './enemySprites';
 import { getSheet, sheetFrameHasContent, PROC_SHEET } from './SpriteSheet';
+
+export type CharKey = 'hero' | EnemyKey;
 
 export interface FrameRef {
   sheet: string;
@@ -11,17 +13,17 @@ export interface FrameRef {
 
 export type AnimName = 'idle' | 'walk';
 
-const LAYOUTS: Record<'hero' | 'enemy', CharLayout> = {
+const LAYOUTS: Record<CharKey, CharLayout> = {
   hero: HERO_LAYOUT,
-  enemy: ENEMY_LAYOUT,
+  ...ENEMY_LAYOUTS,
 };
 
-const SHEET_CONFIGS = {
+const SHEET_CONFIGS: Record<CharKey, SheetConfig> = {
   hero: HERO_SHEET_CONFIG,
-  enemy: ENEMY_SHEET_CONFIG,
+  ...ENEMY_SHEET_CONFIGS,
 };
 
-export function isLayoutValid(char: 'hero' | 'enemy'): boolean {
+export function isLayoutValid(char: CharKey): boolean {
   const layout = LAYOUTS[char];
   const cfg = SHEET_CONFIGS[char];
   if (!cfg || !cfg.enabled) return false;
@@ -37,9 +39,9 @@ export function isLayoutValid(char: 'hero' | 'enemy'): boolean {
   return true;
 }
 
-const resolvedCache = new Map<'hero' | 'enemy', string>();
+const resolvedCache = new Map<CharKey, string>();
 
-function resolveSheet(char: 'hero' | 'enemy'): string {
+function resolveSheet(char: CharKey): string {
   const cached = resolvedCache.get(char);
   if (cached !== undefined) return cached;
   if (isLayoutValid(char)) {
@@ -50,21 +52,21 @@ function resolveSheet(char: 'hero' | 'enemy'): string {
   return PROC_SHEET;
 }
 
-const isSingleFrame = (char: 'hero' | 'enemy'): boolean =>
+const isSingleFrame = (char: CharKey): boolean =>
   !!SHEET_CONFIGS[char]?.singleFrame;
 
-const walkCol = (char: 'hero' | 'enemy', frame: number): number => {
+const walkCol = (char: CharKey, frame: number): number => {
   const frames = SHEET_CONFIGS[char]?.walkFrames ?? 1;
   return frames > 1 ? frame % frames : 0;
 };
 
-const singleRef = (char: 'hero' | 'enemy'): FrameRef => ({
+const singleRef = (char: CharKey): FrameRef => ({
   sheet: isLayoutValid(char) ? LAYOUTS[char].sheet : PROC_SHEET,
   col: 0,
   row: 0,
 });
 
-const castRef = (char: 'hero' | 'enemy'): FrameRef => {
+const castRef = (char: CharKey): FrameRef => {
   const cfg = SHEET_CONFIGS[char];
   if (!cfg?.castUrl && !cfg?.castBattleUrl) return singleRef(char);
   return {
@@ -74,7 +76,7 @@ const castRef = (char: 'hero' | 'enemy'): FrameRef => {
   };
 };
 
-const hurtRef = (char: 'hero' | 'enemy'): FrameRef => {
+const hurtRef = (char: CharKey): FrameRef => {
   const cfg = SHEET_CONFIGS[char];
   if (!cfg?.hurtBattleUrl) return singleRef(char);
   return {
@@ -93,7 +95,7 @@ function heroRow(dir: Dir): number {
   return GEN_WALK.side;
 }
 
-const walkRef = (char: 'hero' | 'enemy', dir: Dir | null, frame: number): FrameRef => {
+const walkRef = (char: CharKey, dir: Dir | null, frame: number): FrameRef => {
   const cfg = SHEET_CONFIGS[char];
   if (cfg?.walkUrl) {
     return {
@@ -138,26 +140,26 @@ export const SPRITE_MAP = {
     },
   },
   enemy: {
-    idle: (): FrameRef => {
-      if (isSingleFrame('enemy')) return singleRef('enemy');
+    idle: (key: EnemyKey): FrameRef => {
+      if (isSingleFrame(key)) return singleRef(key);
       return {
-        sheet: resolveSheet('enemy'),
+        sheet: resolveSheet(key),
         col: 0,
         row: GEN_WALK.down,
       };
     },
-    walk: (frame: number): FrameRef => walkRef('enemy', null, frame),
-    attack: (frame: number): FrameRef => {
-      if (isSingleFrame('enemy')) return castRef('enemy');
+    walk: (key: EnemyKey, frame: number): FrameRef => walkRef(key, null, frame),
+    attack: (key: EnemyKey, frame: number): FrameRef => {
+      if (isSingleFrame(key)) return castRef(key);
       return {
-        sheet: resolveSheet('enemy'),
+        sheet: resolveSheet(key),
         col: frame % GEN_ATTACK.frames,
         row: GEN_ATTACK.down,
       };
     },
-    hurt: (): FrameRef => {
-      if (isSingleFrame('enemy')) return hurtRef('enemy');
-      return singleRef('enemy');
+    hurt: (key: EnemyKey): FrameRef => {
+      if (isSingleFrame(key)) return hurtRef(key);
+      return singleRef(key);
     },
   },
 };

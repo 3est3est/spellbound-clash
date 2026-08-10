@@ -17,6 +17,11 @@ Why the project is built this way — read before changing anything, so we don't
 | D9 | Zone tiles: floor/path/water are **48px** (`SCALE×TILE`), décor 32px, each generated from a Qwen px source kept in `_raw/zones/` | Tiles must tile at the 48px screen scale; keeping the px source allows regenerating/re-tiling without re-generating with the AI. |
 | D10 | Floor/server tiles built locally via `scale-sprite.mjs` (nearest resize) or `build-palette-tile.mjs` (seamless palette tile) — never trust AI sheets | Ground tiles are plain textures; local deterministic processing keeps them seamless and on-palette. |
 | D11 | z1 floor uses the original Qwen texture (green, `_raw/zones/z1-floor-128.png`) scaled to 48, NOT the palette-adjusted plate | User preferred the original ("ก่อนปรับสี") look. z1 path original was not recoverable; keep the existing `z1-path-48.png`. |
+| D12 | One enemy type per zone: goblin (z1) / scorpion demon (z2) / white frost bear demon (z3) / red grim-reaper demon (z4), wired via `ZONE_ENEMY_KEY` | Per-zone set of creatures the user wanted. All battle/idle/walk art faces **left** (enemy sits on the right of the screen, facing the hero) — no runtime flip. |
+| D13 | Bear + reaper have **no cast pose** (`castBattleUrl` omitted) — attack pose falls back to their battle idle; the spell visuals come from the glyph | User chose "ก้อนพลัง glyph" over a dedicated cast art for these two. Goblin + scorpion keep their generated cast poses. |
+| D14 | Per-zone enemy glyphs: goblin=red (`glyph-dark`), scorpion=fire (`glyph-fire`), bear=ice (`glyph-ice`), reaper=soul (`glyph-soul`); hero keeps `glyph-light` purple | Each zone enemy casts a themed projectile. |
+| D15 | Removed water from zones 1-3; kept the z4 lava pool (also `T.WATER` code) | User: "เอาน้ำแม่น้ำออก เหลือลาวา". Water code still renders differently per zone in TileRenderer. |
+| D16 | Corridors between zones are **1 tile wide** (kept gate row/col, closed the parallel lane) | User chose "เฉพาะคอร์ริดอร์ 1 ช่อง" over wider corridors. Gate renderer adapts to single-tile runs automatically. |
 
 ## Colors
 
@@ -24,6 +29,10 @@ Why the project is built this way — read before changing anything, so we don't
 |---------|-------|
 | Hero magic / magic circle / glyph | purple `#7c3aed` |
 | Enemy magic / magic circle / glyph | red `#ef4444` |
+| z1 goblin glyph / magic circle | red `#ef4444` |
+| z2 scorpion glyph (fire) | orange-red `#f97316` |
+| z3 bear glyph (ice) | icy blue `#60a5fa` |
+| z4 reaper glyph (soul) | deep red `#dc2626` |
 | Player character theme | blue-purple (original witch) |
 | Enemy goblin | green skin + yellow eyes |
 

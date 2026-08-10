@@ -1,8 +1,19 @@
 import { SCALE, TILE } from '../constants';
 import { registerSheet, getSheet } from '../sprites/SpriteSheet';
+import type { EnemyKey } from '../sprites/enemySprites';
 
 registerSheet('glyph-hero', '/assets/gen/effects/glyph-light.png', 512, 512);
 registerSheet('glyph-enemy', '/assets/gen/effects/glyph-dark.png', 512, 512);
+registerSheet('glyph-fire', '/assets/gen/effects/glyph-fire.png', 512, 512);
+registerSheet('glyph-ice', '/assets/gen/effects/glyph-ice.png', 512, 512);
+registerSheet('glyph-soul', '/assets/gen/effects/glyph-soul.png', 512, 512);
+
+const ENEMY_GLYPH: Record<EnemyKey, { sheet: string; color: string }> = {
+  enemy: { sheet: 'glyph-enemy', color: '#ef4444' },
+  scorpion: { sheet: 'glyph-fire', color: '#f97316' },
+  bear: { sheet: 'glyph-ice', color: '#60a5fa' },
+  reaper: { sheet: 'glyph-soul', color: '#dc2626' },
+};
 
 export interface SpellState {
   active: boolean;
@@ -11,6 +22,9 @@ export interface SpellState {
 }
 
 const glyphColor = (fromHero: boolean) => (fromHero ? '#7c3aed' : '#ef4444');
+
+const GLYPH_BASE = 2.4;
+const GLYPH_IMPACT = 3.4;
 
 function drawImageCentered(
   ctx: CanvasRenderingContext2D,
@@ -38,24 +52,26 @@ export function drawSpellEffect(
   heroSX: number,
   heroSY: number,
   enemySX: number,
-  enemySY: number
+  enemySY: number,
+  enemyKey: EnemyKey = 'enemy',
+  battleScale = 1
 ) {
   const ah = sp.from === 'hero';
-  const heroScale = 1;
-  const enemyScale = 1.6;
-  const scaleA = ah ? heroScale : enemyScale;
-  const scaleB = ah ? enemyScale : heroScale;
-  const fromX = (ah ? heroSX : enemySX) + (TILE * SCALE * scaleA) / 2;
-  const fromY = (ah ? heroSY : enemySY) + TILE * SCALE * scaleA * 0.5;
-  const toX = (ah ? enemySX : heroSX) + (TILE * SCALE * scaleB) / 2;
-  const toY = (ah ? enemySY : heroSY) + TILE * SCALE * scaleB * 0.5;
-  const color = glyphColor(ah);
-  const glyphName = ah ? 'glyph-hero' : 'glyph-enemy';
+  const unit = TILE * SCALE;
+  const scale = battleScale;
+  // Both fighters are drawn at battleScale around their bottom-center anchor
+  // (screenY + unit). Chest level = anchor - unit*scale/2, horizontal center = screenX + unit/2.
+  const fromX = (ah ? heroSX : enemySX) + unit / 2;
+  const fromY = (ah ? heroSY : enemySY) + unit - (unit * scale) / 2;
+  const toX = (ah ? enemySX : heroSX) + unit / 2;
+  const toY = (ah ? enemySY : heroSY) + unit - (unit * scale) / 2;
+  const color = ah ? glyphColor(ah) : ENEMY_GLYPH[enemyKey].color;
+  const glyphName = ah ? 'glyph-hero' : ENEMY_GLYPH[enemyKey].sheet;
   const travel = Math.min(1, sp.t / 0.6);
 
   // Charging aura around attacker — purple/red pulsing rune ring
   const charge = Math.sin(travel * Math.PI);
-  const ar = TILE * SCALE * scaleA * (0.45 + charge * 0.55);
+  const ar = unit * scale * (0.45 + charge * 0.55);
   ctx.save();
   ctx.globalAlpha = 0.35 * (1 - travel * 0.25);
   ctx.strokeStyle = color;
@@ -93,7 +109,7 @@ export function drawSpellEffect(
     ctx.restore();
 
     // Rotating glyph projectile with particle trail
-    const size = TILE * SCALE * (1.6 + 0.7 * charge) * (ah ? 1 : 1.2);
+    const size = TILE * SCALE * (GLYPH_BASE + 1.1 * charge) * (ah ? 1 : 1.2);
     ctx.shadowColor = color;
     ctx.shadowBlur = 16 * SCALE;
     drawImageCentered(ctx, glyphName, bx, by, size, sp.t * 9);
@@ -130,7 +146,7 @@ export function drawSpellEffect(
     ctx.restore();
 
     // Impact glyph flash
-    drawImageCentered(ctx, glyphName, toX, toY, TILE * SCALE * (2.6 + burst * 1.4), sp.t * 6, fade);
+    drawImageCentered(ctx, glyphName, toX, toY, TILE * SCALE * (GLYPH_IMPACT + burst * 1.4), sp.t * 6, fade);
 
     // Scattered rune shards
     ctx.fillStyle = '#ffffff';

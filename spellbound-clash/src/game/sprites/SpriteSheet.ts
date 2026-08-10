@@ -1,5 +1,5 @@
 import { HERO_SHEET_CONFIG } from './heroSprites';
-import { ENEMY_SHEET_CONFIG } from './enemySprites';
+import { ENEMY_SHEET_CONFIGS } from './enemySprites';
 
 export interface SpriteSheet {
   name: string;
@@ -122,7 +122,7 @@ export function sheetFrameHasContent(
 }
 
 // Pre-register configured sprite sheets
-const SHEETS = [HERO_SHEET_CONFIG, ENEMY_SHEET_CONFIG];
+const SHEETS = [HERO_SHEET_CONFIG, ...Object.values(ENEMY_SHEET_CONFIGS)];
 for (const s of SHEETS) {
   registerSheet(s.name, s.url, s.frameW, s.frameH, s.colorKey);
   if (s.enabled && s.walkUrl) {

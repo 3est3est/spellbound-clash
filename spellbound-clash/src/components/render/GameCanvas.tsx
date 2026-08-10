@@ -6,6 +6,7 @@ import { ZONE_ENEMY_KEY, type EnemyKey } from "../../game/sprites/enemySprites";
 import {
   prepareCtx,
   drawForestTile,
+  drawTallDecor,
   drawHero,
   drawEnemy,
   drawNameTag,
@@ -399,6 +400,19 @@ export default function GameCanvas() {
         zoneRevealRef.current.set(z, next);
       }
 
+      type Drawable = {
+        ty: number;
+        tx: number;
+        fx: number;
+        fy: number;
+        kind: "hero" | "enemy" | "pet" | "tall";
+        id?: string;
+        petKind?: 'dog' | 'cat' | 'pig';
+        petDir?: Dir;
+        code?: number;
+      };
+      const drawnTalls: Drawable[] = [];
+
       if (inBattle) {
         drawBattleBackground(ctx, vw, vh, now, currentEnemy?.zone ?? 1);
       } else {
@@ -410,7 +424,7 @@ export default function GameCanvas() {
               row < 0 || row >= MAP_ROWS || col < 0 || col >= MAP_COLS
                 ? 0
                 : MAP[row][col];
-            drawForestTile(ctx, code, col, row, col * TILE * SCALE - camX, row * TILE * SCALE - camY, now, currentUnlocked);
+            drawForestTile(ctx, code, col, row, col * TILE * SCALE - camX, row * TILE * SCALE - camY, now, currentUnlocked, true);
             if (col === 36 && row === 12) {
               drawGachaMachine(ctx, col * TILE * SCALE - camX, row * TILE * SCALE - camY, TILE * SCALE, now);
             }
@@ -449,18 +463,19 @@ export default function GameCanvas() {
           ctx.fillStyle = `rgba(8,5,20,${alpha.toFixed(2)})`;
           ctx.fillRect(sx, sy, sw, sh);
         }
+
+        // Collect tall obstacles in view so they can be depth-sorted with entities
+        for (let row = startRow; row <= startRow + viewTilesY + 1; row++) {
+          for (let col = startCol; col <= startCol + viewTilesX + 1; col++) {
+            if (row < 0 || row >= MAP_ROWS || col < 0 || col >= MAP_COLS) continue;
+            const code = MAP[row][col];
+            if (code !== T.TREE && code !== T.ROCK) continue;
+            if (!currentUnlocked.includes(zoneAt(col, row))) continue;
+            drawnTalls.push({ ty: row, tx: col, fx: col, fy: row, kind: "tall", code });
+          }
+        }
       }
 
-      type Drawable = {
-        ty: number;
-        tx: number;
-        fx: number;
-        fy: number;
-        kind: "hero" | "enemy" | "pet";
-        id?: string;
-        petKind?: 'dog' | 'cat' | 'pig';
-        petDir?: Dir;
-      };
       const list: Drawable[] = [];
       list.push({ ty: p.ty, tx: p.tx, fx: p.tx, fy: p.ty, kind: "hero" });
 
@@ -485,6 +500,7 @@ export default function GameCanvas() {
         if (!currentUnlocked.includes(eZone)) continue;
         list.push({ ty: e.ty, tx: e.tx, fx: e.fx, fy: e.fy, kind: "enemy", id: e.id });
       }
+      for (const t of drawnTalls) list.push(t);
       list.sort((a, b) => a.ty - b.ty);
 
       const frame = Math.floor(p.anim);
@@ -535,7 +551,9 @@ export default function GameCanvas() {
         for (const d of list) {
           const sx = d.fx * TILE * SCALE - camX;
           const sy = d.fy * TILE * SCALE - camY;
-          if (d.kind === "hero") {
+          if (d.kind === "tall") {
+            drawTallDecor(ctx, d.code!, d.tx, d.ty, sx, sy, currentUnlocked);
+          } else if (d.kind === "hero") {
             heroSX = sx;
             heroSY = sy;
             const offX = p.dir === "left" ? lungeRef.current * -18 * SCALE : p.dir === "right" ? lungeRef.current * 18 * SCALE : 0;

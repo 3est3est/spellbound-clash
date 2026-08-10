@@ -221,6 +221,60 @@ export function drawZoneFogOverlay(
   ctx.fillRect(screenX, screenY, tilePx, tilePx);
 }
 
+// ─── Tall obstacles (drawn in depth order with entities, never on floors pass) ─
+export function drawTallDecor(
+  ctx: CanvasRenderingContext2D,
+  code: number,
+  tx: number,
+  ty: number,
+  screenX: number,
+  screenY: number,
+  unlockedZones: number[] = [1],
+) {
+  const x = Math.round(screenX);
+  const y = Math.round(screenY);
+  const full = TILE * SCALE;
+  const zone = getZoneAt(tx, ty);
+  if (!unlockedZones.includes(zone)) return;
+
+  if (code === T.TREE) {
+    const trees = zone === 1 ? zone1Trees : zone === 2 ? zone2Trees : zone === 3 ? zone3Trees : zone4Trees;
+    const bushes = zone === 1 ? zone1Bushes : zone === 2 ? zone2Bushes : zone === 3 ? zone3Bushes : zone4Bushes;
+    const useBush = seeded(tx, ty, 69) > 0.72; // 28% bushes, 72% trees
+    const pool = useBush ? bushes : trees;
+    const asset = pickAsset(pool, tx, ty, 70);
+    if (asset) {
+      drawAssetNatural(ctx, asset, x, y, full, 71, tx, ty, useBush ? 0.85 : 1.7);
+    } else {
+      // Fallback geometric tree
+      ctx.fillStyle = zone === 3 ? '#99c8f0' : zone === 4 ? '#302825' : '#267026';
+      ctx.fillRect(x + full * 0.1, y + full * 0.05, full * 0.8, full * 0.85);
+      ctx.fillStyle = zone === 4 ? '#4a3028' : '#6b4020';
+      ctx.fillRect(x + full * 0.38, y + full * 0.7, full * 0.24, full * 0.3);
+    }
+    return;
+  }
+
+  if (code === T.ROCK) {
+    const rocks = zone === 1 ? zone1Rocks : zone === 2 ? zone2Rocks : zone === 3 ? zone3Rocks : zone4Rocks;
+    const asset = pickAsset(rocks, tx, ty, 73);
+    if (asset) {
+      drawAssetNatural(ctx, asset, x, y, full, 74, tx, ty, 0.75);
+    } else {
+      const shade = seeded(tx, ty, 73);
+      const rx = full * 0.15;
+      ctx.fillStyle = zone === 3 ? '#8ab8e0' : zone === 4 ? '#2e2825' : (shade > 0.5 ? '#586050' : '#6a726a');
+      ctx.fillRect(x + rx, y + full * 0.33, full - rx * 2, full * 0.52);
+      ctx.fillStyle = zone === 3 ? '#b8d8f4' : zone === 4 ? '#4e3c38' : (shade > 0.5 ? '#88997a' : '#a8b098');
+      ctx.fillRect(x + rx + 4, y + full * 0.25, full - rx * 2 - 8, full * 0.33);
+      // Highlight
+      ctx.fillStyle = 'rgba(255,255,255,0.12)';
+      ctx.fillRect(x + rx + 4, y + full * 0.25, (full - rx * 2 - 8) * 0.4, SCALE * 2);
+    }
+    return;
+  }
+}
+
 // ─── Main tile draw ───────────────────────────────────────────────────────────
 export function drawForestTile(
   ctx: CanvasRenderingContext2D,
@@ -231,6 +285,7 @@ export function drawForestTile(
   screenY: number,
   now: number,
   unlockedZones: number[] = [1],
+  skipTall = false,
 ) {
   const x = Math.round(screenX);
   const y = Math.round(screenY);
@@ -265,42 +320,9 @@ export function drawForestTile(
   // Grass base for GRASS / FLOWER / TREE / ROCK
   drawGrassBase(ctx, x, y, full, tx, ty, zone);
 
-  // Solid tree obstacles — render asset at natural 1:1 scale
-  if (code === T.TREE) {
-    const trees = zone === 1 ? zone1Trees : zone === 2 ? zone2Trees : zone === 3 ? zone3Trees : zone4Trees;
-    const bushes = zone === 1 ? zone1Bushes : zone === 2 ? zone2Bushes : zone === 3 ? zone3Bushes : zone4Bushes;
-    const useBush = seeded(tx, ty, 69) > 0.72; // 28% bushes, 72% trees
-    const pool = useBush ? bushes : trees;
-    const asset = pickAsset(pool, tx, ty, 70);
-    if (asset) {
-      drawAssetNatural(ctx, asset, x, y, full, 71, tx, ty, useBush ? 0.85 : 1.7);
-    } else {
-      // Fallback geometric tree
-      ctx.fillStyle = zone === 3 ? '#99c8f0' : zone === 4 ? '#302825' : '#267026';
-      ctx.fillRect(x + full * 0.1, y + full * 0.05, full * 0.8, full * 0.85);
-      ctx.fillStyle = zone === 4 ? '#4a3028' : '#6b4020';
-      ctx.fillRect(x + full * 0.38, y + full * 0.7, full * 0.24, full * 0.3);
-    }
-    return;
-  }
-
-  // Solid rock obstacles
-  if (code === T.ROCK) {
-    const rocks = zone === 1 ? zone1Rocks : zone === 2 ? zone2Rocks : zone === 3 ? zone3Rocks : zone4Rocks;
-    const asset = pickAsset(rocks, tx, ty, 73);
-    if (asset) {
-      drawAssetNatural(ctx, asset, x, y, full, 74, tx, ty, 0.75);
-    } else {
-      const shade = seeded(tx, ty, 73);
-      const rx = full * 0.15;
-      ctx.fillStyle = zone === 3 ? '#8ab8e0' : zone === 4 ? '#2e2825' : (shade > 0.5 ? '#586050' : '#6a726a');
-      ctx.fillRect(x + rx, y + full * 0.33, full - rx * 2, full * 0.52);
-      ctx.fillStyle = zone === 3 ? '#b8d8f4' : zone === 4 ? '#4e3c38' : (shade > 0.5 ? '#88997a' : '#a8b098');
-      ctx.fillRect(x + rx + 4, y + full * 0.25, full - rx * 2 - 8, full * 0.33);
-      // Highlight
-      ctx.fillStyle = 'rgba(255,255,255,0.12)';
-      ctx.fillRect(x + rx + 4, y + full * 0.25, (full - rx * 2 - 8) * 0.4, SCALE * 2);
-    }
+  // Solid obstacles — tree/rock assets drawn in the depth pass if requested
+  if (code === T.TREE || code === T.ROCK) {
+    if (!skipTall) drawTallDecor(ctx, code, tx, ty, x, y, unlockedZones);
     return;
   }
 

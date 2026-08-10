@@ -75,8 +75,47 @@ function buildMap(): TileCode[][] {
   set(27, 36, T.GATE_3_4);
 
   // ── Organic scatter helper: Only place on GRASS tiles, never blocking path ─
+  // SAFE ZONES: player spawns, enemy positions & gate entrances must stay clear
+  const safeSet = new Set<string>();
+  // Zone 1 spawn area
+  for (let sy = 3; sy <= 8; sy++) for (let sx = 3; sx <= 8; sx++) safeSet.add(`${sx},${sy}`);
+  // Zone 2 spawn area (player enters from left corridor y=10-11)
+  for (let sy = 8; sy <= 14; sy++) for (let sx = 32; sx <= 38; sx++) safeSet.add(`${sx},${sy}`);
+  // Zone 3 spawn area (enters from top corridor)
+  for (let sy = 28; sy <= 33; sy++) for (let sx = 40; sx <= 46; sx++) safeSet.add(`${sx},${sy}`);
+  // Zone 4 spawn area (enters from right corridor)
+  for (let sy = 28; sy <= 36; sy++) for (let sx = 18; sx <= 24; sx++) safeSet.add(`${sx},${sy}`);
+
+  // Enemy spawn positions that must stay GRASS
+  const enemySpawns: [number, number][] = [
+    [8, 5], [18, 14], [8, 16],          // Zone 1
+    [40, 6], [49, 15], [42, 18],         // Zone 2
+    [43, 33], [49, 40], [35, 41],        // Zone 3
+    [14, 31], [5, 42], [16, 42],         // Zone 4
+  ];
+  for (const [ex, ey] of enemySpawns) {
+    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) safeSet.add(`${ex + dx},${ey + dy}`);
+  }
+
+  // Gate entrances — tiles just outside each corridor mouth must stay clear
+  const gateClear: [number, number, number, number][] = [
+    [22, 9, 23, 11],   // Gate 1↔2, Zone 1 side
+    [32, 9, 33, 11],   // Gate 1↔2, Zone 2 side
+    [41, 18, 43, 19],  // Gate 2↔3, Zone 2 side
+    [41, 28, 43, 29],  // Gate 2↔3, Zone 3 side
+    [32, 35, 33, 37],  // Gate 3↔4, Zone 3 side
+    [22, 35, 23, 37],  // Gate 3↔4, Zone 4 side
+  ];
+  for (const [gx1, gy1, gx2, gy2] of gateClear) {
+    for (let y = gy1; y <= gy2; y++) for (let x = gx1; x <= gx2; x++) safeSet.add(`${x},${y}`);
+  }
+
+  const isSafe = (x: number, y: number) => safeSet.has(`${x},${y}`);
+
   const scatter = (x: number, y: number, code: TileCode) => {
-    if (get(x, y) === T.GRASS) set(x, y, code);
+    if (get(x, y) !== T.GRASS) return;
+    if (isSafe(x, y) && (code === T.TREE || code === T.ROCK || code === T.WATER)) return;
+    set(x, y, code);
   };
 
   // ════════════════════════════════════════════════════════════════════════
@@ -254,43 +293,6 @@ function buildMap(): TileCode[][] {
   ] as [number, number][]) scatter(fx, fy, T.FLOWER);
 
   // ── Final pass: light random scatter of lone trees/rocks ────────────────────
-  // SAFE ZONES: player spawns & enemy positions that must stay clear
-  const safeSet = new Set<string>();
-  // Zone 1 spawn area
-  for (let sy = 3; sy <= 8; sy++) for (let sx = 3; sx <= 8; sx++) safeSet.add(`${sx},${sy}`);
-  // Zone 2 spawn area (player enters from left corridor y=10-11)
-  for (let sy = 8; sy <= 14; sy++) for (let sx = 32; sx <= 38; sx++) safeSet.add(`${sx},${sy}`);
-  // Zone 3 spawn area (enters from top corridor)
-  for (let sy = 28; sy <= 33; sy++) for (let sx = 40; sx <= 46; sx++) safeSet.add(`${sx},${sy}`);
-  // Zone 4 spawn area (enters from right corridor)
-  for (let sy = 28; sy <= 36; sy++) for (let sx = 18; sx <= 24; sx++) safeSet.add(`${sx},${sy}`);
-
-  // Enemy spawn positions that must stay GRASS
-  const enemySpawns: [number, number][] = [
-    [8, 5], [18, 14], [8, 16],          // Zone 1
-    [40, 6], [49, 15], [42, 18],         // Zone 2
-    [43, 33], [49, 40], [35, 41],        // Zone 3
-    [14, 31], [5, 42], [16, 42],         // Zone 4
-  ];
-  for (const [ex, ey] of enemySpawns) {
-    for (let dy = -1; dy <= 1; dy++) for (let dx = -1; dx <= 1; dx++) safeSet.add(`${ex + dx},${ey + dy}`);
-  }
-
-  // Gate entrances — tiles just outside each corridor mouth must stay clear
-  const gateClear: [number, number, number, number][] = [
-    [22, 9, 23, 11],   // Gate 1↔2, Zone 1 side
-    [32, 9, 33, 11],   // Gate 1↔2, Zone 2 side
-    [41, 18, 43, 19],  // Gate 2↔3, Zone 2 side
-    [41, 28, 43, 29],  // Gate 2↔3, Zone 3 side
-    [32, 35, 33, 37],  // Gate 3↔4, Zone 3 side
-    [22, 35, 23, 37],  // Gate 3↔4, Zone 4 side
-  ];
-  for (const [gx1, gy1, gx2, gy2] of gateClear) {
-    for (let y = gy1; y <= gy2; y++) for (let x = gx1; x <= gx2; x++) safeSet.add(`${x},${y}`);
-  }
-
-  const isSafe = (x: number, y: number) => safeSet.has(`${x},${y}`);
-
   // Zone 1: x 3..23, y 3..19 — dense scatter so the map feels alive
   for (let y = 3; y <= 19; y++) {
     for (let x = 3; x <= 23; x++) {

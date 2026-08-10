@@ -25,8 +25,8 @@ export default function GameOver() {
           className="font-pixel font-black mb-1"
           style={{
             fontSize: 'clamp(24px, 6vw, 42px)',
-            color: '#cc2222',
-            textShadow: '3px 3px 0 #ffffff, -2px -2px 0 #ffffff, 2px -2px 0 #ffffff, -2px 2px 0 #ffffff',
+            color: '#ff7a5c',
+            textShadow: '3px 3px 0 #000',
             letterSpacing: '0.05em'
           }}
         >
@@ -34,27 +34,27 @@ export default function GameOver() {
         </h1>
         <div className="rpg-divider mb-4" />
 
-        <h2 className="font-pixel font-bold text-sm mb-4" style={{ color: '#661a44' }}>
-          ระดับ — <span style={{ color: '#cc2222' }}>{config.label}</span>
+        <h2 className="font-pixel font-bold text-sm mb-4" style={{ color: '#e8dcc0' }}>
+          ระดับ — <span style={{ color: '#ff7a5c' }}>{config.label}</span>
         </h2>
 
-        <div className="bg-white/50 border-4 border-[#ff66aa] p-4 mb-5 text-left shadow-inner">
+        <div className="bg-[#26201a]/60 border-4 border-[#6b4423] p-4 mb-5 text-left shadow-inner">
           {([
-            { label: 'ศัตรูที่ปราบได้', value: `${enemiesDefeated}/${totalEnemies}`, color: '#cc2222' },
-            { label: 'ตอบถูก', value: String(totalCorrect), color: '#22aa22' },
-            { label: 'ผิด / หมดเวลา', value: String(totalWrong), color: '#cc2222' },
+            { label: 'ศัตรูที่ปราบได้', value: `${enemiesDefeated}/${totalEnemies}`, color: '#ff7a5c' },
+            { label: 'ตอบถูก', value: String(totalCorrect), color: '#61d07f' },
+            { label: 'ผิด / หมดเวลา', value: String(totalWrong), color: '#ff7a5c' },
             null,
-            { label: 'เวลาที่ใช้', value: `${mm}:${ss}`, color: '#661a44' },
-            { label: 'ความแม่นยำ', value: `${acc}%`, color: '#661a44' },
+            { label: 'เวลาที่ใช้', value: `${mm}:${ss}`, color: '#e8dcc0' },
+            { label: 'ความแม่นยำ', value: `${acc}%`, color: '#e8dcc0' },
             null,
-            { label: '★ คะแนน', value: score.toLocaleString(), color: '#a31c5d', big: true },
-            { label: '🪙 เหรียญ', value: String(coins), color: '#f8a820' },
+            { label: '★ คะแนน', value: score.toLocaleString(), color: '#f5d87a', big: true },
+            { label: '🪙 เหรียญ', value: String(coins), color: '#e8c04a' },
           ] as Array<null | { label: string; value: string; color: string; big?: boolean }>)
             .map((row, i) => {
-              if (row === null) return <div key={i} className="rpg-divider-thin border-[#ff66aa] my-2" style={{ background: '#ff66aa' }} />;
+              if (row === null) return <div key={i} className="rpg-divider-thin my-2" style={{ background: '#e8c04a' }} />;
               return (
                 <div key={i} className="flex justify-between items-center py-1">
-                  <span className="font-pixel font-semibold text-sm" style={{ color: '#661a44' }}>{row.label}</span>
+                  <span className="font-pixel font-semibold text-sm" style={{ color: '#e8dcc0' }}>{row.label}</span>
                   <span
                     className="font-pixel font-bold"
                     style={{ fontSize: row.big ? '18px' : '14px', color: row.color }}

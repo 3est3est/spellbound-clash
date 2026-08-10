@@ -50,13 +50,13 @@ export default function ShopModal() {
                 <div className="rpg-divider mb-3" />
 
                 {/* Coins display */}
-                <div className="flex justify-between items-center bg-[#1e1b18] border-2 border-[#ffd700] px-3 py-1.5 mb-3 rounded shadow">
-                    <span className="font-pixel text-[10px] text-[#ffd700] font-bold">เหรียญทองของคุณ:</span>
+                <div className="flex justify-between items-center bg-[#26221c] border-4 border-[#6b4423] outline outline-4 outline-[#1c5f33] -outline-offset-8 px-3 py-1.5 mb-3 shadow-[3px_3px_0_rgba(0,0,0,0.4)]">
+                    <span className="font-pixel text-[10px] text-[#e8c04a] font-bold">เหรียญทองของคุณ:</span>
                     <span className="font-pixel text-xs text-white font-bold">🪙 {coins.toLocaleString()}</span>
                 </div>
 
                 {/* Items List */}
-                <div className="bg-white/45 border-4 border-[#ff66aa] p-3 mb-4 max-h-72 overflow-y-auto shadow-inner flex flex-col gap-3 min-h-[180px]">
+                <div className="bg-[#26201a]/60 border-4 border-[#6b4423] p-3 mb-4 max-h-72 overflow-y-auto shadow-inner flex flex-col gap-3 min-h-[180px]">
                     {shopItems.map((item) => {
                         const isOwned = itemsOwned.includes(item.id);
                         const isUnlocked = unlockedZones.includes(item.zoneReq);
@@ -80,16 +80,16 @@ export default function ShopModal() {
                         return (
                             <div
                                 key={item.id}
-                                className="border-2 p-2 bg-[#fdf5df] border-[#ff66aa] flex flex-col gap-1 shadow-[2px_2px_0_rgba(0,0,0,0.1)] relative"
+                                className="border-2 p-2 bg-[#33291c] border-[#6b4423] flex flex-col gap-1 shadow-[4px_4px_0_rgba(0,0,0,0.4)] relative"
                             >
                                 {/* Item Details */}
                                 <div className="flex justify-between items-center gap-1">
                                     <div className="flex flex-col">
-                                        <span className="font-pixel text-[10px] font-bold text-[#a31c5d]">
+                                        <span className="font-pixel text-[10px] font-bold text-[#e8dcc0]">
                                             {item.icon} {item.name}{levelSuffix}
                                         </span>
                                         {!isOwned && (
-                                            <span className="text-[9px] text-gray-500 font-bold">
+                                            <span className="text-[9px] text-[#b8a888] font-bold">
                                                 ราคา: 🪙 {item.price}
                                             </span>
                                         )}
@@ -99,7 +99,7 @@ export default function ShopModal() {
                                     {isOwned ? (
                                         canUpgrade ? (
                                             maxLevelReached ? (
-                                                <span className="font-pixel text-[8px] bg-purple-600 text-white px-2 py-1 rounded">
+                                                <span className="font-pixel text-[8px] bg-[#3a3325] text-[#e8c04a] border-2 border-[#6b4423] px-2 py-1">
                                                     ระดับสูงสุด (+12)
                                                 </span>
                                             ) : (
@@ -115,9 +115,9 @@ export default function ShopModal() {
                                                 </button>
                                             )
                                         ) : (
-                                            <span className="font-pixel text-[8px] bg-gray-500 text-white px-2 py-1 rounded">
-                                                ซื้อแล้ว
-                                            </span>
+<span className="font-pixel text-[8px] bg-[#26221c] border-2 border-[#6b4423] text-[#b8a888] px-2 py-1">
+                                                    ซื้อแล้ว
+                                                </span>
                                         )
                                     ) : !isUnlocked ? (
                                         <span className="font-pixel text-[7px] bg-red-650 border border-red-700 text-white px-1.5 py-1 text-center font-semibold rounded whitespace-nowrap">
@@ -136,10 +136,10 @@ export default function ShopModal() {
                                         </button>
                                     )}
                                 </div>
-                                <p className="text-[9px] text-gray-700 font-semibold leading-relaxed mt-1">
+                                <p className="text-[9px] text-[#c9bd9e] font-semibold leading-relaxed mt-1">
                                     {item.desc}
                                     {isOwned && canUpgrade && (
-                                        <span className="block text-[#a31c5d] font-bold mt-0.5">
+                                        <span className="block text-[#e8c04a] font-bold mt-0.5">
                                             ระดับโบนัสปัจจุบัน: +{currentBonusVal.toFixed(1)} {item.id === 'hat' ? 'HP' : 'พลังโจมตี'}
                                             {!maxLevelReached && ` (ขั้นถัดไป: +${nextBonusVal.toFixed(1)})`}
                                         </span>

@@ -25,227 +25,326 @@ body {
 }
 
 /* ================================================================
-   PASTEL RETRO PIXEL THEME
-   Bright, cute, soft colors (beige, pink, purple, light blue).
-   Thick pixel borders.
+   FANTASY ADVENTURE PIXEL THEME
+   Parchment + dark wood + magic purple.
+   Battle UI adapts per zone via [data-zone] accent tokens.
+   HUD is untouched.
    ================================================================ */
+
+:root {
+  --accent: #e8c04a;
+  --accent-hi: #f5d87a;
+  --accent-lo: #b98d2a;
+  --gold: #e8c04a;
+  --gold-hi: #f5d87a;
+  --gold-lo: #b98d2a;
+  --panel: #3a3325;
+  --panel-hi: #4a4030;
+  --panel-lo: #2a2418;
+  --frame: #8a5b32;
+  --frame-hi: #a2743c;
+  --frame-lo: #6b4423;
+  --text: #e8dcc0;
+  --text-soft: #b8a888;
+  --ok: #2f9e53;
+  --ok-hi: #61d07f;
+  --ok-lo: #1d6b34;
+  --bad: #d34b3a;
+  --bad-hi: #ff7a5c;
+  --bad-lo: #8f2418;
+  --ice: #4aa3d8;
+}
+
+[data-zone="1"] {
+  --accent: #2f8f4f; --accent-hi: #57b86f; --accent-lo: #1c5f33;
+  --gold: #e8c04a; --gold-hi: #f5d87a; --gold-lo: #b98d2a;
+  --panel-frame: url('/assets/gen/ui/panel-frame-z1.png');
+}
+[data-zone="2"] {
+  --accent: #d98e3f; --accent-hi: #f0aa55; --accent-lo: #a86922;
+  --gold: #f0c05a; --gold-hi: #f7d48a; --gold-lo: #bd7f28;
+  --panel-frame: url('/assets/gen/ui/panel-frame-z2.png');
+}
+[data-zone="3"] {
+  --accent: #4aa3d8; --accent-hi: #8fd4f5; --accent-lo: #2b6fa3;
+  --gold: #dcecff; --gold-hi: #ffffff; --gold-lo: #9cc8e8;
+  --panel-frame: url('/assets/gen/ui/panel-frame-z3.png');
+}
+[data-zone="4"] {
+  --accent: #e0502a; --accent-hi: #ff7a3d; --accent-lo: #9c3118;
+  --gold: #ffcf7a; --gold-hi: #ffe0a8; --gold-lo: #c7873a;
+  --panel-frame: url('/assets/gen/ui/panel-frame-z4.png');
+}
 
 /* ── Backdrop ─────────────────────────────────── */
 .rpg-backdrop {
-  background: linear-gradient(180deg, #9ad2ff 0%, #bbf0bb 100%);
+  background:
+    radial-gradient(120% 90% at 50% -10%, #2a1b3d 0%, rgba(42, 27, 61, 0) 55%),
+    linear-gradient(180deg, #1d1526 0%, #221a2e 40%, #3a2a1e 72%, #4a2c16 100%);
 }
 
-/* ── Core panel — Light beige with colored pixel border ─────────────── */
+/* ── Core panel — parchment with wood + gold pixel border ─────────── */
 .rpg-panel {
-  background: #fdf5df;
-  border: 4px solid #f8a820; /* Inner orange border */
-  outline: 4px solid #a31c5d; /* Outer dark pink border */
-  outline-offset: -8px; /* Pull outline inside to overlap */
-  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
-  color: #a31c5d;
+  background: linear-gradient(180deg, var(--panel-hi), var(--panel) 55%, var(--panel-lo));
+  border: 4px solid var(--frame-lo);
+  outline: 4px solid var(--gold-lo);
+  outline-offset: -8px;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.35);
+  color: var(--text);
   position: relative;
-  /* Add padding to account for the inset outline */
   padding: 12px;
 }
 
-.rpg-panel-blue {
-  background: #ffe8f4;
-  border: 4px solid #ff66aa;
-  outline: 4px solid #a31c5d;
-  outline-offset: -8px;
-  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
-  color: #a31c5d;
-  padding: 12px;
-}
-
+.rpg-panel-blue,
 .rpg-panel-pink {
-  background: #ffe8f4;
-  border: 4px solid #ff66aa;
-  outline: 4px solid #a31c5d;
+  background: linear-gradient(180deg, var(--panel-hi), var(--panel) 55%, var(--panel-lo));
+  border: 4px solid var(--frame-lo);
+  outline: 4px solid var(--accent-lo);
   outline-offset: -8px;
-  box-shadow: 4px 4px 0 rgba(0,0,0,0.2);
-  color: #a31c5d;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.35);
+  color: var(--text);
   padding: 12px;
+}
+
+/* ── Parchment panel framed by per-zone pixel border-image ─── */
+.rpg-panel-frame {
+  background: linear-gradient(180deg, var(--panel-hi), var(--panel) 55%, var(--panel-lo));
+  border: 16px solid;
+  border-image: var(--panel-frame) 16 / 16px / 0 round;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.35);
+  color: var(--text);
+  position: relative;
+  padding: 14px;
 }
 
 /* ── Buttons — Chunky retro style ─────────── */
 .rpg-btn {
-  background: #a31c5d;
-  border-top: 4px solid #ff66aa;
-  border-left: 4px solid #ff66aa;
-  border-right: 4px solid #5a0b30;
-  border-bottom: 4px solid #5a0b30;
+  position: relative;
+  background: var(--accent);
+  border-top: 4px solid var(--accent-hi);
+  border-left: 4px solid var(--accent-hi);
+  border-right: 4px solid var(--accent-lo);
+  border-bottom: 4px solid var(--accent-lo);
+  box-shadow:
+    inset 0 6px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -6px 0 rgba(0, 0, 0, 0.3),
+    4px 4px 0 rgba(0, 0, 0, 0.5);
   color: #ffffff;
   cursor: pointer;
   font-family: 'Press Start 2P', 'Kanit', monospace;
   font-size: 12px;
   text-align: center;
-  transition: transform 0.05s;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.55);
+  transition: background 80ms steps(2), transform 80ms steps(2), box-shadow 80ms steps(2);
 }
 .rpg-btn:hover {
-  background: #c92c77;
+  background: var(--accent-hi);
+  color: #1a1230;
 }
 .rpg-btn:active {
   transform: translate(2px, 2px);
-  border-top: 4px solid #5a0b30;
-  border-left: 4px solid #5a0b30;
-  border-right: 4px solid #ff66aa;
-  border-bottom: 4px solid #ff66aa;
+  box-shadow:
+    inset 0 6px 0 rgba(0, 0, 0, 0.25),
+    inset 0 -4px 0 rgba(255, 255, 255, 0.08),
+    2px 2px 0 rgba(0, 0, 0, 0.5);
+  border-top: 4px solid var(--accent-lo);
+  border-left: 4px solid var(--accent-lo);
+  border-right: 4px solid var(--accent-hi);
+  border-bottom: 4px solid var(--accent-hi);
 }
 
 /* ── Green / Start button ─────────────────────── */
 .rpg-btn-green {
-  background: #22aa22;
-  border-top: 4px solid #55ee55;
-  border-left: 4px solid #55ee55;
-  border-right: 4px solid #005500;
-  border-bottom: 4px solid #005500;
+  position: relative;
+  background: var(--ok);
+  border-top: 4px solid var(--ok-hi);
+  border-left: 4px solid var(--ok-hi);
+  border-right: 4px solid var(--ok-lo);
+  border-bottom: 4px solid var(--ok-lo);
+  box-shadow:
+    inset 0 6px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -6px 0 rgba(0, 0, 0, 0.3),
+    4px 4px 0 rgba(0, 0, 0, 0.5);
   color: #ffffff;
   cursor: pointer;
   font-family: 'Press Start 2P', 'Kanit', monospace;
-  transition: transform 0.05s;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.55);
+  transition: background 80ms steps(2), transform 80ms steps(2), box-shadow 80ms steps(2);
 }
-.rpg-btn-green:hover { background: #33cc33; }
-.rpg-btn-green:active { transform: translate(2px, 2px); border-top-color: #005500; border-left-color: #005500; border-bottom-color: #55ee55; border-right-color: #55ee55;}
+.rpg-btn-green:hover { background: var(--ok-hi); color: #0c3318; }
+.rpg-btn-green:active {
+  transform: translate(2px, 2px);
+  box-shadow:
+    inset 0 6px 0 rgba(0, 0, 0, 0.25),
+    inset 0 -4px 0 rgba(255, 255, 255, 0.08),
+    2px 2px 0 rgba(0, 0, 0, 0.5);
+  border-top-color: var(--ok-lo);
+  border-left-color: var(--ok-lo);
+  border-bottom-color: var(--ok-hi);
+  border-right-color: var(--ok-hi);
+}
 
 /* ── Red / Danger button ──────────────────────── */
 .rpg-btn-red {
-  background: #cc2222;
-  border-top: 4px solid #ff5555;
-  border-left: 4px solid #ff5555;
-  border-right: 4px solid #660000;
-  border-bottom: 4px solid #660000;
+  position: relative;
+  background: var(--bad);
+  border-top: 4px solid var(--bad-hi);
+  border-left: 4px solid var(--bad-hi);
+  border-right: 4px solid var(--bad-lo);
+  border-bottom: 4px solid var(--bad-lo);
+  box-shadow:
+    inset 0 6px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -6px 0 rgba(0, 0, 0, 0.3),
+    4px 4px 0 rgba(0, 0, 0, 0.5);
   color: #ffffff;
   cursor: pointer;
   font-family: 'Press Start 2P', 'Kanit', monospace;
-  transition: transform 0.05s;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.55);
+  transition: background 80ms steps(2), transform 80ms steps(2), box-shadow 80ms steps(2);
 }
-.rpg-btn-red:hover { background: #ee3333; }
-.rpg-btn-red:active { transform: translate(2px, 2px); border-top-color: #660000; border-left-color: #660000; border-bottom-color: #ff5555; border-right-color: #ff5555;}
-
+.rpg-btn-red:hover { background: var(--bad-hi); color: #33100a; }
+.rpg-btn-red:active {
+  transform: translate(2px, 2px);
+  box-shadow:
+    inset 0 6px 0 rgba(0, 0, 0, 0.25),
+    inset 0 -4px 0 rgba(255, 255, 255, 0.08),
+    2px 2px 0 rgba(0, 0, 0, 0.5);
+  border-top-color: var(--bad-lo);
+  border-left-color: var(--bad-lo);
+  border-bottom-color: var(--bad-hi);
+  border-right-color: var(--bad-hi);
+}
 
 /* ── Difficulty Choice Buttons (MainMenu) ────────────────────── */
 .rpg-diff-btn {
-  background: #e8e8e8;
-  border: 4px solid #cccccc;
-  outline: 4px solid #888888;
+  background: linear-gradient(180deg, #4a4137, #3a3128);
+  border: 4px solid var(--frame);
+  outline: 4px solid #6b5a4a;
   outline-offset: -8px;
-  color: #666666;
+  color: var(--panel-lo);
   cursor: pointer;
   padding: 12px;
   text-align: left;
   transition: transform 0.05s;
 }
+.rpg-diff-btn:hover { border-color: var(--gold-lo); }
 .rpg-diff-btn.selected {
-  background: #fdf5df;
-  border: 4px solid #f8a820;
-  outline: 4px solid #a31c5d;
-  color: #a31c5d;
+  background: linear-gradient(180deg, var(--panel-hi), var(--panel) 55%, var(--panel-lo));
+  border: 4px solid var(--gold-lo);
+  outline: 4px solid var(--accent-lo);
+  color: var(--accent-lo);
 }
-.rpg-diff-btn:active {
-  transform: translate(2px, 2px);
-}
+.rpg-diff-btn:active { transform: translate(2px, 2px); }
 
 /* ── Answer Choice Buttons (Battle) ────────────────────── */
 .rpg-choice-btn {
-  background: #fdf5df;
-  border: 4px solid #cccccc;
-  outline: 4px solid #a31c5d;
+  background: linear-gradient(180deg, var(--panel-hi), var(--panel) 60%, var(--panel-lo));
+  border: 4px solid var(--frame-lo);
+  outline: 4px solid var(--accent-lo);
   outline-offset: -8px;
-  color: #a31c5d;
+  color: var(--accent-hi);
   cursor: pointer;
   padding: 12px;
   text-align: left;
-  transition: transform 0.05s;
+  box-shadow:
+    inset 0 4px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -4px 0 rgba(0, 0, 0, 0.28),
+    4px 4px 0 rgba(0, 0, 0, 0.4);
+  transition: background 80ms steps(2), transform 80ms steps(2), box-shadow 80ms steps(2);
   font-family: 'Kanit', sans-serif;
   font-weight: 600;
 }
 .rpg-choice-btn:hover:not(:disabled) {
-  background: #ffffff;
-  border-color: #f8a820;
+  background: linear-gradient(180deg, var(--panel-hi), var(--panel-lo));
+  outline-color: var(--gold-lo);
 }
-.rpg-choice-btn:active:not(:disabled) {
-  transform: translate(2px, 2px);
-}
+.rpg-choice-btn:active:not(:disabled) { transform: translate(2px, 2px); }
 .rpg-choice-btn.correct {
-  background: #d4f8d4;
-  border-color: #44cc44;
-  outline-color: #006600;
-  color: #006600;
+  background: #1d3a26;
+  border-color: var(--ok);
+  outline-color: var(--ok-lo);
+  color: var(--ok-hi);
+  box-shadow:
+    inset 0 4px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -4px 0 rgba(0, 0, 0, 0.28),
+    4px 4px 0 rgba(0, 0, 0, 0.4);
 }
 .rpg-choice-btn.wrong {
-  background: #f8d4d4;
-  border-color: #cc4444;
-  outline-color: #660000;
-  color: #660000;
+  background: #3a1d18;
+  border-color: var(--bad);
+  outline-color: var(--bad-lo);
+  color: var(--bad-hi);
+  box-shadow:
+    inset 0 4px 0 rgba(255, 255, 255, 0.06),
+    inset 0 -4px 0 rgba(0, 0, 0, 0.28),
+    4px 4px 0 rgba(0, 0, 0, 0.4);
 }
 .rpg-choice-btn.dimmed {
-  background: #e0e0e0;
-  border-color: #bbbbbb;
-  outline-color: #888888;
-  color: #888888;
+  background: #26221c;
+  border-color: #5a554a;
+  outline-color: #3a362e;
+  color: #847e6f;
+  box-shadow: none;
   opacity: 0.8;
 }
 
 /* ── Dividers ─────────────────────────────────── */
 .rpg-divider {
   height: 4px;
-  background: #a31c5d;
+  background: var(--accent);
   margin: 12px 0;
   border: none;
 }
-
 .rpg-divider-thin {
   height: 2px;
-  background: #a31c5d;
+  background: var(--accent);
   margin: 8px 0;
 }
 
 /* ── HP / Timer bars ──────────────────────────── */
 .rpg-bar-track {
-  background: #a31c5d;
+  background: var(--frame-lo);
   padding: 2px;
 }
-
 .rpg-bar-fill-hp {
-  background: #44ee44;
-  border-top: 2px solid #aaffaa;
-  border-bottom: 2px solid #00aa00;
+  background: var(--ok);
+  border-top: 2px solid var(--ok-hi);
+  border-bottom: 2px solid var(--ok-lo);
 }
 .rpg-bar-fill-hp-low {
-  background: #ee4444;
-  border-top: 2px solid #ffaaaa;
-  border-bottom: 2px solid #aa0000;
+  background: var(--bad);
+  border-top: 2px solid var(--bad-hi);
+  border-bottom: 2px solid var(--bad-lo);
   animation: pulse-red 1.2s ease-in-out infinite;
 }
 .rpg-bar-fill-timer {
-  background: #44aaee;
-  border-top: 2px solid #aaddff;
-  border-bottom: 2px solid #0066aa;
+  background: var(--ice);
+  border-top: 2px solid #7cc6ee;
+  border-bottom: 2px solid #205f8a;
 }
 .rpg-bar-fill-timer-warn {
-  background: #eeee44;
-  border-top: 2px solid #ffffaa;
-  border-bottom: 2px solid #aaaa00;
+  background: var(--gold);
+  border-top: 2px solid var(--gold-hi);
+  border-bottom: 2px solid var(--gold-lo);
 }
 .rpg-bar-fill-timer-danger {
-  background: #ee4444;
-  border-top: 2px solid #ffaaaa;
-  border-bottom: 2px solid #aa0000;
+  background: var(--bad);
+  border-top: 2px solid var(--bad-hi);
+  border-bottom: 2px solid var(--bad-lo);
   animation: pulse-red 0.6s ease-in-out infinite;
 }
 
 /* ── Titles ────────────────────── */
 .rpg-title {
-  color: #a31c5d;
-  text-shadow: 2px 2px 0px #ffffff, -2px -2px 0px #ffffff, 2px -2px 0px #ffffff, -2px 2px 0px #ffffff;
+  color: var(--accent-hi);
+  text-shadow: 2px 2px 0px var(--frame-lo), -2px 0 0px var(--frame-lo);
   font-family: 'Press Start 2P', monospace;
 }
 .rpg-title-gold {
-  color: #f8a820;
-  text-shadow: 2px 2px 0px #a31c5d;
+  color: var(--gold);
+  text-shadow: 2px 2px 0px var(--frame-lo);
 }
-.rpg-star { color: #f8a820; }
+.rpg-star { color: var(--gold); }
 
 /* ── Animations ───────────────────────────────── */
 @keyframes slideUp {
@@ -292,3 +391,90 @@ body {
   image-rendering: pixelated;
   image-rendering: crisp-edges;
 }
+
+/* ================================================================
+   MAIN MENU — DARK FANTASY ADVENTURE (scoped only to .mainmenu-dark)
+   Forest-green (zone-1 accent) + dark wood browns, gold title.
+   No light/glow effects.
+   ================================================================ */
+
+.mainmenu-dark {
+  background: linear-gradient(180deg, #0f2217 0%, #1c3323 45%, #2b2418 100%);
+}
+
+.mainmenu-dark .rpg-panel {
+  background: linear-gradient(180deg, #3a3325, #2a2418);
+  border: 4px solid #6b4423;
+  outline: 4px solid #1c5f33;
+  outline-offset: -8px;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.35);
+  color: #e8dcc0;
+}
+
+.mainmenu-dark .rpg-btn {
+  position: relative;
+  background: #2f8f4f;
+  border-top: 4px solid #57b86f;
+  border-left: 4px solid #57b86f;
+  border-right: 4px solid #1c5f33;
+  border-bottom: 4px solid #1c5f33;
+  box-shadow:
+    inset 0 6px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -6px 0 rgba(8, 30, 16, 0.3),
+    6px 6px 0 rgba(0, 0, 0, 0.5);
+  color: #ffffff;
+  text-shadow: 2px 2px 0 rgba(8, 30, 16, 0.9);
+  transition: background 80ms steps(2), transform 80ms steps(2), box-shadow 80ms steps(2);
+}
+.mainmenu-dark .rpg-btn::before {
+  content: "";
+  pointer-events: none;
+  position: absolute;
+  left: 4px;
+  right: 4px;
+  top: 4px;
+  bottom: 4px;
+  background: repeating-conic-gradient(rgba(255, 255, 255, 0.07) 0% 25%, rgba(0, 0, 0, 0.07) 0% 50%) 0 0 / 6px 6px;
+}
+.mainmenu-dark .rpg-btn:hover { background: #3aa35c; color: #ffffff; }
+.mainmenu-dark .rpg-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow:
+    inset 0 6px 0 rgba(8, 30, 16, 0.25),
+    inset 0 -4px 0 rgba(255, 255, 255, 0.08),
+    3px 3px 0 rgba(0, 0, 0, 0.5);
+  border-top: 4px solid #1c5f33;
+  border-left: 4px solid #1c5f33;
+  border-right: 4px solid #57b86f;
+  border-bottom: 4px solid #57b86f;
+}
+
+.mainmenu-dark .rpg-diff-btn {
+  position: relative;
+  background: linear-gradient(180deg, #3d3a2f, #2c2920);
+  border: 4px solid #5d3b1e;
+  outline: 4px solid #36220f;
+  outline-offset: -8px;
+  box-shadow:
+    inset 0 4px 0 rgba(255, 255, 255, 0.07),
+    inset 0 -4px 0 rgba(0, 0, 0, 0.28),
+    4px 4px 0 rgba(0, 0, 0, 0.35);
+  color: #9a8f72;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.55);
+  transition: background 80ms steps(2), transform 80ms steps(2), box-shadow 80ms steps(2);
+}
+.mainmenu-dark .rpg-diff-btn.selected {
+  background: linear-gradient(180deg, #2f8f4f, #256f3d);
+  border: 4px solid #57b86f;
+  outline: 4px solid #1c5f33;
+  box-shadow:
+    inset 0 4px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -4px 0 rgba(8, 30, 16, 0.3),
+    4px 4px 0 rgba(0, 0, 0, 0.35);
+  color: #f0e6c8;
+}
+
+.mainmenu-dark .rpg-divider,
+.mainmenu-dark .rpg-divider-thin { background: #e8c04a; }
+
+.mainmenu-dark .rpg-star { color: #e8c04a; }

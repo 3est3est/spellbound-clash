@@ -18,7 +18,7 @@ export default function GachaModal() {
         if (pet === 'dog') return '#d97706';
         if (pet === 'cat') return '#ea580c';
         if (pet === 'pig') return '#ec4899';
-        return '#a31c5d';
+        return '#e8c04a';
     };
 
     const handleRoll = () => {
@@ -61,19 +61,19 @@ export default function GachaModal() {
                 </h2>
                 <div className="rpg-divider mb-4" />
 
-                <div className="text-center font-semibold text-xs text-[#a31c5d] mb-4">
+                <div className="text-center font-semibold text-xs text-[#e8dcc0] mb-4">
                     ตู้กาชาปองพิเศษ! ลุ้นรับเพื่อนร่วมเดินทางสุดน่ารัก<br />
                     ค่าสุ่มครั้งละ <span className="font-bold text-sm text-[#ea580c]">5 🪙 เหรียญ</span>
                 </div>
 
                 {/* Display Box */}
-                <div className="bg-white/40 border-4 border-[#ff66aa] p-6 mb-5 flex flex-col items-center justify-center h-48 shadow-inner relative overflow-hidden">
+                <div className="bg-[#26201a]/60 border-4 border-[#6b4423] outline outline-4 outline-[#1c5f33] -outline-offset-8 p-6 mb-5 flex flex-col items-center justify-center h-48 shadow-inner relative overflow-hidden">
                     {isRolling ? (
                         <div className="flex flex-col items-center justify-center animate-bounce">
-                            <div className="w-16 h-16 rounded-full border-4 border-dashed border-[#a31c5d] flex items-center justify-center text-4xl animate-spin">
+                            <div className="w-16 h-16 rounded-full border-4 border-dashed border-[#e8c04a] flex items-center justify-center text-4xl animate-spin">
                                 🔮
                             </div>
-                            <p className="font-pixel text-xs text-[#a31c5d] mt-4 font-bold animate-pulse">กำลังหมุนตู้...</p>
+                            <p className="font-pixel text-xs text-[#f5d87a] mt-4 font-bold animate-pulse">กำลังหมุนตู้...</p>
                         </div>
                     ) : result ? (
                         <div className="text-center animate-pop-in">
@@ -83,19 +83,19 @@ export default function GachaModal() {
                             <div className="font-pixel text-xs text-white px-3 py-1 font-bold inline-block" style={{ backgroundColor: getPetColor(result), ...textShadowStyle }}>
                                 ได้รับสัตว์เลี้ยง!
                             </div>
-                            <p className="font-pixel font-bold mt-3 text-sm" style={{ color: getPetColor(result) }}>
+                            <p className="font-pixel font-bold mt-3 text-sm" style={{ color: getPetColor(result), ...textShadowStyle }}>
                                 {getPetThaiName(result)}
                             </p>
                         </div>
                     ) : (
-                        <div className="text-center text-[#a31c5d]">
-                            <div className="text-5xl mb-2 opacity-80">🎁</div>
+                        <div className="text-center text-[#e8dcc0]">
+                            <div className="text-5xl mb-2 opacity-60">🎁</div>
                             <p className="font-pixel text-[10px] font-bold">กดปุ่มด้านล่างเพื่อเริ่มสุ่ม</p>
                         </div>
                     )}
 
                     {errorMsg && (
-                        <div className="absolute bottom-2 left-0 right-0 text-center font-bold text-xs text-red-600 bg-red-100/90 py-1">
+                        <div className="absolute bottom-2 left-0 right-0 text-center font-bold text-xs text-[#ff9b8a] bg-[#3a1d18]/95 py-1">
                             {errorMsg}
                         </div>
                     )}

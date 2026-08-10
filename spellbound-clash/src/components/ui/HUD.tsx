@@ -60,18 +60,18 @@ export default function HUD() {
           <div className="flex items-center gap-2 mt-1">
             <button
               onClick={() => useGameStore.getState().setInventoryOpen(true)}
-              className="pointer-events-auto flex items-center gap-2 bg-[#1e1b18] hover:bg-[#322d28] border-2 border-[#ffd700] px-3 py-1 cursor-pointer transition-all hover:scale-105 active:scale-95 shadow-[2px_2px_0_rgba(0,0,0,0.3)]"
+              className="pointer-events-auto flex items-center gap-2 bg-[#2a2418] hover:bg-[#3a3325] border-4 border-[#6b4423] outline outline-4 outline-[#1c5f33] -outline-offset-8 px-3 py-1 cursor-pointer transition-all hover:scale-105 active:scale-95 shadow-[3px_3px_0_rgba(0,0,0,0.5)]"
             >
               <span className="text-sm">🎒</span>
-              <span className="font-pixel text-[9px] font-bold text-[#ffd700]">กระเป๋าเป้</span>
+              <span className="font-pixel text-[9px] font-bold text-[#e8c04a]">กระเป๋าเป้</span>
             </button>
             {unlockedZones.includes(2) && (
               <button
                 onClick={() => useGameStore.getState().setShopOpen(true)}
-                className="pointer-events-auto flex items-center gap-2 bg-[#1e1b18] hover:bg-[#322d28] border-2 border-[#ff9900] px-3 py-1 cursor-pointer transition-all hover:scale-105 active:scale-95 shadow-[2px_2px_0_rgba(0,0,0,0.3)]"
+                className="pointer-events-auto flex items-center gap-2 bg-[#2a2418] hover:bg-[#3a3325] border-4 border-[#6b4423] outline outline-4 outline-[#1c5f33] -outline-offset-8 px-3 py-1 cursor-pointer transition-all hover:scale-105 active:scale-95 shadow-[3px_3px_0_rgba(0,0,0,0.5)]"
               >
                 <span className="text-sm">🛒</span>
-                <span className="font-pixel text-[9px] font-bold text-[#ff9900]">ร้านค้า</span>
+                <span className="font-pixel text-[9px] font-bold text-[#e8c04a]">ร้านค้า</span>
               </button>
             )}
           </div>

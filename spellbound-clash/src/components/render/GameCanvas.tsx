@@ -52,7 +52,6 @@ function enemyToTile(pos: [number, number, number]): { tx: number; ty: number } 
 export function zoneAt(tx: number, ty: number): number {
   return tx < 28 ? (ty < 24 ? 1 : 4) : ty < 24 ? 2 : 3;
 }
-
 export default function GameCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const keys = useRef<Record<string, boolean>>({});
@@ -71,7 +70,7 @@ export default function GameCanvas() {
   const [nearGateZone, setNearGateZone] = useState<2 | 3 | 4 | null>(null);
   const nearGateZoneRef = useRef<2 | 3 | 4 | null>(null);
   const respawnTickTimer = useRef(0);
-
+  
   const gameState = useGameStore((s) => s.gameState);
   const enemies = useGameStore((s) => s.enemies);
   const battleResult = useGameStore((s) => s.battleResult);
@@ -607,8 +606,8 @@ export default function GameCanvas() {
       {/* Zone Unlock Notification Banner */}
       {zoneBanner && gameState === "EXPLORE" && (
         <div className="fixed top-16 left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-slide-down">
-          <div className="bg-[#fdf5df] border-4 border-[#f8a820] outline outline-4 outline-[#a31c5d] -outline-offset-8 px-6 py-3 shadow-lg text-center">
-            <p className="font-pixel font-bold text-sm text-[#a31c5d]">
+          <div className="bg-[#ead9b4] border-4 border-[#d9a441] outline outline-4 outline-[#4c1d95] -outline-offset-8 px-6 py-3 shadow-lg text-center">
+            <p className="font-pixel font-bold text-sm text-[#4c1d95]">
               {zoneBanner}
             </p>
           </div>

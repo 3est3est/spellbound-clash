@@ -4,6 +4,21 @@ import { DIFFICULTY_CONFIGS, type Difficulty, type LeaderboardEntry } from "../.
 
 const difficulties: Difficulty[] = ["EASY", "MEDIUM", "HARDCORE"];
 
+const DECOR = [
+  { x: "6%", y: "12%", glyph: "❤", size: "18px", opacity: 0.9 },
+  { x: "90%", y: "10%", glyph: "✦", size: "22px", opacity: 1 },
+  { x: "12%", y: "78%", glyph: "✦", size: "16px", opacity: 0.85 },
+  { x: "88%", y: "82%", glyph: "❤", size: "20px", opacity: 0.9 },
+  { x: "4%", y: "42%", glyph: "✧", size: "12px", opacity: 0.7 },
+  { x: "95%", y: "38%", glyph: "✧", size: "13px", opacity: 0.7 },
+  { x: "22%", y: "20%", glyph: "✧", size: "10px", opacity: 0.6 },
+  { x: "78%", y: "24%", glyph: "✧", size: "11px", opacity: 0.6 },
+  { x: "15%", y: "55%", glyph: "✧", size: "9px", opacity: 0.55 },
+  { x: "84%", y: "66%", glyph: "✧", size: "9px", opacity: 0.55 },
+  { x: "30%", y: "88%", glyph: "✧", size: "11px", opacity: 0.6 },
+  { x: "68%", y: "90%", glyph: "✦", size: "14px", opacity: 0.8 },
+];
+
 export default function MainMenu() {
   const { difficulty, setDifficulty, startGame, createProfile, continueGame, getSavedName, getLeaderboard } =
     useGameStore();
@@ -36,11 +51,11 @@ export default function MainMenu() {
   };
 
   const inputStyle: React.CSSProperties = {
-    background: '#ffffff',
-    border: '4px solid #cccccc',
-    outline: '4px solid #a31c5d',
+    background: '#2a2418',
+    border: '4px solid #6b4423',
+    outline: '4px solid #1c5f33',
     outlineOffset: '-8px',
-    color: '#a31c5d',
+    color: '#f0e6c8',
     padding: '12px 14px',
     fontFamily: "'Kanit', sans-serif",
     fontSize: '14px',
@@ -51,26 +66,46 @@ export default function MainMenu() {
   };
 
   return (
-    <div
-      className="fixed inset-0 flex flex-col lg:flex-row items-center justify-center overflow-y-auto p-4 lg:p-10"
-      style={{
-        background: 'linear-gradient(180deg, #fdf5df 0%, #fdf5df 25%, #ffbbee 60%, #b4e0b4 100%)',
-      }}
-    >
+    <div className="mainmenu-dark fixed inset-0 flex flex-col lg:flex-row items-center justify-center overflow-y-auto p-4 lg:p-10">
+
+      {/* ── ของตกแต่งพื้นหลัง (flat, ไม่มีแสง) ── */}
+      <div className="absolute inset-0 overflow-hidden pointer-events-none">
+        {DECOR.map((d, i) => (
+          <span
+            key={i}
+            className="absolute font-pixel"
+            style={{
+              left: d.x, top: d.y, fontSize: d.size,
+              color: d.glyph === '❤' ? '#57b86f' : '#e8c04a',
+              opacity: d.opacity,
+            }}
+          >
+            {d.glyph}
+          </span>
+        ))}
+        {/* กรอบขอบจอด้านซ้าย/ขวาแบบ pixel */}
+        <div className="absolute left-0 top-0 bottom-0 w-3" style={{ background: 'repeating-linear-gradient(180deg, #2f8f4f 0 12px, #1c3323 12px 24px)' }} />
+        <div className="absolute right-0 top-0 bottom-0 w-3" style={{ background: 'repeating-linear-gradient(180deg, #2f8f4f 0 12px, #1c3323 12px 24px)' }} />
+      </div>
+
       {/* ── ส่วนหลัก: หัวข้อเกม + ปรับเป็น 2 คอลัมน์แบบเดิม ── */}
-      <div className="w-full max-w-4xl flex flex-col items-center gap-8 py-10 lg:my-auto lg:mr-72">
+      <div className="w-full max-w-4xl flex flex-col items-center gap-8 py-10 lg:my-auto lg:mr-72 relative z-10">
 
         {/* ชื่อเกม */}
-        <div className="text-center w-full max-w-2xl bg-[#fdf5df] border-4 border-[#f8a820] outline outline-4 outline-[#a31c5d] -outline-offset-8 p-4 shadow-[8px_8px_0_rgba(0,0,0,0.15)] relative">
-          <div className="absolute -top-4 left-1/2 -translate-x-1/2">
-            <span className="font-pixel text-4xl" style={{ color: '#f8a820', textShadow: '2px 2px 0px #a31c5d' }}>★</span>
+        <div className="text-center w-full max-w-2xl bg-[#3a3325] border-4 border-[#8a5b32] outline outline-4 outline-[#1c5f33] -outline-offset-8 p-4 shadow-[8px_8px_0_rgba(0,0,0,0.4)] relative">
+          <div className="absolute -top-5 left-1/2 -translate-x-1/2 flex items-end gap-2">
+            <span className="font-pixel text-lg" style={{ color: '#e8c04a', textShadow: '2px 2px 0px #1c5f33' }}>★</span>
+            <span className="font-pixel text-3xl" style={{ color: '#f5d87a', textShadow: '2px 2px 0px #1c5f33' }}>★</span>
+            <span className="font-pixel text-lg" style={{ color: '#e8c04a', textShadow: '2px 2px 0px #1c5f33' }}>★</span>
           </div>
+          <span className="font-pixel text-sm absolute -top-6 left-4" style={{ color: '#57b86f' }}>✧</span>
+          <span className="font-pixel text-sm absolute -top-6 right-4" style={{ color: '#57b86f' }}>✧</span>
           <h1
             className="font-pixel font-black leading-tight mt-4"
             style={{
               fontSize: 'clamp(28px, 6vw, 42px)',
-              color: '#a31c5d',
-              textShadow: '3px 3px 0px #ff66aa',
+              color: '#f5d87a',
+              textShadow: '3px 3px 0px #1c5f33',
               letterSpacing: '0.05em'
             }}
           >
@@ -78,6 +113,13 @@ export default function MainMenu() {
             <br />
             CLASH
           </h1>
+          <div className="flex items-center justify-center gap-2 mt-3">
+            <span className="font-pixel text-xs" style={{ color: '#57b86f' }}>❤</span>
+            <div className="h-[2px] w-16" style={{ background: '#57b86f' }} />
+            <span className="font-pixel text-xs" style={{ color: '#e8c04a' }}>✧</span>
+            <div className="h-[2px] w-16" style={{ background: '#57b86f' }} />
+            <span className="font-pixel text-xs" style={{ color: '#57b86f' }}>❤</span>
+          </div>
         </div>
 
         {/* แบ่ง 2 คอลัมน์: เลือกระดับความยาก (ซ้าย) / ข้อมูลผู้เล่นและเริ่มเกม (ขวา) */}
@@ -86,9 +128,9 @@ export default function MainMenu() {
           {/* ซ้าย: เลือกระดับ */}
           <div className="flex-1 w-full flex flex-col gap-4">
             <div className="flex items-center gap-4 w-full">
-              <div className="h-1 flex-1 bg-[#a31c5d]"></div>
-              <span className="font-pixel text-sm" style={{ color: '#a31c5d' }}>— เลือกความยาก —</span>
-              <div className="h-1 flex-1 bg-[#a31c5d]"></div>
+              <div className="h-1 flex-1" style={{ background: '#2f8f4f' }}></div>
+              <span className="font-pixel text-sm" style={{ color: '#57b86f' }}>— เลือกความยาก —</span>
+              <div className="h-1 flex-1" style={{ background: '#2f8f4f' }}></div>
             </div>
 
             <div className="flex flex-col gap-3 w-full">
@@ -104,7 +146,7 @@ export default function MainMenu() {
                     <div className="flex items-center justify-between mb-2">
                       <span
                         className="font-pixel text-lg"
-                        style={{ color: isSelected ? '#a31c5d' : '#666666' }}
+                        style={{ color: isSelected ? '#f0e6c8' : '#9a8f72' }}
                       >
                         {diff === 'HARDCORE' ? 'HARD' : diff}
                       </span>
@@ -114,15 +156,15 @@ export default function MainMenu() {
                     <div className="grid grid-cols-3 gap-2 font-pixel text-[10px] leading-none text-center">
                       <div className="flex flex-col gap-1 items-center">
                         <span className="opacity-80">❤ HP</span>
-                        <span style={{ color: isSelected ? '#a31c5d' : '#666666', fontSize: '14px' }}>{config.playerHP}</span>
+                        <span style={{ color: isSelected ? '#f0e6c8' : '#9a8f72', fontSize: '14px' }}>{config.playerHP}</span>
                       </div>
                       <div className="flex flex-col gap-1 items-center border-l border-r border-current border-opacity-30">
                         <span className="opacity-80">☠ FOE</span>
-                        <span style={{ color: isSelected ? '#a31c5d' : '#666666', fontSize: '14px' }}>{config.totalEnemies}</span>
+                        <span style={{ color: isSelected ? '#f0e6c8' : '#9a8f72', fontSize: '14px' }}>{config.totalEnemies}</span>
                       </div>
                       <div className="flex flex-col gap-1 items-center">
                         <span className="opacity-80">⏱ TIME</span>
-                        <span style={{ color: isSelected ? '#a31c5d' : '#666666', fontSize: '14px' }}>{config.timerSeconds}s</span>
+                        <span style={{ color: isSelected ? '#f0e6c8' : '#9a8f72', fontSize: '14px' }}>{config.timerSeconds}s</span>
                       </div>
                     </div>
                   </button>
@@ -134,20 +176,20 @@ export default function MainMenu() {
           {/* ขวา: ข้อมูลผู้เล่น + เริ่มเกม */}
           <div className="flex-1 w-full flex flex-col gap-4">
             <div className="flex items-center gap-4 w-full">
-              <div className="h-1 flex-1 bg-[#a31c5d]"></div>
-              <span className="font-pixel text-sm" style={{ color: '#a31c5d' }}>— ข้อมูลผู้เล่น —</span>
-              <div className="h-1 flex-1 bg-[#a31c5d]"></div>
+              <div className="h-1 flex-1" style={{ background: '#2f8f4f' }}></div>
+              <span className="font-pixel text-sm" style={{ color: '#57b86f' }}>— ข้อมูลผู้เล่น —</span>
+              <div className="h-1 flex-1" style={{ background: '#2f8f4f' }}></div>
             </div>
 
-            <div className="rpg-panel bg-white/60 backdrop-blur w-full">
+            <div className="rpg-panel w-full">
               <div className="flex gap-2 mb-3">
                 {(['new', 'continue'] as const).map((m) => (
                   <button
                     key={m}
                     onClick={() => { setMode(m); setError(""); }}
                     className={`flex-1 font-pixel text-xs py-3 border-4 outline outline-4 -outline-offset-8 transition-colors ${mode === m
-                      ? 'bg-[#a31c5d] border-[#ff66aa] outline-[#5a0b30] text-white'
-                      : 'bg-[#e8e8e8] border-[#cccccc] outline-[#888888] text-[#666666]'
+                      ? 'bg-[#2f8f4f] border-[#57b86f] outline-[#1c5f33] text-white shadow-[inset_0_4px_0_rgba(255,255,255,0.12),inset_0_-4px_0_rgba(8,30,16,0.3),4px_4px_0_rgba(0,0,0,0.35)] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[2px_2px_0_rgba(0,0,0,0.5)]'
+                      : 'bg-[#3d3a2f] border-[#5d3b1e] outline-[#36220f] text-[#9a8f72] shadow-[inset_0_4px_0_rgba(255,255,255,0.07),inset_0_-4px_0_rgba(0,0,0,0.28),4px_4px_0_rgba(0,0,0,0.35)] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none'
                       }`}
                   >
                     {m === 'new' ? 'ผู้เล่นใหม่' : 'เล่นต่อ'}
@@ -177,7 +219,7 @@ export default function MainMenu() {
             </div>
 
             <div className="mt-auto pt-2">
-              <button onClick={mode === "continue" ? handleContinue : handleStart} className="rpg-btn w-full py-6 text-xl shadow-[6px_6px_0_rgba(0,0,0,0.15)]">
+              <button onClick={mode === "continue" ? handleContinue : handleStart} className="rpg-btn w-full py-6 text-xl">
                 ▶ เริ่มผจญภัย
               </button>
             </div>
@@ -188,16 +230,16 @@ export default function MainMenu() {
       </div>
 
       {/* ── ขวาสุดของจอ: ตารางคะแนนสูงสุด (แนวยาวจากบนลงล่าง) ── */}
-      <div className="hidden lg:flex fixed right-0 top-0 h-full w-72 z-50 flex-col bg-[#fdf5df]/80 backdrop-blur-sm border-l-4 border-[#f8a820] shadow-[-4px_0_12px_rgba(0,0,0,0.1)]">
+      <div className="hidden lg:flex fixed right-0 top-0 h-full w-72 z-50 flex-col bg-[#1c160f]/90 backdrop-blur-sm border-l-4 border-[#57b86f] shadow-[-4px_0_12px_rgba(0,0,0,0.35)]">
         {/* หัวข้อ */}
-        <div className="flex items-center gap-3 px-4 py-4 border-b-2 border-[#f8a820] bg-[#fdf5df]">
-          <span className="font-pixel text-sm font-bold" style={{ color: '#a31c5d' }}>🏆 ตารางคะแนนสูงสุด</span>
+        <div className="flex items-center gap-3 px-4 py-4 border-b-2 border-[#57b86f] bg-[#2a2418]">
+          <span className="font-pixel text-sm font-bold" style={{ color: '#e8c04a' }}>🏆 ตารางคะแนนสูงสุด</span>
         </div>
 
         {/* รายการคะแนน */}
         <div className="flex-1 overflow-y-auto px-3 py-3">
           {board.length === 0 ? (
-            <p className="font-pixel text-xs text-center py-6 text-gray-500">
+            <p className="font-pixel text-xs text-center py-6 text-[#9a8f72]">
               ยังไม่มีข้อมูลคะแนน
             </p>
           ) : (
@@ -205,14 +247,14 @@ export default function MainMenu() {
               {board.slice(0, 20).map((e, i) => (
                 <li
                   key={`${e.name}-${e.difficulty}-${i}`}
-                  className="flex justify-between items-center p-2 bg-white/80 border-2 border-[#a31c5d] rounded"
+                  className="flex justify-between items-center p-2 bg-[#3a3325] border-2 border-[#6b4423] rounded"
                 >
                   <span className="font-pixel text-xs flex gap-2">
-                    <span className="font-bold text-[#f8a820] w-6">{i + 1}.</span>
-                    <span className="text-[#a31c5d] truncate max-w-[100px]">{e.name}</span>
+                    <span className="font-bold text-[#e8c04a] w-6">{i + 1}.</span>
+                    <span className="text-[#f0e6c8] truncate max-w-[100px]">{e.name}</span>
                   </span>
-                  <span className="font-pixel text-xs text-[#a31c5d]">
-                    {e.score.toLocaleString()} <span className="text-[8px] text-[#ff66aa]">({e.difficulty.substring(0, 1)})</span>
+                  <span className="font-pixel text-xs text-[#f0e6c8]">
+                    {e.score.toLocaleString()} <span className="text-[8px] text-[#57b86f]">({e.difficulty.substring(0, 1)})</span>
                   </span>
                 </li>
               ))}

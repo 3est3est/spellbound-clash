@@ -454,7 +454,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
     if (!state.currentEnemy) return;
 
     const updatedEnemies = state.enemies.map((e) =>
-      e.id === state.currentEnemy!.id ? { ...e, defeated: true, respawnTime: Date.now() + 40000 } : e
+      e.id === state.currentEnemy!.id ? { ...e, defeated: true, respawnTime: Date.now() + 20000 } : e
     );
     const newDefeated = state.enemiesDefeated + 1;
     const defeatedEnemyZone = state.currentEnemy.zone;

@@ -82,7 +82,7 @@ export default function BattleOverlay() {
         {/* ผู้กล้า */}
         <div className="flex flex-col gap-1 animate-slide-down">
           <div className="flex items-center gap-2">
-            <span className="font-pixel font-bold text-sm" style={{ color: '#ffffff', ...textShadowStyle }}>ผู้กล้า</span>
+            <span className="font-pixel font-bold text-sm" style={{ color: '#ffffff', ...textShadowStyle }}>สาวนักเวทย์ผู้กล้าหาญ</span>
           </div>
           <div className="flex gap-1 flex-wrap" style={{ maxWidth: '160px' }}>
             {Array.from({ length: maxPlayerHP }).map((_, i) => (
@@ -94,8 +94,8 @@ export default function BattleOverlay() {
         {/* ศัตรู */}
         <div className="flex flex-col gap-1 items-end animate-slide-down">
           <div className="flex items-center gap-2">
-            <span className="font-pixel text-xs" style={{ color: '#aaaaaa', ...textShadowStyle }}>{diffLabel}</span>
-            <span className="font-pixel font-bold text-sm" style={{ color: '#ffaaaa', ...textShadowStyle }}>
+            <span className="font-pixel text-xs" style={{ color: '#b8a888', ...textShadowStyle }}>{diffLabel}</span>
+            <span className="font-pixel font-bold text-sm" style={{ color: '#f5c842', ...textShadowStyle }}>
               {currentEnemy?.name ?? 'ศัตรู'}
             </span>
           </div>
@@ -111,12 +111,13 @@ export default function BattleOverlay() {
       {battleResult && (
         <div className="absolute inset-0 flex items-center justify-center z-20 pointer-events-none">
           <div
-            className="font-pixel font-black animate-pop-in px-10 py-5 bg-white/90 border-4 border-[#a31c5d] rounded shadow-[8px_8px_0_rgba(0,0,0,0.2)]"
+            className="font-pixel font-black animate-pop-in px-10 py-5 bg-[#2a2418] border-4 border-[#e8c04a] shadow-[8px_8px_0_rgba(0,0,0,0.5)]"
             style={{
               fontSize: 'clamp(28px, 6vw, 48px)',
-              color: battleResult === 'CORRECT' ? '#22aa22'
-                : battleResult === 'TIMEOUT' ? '#f8a820'
-                  : '#cc2222',
+              color: battleResult === 'CORRECT' ? '#2f9e53'
+                : battleResult === 'TIMEOUT' ? '#d9a441'
+                  : '#d34b3a',
+              textShadow: '3px 3px 0 #000',
             }}
           >
             {battleResult === 'CORRECT' ? '✓ ถูกต้อง!' : battleResult === 'TIMEOUT' ? '⏰ หมดเวลา!' : '✗ พลาด!'}
@@ -127,17 +128,17 @@ export default function BattleOverlay() {
       {/* ── กล่องคำถาม ── */}
       <div className="pointer-events-auto w-full flex justify-center p-2 sm:p-4 mb-2">
         {currentQuestion && (
-          <div className="w-full max-w-2xl rpg-panel animate-slide-up">
+          <div className="w-full max-w-2xl rpg-panel-frame animate-slide-up" data-zone={currentEnemy?.zone ?? 1}>
 
             {/* หัว: ข้อที่ + เวลา */}
             <div className="flex justify-between items-center mb-3 gap-4">
-              <span className="font-pixel text-sm font-semibold" style={{ color: '#a31c5d' }}>
+              <span className="font-pixel text-sm font-semibold" style={{ color: 'var(--accent-hi)' }}>
                 ข้อ {questionIndex + 1}/{config.questionCount}
               </span>
               <div className="flex items-center gap-2 flex-1 max-w-xs">
                 <span
                   className={`font-pixel font-bold text-base w-6 text-right ${timeLeft <= 3 ? 'animate-blink' : ''}`}
-                  style={{ color: timeLeft <= 3 ? '#cc2222' : '#a31c5d' }}
+                  style={{ color: timeLeft <= 3 ? '#ff7a5c' : 'var(--accent-hi)' }}
                 >
                   {timeLeft}
                 </span>
@@ -186,14 +187,14 @@ export default function BattleOverlay() {
                     <span
                       className="font-pixel font-bold shrink-0 w-6 text-center text-sm"
                       style={{
-                        color: extraClass === 'correct' ? '#006600'
-                          : extraClass === 'wrong' ? '#660000'
-                            : '#a31c5d',
+                        color: extraClass === 'correct' ? '#61d07f'
+                          : extraClass === 'wrong' ? '#ff7a5c'
+                            : 'var(--accent-hi)',
                       }}
                     >
                       {labels[i]}
                     </span>
-                    <span className="font-sans font-semibold text-lg" style={{ color: extraClass === 'dimmed' ? '#888888' : '#a31c5d' }}>
+                    <span className="font-sans font-semibold text-lg" style={{ color: extraClass === 'dimmed' ? '#847e6f' : 'var(--accent-hi)' }}>
                       {choice.text}
                     </span>
                   </button>

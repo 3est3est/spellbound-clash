@@ -148,7 +148,7 @@
       "id": "battle_bg_z1",
       "role": "battle background — emerald forest zone (z1)",
       "path": "public/assets/gen/zones/z1-battle-bg.png",
-      "status": "pending_review",
+      "status": "approved_pending_review",
       "technical": {
         "dimensions": "1280x768",
         "alpha": false,
@@ -180,7 +180,7 @@
       "id": "battle_bg_z2",
       "role": "battle background — arid barren plains zone (z2)",
       "path": "public/assets/gen/zones/z2-battle-bg.png",
-      "status": "pending_review",
+      "status": "approved_pending_review",
       "technical": {
         "dimensions": "1280x768",
         "alpha": false,
@@ -212,7 +212,7 @@
       "id": "battle_bg_z3",
       "role": "battle background — frozen snow zone (z3)",
       "path": "public/assets/gen/zones/z3-battle-bg.png",
-      "status": "pending_review",
+      "status": "approved_pending_review",
       "technical": {
         "dimensions": "1280x768",
         "alpha": false,
@@ -244,7 +244,7 @@
       "id": "battle_bg_z4",
       "role": "battle background — volcanic hell zone (z4)",
       "path": "public/assets/gen/zones/z4-battle-bg.png",
-      "status": "pending_review",
+      "status": "approved_pending_review",
       "technical": {
         "dimensions": "1280x768",
         "alpha": false,
@@ -263,6 +263,134 @@
         "creator": "AI (Qwen-Image)",
         "created_at": "",
         "license": "user API key, generated per project",
+        "attribution": ""
+      },
+      "verification": {
+        "native_scale_reviewed": false,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": false,
+        "approved_by": ""
+      }
+    },
+    {
+      "id": "ui_panel_frame_z1",
+      "role": "UI panel frame — pixel 9-slice frame for battle question panel (zone 1 accent)",
+      "path": "public/assets/gen/ui/panel-frame-z1.png",
+      "status": "approved_pending_review",
+      "technical": {
+        "dimensions": "64x64",
+        "alpha": true,
+        "frames": 1,
+        "filtering": "nearest",
+        "nine_slice": true,
+        "slice_inset": 16
+      },
+      "visual_locks": [
+        "palette (zone accent/highlight/shadow + gold)",
+        "silhouette (chunky bevel border + corner gem)"
+      ],
+      "source": {
+        "kind": "procedural",
+        "url_or_tool": "scripts/gen-ui-art.mjs (pngjs, no AI)",
+        "creator": "script",
+        "created_at": "",
+        "license": "generated per project",
+        "attribution": ""
+      },
+      "verification": {
+        "native_scale_reviewed": false,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": false,
+        "approved_by": ""
+      }
+    },
+    {
+      "id": "ui_panel_frame_z2",
+      "role": "UI panel frame — pixel 9-slice frame for battle question panel (zone 2 accent)",
+      "path": "public/assets/gen/ui/panel-frame-z2.png",
+      "status": "approved_pending_review",
+      "technical": {
+        "dimensions": "64x64",
+        "alpha": true,
+        "frames": 1,
+        "filtering": "nearest",
+        "nine_slice": true,
+        "slice_inset": 16
+      },
+      "visual_locks": [
+        "palette (zone accent/highlight/shadow + gold)",
+        "silhouette (chunky bevel border + corner gem)"
+      ],
+      "source": {
+        "kind": "procedural",
+        "url_or_tool": "scripts/gen-ui-art.mjs (pngjs, no AI)",
+        "creator": "script",
+        "created_at": "",
+        "license": "generated per project",
+        "attribution": ""
+      },
+      "verification": {
+        "native_scale_reviewed": false,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": false,
+        "approved_by": ""
+      }
+    },
+    {
+      "id": "ui_panel_frame_z3",
+      "role": "UI panel frame — pixel 9-slice frame for battle question panel (zone 3 accent)",
+      "path": "public/assets/gen/ui/panel-frame-z3.png",
+      "status": "approved_pending_review",
+      "technical": {
+        "dimensions": "64x64",
+        "alpha": true,
+        "frames": 1,
+        "filtering": "nearest",
+        "nine_slice": true,
+        "slice_inset": 16
+      },
+      "visual_locks": [
+        "palette (zone accent/highlight/shadow + gold)",
+        "silhouette (chunky bevel border + corner gem)"
+      ],
+      "source": {
+        "kind": "procedural",
+        "url_or_tool": "scripts/gen-ui-art.mjs (pngjs, no AI)",
+        "creator": "script",
+        "created_at": "",
+        "license": "generated per project",
+        "attribution": ""
+      },
+      "verification": {
+        "native_scale_reviewed": false,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": false,
+        "approved_by": ""
+      }
+    },
+    {
+      "id": "ui_panel_frame_z4",
+      "role": "UI panel frame — pixel 9-slice frame for battle question panel (zone 4 accent)",
+      "path": "public/assets/gen/ui/panel-frame-z4.png",
+      "status": "approved_pending_review",
+      "technical": {
+        "dimensions": "64x64",
+        "alpha": true,
+        "frames": 1,
+        "filtering": "nearest",
+        "nine_slice": true,
+        "slice_inset": 16
+      },
+      "visual_locks": [
+        "palette (zone accent/highlight/shadow + gold)",
+        "silhouette (chunky bevel border + corner gem)"
+      ],
+      "source": {
+        "kind": "procedural",
+        "url_or_tool": "scripts/gen-ui-art.mjs (pngjs, no AI)",
+        "creator": "script",
+        "created_at": "",
+        "license": "generated per project",
         "attribution": ""
       },
       "verification": {

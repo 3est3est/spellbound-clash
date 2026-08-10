@@ -44,7 +44,7 @@ export default function InventoryModal() {
             name: '👑 หมวกยอดวีรบุรุษ (Hero Hat)',
             desc: 'สวมใส่เพื่อเพิ่มพลังชีวิตสูงสุด (Max HP) +1 หน่วยทันที',
             slot: 'hat',
-            color: '#a31c5d'
+            color: '#e8c04a'
         },
         sword: {
             name: '⚔️ ดาบประกาศิต (Holy Sword)',
@@ -93,8 +93,8 @@ export default function InventoryModal() {
                     <button
                         onClick={() => setActiveTab('pets')}
                         className={`flex-1 font-pixel text-[10px] py-2 border-4 outline outline-4 -outline-offset-8 transition-colors font-bold ${activeTab === 'pets'
-                                ? 'bg-[#a31c5d] border-[#ff66aa] outline-[#5a0b30] text-white'
-                                : 'bg-[#e8e8e8] border-[#cccccc] outline-[#888888] text-[#666666]'
+                                ? 'bg-[#2f8f4f] border-[#57b86f] outline-[#1c5f33] text-white shadow-[inset_0_4px_0_rgba(255,255,255,0.12),inset_0_-4px_0_rgba(8,30,16,0.3),4px_4px_0_rgba(0,0,0,0.35)]'
+                                : 'bg-[#26221c] border-[#5d3b1e] outline-[#3a362e] text-[#b8a888] shadow-[3px_3px_0_rgba(0,0,0,0.4)]'
                             }`}
                     >
                         🐾 สัตว์เลี้ยง
@@ -102,8 +102,8 @@ export default function InventoryModal() {
                     <button
                         onClick={() => setActiveTab('equipment')}
                         className={`flex-1 font-pixel text-[10px] py-2 border-4 outline outline-4 -outline-offset-8 transition-colors font-bold ${activeTab === 'equipment'
-                                ? 'bg-[#a31c5d] border-[#ff66aa] outline-[#5a0b30] text-white'
-                                : 'bg-[#e8e8e8] border-[#cccccc] outline-[#888888] text-[#666666]'
+                                ? 'bg-[#2f8f4f] border-[#57b86f] outline-[#1c5f33] text-white shadow-[inset_0_4px_0_rgba(255,255,255,0.12),inset_0_-4px_0_rgba(8,30,16,0.3),4px_4px_0_rgba(0,0,0,0.35)]'
+                                : 'bg-[#26221c] border-[#5d3b1e] outline-[#3a362e] text-[#b8a888] shadow-[3px_3px_0_rgba(0,0,0,0.4)]'
                             }`}
                     >
                         ⚔️ ของสวมใส่
@@ -111,10 +111,10 @@ export default function InventoryModal() {
                 </div>
 
                 {/* Content Panel */}
-                <div className="bg-white/45 border-4 border-[#ff66aa] p-3 mb-5 max-h-64 overflow-y-auto shadow-inner flex flex-col gap-3 min-h-[144px]">
+                <div className="bg-[#26201a]/60 border-4 border-[#6b4423] p-3 mb-5 max-h-64 overflow-y-auto shadow-inner flex flex-col gap-3 min-h-[144px]">
                     {activeTab === 'pets' ? (
                         uniqueOwned.length === 0 ? (
-                            <div className="flex flex-col items-center justify-center py-6 text-center text-xs text-[#a31c5d] font-pixel font-bold">
+                            <div className="flex flex-col items-center justify-center py-6 text-center text-xs text-[#e8dcc0] font-pixel font-bold">
                                 <span className="text-3xl mb-1 opacity-60">🐾</span>
                                 ยังไม่มีสัตว์เลี้ยง!<br />
                                 หมุนสุ่มได้จากตู้นะ
@@ -126,8 +126,8 @@ export default function InventoryModal() {
                                 return (
                                     <div
                                         key={pet}
-                                        className="border-2 p-2 bg-[#fdf5df] flex flex-col gap-1 shadow-[2px_2px_0_rgba(0,0,0,0.1)]"
-                                        style={{ borderColor: isEquipped ? '#ffd700' : '#ff66aa' }}
+                                        className="border-2 p-2 bg-[#33291c] flex flex-col gap-1 shadow-[4px_4px_0_rgba(0,0,0,0.4)]"
+                                        style={{ borderColor: isEquipped ? '#e8c04a' : '#6b4423' }}
                                     >
                                         <div className="flex justify-between items-center">
                                             <span className="font-pixel text-[10px] font-bold" style={{ color: details.color }}>
@@ -141,7 +141,7 @@ export default function InventoryModal() {
                                                 {isEquipped ? '✕ ถอดออก' : '✓ สวมใส่'}
                                             </button>
                                         </div>
-                                        <p className="text-[9px] text-gray-700 font-semibold leading-relaxed mt-1">
+                                        <p className="text-[9px] text-[#c9bd9e] font-semibold leading-relaxed mt-1">
                                             {details.desc}
                                         </p>
                                     </div>
@@ -150,7 +150,7 @@ export default function InventoryModal() {
                         )
                     ) : (
                         itemsOwned.length === 0 ? (
-                            <div className="flex flex-col items-center justify-center py-6 text-center text-xs text-[#a31c5d] font-pixel font-bold">
+                            <div className="flex flex-col items-center justify-center py-6 text-center text-xs text-[#e8dcc0] font-pixel font-bold">
                                 <span className="text-3xl mb-1 opacity-60">⚔️</span>
                                 ยังไม่มีของสวมใส่!<br />
                                 ซื้อได้จากร้านค้าเลยนะ
@@ -168,8 +168,8 @@ export default function InventoryModal() {
                                 return (
                                     <div
                                         key={itemId}
-                                        className="border-2 p-2 bg-[#fdf5df] flex flex-col gap-1 shadow-[2px_2px_0_rgba(0,0,0,0.1)]"
-                                        style={{ borderColor: isEquipped ? '#ffd700' : '#ff66aa' }}
+                                        className="border-2 p-2 bg-[#33291c] flex flex-col gap-1 shadow-[4px_4px_0_rgba(0,0,0,0.4)]"
+                                        style={{ borderColor: isEquipped ? '#e8c04a' : '#6b4423' }}
                                     >
                                         <div className="flex justify-between items-center">
                                             <span className="font-pixel text-[10px] font-bold" style={{ color: details.color }}>
@@ -183,7 +183,7 @@ export default function InventoryModal() {
                                                 {isEquipped ? '✕ ถอดออก' : '✓ สวมใส่'}
                                             </button>
                                         </div>
-                                        <p className="text-[9px] text-gray-700 font-semibold leading-relaxed mt-1">
+                                        <p className="text-[9px] text-[#c9bd9e] font-semibold leading-relaxed mt-1">
                                             {details.desc}
                                         </p>
                                     </div>

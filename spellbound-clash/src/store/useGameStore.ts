@@ -298,8 +298,10 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const config = DIFFICULTY_CONFIGS[difficulty];
     const saved = readSave();
     const continuing = !!saved && saved.name === get().playerName && saved.pin === get().pin;
+    // ถ้าเกมเคยชนะครบทั้ง 12 ตัวแล้ว กลับมาเล่นต่อควรเข้าหน้าจอชนะโดยตรง (ไม่กลับไป EXPLORE)
+    const continueVictory = continuing && saved!.enemiesDefeated >= (saved!.totalEnemies ?? 12);
     set({
-      gameState: "EXPLORE",
+      gameState: continueVictory ? "WIN" : "EXPLORE",
       difficulty: continuing ? saved!.difficulty : difficulty,
       playerHP: continuing ? saved!.playerHP : config.playerHP,
       maxPlayerHP: continuing ? saved!.maxPlayerHP : config.playerHP,
@@ -468,19 +470,25 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const newUnlockedZones = [...state.unlockedZones];
     let banner: string | null = null;
 
-    if (defeatedEnemyZone === 1 && !newUnlockedZones.includes(2)) {
+    // ปลดล็อคอุโมงค์ไปโซนถัดไปเฉพาะเมื่อกำจัดมอนสเตอร์ครบทั้ง 3 ตัวในโซนปัจจุบันแล้ว
+    const defeatedInThisZone = updatedEnemies.filter((e) => e.zone === defeatedEnemyZone && e.defeated).length;
+    const ZONE_ENEMIES_PER_ZONE = 3;
+
+    if (defeatedEnemyZone === 1 && defeatedInThisZone >= ZONE_ENEMIES_PER_ZONE && !newUnlockedZones.includes(2)) {
       newUnlockedZones.push(2);
-      banner = "🔓 กำจัดมอนสเตอร์ในโซน 1 สำเร็จ 1 ตัว! ประตูสู่โซน 2 ปลดล็อคแล้ว!";
-    } else if (defeatedEnemyZone === 2 && !newUnlockedZones.includes(3)) {
+      banner = "🔓 กำจัดมอนสเตอร์ครบทั้ง 3 ตัวในโซน 1 แล้ว! ประตูสู่โซน 2 ปลดล็อคแล้ว!";
+    } else if (defeatedEnemyZone === 2 && defeatedInThisZone >= ZONE_ENEMIES_PER_ZONE && !newUnlockedZones.includes(3)) {
       newUnlockedZones.push(3);
-      banner = "🔓 กำจัดมอนสเตอร์ในโซน 2 สำเร็จ 1 ตัว! ประตูสู่โซน 3 ปลดล็อคแล้ว!";
-    } else if (defeatedEnemyZone === 3 && !newUnlockedZones.includes(4)) {
+      banner = "🔓 กำจัดมอนสเตอร์ครบทั้ง 3 ตัวในโซน 2 แล้ว! ประตูสู่โซน 3 ปลดล็อคแล้ว!";
+    } else if (defeatedEnemyZone === 3 && defeatedInThisZone >= ZONE_ENEMIES_PER_ZONE && !newUnlockedZones.includes(4)) {
       newUnlockedZones.push(4);
-      banner = "🔓 กำจัดมอนสเตอร์ในโซน 3 สำเร็จ 1 ตัว! ประตูสู่โซน 4 ปลดล็อคแล้ว!";
+      banner = "🔓 กำจัดมอนสเตอร์ครบทั้ง 3 ตัวในโซน 3 แล้ว! ประตูสู่โซน 4 ปลดล็อคแล้ว!";
     }
 
-    if (newDefeated === state.totalEnemies) {
-      banner = `🎉 ชัยชนะครั้งใหญ่! คุณปราบศัตรูครบทั้ง 4 โซน (${state.totalEnemies} ตัว)! คุณสามารถผจญภัยสะสมคะแนนต่อได้เรื่อยๆ!`;
+    // ชัยชนะ: กำจัดศัตรูครบทั้ง 12 ตัว (ทั้ง 4 โซน) → เข้าสู่หน้าจอแสดงชัยชนะ
+    const isVictory = newDefeated >= state.totalEnemies;
+    if (isVictory) {
+      banner = `🎉 ชัยชนะครั้งใหญ่! คุณปราบศัตรูครบทั้ง 4 โซน (${state.totalEnemies} ตัว)!`;
     }
 
     set({
@@ -491,7 +499,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       currentEnemy: null,
       unlockedZones: newUnlockedZones,
       zoneBanner: banner,
-      gameState: "EXPLORE",
+      gameState: isVictory ? "WIN" : "EXPLORE",
       battleResult: null,
       currentQuestion: null,
     });

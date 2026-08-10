@@ -46,6 +46,23 @@ Opens at `http://localhost:5173`
 
 ---
 
+## 🎨 Asset / sprite system (AI-generated)
+
+Sprites are generated locally (QwenCloud, free) and processed with Node scripts. See:
+
+- `docs/art-direction-brief.md` — visual direction, palettes, sizes
+- `docs/ASSET_PIPELINE.md` — how to generate/process sprites (4-step pipeline)
+- `docs/DECISIONS.md` — why decisions were made
+- `assets/asset-manifest.json` — inventory & status of every generated asset
+- `AGENTS.md` — guide for AI agents working in this repo
+
+Current cast:
+- **Player** (cute witch): `player.png` (32 map) + `player-battle.png` (512 battle) + `player-cast` (casting pose, purple magic)
+- **Enemy goblin**: `enemy_goblin.png` (32) + `goblin-battle.png` (512) + `goblin-cast` (axe casting pose, red magic)
+- **Spell glyphs**: `glyph-light.png` (purple) + `glyph-dark.png` (red) — rotating hexagram projectiles in `EffectRenderer.ts`
+
+---
+
 ## 📁 Key Files
 
 | File | Purpose |
@@ -64,13 +81,18 @@ Opens at `http://localhost:5173`
 
 ## 🗂️ Assets Structure (public/assets — DO NOT MODIFY)
 
+All game art is AI-generated locally (QwenCloud) and lives under `public/assets/gen/`:
+
 ```
-public/assets/
-├── craftpix-net-385863-free-top-down-trees-pixel-art/     ← Trees (Zone 1-4)
-├── craftpix-net-141354-free-top-down-bushes-pixel-art/    ← Bushes, Ferns, Cacti
-├── craftpix-net-823949-free-nature-backgrounds-pixel-art/ ← Battle BG
-└── mana seed seasonal forest sample (summer)/             ← Water sparkles
+public/assets/gen/
+├── zones/     # Zone 1-4 decoration (32px) + floor/path/water tiles (48px) + barriers
+├── player/    # Witch: 32px map + 512 battle/cast/hurt
+├── enemy/     # Goblin: 32px map + 512 battle/cast/hurt
+├── effects/   # Spell glyphs (512, transparent)
+└── _raw/      # AI source textures per folder (zones/player/enemy) — keep as reference, never wire to configs
 ```
+
+External sprite packs (craftpix / mana-seed) were removed — do not re-add them.
 
 ---
 

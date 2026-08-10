@@ -125,4 +125,19 @@ export function sheetFrameHasContent(
 const SHEETS = [HERO_SHEET_CONFIG, ENEMY_SHEET_CONFIG];
 for (const s of SHEETS) {
   registerSheet(s.name, s.url, s.frameW, s.frameH, s.colorKey);
+  if (s.enabled && s.walkUrl) {
+    registerSheet(`${s.name}-walk`, s.walkUrl, s.walkFrameW ?? s.frameW, s.walkFrameH ?? s.frameH, s.colorKey);
+  }
+  if (s.enabled && s.battleUrl) {
+    registerSheet(`${s.name}-battle`, s.battleUrl, s.battleFrameW ?? s.frameW, s.battleFrameH ?? s.frameH, s.colorKey);
+  }
+  if (s.enabled && s.castUrl) {
+    registerSheet(`${s.name}-cast`, s.castUrl, s.castFrameW ?? s.frameW, s.castFrameH ?? s.frameH, s.colorKey);
+  }
+  if (s.enabled && s.castBattleUrl) {
+    registerSheet(`${s.name}-cast-battle`, s.castBattleUrl, s.castBattleFrameW ?? s.castFrameW ?? s.frameW, s.castBattleFrameH ?? s.castFrameH ?? s.frameH, s.colorKey);
+  }
+  if (s.enabled && s.hurtBattleUrl) {
+    registerSheet(`${s.name}-hurt-battle`, s.hurtBattleUrl, s.hurtBattleFrameW ?? s.frameW, s.hurtBattleFrameH ?? s.frameH, s.colorKey);
+  }
 }

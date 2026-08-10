@@ -1,0 +1,148 @@
+{
+  "schema_version": 1,
+  "art_direction_brief": "docs/art-direction-brief.md",
+  "assets": [
+    {
+      "id": "player",
+      "role": "player character — cute witch (top-down)",
+      "path": "public/assets/gen/player/player.png",
+      "walk_path": "public/assets/gen/player/player-walk.png",
+      "walk_frames": 4,
+      "battle_path": "public/assets/gen/player/player-battle.png",
+      "cast_battle_path": "public/assets/gen/player/player-cast-battle.png",
+      "hurt_battle_path": "public/assets/gen/player/player-hurt-battle.png",
+      "status": "approved_pending_review",
+      "technical": {
+        "dimensions": "32x32 (map), 128x32 walk strip (4x32), 512x512 (battle/cast/hurt)",
+        "alpha": true,
+        "anchor": "bottom-center (x16, y32)",
+        "frames": 1,
+        "filtering": "nearest"
+      },
+      "visual_locks": [
+        "palette (blue-purple)",
+        "silhouette (pointy hat + robe)",
+        "proportions (chibi, head > body)",
+        "facing (top-down, front bias)",
+        "light-direction (top-left)"
+      ],
+      "source": {
+        "kind": "generated",
+        "url_or_tool": "QwenCloud qwen-image-2.0-pro via scripts/gen-sprite-qwen-ref.mjs (reference: _raw/player/player-px.png)",
+        "creator": "AI (Qwen-Image)",
+        "created_at": "",
+        "license": "user API key, generated per project",
+        "attribution": "",
+        "prompt_or_source_record": "see scripts/gen-sprite-qwen-ref.mjs invocation in prompt template"
+      },
+      "verification": {
+        "native_scale_reviewed": false,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": false,
+        "approved_by": ""
+      }
+    },
+    {
+      "id": "enemy_goblin",
+      "role": "enemy — fierce shirtless goblin with battle axe (top-down)",
+      "path": "public/assets/gen/enemy/enemy_goblin.png",
+      "walk_path": "public/assets/gen/enemy/goblin-walk.png",
+      "walk_frames": 4,
+      "battle_path": "public/assets/gen/enemy/goblin-battle.png",
+      "cast_battle_path": "public/assets/gen/enemy/goblin-cast-battle.png",
+      "hurt_battle_path": "public/assets/gen/enemy/goblin-hurt-battle.png",
+      "status": "approved_pending_review",
+      "technical": {
+        "dimensions": "32x32 (map), 128x32 walk strip (4x32), 512x512 (battle/cast/hurt)",
+        "alpha": true,
+        "anchor": "bottom-center (x16, y32)",
+        "frames": 1,
+        "filtering": "nearest"
+      },
+      "visual_locks": [
+        "palette (green skin + yellow eyes)",
+        "silhouette (pointy ears + hunched torso + axe)",
+        "proportions (menacing, slight hunch)",
+        "facing (top-down, front bias)",
+        "light-direction (top-left)"
+      ],
+      "source": {
+        "kind": "generated",
+        "url_or_tool": "QwenCloud qwen-image-2.0-pro via scripts/gen-sprite-qwen-ref.mjs (reference: _raw/enemy/goblin-px.png, goblin-axe-px.png)",
+        "creator": "AI (Qwen-Image)",
+        "created_at": "",
+        "license": "user API key, generated per project",
+        "attribution": "",
+        "prompt_or_source_record": ""
+      },
+      "verification": {
+        "native_scale_reviewed": false,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": false,
+        "approved_by": ""
+      }
+    },
+    {
+      "id": "glyph_light",
+      "role": "battle projectile glyph — hero cast (purple)",
+      "path": "public/assets/gen/effects/glyph-light.png",
+      "status": "approved_pending_review",
+      "technical": {
+        "dimensions": "512x512",
+        "alpha": true,
+        "anchor": "center",
+        "frames": 1,
+        "filtering": "nearest"
+      },
+      "visual_locks": [
+        "octagon hexagram + rotating rune ring",
+        "purple magic (#7c3aed family)"
+      ],
+      "source": {
+        "kind": "generated",
+        "url_or_tool": "QwenCloud qwen-image-2.0-pro via scripts/gen-sprite-qwen.mjs",
+        "creator": "AI (Qwen-Image)",
+        "created_at": "",
+        "license": "user API key, generated per project",
+        "attribution": ""
+      },
+      "verification": {
+        "native_scale_reviewed": false,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": false,
+        "approved_by": ""
+      }
+    },
+    {
+      "id": "glyph_dark",
+      "role": "battle projectile glyph — enemy cast (red)",
+      "path": "public/assets/gen/effects/glyph-dark.png",
+      "status": "approved_pending_review",
+      "technical": {
+        "dimensions": "512x512",
+        "alpha": true,
+        "anchor": "center",
+        "frames": 1,
+        "filtering": "nearest"
+      },
+      "visual_locks": [
+        "octagon hexagram + rotating rune ring",
+        "red magic (#ef4444 family)"
+      ],
+      "source": {
+        "kind": "generated",
+        "url_or_tool": "QwenCloud qwen-image-2.0-pro via scripts/gen-sprite-qwen.mjs",
+        "creator": "AI (Qwen-Image)",
+        "created_at": "",
+        "license": "user API key, generated per project",
+        "attribution": ""
+      },
+      "verification": {
+        "native_scale_reviewed": false,
+        "in_engine_reviewed": false,
+        "technical_checks_passed": false,
+        "approved_by": ""
+      }
+    }
+  ]
+}

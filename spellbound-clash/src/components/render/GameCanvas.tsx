@@ -30,6 +30,7 @@ interface EnemyView {
   wdx: number;
   wdy: number;
   wanderTimer: number;
+  facing: number;
   ox: number;
   oy: number;
 }
@@ -43,7 +44,7 @@ function enemyToTile(pos: [number, number, number]): { tx: number; ty: number } 
 export default function GameCanvas() {
   const canvasRef = useRef<HTMLCanvasElement>(null);
   const keys = useRef<Record<string, boolean>>({});
-  const player = useRef({ tx: 3, ty: 4, dir: "down" as Dir, anim: 0, moving: false });
+  const player = useRef({ tx: 3, ty: 4, dir: "right" as Dir, facing: "right" as "left" | "right", anim: 0, moving: false });
   const playerHistory = useRef<{ tx: number; ty: number; dir: Dir }[]>([]);
   const cam = useRef({ x: 0, y: 0 });
   const enemiesRef = useRef<EnemyView[]>([]);
@@ -101,6 +102,7 @@ export default function GameCanvas() {
         wdx: existing?.wdx ?? 0,
         wdy: existing?.wdy ?? 0,
         wanderTimer: existing?.wanderTimer ?? 0,
+        facing: existing?.facing ?? 1,
         ox: existing?.ox ?? tx,
         oy: existing?.oy ?? ty,
       };
@@ -123,7 +125,7 @@ export default function GameCanvas() {
     spellRef.current = { active: true, t: 0, from: positive ? "hero" : "enemy" };
     let raf = 0;
     const start = performance.now();
-    const dur = 420;
+    const dur = 900;
     const tick = (now: number) => {
       const p = Math.min(1, (now - start) / dur);
       const v = Math.sin(p * Math.PI) * (positive ? 1 : -1);
@@ -234,6 +236,7 @@ export default function GameCanvas() {
         if (keys.current["KeyD"] || keys.current["ArrowRight"]) dx += 1;
 
         if (dx !== 0 || dy !== 0) {
+          if (dx !== 0) p.facing = dx > 0 ? "right" : "left";
           if (dx > 0) p.dir = "right";
           else if (dx < 0) p.dir = "left";
           else if (dy > 0) p.dir = "down";
@@ -275,6 +278,7 @@ export default function GameCanvas() {
               const ang = Math.random() * Math.PI * 2;
               e.wdx = Math.cos(ang);
               e.wdy = Math.sin(ang);
+              if (Math.abs(e.wdx) > Math.abs(e.wdy)) e.facing = e.wdx > 0 ? 1 : -1;
             }
             e.wanderTimer = 0.6 + Math.random() * 1.6;
           }
@@ -468,22 +472,28 @@ export default function GameCanvas() {
 
         const hcx = heroX + (TILE * SCALE * battleScale) / 2;
         const ecx = enemyX + (TILE * SCALE * battleScale) / 2;
-        drawMagicCircle(ctx, hcx, groundY, TILE * SCALE * battleScale * 0.62, "#7fd4ff", now / 600);
-        drawMagicCircle(ctx, ecx, groundY, TILE * SCALE * battleScale * 0.62, "#ff7a7a", now / 600 + 1.7);
+        drawMagicCircle(ctx, hcx, groundY, TILE * SCALE * battleScale * 0.62, "#7c3aed", now / 600);
+        drawMagicCircle(ctx, ecx, groundY, TILE * SCALE * battleScale * 0.62, "#ef4444", now / 600 + 1.7);
 
         const casting = spellRef.current.active;
         const fromHero = spellRef.current.from === "hero";
-        const heroPose = casting && fromHero ? "attack" : "idle";
-        const enemyPose = casting && !fromHero ? "attack" : "idle";
+        const heroWasHit = battleResult === "WRONG" || battleResult === "TIMEOUT";
+        const enemyWasHit = spellRef.current.active && fromHero;
+        const heroPose = heroWasHit ? "hurt" : casting && fromHero ? "attack" : "idle";
+        const enemyPose = enemyWasHit ? "hurt" : casting && !fromHero ? "attack" : "idle";
         const aFrame = casting ? Math.floor(now / 90) : 0;
 
-        const offX = lungeRef.current * 30 * SCALE;
-        drawHero(ctx, heroX + offX, topY, "right", aFrame, false, battleScale, heroPose);
+        const shakeMag = (spellRef.current.active && spellRef.current.t > 0.6) ? Math.sin(spellRef.current.t * 40) : 0;
+        const heroShake = heroWasHit ? Math.sin(now / 60) * 3 * SCALE : 0;
+        const enemyShake = enemyWasHit ? Math.sin(now / 60) * 3 * SCALE : 0;
 
-        const eOffX = lungeRef.current * -30 * SCALE;
-        const hit = battleResult === "WRONG";
+        const offX = lungeRef.current * 30 * SCALE + shakeMag * 2 * SCALE;
+        drawHero(ctx, heroX + offX, topY + heroShake, "right", aFrame, false, battleScale, heroPose);
+
+        const eOffX = lungeRef.current * -30 * SCALE + shakeMag * 2 * SCALE;
+        const hit = enemyWasHit;
         const enemyBattleScale = battleScale;
-        const enemyTopY = topY;
+        const enemyTopY = topY + enemyShake;
         drawEnemy(ctx, enemyX + eOffX, enemyTopY, aFrame, hit, enemyBattleScale, enemyPose, false);
       } else {
         for (const d of list) {
@@ -493,7 +503,8 @@ export default function GameCanvas() {
             heroSX = sx;
             heroSY = sy;
             const offX = p.dir === "left" ? lungeRef.current * -18 * SCALE : p.dir === "right" ? lungeRef.current * 18 * SCALE : 0;
-            drawHero(ctx, sx + offX, sy, p.dir, frame, p.moving && !inBattle);
+            const heroWalking = p.moving && !inBattle;
+            drawHero(ctx, sx + offX, sy, p.dir, frame, heroWalking, 1, "auto", p.facing === "right");
             if (playerName) drawNameTag(ctx, sx + offX + (TILE * SCALE) / 2, sy - 4, playerName);
           } else if (d.kind === "pet") {
             drawPet(ctx, sx, sy, d.petKind!, frame, d.petDir!);
@@ -509,7 +520,8 @@ export default function GameCanvas() {
             const scaleBoost = isCurrent ? 1.6 : 1;
             const hit = !!(isCurrent && battleResult === "WRONG");
             const eFrame = enemyMoving ? Math.floor(now / 110) : 0;
-            drawEnemy(ctx, sx, sy, eFrame, hit, scaleBoost, enemyMoving ? "walk" : "idle");
+            const enemyFlip = enemyMoving && !!(ev && ev.facing > 0);
+            drawEnemy(ctx, sx, sy, eFrame, hit, scaleBoost, enemyMoving ? "walk" : "idle", enemyFlip);
           }
         }
       }

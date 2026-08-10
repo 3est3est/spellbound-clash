@@ -1,83 +1,54 @@
 import { loadAsset, loadAssets } from './AssetLoader';
 
-const TREE_ROOT = '/assets/craftpix-net-385863-free-top-down-trees-pixel-art/PNG/Assets_separately/Trees';
-const BUSH_ROOT = '/assets/craftpix-net-141354-free-top-down-bushes-pixel-art/PNG/Assets';
-const NATURE_ROOT = '/assets/craftpix-net-823949-free-nature-backgrounds-pixel-art';
+// AI-generated assets live under /assets/gen/zones/. Zone decoration arrays are
+// filled from generated sprites; painted floors sized to the tile (48px).
 
-// Zone 1: Green Forest
-const ZONE1_TREE_NAMES = [
-  'Tree1', 'Tree2', 'Tree3',
-  'Moss_tree1', 'Moss_tree2', 'Moss_tree3',
-  'Fruit_tree1', 'Fruit_tree2', 'Fruit_tree3',
-  'Flower_tree1', 'Flower_tree2', 'Flower_tree3',
-];
-export const zone1Trees = loadAssets(ZONE1_TREE_NAMES.map((n) => `${TREE_ROOT}/${n}.png`));
+const z = (name: string) => `/assets/gen/zones/${name}.png`;
 
-const ZONE1_BUSH_NAMES = [
-  'Bush_blue_flowers1', 'Bush_blue_flowers2', 'Bush_blue_flowers3',
-  'Bush_pink_flowers1', 'Bush_pink_flowers2', 'Bush_pink_flowers3',
-  'Bush_red_flowers1', 'Bush_red_flowers2', 'Bush_red_flowers3',
-  'Bush_simple1_1', 'Bush_simple1_2', 'Bush_simple1_3',
-  'Fern1_1', 'Fern1_2', 'Fern1_3',
-];
-export const zone1Bushes = loadAssets(ZONE1_BUSH_NAMES.map((n) => `${BUSH_ROOT}/${n}.png`));
+export const zone1Trees = loadAssets([z('z1-tree0-32'), z('z1-tree1-32')]);
+export const zone1Bushes = loadAssets([z('z1-bush0-32')]);
+export const zone1Rocks = loadAssets([z('z1-rock0-32')]);
+export const zone1Flowers = loadAssets([z('z1-flower0-32')]);
+export const zone1Floor = loadAsset(z('z1-floor-48'));
 
-// Zone 2: Autumn & Desert
-const ZONE2_TREE_NAMES = [
-  'Autumn_tree1', 'Autumn_tree2', 'Autumn_tree3',
-  'Palm_tree1_1', 'Palm_tree1_2', 'Palm_tree1_3',
-  'Palm_tree2_1', 'Palm_tree2_2', 'Palm_tree2_3',
-];
-export const zone2Trees = loadAssets(ZONE2_TREE_NAMES.map((n) => `${TREE_ROOT}/${n}.png`));
+export const zone2Trees = loadAssets([z('z2-tree0-32'), z('z2-tree1-32')]);
+export const zone2Bushes = loadAssets([z('z2-bush0-32')]);
+export const zone2Rocks = loadAssets([z('z2-rock0-32')]);
+export const zone2Flowers = loadAssets([z('z2-flower0-32')]);
+export const zone2Floor = loadAsset(z('z2-floor-48'));
 
-const ZONE2_BUSH_NAMES = [
-  'Autumn_bush1', 'Autumn_bush2', 'Autumn_bush3',
-  'Bush_orange_flowers1', 'Bush_orange_flowers2', 'Bush_orange_flowers3',
-  'Cactus1_1', 'Cactus1_2', 'Cactus1_3',
-  'Cactus2_1', 'Cactus2_2', 'Cactus2_3',
-];
-export const zone2Bushes = loadAssets(ZONE2_BUSH_NAMES.map((n) => `${BUSH_ROOT}/${n}.png`));
+export const zone3Trees = loadAssets([z('z3-tree0-32'), z('z3-tree1-32')]);
+export const zone3Bushes = loadAssets([z('z3-bush0-32')]);
+export const zone3Rocks = loadAssets([z('z3-rock0-32')]);
+export const zone3Flowers = loadAssets([z('z3-flower0-32')]);
+export const zone3Floor = loadAsset(z('z3-floor-48'));
 
-// Zone 3: Snowy Frostland
-const ZONE3_TREE_NAMES = [
-  'Snow_tree1', 'Snow_tree2', 'Snow_tree3',
-  'Snow_christmass_tree1', 'Snow_christmass_tree2', 'Snow_christmass_tree3',
-  'Christmas_tree1', 'Christmas_tree2', 'Christmas_tree3',
-];
-export const zone3Trees = loadAssets(ZONE3_TREE_NAMES.map((n) => `${TREE_ROOT}/${n}.png`));
+export const zone4Trees = loadAssets([z('z4-tree0-32'), z('z4-tree1-32')]);
+export const zone4Bushes = loadAssets([z('z4-bush0-32')]);
+export const zone4Rocks = loadAssets([z('z4-rock0-32')]);
+export const zone4Flowers = loadAssets([z('z4-flower0-32')]);
+export const zone4Floor = loadAsset(z('z4-floor-48'));
 
-const ZONE3_BUSH_NAMES = [
-  'Snow_bush1', 'Snow_bush2', 'Snow_bush3',
-  'Bush_simple2_1', 'Bush_simple2_2', 'Bush_simple2_3',
-];
-export const zone3Bushes = loadAssets(ZONE3_BUSH_NAMES.map((n) => `${BUSH_ROOT}/${n}.png`));
+export const zone1Path = loadAsset(z('z1-path-48'));
+export const zone2Path = loadAsset(z('z2-path-48'));
+export const zone3Path = loadAsset(z('z3-path-48'));
+export const zone4Path = loadAsset(z('z4-path-48'));
 
-// Zone 4: Burned & Broken Wasteland
-const ZONE4_TREE_NAMES = [
-  'Burned_tree1', 'Burned_tree2', 'Burned_tree3',
-  'Broken_tree1', 'Broken_tree2', 'Broken_tree3', 'Broken_tree4',
-  'Broken_tree5', 'Broken_tree6', 'Broken_tree7',
-];
-export const zone4Trees = loadAssets(ZONE4_TREE_NAMES.map((n) => `${TREE_ROOT}/${n}.png`));
+export const zone1Water = loadAsset(z('z1-water-48'));
+export const zone2Water = loadAsset(z('z2-water-48'));
+export const zone3Water = loadAsset(z('z3-water-48'));
+export const zone4Water = loadAsset(z('z4-water-48'));
 
-const ZONE4_BUSH_NAMES = [
-  'Burned_tree1', 'Burned_tree2',
-  'Broken_tree1', 'Broken_tree2',
-  'Fern2_1', 'Fern2_2', 'Fern2_3',
-];
-export const zone4Bushes = loadAssets(ZONE4_BUSH_NAMES.map((n) => `${BUSH_ROOT}/${n}.png`));
+export const caveEntrance = loadAsset(z('z5-cave-48'));
+export const gateBarrier = loadAsset(z('z6-barrier-96'));
 
 // Legacy export compatibility
 export const forestTrees = zone1Trees;
 export const forestUndergrowth = zone1Bushes;
 
-export const waterSparkles = loadAsset(
-  '/assets/mana seed seasonal forest sample (summer)/seasonal water animations/summer water sparkles B 16x16.png'
-);
+export const waterSparkles = loadAsset('');
 
-export const natureBgs = loadAssets(
-  Array.from({ length: 8 }, (_, i) => `${NATURE_ROOT}/nature_${i + 1}/orig.png`)
-);
+export const natureBgs = loadAssets([]);
 
 let currentNatureBg = -1;
 

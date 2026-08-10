@@ -1,11 +1,11 @@
 import { SCALE, TILE, T } from '../constants';
 import { tileAt, getZoneAt } from '../tilemap';
 import {
-  zone1Trees, zone1Bushes,
-  zone2Trees, zone2Bushes,
-  zone3Trees, zone3Bushes,
-  zone4Trees, zone4Bushes,
-  waterSparkles,
+  zone1Trees, zone1Bushes, zone1Rocks, zone1Flowers, zone1Floor, zone1Path, zone1Water,
+  zone2Trees, zone2Bushes, zone2Rocks, zone2Flowers, zone2Floor, zone2Path, zone2Water,
+  zone3Trees, zone3Bushes, zone3Rocks, zone3Flowers, zone3Floor, zone3Path, zone3Water,
+  zone4Trees, zone4Bushes, zone4Rocks, zone4Flowers, zone4Floor, zone4Path, zone4Water,
+  gateBarrier, waterSparkles,
 } from '../assets/tileAssets';
 
 export function prepareCtx(ctx: CanvasRenderingContext2D) {
@@ -27,6 +27,7 @@ function pickAsset(list: HTMLImageElement[], tx: number, ty: number, salt: numbe
 }
 
 // Draw an asset centred on the tile, at natural 1:1 pixel scale (no stretching!)
+// scaleFactor sizes the object: trees big (~1.6), rocks medium (~1.0), bushes/flowers small.
 function drawAssetNatural(
   ctx: CanvasRenderingContext2D,
   asset: HTMLImageElement,
@@ -36,11 +37,13 @@ function drawAssetNatural(
   salt: number,
   tx: number,
   ty: number,
+  scaleFactor = 1,
 ) {
-  // Natural pixel size respects the original sprite without scaling it up more than 1.5×
-  const maxPx = tilePx * 1.5;
-  const w = Math.min(asset.naturalWidth * SCALE, maxPx);
-  const h = Math.min(asset.naturalHeight * SCALE, maxPx);
+  // Keep a little per-tile variety (-15%..+15%) so objects don't all look identical
+  const jitter = 0.85 + seeded(tx, ty, salt + 90) * 0.3;
+  const size = scaleFactor * jitter;
+  const w = Math.max(tilePx * 0.4, tilePx * size);
+  const h = Math.max(tilePx * 0.4, tilePx * size * (asset.naturalHeight / asset.naturalWidth));
   // Centre horizontally; bottom-align so trees "grow" from tile bottom
   const dx = tileX + (tilePx - w) / 2 + (seeded(tx, ty, salt + 10) - 0.5) * tilePx * 0.18;
   const dy = tileY + tilePx - h;
@@ -49,6 +52,11 @@ function drawAssetNatural(
 
 // ─── Grass base ──────────────────────────────────────────────────────────────
 function drawGrassBase(ctx: CanvasRenderingContext2D, x: number, y: number, full: number, tx: number, ty: number, zone: number) {
+  const floors = zone === 1 ? zone1Floor : zone === 2 ? zone2Floor : zone === 3 ? zone3Floor : zone4Floor;
+  if (floors.complete && floors.naturalWidth > 0) {
+    ctx.drawImage(floors, x, y, full, full);
+    return;
+  }
   const t = seeded(tx, ty, 1);
   if (zone === 1) {
     ctx.fillStyle = t > 0.65 ? '#8ec85e' : t > 0.32 ? '#82bc52' : '#76b046';
@@ -85,6 +93,12 @@ function drawPath(ctx: CanvasRenderingContext2D, x: number, y: number, full: num
     return;
   }
 
+  const paths = zone === 1 ? zone1Path : zone === 2 ? zone2Path : zone === 3 ? zone3Path : zone4Path;
+  if (paths.complete && paths.naturalWidth > 0) {
+    ctx.drawImage(paths, x, y, full, full);
+    return;
+  }
+
   const t = seeded(tx, ty, 2);
   if (zone === 1) ctx.fillStyle = t > 0.5 ? '#d5bb80' : '#cbaf72';
   else if (zone === 2) ctx.fillStyle = t > 0.5 ? '#f0d3a0' : '#e4c48c';
@@ -102,19 +116,26 @@ function drawPath(ctx: CanvasRenderingContext2D, x: number, y: number, full: num
 
 // ─── Water ───────────────────────────────────────────────────────────────────
 function drawWater(ctx: CanvasRenderingContext2D, x: number, y: number, full: number, tx: number, ty: number, zone: number, now: number) {
-  if (zone === 4) { ctx.fillStyle = '#5e1830'; }
-  else if (zone === 3) { ctx.fillStyle = '#4aa8d4'; }
-  else { ctx.fillStyle = '#48a8bc'; }
-  ctx.fillRect(x, y, full, full);
+  const waters = zone === 1 ? zone1Water : zone === 2 ? zone2Water : zone === 3 ? zone3Water : zone4Water;
+  if (waters.complete && waters.naturalWidth > 0) {
+    ctx.drawImage(waters, x, y, full, full);
+  } else {
+    if (zone === 4) { ctx.fillStyle = '#5e1830'; }
+    else if (zone === 3) { ctx.fillStyle = '#4aa8d4'; }
+    else { ctx.fillStyle = '#48a8bc'; }
+    ctx.fillRect(x, y, full, full);
+  }
 
-  const waveColor = zone === 4 ? '#9c2848' : zone === 3 ? '#88d8ff' : '#80d8d8';
+  const waveColor = zone === 4 ? '#f2a03c' : zone === 3 ? '#88d8ff' : '#80d8d8';
+  ctx.globalAlpha = 0.55;
   ctx.fillStyle = waveColor;
   const shift = Math.floor(now / 320) % 5;
-  for (let i = 0; i < 3; i++) {
-    const wy = y + (3 + i * 5) * SCALE;
+  for (let i = 0; i < 2; i++) {
+    const wy = y + (4 + i * 6) * SCALE;
     const wx = x + ((Math.floor(seeded(tx, ty, 50 + i) * 10) + shift) % 12) * SCALE;
     ctx.fillRect(wx, wy, (3 + (i % 2)) * SCALE, SCALE);
   }
+  ctx.globalAlpha = 1;
 
   if (waterSparkles.complete && waterSparkles.naturalWidth > 0 && seeded(tx, ty, 61) > 0.55) {
     ctx.globalAlpha = 0.55;
@@ -123,48 +144,63 @@ function drawWater(ctx: CanvasRenderingContext2D, x: number, y: number, full: nu
   }
 }
 
-// ─── Natural dark tunnel entrance (no text labels!) ───────────────────────────
-function drawTunnel(ctx: CanvasRenderingContext2D, x: number, y: number, full: number, unlocked: boolean) {
-  // Rocky cliff face base
-  ctx.fillStyle = '#2e2926';
-  ctx.fillRect(x, y, full, full);
+// ─── Magic gate barrier between zones ───────────────────────────────────────
+// The tile itself is a normal walking path; while the destination zone is still
+// locked we draw a glowing magic ring on top that blocks passage (via canWalk).
+function drawGateBarrier(
+  ctx: CanvasRenderingContext2D,
+  x: number,
+  y: number,
+  full: number,
+  tx: number,
+  ty: number,
+  code: number,
+  unlocked: boolean,
+) {
+  // Gates span 2 tiles — find the contiguous run this tile belongs to.
+  const same = (cx: number, cy: number) => tileAt(cx, cy) === code;
+  let h0 = tx, h1 = tx;
+  while (same(h0 - 1, ty)) h0--;
+  while (same(h1 + 1, ty)) h1++;
+  let v0 = ty, v1 = ty;
+  while (same(tx, v0 - 1)) v0--;
+  while (same(tx, v1 + 1)) v1++;
+  const horizontal = h1 - h0 >= 1;
+  const vertical = v1 - v0 >= 1;
+  const runX = horizontal ? h0 : tx;
+  const runY = vertical ? v0 : ty;
+  const runW = horizontal ? h1 - h0 + 1 : 1;
+  const runH = vertical ? v1 - v0 + 1 : 1;
 
-  // Stone texture
-  ctx.fillStyle = '#3e3530';
-  ctx.fillRect(x + 2, y + 2, full - 4, full - 4);
-  ctx.fillStyle = '#292522';
-  ctx.fillRect(x, y, full, full * 0.3);      // top overhang
-  ctx.fillRect(x, y, full * 0.15, full);     // left cliff wall
-  ctx.fillRect(x + full * 0.85, y, full * 0.15, full); // right cliff wall
+  // Anchor tile draws the whole area; siblings skip.
+  const isAnchor = horizontal ? tx === h0 : ty === v0;
+  if (!isAnchor) return;
 
-  // Tunnel opening
-  const ox = x + full * 0.15;
-  const ow = full * 0.7;
-  const oy = y + full * 0.3;
-  const oh = full * 0.7;
+  // Normal path floor (open passage)
+  drawPath(ctx, x - (tx - runX) * full, y - (ty - runY) * full, full, tx, ty, 1);
 
-  if (unlocked) {
-    // Open: soft warm glow deep inside tunnel
-    const g = ctx.createRadialGradient(ox + ow / 2, oy + oh * 0.7, 1, ox + ow / 2, oy + oh * 0.5, ow * 0.7);
-    g.addColorStop(0, 'rgba(255,220,100,0.5)');
-    g.addColorStop(0.5, 'rgba(80,160,80,0.2)');
-    g.addColorStop(1, 'rgba(0,0,0,0.95)');
-    ctx.fillStyle = g;
-    ctx.fillRect(ox, oy, ow, oh);
+  if (unlocked) return;
+
+  const cavX = x - (tx - runX) * full;
+  const cavY = y - (ty - runY) * full;
+  const cavW = runW * full;
+  const cavH = runH * full;
+
+  // Magic barrier over the opening while locked
+  if (gateBarrier.complete && gateBarrier.naturalWidth > 0) {
+    ctx.drawImage(gateBarrier, cavX, cavY, cavW, cavH);
   } else {
-    // Locked: deep magical darkness with subtle purple aura
-    ctx.fillStyle = '#080510';
-    ctx.fillRect(ox, oy, ow, oh);
-    const g = ctx.createRadialGradient(ox + ow / 2, oy + oh * 0.5, 1, ox + ow / 2, oy + oh * 0.5, ow * 0.6);
-    g.addColorStop(0, 'rgba(80,0,120,0.5)');
-    g.addColorStop(1, 'rgba(0,0,0,0)');
-    ctx.fillStyle = g;
-    ctx.fillRect(ox, oy, ow, oh);
+    ctx.fillStyle = 'rgba(124,58,237,0.35)';
+    ctx.fillRect(cavX, cavY, cavW, cavH);
   }
 
-  // Arch lip
-  ctx.fillStyle = '#211e1b';
-  ctx.fillRect(ox, oy, ow, SCALE);
+  // Soft purple aura glow
+  const g = ctx.createRadialGradient(cavX + cavW / 2, cavY + cavH / 2, 1, cavX + cavW / 2, cavY + cavH / 2, cavW * 0.8);
+  g.addColorStop(0, 'rgba(147,110,255,0.25)');
+  g.addColorStop(0.7, 'rgba(124,58,237,0.12)');
+  g.addColorStop(1, 'rgba(0,0,0,0)');
+  ctx.fillStyle = g;
+  ctx.fillRect(cavX, cavY, cavW, cavH);
 }
 
 // ─── Atmospheric fog overlay for locked zones (soft, gradients, not hard black) ─
@@ -208,17 +244,17 @@ export function drawForestTile(
     drawGrassBase(ctx, x, y, full, tx, ty, zone);
     ctx.fillStyle = 'rgba(8, 5, 20, 0.93)';
     ctx.fillRect(x, y, full, full);
-    // Tunnels still render on top of fog so player can see the entrance
+    // Gates still render on top of fog so player can see the entrance
     if (code === T.GATE_1_2 || code === T.GATE_2_3 || code === T.GATE_3_4) {
-      drawTunnel(ctx, x, y, full, false);
+      drawGateBarrier(ctx, x, y, full, tx, ty, code, false);
     }
     return;
   }
 
-  // Gates → natural tunnel archways
-  if (code === T.GATE_1_2) { drawTunnel(ctx, x, y, full, unlockedZones.includes(2)); return; }
-  if (code === T.GATE_2_3) { drawTunnel(ctx, x, y, full, unlockedZones.includes(3)); return; }
-  if (code === T.GATE_3_4) { drawTunnel(ctx, x, y, full, unlockedZones.includes(4)); return; }
+  // Gates → magic barrier archways
+  if (code === T.GATE_1_2) { drawGateBarrier(ctx, x, y, full, tx, ty, code, unlockedZones.includes(2)); return; }
+  if (code === T.GATE_2_3) { drawGateBarrier(ctx, x, y, full, tx, ty, code, unlockedZones.includes(3)); return; }
+  if (code === T.GATE_3_4) { drawGateBarrier(ctx, x, y, full, tx, ty, code, unlockedZones.includes(4)); return; }
 
   // Path
   if (code === T.PATH) { drawPath(ctx, x, y, full, tx, ty, zone); return; }
@@ -237,7 +273,7 @@ export function drawForestTile(
     const pool = useBush ? bushes : trees;
     const asset = pickAsset(pool, tx, ty, 70);
     if (asset) {
-      drawAssetNatural(ctx, asset, x, y, full, 71, tx, ty);
+      drawAssetNatural(ctx, asset, x, y, full, 71, tx, ty, useBush ? 0.85 : 1.7);
     } else {
       // Fallback geometric tree
       ctx.fillStyle = zone === 3 ? '#99c8f0' : zone === 4 ? '#302825' : '#267026';
@@ -250,26 +286,38 @@ export function drawForestTile(
 
   // Solid rock obstacles
   if (code === T.ROCK) {
-    const shade = seeded(tx, ty, 73);
-    const rx = full * 0.15;
-    ctx.fillStyle = zone === 3 ? '#8ab8e0' : zone === 4 ? '#2e2825' : (shade > 0.5 ? '#586050' : '#6a726a');
-    ctx.fillRect(x + rx, y + full * 0.33, full - rx * 2, full * 0.52);
-    ctx.fillStyle = zone === 3 ? '#b8d8f4' : zone === 4 ? '#4e3c38' : (shade > 0.5 ? '#88997a' : '#a8b098');
-    ctx.fillRect(x + rx + 4, y + full * 0.25, full - rx * 2 - 8, full * 0.33);
-    // Highlight
-    ctx.fillStyle = 'rgba(255,255,255,0.12)';
-    ctx.fillRect(x + rx + 4, y + full * 0.25, (full - rx * 2 - 8) * 0.4, SCALE * 2);
+    const rocks = zone === 1 ? zone1Rocks : zone === 2 ? zone2Rocks : zone === 3 ? zone3Rocks : zone4Rocks;
+    const asset = pickAsset(rocks, tx, ty, 73);
+    if (asset) {
+      drawAssetNatural(ctx, asset, x, y, full, 74, tx, ty, 0.75);
+    } else {
+      const shade = seeded(tx, ty, 73);
+      const rx = full * 0.15;
+      ctx.fillStyle = zone === 3 ? '#8ab8e0' : zone === 4 ? '#2e2825' : (shade > 0.5 ? '#586050' : '#6a726a');
+      ctx.fillRect(x + rx, y + full * 0.33, full - rx * 2, full * 0.52);
+      ctx.fillStyle = zone === 3 ? '#b8d8f4' : zone === 4 ? '#4e3c38' : (shade > 0.5 ? '#88997a' : '#a8b098');
+      ctx.fillRect(x + rx + 4, y + full * 0.25, full - rx * 2 - 8, full * 0.33);
+      // Highlight
+      ctx.fillStyle = 'rgba(255,255,255,0.12)';
+      ctx.fillRect(x + rx + 4, y + full * 0.25, (full - rx * 2 - 8) * 0.4, SCALE * 2);
+    }
     return;
   }
 
   // Floor flowers (decorative, walkable)
   if (code === T.FLOWER) {
-    const fc = zone === 2 ? '#ffaa44' : zone === 3 ? '#aaddff' : zone === 4 ? '#ff5577' : '#ff8ab3';
-    ctx.fillStyle = fc;
-    ctx.fillRect(x + full * 0.22, y + full * 0.3, SCALE * 3, SCALE * 3);
-    ctx.fillRect(x + full * 0.55, y + full * 0.45, SCALE * 2, SCALE * 2);
-    ctx.fillStyle = '#fff8';
-    ctx.fillRect(x + full * 0.32, y + full * 0.38, SCALE, SCALE);
+    const flowers = zone === 1 ? zone1Flowers : zone === 2 ? zone2Flowers : zone === 3 ? zone3Flowers : zone4Flowers;
+    const asset = pickAsset(flowers, tx, ty, 75);
+    if (asset) {
+      drawAssetNatural(ctx, asset, x, y, full, 76, tx, ty, 0.6);
+    } else {
+      const fc = zone === 2 ? '#ffaa44' : zone === 3 ? '#aaddff' : zone === 4 ? '#ff5577' : '#ff8ab3';
+      ctx.fillStyle = fc;
+      ctx.fillRect(x + full * 0.22, y + full * 0.3, SCALE * 3, SCALE * 3);
+      ctx.fillRect(x + full * 0.55, y + full * 0.45, SCALE * 2, SCALE * 2);
+      ctx.fillStyle = '#fff8';
+      ctx.fillRect(x + full * 0.32, y + full * 0.38, SCALE, SCALE);
+    }
   }
 }
 

@@ -299,36 +299,40 @@ function buildMap(): TileCode[][] {
 
   const isSafe = (x: number, y: number) => safeSet.has(`${x},${y}`);
 
-  // Zone 1: x 3..23, y 3..19 — sparse scatter (only 8% chance of extra tree)
+  // Zone 1: x 3..23, y 3..19 — dense scatter so the map feels alive
   for (let y = 3; y <= 19; y++) {
     for (let x = 3; x <= 23; x++) {
       if (isSafe(x, y)) continue;
-      if (get(x, y) === T.GRASS && rand(x, y, 1) > 0.92) set(x, y, T.TREE);
-      else if (get(x, y) === T.GRASS && rand(x, y, 2) > 0.96) set(x, y, T.ROCK);
+      if (get(x, y) === T.GRASS && rand(x, y, 1) > 0.85) set(x, y, T.TREE);
+      else if (get(x, y) === T.GRASS && rand(x, y, 2) > 0.92) set(x, y, T.ROCK);
+      else if (get(x, y) === T.GRASS && rand(x, y, 10) > 0.94) set(x, y, T.FLOWER);
     }
   }
   // Zone 2
   for (let y = 3; y <= 19; y++) {
     for (let x = 32; x <= 52; x++) {
       if (isSafe(x, y)) continue;
-      if (get(x, y) === T.GRASS && rand(x, y, 4) > 0.92) set(x, y, T.TREE);
-      else if (get(x, y) === T.GRASS && rand(x, y, 5) > 0.96) set(x, y, T.ROCK);
+      if (get(x, y) === T.GRASS && rand(x, y, 4) > 0.85) set(x, y, T.TREE);
+      else if (get(x, y) === T.GRASS && rand(x, y, 5) > 0.92) set(x, y, T.ROCK);
+      else if (get(x, y) === T.GRASS && rand(x, y, 11) > 0.94) set(x, y, T.FLOWER);
     }
   }
   // Zone 3
   for (let y = 28; y <= 44; y++) {
     for (let x = 32; x <= 52; x++) {
       if (isSafe(x, y)) continue;
-      if (get(x, y) === T.GRASS && rand(x, y, 6) > 0.92) set(x, y, T.TREE);
-      else if (get(x, y) === T.GRASS && rand(x, y, 7) > 0.96) set(x, y, T.ROCK);
+      if (get(x, y) === T.GRASS && rand(x, y, 6) > 0.85) set(x, y, T.TREE);
+      else if (get(x, y) === T.GRASS && rand(x, y, 7) > 0.92) set(x, y, T.ROCK);
+      else if (get(x, y) === T.GRASS && rand(x, y, 12) > 0.94) set(x, y, T.FLOWER);
     }
   }
   // Zone 4
   for (let y = 28; y <= 44; y++) {
     for (let x = 3; x <= 23; x++) {
       if (isSafe(x, y)) continue;
-      if (get(x, y) === T.GRASS && rand(x, y, 8) > 0.92) set(x, y, T.TREE);
-      else if (get(x, y) === T.GRASS && rand(x, y, 9) > 0.96) set(x, y, T.ROCK);
+      if (get(x, y) === T.GRASS && rand(x, y, 8) > 0.85) set(x, y, T.TREE);
+      else if (get(x, y) === T.GRASS && rand(x, y, 9) > 0.92) set(x, y, T.ROCK);
+      else if (get(x, y) === T.GRASS && rand(x, y, 13) > 0.94) set(x, y, T.FLOWER);
     }
   }
 

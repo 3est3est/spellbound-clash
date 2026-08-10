@@ -2,11 +2,25 @@ import type { SheetConfig, CharLayout } from './heroSprites';
 
 export const ENEMY_SHEET_CONFIG: SheetConfig = {
   name: 'enemy',
-  url: '/sprites/enemy_new.png',
-  frameW: 64,
-  frameH: 64,
-  enabled: false,
+  url: '/assets/gen/enemy/enemy_goblin.png',
+  frameW: 32,
+  frameH: 32,
+  enabled: true,
   colorKey: null,
+  singleFrame: true,
+  walkUrl: '/assets/gen/enemy/goblin-walk.png',
+  walkFrameW: 32,
+  walkFrameH: 32,
+  walkFrames: 4,
+  battleUrl: '/assets/gen/enemy/goblin-battle.png',
+  battleFrameW: 512,
+  battleFrameH: 512,
+  castBattleUrl: '/assets/gen/enemy/goblin-cast-battle.png',
+  castBattleFrameW: 512,
+  castBattleFrameH: 512,
+  hurtBattleUrl: '/assets/gen/enemy/goblin-hurt-battle.png',
+  hurtBattleFrameW: 512,
+  hurtBattleFrameH: 512,
 };
 
 export const ENEMY_LAYOUT: CharLayout = {

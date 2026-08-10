@@ -43,7 +43,13 @@ function drawSpriteFrame(
   flip = false
 ): boolean {
   if (ref.sheet === PROC_SHEET) return false;
-  const sheet = getSheet(ref.sheet);
+  const battleName = `${ref.sheet}-battle`;
+  const sheet =
+    scaleBoost > 1
+      ? getSheet(battleName) ?? getSheet(ref.sheet)
+      : ref.sheet.endsWith('-cast')
+        ? getSheet(ref.sheet) ?? getSheet(battleName)
+        : getSheet(ref.sheet);
   if (!sheet || !sheet.ready || !sheet.image) return false;
   drawSheetFrame(ctx, sheet, ref.col, ref.row, Math.round(screenX), Math.round(screenY), scaleBoost, flip);
   return true;
@@ -174,16 +180,18 @@ export function drawHero(
   frame: number,
   moving: boolean,
   scaleBoost = 1,
-  pose: 'idle' | 'walk' | 'attack' | 'auto' = 'auto'
+  pose: 'idle' | 'walk' | 'attack' | 'hurt' | 'auto' = 'auto',
+  flip = false
 ) {
   const usePose = pose === 'auto' ? (moving ? 'walk' : 'idle') : pose;
   const ref =
     usePose === 'attack'
       ? SPRITE_MAP.hero.attack(dir, frame)
-      : usePose === 'walk'
-        ? SPRITE_MAP.hero.walk(dir, frame)
-        : SPRITE_MAP.hero.idle(dir);
-  const flip = dir === 'left';
+      : usePose === 'hurt'
+        ? SPRITE_MAP.hero.hurt()
+        : usePose === 'walk'
+          ? SPRITE_MAP.hero.walk(dir, frame)
+          : SPRITE_MAP.hero.idle(dir);
   if (!drawSpriteFrame(ctx, ref, screenX, screenY, scaleBoost, flip)) {
     if (scaleBoost === 1) drawProceduralHero(ctx, screenX, screenY, dir, frame, moving);
     else drawProceduralHeroScaled(ctx, screenX, screenY, dir, frame, moving, scaleBoost);
@@ -197,15 +205,17 @@ export function drawEnemy(
   frame: number,
   hit: boolean,
   scaleBoost = 1,
-  pose: 'idle' | 'walk' | 'attack' | 'auto' = 'auto',
+  pose: 'idle' | 'walk' | 'attack' | 'hurt' | 'auto' = 'auto',
   flip = false
 ) {
   const ref =
     pose === 'attack'
       ? SPRITE_MAP.enemy.attack(frame)
-      : pose === 'walk'
-        ? SPRITE_MAP.enemy.walk(frame)
-        : SPRITE_MAP.enemy.idle();
+      : pose === 'hurt'
+        ? SPRITE_MAP.enemy.hurt()
+        : pose === 'walk'
+          ? SPRITE_MAP.enemy.walk(frame)
+          : SPRITE_MAP.enemy.idle();
   if (!drawSpriteFrame(ctx, ref, screenX, screenY, scaleBoost, flip)) {
     if (scaleBoost === 1) drawProceduralEnemy(ctx, screenX, screenY, frame, hit);
     else drawProceduralEnemyScaled(ctx, screenX, screenY, frame, hit, scaleBoost);

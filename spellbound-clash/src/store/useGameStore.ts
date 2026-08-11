@@ -11,6 +11,7 @@ import {
 } from "../types/game.types";
 import vocabData from "../data/vocabQuestions.json";
 import { ZONE_ENEMIES } from "../game/enemyPlacement";
+import { ADMIN_CODE } from "../game/constants";
 
 const SAVE_KEY = "spellbound_save";
 const LEADERBOARD_KEY = "spellbound_leaderboard";
@@ -37,6 +38,7 @@ interface GameStore {
   // Zones
   unlockedZones: number[];
   zoneBanner: string | null;
+  adminMode: boolean;
 
   // Enemy
   enemies: EnemyData[];
@@ -107,6 +109,10 @@ interface GameStore {
   equipItem: (item: string, slot: string) => void;
   unequipItem: (slot: string) => void;
   buyGateUnlock: (zone: 2 | 3 | 4) => boolean;
+  setAdminCode: (code: string) => boolean;
+  adminAddCoins: (amount?: number) => void;
+  unlockGateAdmin: (zone: 2 | 3 | 4) => boolean;
+  clearAdminMode: () => void;
 }
 
 // ===== Helper: Get random questions =====
@@ -248,6 +254,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
   unlockedZones: [1],
   zoneBanner: null,
+  adminMode: false,
 
   petsOwned: [],
   equippedPet: null,
@@ -302,12 +309,13 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const config = DIFFICULTY_CONFIGS[difficulty];
     const saved = readSave();
     const continuing = !!saved && saved.name === get().playerName && saved.pin === get().pin;
+    const adminMode = continuing ? (saved!.adminMode ?? false) : get().adminMode;
     set({
       gameState: "EXPLORE",
       difficulty: continuing ? saved!.difficulty : difficulty,
       playerHP: continuing ? saved!.playerHP : config.playerHP,
       maxPlayerHP: continuing ? saved!.maxPlayerHP : config.playerHP,
-      coins: continuing ? saved!.coins : 0,
+      coins: adminMode ? 9999999 : continuing ? saved!.coins : 0,
       score: continuing ? saved!.score : 0,
       playerPos: continuing ? saved!.playerPos : { tx: 3, ty: 4 },
       unlockedZones: continuing ? (saved!.unlockedZones ?? [1]) : [1],
@@ -337,6 +345,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       isShopOpen: false,
       hatUpgradeLevel: continuing ? (saved!.hatUpgradeLevel ?? 0) : 0,
       swordUpgradeLevel: continuing ? (saved!.swordUpgradeLevel ?? 0) : 0,
+      adminMode: adminMode,
     });
   },
 
@@ -395,7 +404,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
         setTimeout(() => get().defeatEnemy(), 1200);
       }
     } else {
-      const newPlayerHP = state.playerHP - 1;
+      const newPlayerHP = state.adminMode ? state.playerHP : state.playerHP - 1;
       set({
         playerHP: newPlayerHP,
         battleResult: "WRONG",
@@ -415,7 +424,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
   timeUp: () => {
     const state = get();
-    const newPlayerHP = state.playerHP - 1;
+    const newPlayerHP = state.adminMode ? state.playerHP : state.playerHP - 1;
     set({
       playerHP: newPlayerHP,
       battleResult: "TIMEOUT",
@@ -526,6 +535,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       isShopOpen: false,
       hatUpgradeLevel: saved.hatUpgradeLevel ?? 0,
       swordUpgradeLevel: saved.swordUpgradeLevel ?? 0,
+      adminMode: saved.adminMode ?? false,
     });
     return true;
   },
@@ -554,6 +564,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       equippedShoes: s.equippedShoes,
       hatUpgradeLevel: s.hatUpgradeLevel,
       swordUpgradeLevel: s.swordUpgradeLevel,
+      adminMode: s.adminMode,
     };
     writeSave(data);
   },
@@ -596,6 +607,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       playerPos: { tx: 3, ty: 4 },
       unlockedZones: [1],
       zoneBanner: null,
+      adminMode: false,
       enemies: [],
       currentEnemy: null,
       enemyHP: 5,
@@ -625,10 +637,10 @@ export const useGameStore = create<GameStore>((set, get) => ({
   },
 
   buyGacha: () => {
-    const { coins } = get();
-    if (coins < 5) return null;
+    const state = get();
+    if (!state.adminMode && state.coins < 5) return null;
 
-    const newCoins = coins - 5;
+    const newCoins = state.adminMode ? state.coins : state.coins - 5;
     const pets = ["dog", "cat", "pig"];
     const pulledPet = pets[Math.floor(Math.random() * pets.length)];
     const newPets = [...(get().petsOwned || []), pulledPet];
@@ -701,7 +713,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const state = get();
     const priceMap: Record<string, number> = { hat: 15, sword: 30, shoes: 50 };
     const price = priceMap[item] ?? 999;
-    if (state.coins < price) return false;
+    if (!state.adminMode && state.coins < price) return false;
     if (state.itemsOwned.includes(item)) return false;
 
     // Check unlocks
@@ -709,7 +721,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
     if (item === "shoes" && !state.unlockedZones.includes(4)) return false;
 
     set({
-      coins: state.coins - price,
+      coins: state.adminMode ? state.coins : state.coins - price,
       itemsOwned: [...state.itemsOwned, item],
     });
     get().saveProgress();
@@ -724,10 +736,10 @@ export const useGameStore = create<GameStore>((set, get) => ({
     if (currentLevel >= 12) return false;
 
     const cost = getUpgradeCost(item, currentLevel + 1);
-    if (state.coins < cost) return false;
+    if (!state.adminMode && state.coins < cost) return false;
 
     const nextLevel = currentLevel + 1;
-    const newCoins = state.coins - cost;
+    const newCoins = state.adminMode ? state.coins : state.coins - cost;
 
     if (item === 'hat') {
       const isEquipped = state.equippedHat === 'hat';
@@ -795,6 +807,52 @@ export const useGameStore = create<GameStore>((set, get) => ({
     } else if (slot === "shoes") {
       set({ equippedShoes: null });
     }
+    get().saveProgress();
+  },
+
+  // ===== Admin Mode =====
+
+  setAdminCode: (code) => {
+    if (!code.trim()) {
+      set({ adminMode: false });
+      return false;
+    }
+    const valid = code.trim().toLowerCase() === ADMIN_CODE.toLowerCase();
+    if (valid) {
+      set({ adminMode: true });
+      get().saveProgress();
+    }
+    return valid;
+  },
+
+  adminAddCoins: (amount = 100) => {
+    const state = get();
+    if (!state.adminMode) return;
+    set({
+      coins: state.coins + amount,
+      zoneBanner: `⭐ ADMIN: ได้รับ 🪙 ${amount} เหรียญเพิ่ม!`,
+    });
+    get().saveProgress();
+  },
+
+  unlockGateAdmin: (zone) => {
+    const state = get();
+    if (!state.adminMode) return false;
+    if (state.unlockedZones.includes(zone)) return false;
+    const prevZone = (zone - 1) as 1 | 2 | 3;
+    if (!state.unlockedZones.includes(prevZone)) return false;
+
+    const zoneName: Record<number, string> = { 2: "โซน 2 (ทะเลทราย)", 3: "โซน 3 (เขตน้ำแข็ง)", 4: "โซน 4 (ดินแดนลาวา)" };
+    set({
+      unlockedZones: [...state.unlockedZones, zone],
+      zoneBanner: `🔓 Admin ปลดล็อคฟรี! เปิดทางสู่ ${zoneName[zone] ?? `โซน ${zone}`} แล้ว`,
+    });
+    get().saveProgress();
+    return true;
+  },
+
+  clearAdminMode: () => {
+    set({ adminMode: false });
     get().saveProgress();
   },
 }));

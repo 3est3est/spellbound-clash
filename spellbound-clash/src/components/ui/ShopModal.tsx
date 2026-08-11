@@ -120,7 +120,7 @@ export default function ShopModal() {
                                                 </span>
                                         )
                                     ) : !isUnlocked ? (
-                                        <span className="font-pixel text-[7px] bg-red-650 border border-red-700 text-white px-1.5 py-1 text-center font-semibold rounded whitespace-nowrap">
+                                        <span className="font-pixel text-[7px] bg-[#3a1d18] border border-[#ff6050] text-[#ff9b8a] px-1.5 py-1 text-center font-semibold rounded whitespace-nowrap">
                                             🔒 ปลดล็อค {item.zoneReqTh}
                                         </span>
                                     ) : (

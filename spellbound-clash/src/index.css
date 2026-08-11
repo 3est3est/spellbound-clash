@@ -76,13 +76,6 @@ body {
   --panel-frame: url('/assets/gen/ui/panel-frame-z4.png');
 }
 
-/* ── Backdrop ─────────────────────────────────── */
-.rpg-backdrop {
-  background:
-    radial-gradient(120% 90% at 50% -10%, #2a1b3d 0%, rgba(42, 27, 61, 0) 55%),
-    linear-gradient(180deg, #1d1526 0%, #221a2e 40%, #3a2a1e 72%, #4a2c16 100%);
-}
-
 /* ── Core panel — parchment with wood + gold pixel border ─────────── */
 .rpg-panel {
   background: linear-gradient(180deg, var(--panel-hi), var(--panel) 55%, var(--panel-lo));
@@ -92,17 +85,6 @@ body {
   box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.35);
   color: var(--text);
   position: relative;
-  padding: 12px;
-}
-
-.rpg-panel-blue,
-.rpg-panel-pink {
-  background: linear-gradient(180deg, var(--panel-hi), var(--panel) 55%, var(--panel-lo));
-  border: 4px solid var(--frame-lo);
-  outline: 4px solid var(--accent-lo);
-  outline-offset: -8px;
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.35);
-  color: var(--text);
   padding: 12px;
 }
 

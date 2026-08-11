@@ -18,7 +18,7 @@ export default function GameOver() {
       style={{ background: 'rgba(0,0,0,0.7)' }}
     >
       <div
-        className="relative z-10 rpg-panel-pink px-8 py-7 max-w-lg w-full animate-pop-in"
+        className="relative z-10 rpg-panel px-8 py-7 max-w-lg w-full animate-pop-in"
         style={{ textAlign: 'center' }}
       >
         <h1

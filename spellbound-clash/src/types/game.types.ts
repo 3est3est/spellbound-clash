@@ -103,6 +103,7 @@ export interface SaveData {
   equippedShoes?: string | null;
   hatUpgradeLevel?: number;
   swordUpgradeLevel?: number;
+  adminMode?: boolean;
 }
 
 export interface LeaderboardEntry {

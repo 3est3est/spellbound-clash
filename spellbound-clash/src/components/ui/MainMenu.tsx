@@ -20,12 +20,14 @@ const DECOR = [
 ];
 
 export default function MainMenu() {
-  const { difficulty, setDifficulty, startGame, createProfile, continueGame, getSavedName, getLeaderboard } =
+  const { difficulty, setDifficulty, startGame, createProfile, continueGame, getSavedName, getLeaderboard, setAdminCode } =
     useGameStore();
 
   const savedName = getSavedName();
   const [name, setName] = useState(savedName ?? "");
   const [pin, setPin] = useState("");
+  const [adminInput, setAdminInput] = useState("");
+  const [adminStatus, setAdminStatus] = useState<"idle" | "ok" | "invalid">("idle");
   const [mode, setMode] = useState<"new" | "continue">(savedName ? "continue" : "new");
   const [error, setError] = useState("");
   const [board, setBoard] = useState<LeaderboardEntry[]>([]);
@@ -33,6 +35,11 @@ export default function MainMenu() {
   useEffect(() => {
     setBoard(getLeaderboard());
   }, [getLeaderboard]);
+
+  const handleAdminCode = () => {
+    const ok = setAdminCode(adminInput);
+    setAdminStatus(ok ? "ok" : "invalid");
+  };
 
   const handleStart = () => {
     setError("");
@@ -210,6 +217,31 @@ export default function MainMenu() {
                 placeholder={mode === "continue" ? "PIN (4 หลัก)" : "ตั้ง PIN (4 หลัก)"}
                 style={{ ...inputStyle, letterSpacing: '0.3em' }}
               />
+
+              <div className="flex gap-2 mb-2">
+                <input
+                  value={adminInput}
+                  onChange={(e) => { setAdminInput(e.target.value); setAdminStatus("idle"); }}
+                  placeholder="รหัส admin (ไม่บังคับ)"
+                  style={{ ...inputStyle, marginBottom: 0 }}
+                />
+                <button
+                  onClick={handleAdminCode}
+                  className="font-pixel text-[9px] px-3 py-2 border-4 outline outline-4 -outline-offset-8 bg-[#3d3a2f] border-[#5d3b1e] outline-[#36220f] text-[#9a8f72] hover:bg-[#4a4436] hover:text-[#f0e6c8] active:translate-x-[2px] active:translate-y-[2px] cursor-pointer whitespace-nowrap"
+                >
+                  ใช้
+                </button>
+              </div>
+              {adminStatus === "ok" && (
+                <p className="font-pixel text-[10px] text-center mb-2 text-[#f5d87a]">
+                  ⭐ โหมด ADMIN เปิดแล้ว (ปลดประตูฟรี / god mode)
+                </p>
+              )}
+              {adminStatus === "invalid" && (
+                <p className="font-pixel text-[10px] text-center mb-2 text-red-600">
+                  ⚠ รหัส admin ไม่ถูกต้อง
+                </p>
+              )}
 
               {error && (
                 <p className="font-pixel text-xs text-center mt-2 animate-blink text-red-600">

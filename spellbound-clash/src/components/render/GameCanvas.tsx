@@ -79,6 +79,7 @@ export default function GameCanvas() {
   const zoneBanner = useGameStore((s) => s.zoneBanner);
   const clearZoneBanner = useGameStore((s) => s.clearZoneBanner);
   const unlockedZonesStore = useGameStore((s) => s.unlockedZones);
+  const adminMode = useGameStore((s) => s.adminMode);
 
   // Seed fog: zones the player can already enter start revealed; a newly
   // unlocked zone starts dark and fades in on first entry (avoiding the old
@@ -184,7 +185,9 @@ export default function GameCanvas() {
         }
         const gateZone = nearGateZoneRef.current;
         if (gateZone != null) {
-          useGameStore.getState().buyGateUnlock(gateZone);
+          const store = useGameStore.getState();
+          if (store.adminMode) store.unlockGateAdmin(gateZone);
+          else store.buyGateUnlock(gateZone);
           return;
         }
       }
@@ -606,8 +609,8 @@ export default function GameCanvas() {
       {/* Zone Unlock Notification Banner */}
       {zoneBanner && gameState === "EXPLORE" && (
         <div className="fixed top-16 left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-slide-down">
-          <div className="bg-[#ead9b4] border-4 border-[#d9a441] outline outline-4 outline-[#4c1d95] -outline-offset-8 px-6 py-3 shadow-lg text-center">
-            <p className="font-pixel font-bold text-sm text-[#4c1d95]">
+          <div className="bg-[#3a3325] border-4 border-[#8a5b32] outline outline-4 outline-[#1c5f33] -outline-offset-8 px-6 py-3 shadow-[6px_6px_0_rgba(0,0,0,0.5)] text-center">
+            <p className="font-pixel font-bold text-sm text-[#f5d87a]">
               {zoneBanner}
             </p>
           </div>
@@ -617,8 +620,8 @@ export default function GameCanvas() {
       {/* Gacha Machine Proximity Interaction Alert */}
       {isNearGacha && gameState === "EXPLORE" && (
         <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-bounce">
-          <div className="bg-[#1e1b18] border-2 border-[#ffd700] px-4 py-2 text-center text-xs text-[#ffd700] font-pixel shadow-md pointer-events-auto">
-            🪙 ใกล้ตู้สุ่มสัตว์เลี้ยง! กด <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">Space</span> หรือ <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">E</span> หรือ <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">Enter</span> เพื่อเปิดตู้นี้
+          <div className="bg-[#2a2418] border-4 border-[#6b4423] outline outline-4 outline-[#1c5f33] -outline-offset-8 px-4 py-2 text-center text-xs text-[#e8c04a] font-pixel shadow-[4px_4px_0_rgba(0,0,0,0.5)] pointer-events-auto">
+            🪙 ใกล้ตู้สุ่มสัตว์เลี้ยง! กด <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">Space</span> หรือ <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">E</span> หรือ <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">Enter</span> เพื่อเปิดตู้นี้
           </div>
         </div>
       )}
@@ -626,8 +629,8 @@ export default function GameCanvas() {
       {/* Shop Proximity Interaction Alert */}
       {isNearShop && gameState === "EXPLORE" && (
         <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-bounce">
-          <div className="bg-[#1e1b18] border-2 border-[#ff9900] px-4 py-2 text-center text-xs text-[#ff9900] font-pixel shadow-md pointer-events-auto">
-            🛒 ใกล้ร้านค้าอุปกรณ์! กด <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">Space</span> หรือ <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">E</span> หรือ <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">Enter</span> เพื่อเปิดร้านค้า
+          <div className="bg-[#2a2418] border-4 border-[#6b4423] outline outline-4 outline-[#1c5f33] -outline-offset-8 px-4 py-2 text-center text-xs text-[#e8c04a] font-pixel shadow-[4px_4px_0_rgba(0,0,0,0.5)] pointer-events-auto">
+            🛒 ใกล้ร้านค้าอุปกรณ์! กด <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">Space</span> หรือ <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">E</span> หรือ <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">Enter</span> เพื่อเปิดร้านค้า
           </div>
         </div>
       )}
@@ -636,15 +639,25 @@ export default function GameCanvas() {
       {nearGateZone != null && gameState === "EXPLORE" && (
         <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-bounce">
           <div
-            className={`px-4 py-2 text-center text-xs font-pixel shadow-md pointer-events-auto border-2 ${
-              (useGameStore.getState().coins ?? 0) >= (GATE_UNLOCK_PRICES[nearGateZone] ?? 0)
-                ? "bg-[#1e1b18] border-[#39d98a] text-[#39d98a]"
-                : "bg-[#1e1b18] border-[#ff6050] text-[#ff6050]"
+            className={`px-4 py-2 text-center text-xs font-pixel shadow-[4px_4px_0_rgba(0,0,0,0.5)] pointer-events-auto border-4 ${
+              adminMode
+                ? "bg-[#2a2418] border-[#f5d87a] outline outline-4 outline-[#1c5f33] -outline-offset-8 text-[#f5d87a]"
+                : (useGameStore.getState().coins ?? 0) >= (GATE_UNLOCK_PRICES[nearGateZone] ?? 0)
+                  ? "bg-[#2a2418] border-[#39d98a] outline outline-4 outline-[#1c5f33] -outline-offset-8 text-[#39d98a]"
+                  : "bg-[#2a2418] border-[#ff6050] outline outline-4 outline-[#1c5f33] -outline-offset-8 text-[#ff6050]"
             }`}
           >
-            🔒 ประตูสู่โซน {nearGateZone}: ต้องใช้ 🪙 {GATE_UNLOCK_PRICES[nearGateZone] ?? "?"} เหรียญ กด{" "}
-            <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">Enter</span> หรือ{" "}
-            <span className="text-white bg-gray-700 px-1.5 py-0.5 rounded text-[10px]">E</span> เพื่อซื้อปลดล็อค
+            {adminMode ? (
+              <>⭐ ADMIN: ประตูสู่โซน {nearGateZone} ปลดล็อคฟรี! กด{" "}
+                <span className="text-black bg-[#f5d87a] px-1.5 py-0.5 rounded text-[10px]">Enter</span> หรือ{" "}
+                <span className="text-black bg-[#f5d87a] px-1.5 py-0.5 rounded text-[10px]">E</span>{" "}
+              </>
+            ) : (
+              <>🔒 ประตูสู่โซน {nearGateZone}: ต้องใช้ 🪙 {GATE_UNLOCK_PRICES[nearGateZone] ?? "?"} เหรียญ กด{" "}
+                <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">Enter</span> หรือ{" "}
+                <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">E</span> เพื่อซื้อปลดล็อค
+              </>
+            )}
           </div>
         </div>
       )}

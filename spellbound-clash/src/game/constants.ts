@@ -67,3 +67,6 @@ export const COLORS = {
 } as const;
 
 export const SCALE = 3;
+
+// Admin code that enables god mode (free gate unlocks, coins, etc.)
+export const ADMIN_CODE = "Admin-eiei";

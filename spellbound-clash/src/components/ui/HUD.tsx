@@ -2,7 +2,7 @@ import { useGameStore } from '../../store/useGameStore';
 import PixelHeart from './PixelHeart';
 
 export default function HUD() {
-  const { playerHP, maxPlayerHP, difficulty, coins, score, unlockedZones } = useGameStore();
+  const { playerHP, maxPlayerHP, difficulty, coins, score, unlockedZones, adminMode } = useGameStore();
 
   const diffLabel = { EASY: 'ง่าย', MEDIUM: 'กลาง', HARDCORE: 'ยาก' }[difficulty];
   const diffColor = { EASY: '#60d860', MEDIUM: '#f5c842', HARDCORE: '#ff6050' }[difficulty];
@@ -54,6 +54,15 @@ export default function HUD() {
                 {coins.toLocaleString()}
               </span>
             </div>
+            {adminMode && (
+              <button
+                onClick={() => useGameStore.getState().adminAddCoins(100)}
+                title="Admin: เพิ่มเหรียญ +100"
+                className="pointer-events-auto flex items-center gap-1 bg-[#2a2418] hover:bg-[#3a3325] border-2 border-[#f5d87a] text-[#f5d87a] px-2 py-0.5 rounded cursor-pointer transition-all hover:scale-105 active:scale-95 shadow-[2px_2px_0_rgba(0,0,0,0.5)] font-pixel text-[10px]"
+              >
+                ⭐ +100 🪙
+              </button>
+            )}
           </div>
 
           {/* ปุ่มกระเป๋าสัตว์เลี้ยง & ร้านค้า */}
@@ -79,6 +88,13 @@ export default function HUD() {
 
         {/* ── ขวา: ปุ่มหยุดเกม + ระดับ ── */}
         <div className="flex items-center gap-4 animate-slide-down">
+          {adminMode && (
+            <div className="flex flex-col items-center gap-1 justify-center">
+              <span className="font-pixel font-bold text-[10px]" style={{ color: '#f5d87a', textShadow: '2px 2px 0 #000, -1px -1px 0 #000, 1px -1px 0 #000, -1px 1px 0 #000' }}>
+                ⭐ ADMIN
+              </span>
+            </div>
+          )}
           {/* ระดับความยาก */}
           <div className="flex flex-col items-center gap-1 justify-center">
             <span className="font-pixel text-[10px]" style={{ color: '#b0d8ff', ...textShadowStyle }}>

@@ -381,82 +381,168 @@ body {
    ================================================================ */
 
 .mainmenu-dark {
-  background: linear-gradient(180deg, #0f2217 0%, #1c3323 45%, #2b2418 100%);
+  background: linear-gradient(180deg, #0e1026 0%, #1c1c3c 45%, #2a1a3a 100%);
 }
 
 .mainmenu-dark .rpg-panel {
-  background: linear-gradient(180deg, #3a3325, #2a2418);
-  border: 4px solid #6b4423;
-  outline: 4px solid #1c5f33;
+  background: linear-gradient(180deg, rgba(26, 30, 56, 0.92), rgba(16, 18, 40, 0.92));
+  border: 4px solid #6a3aa8;
+  outline: 4px solid #14143c;
   outline-offset: -8px;
-  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.35);
-  color: #e8dcc0;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.45);
+  color: #f0e6c8;
 }
 
 .mainmenu-dark .rpg-btn {
   position: relative;
-  background: #2f8f4f;
-  border-top: 4px solid #57b86f;
-  border-left: 4px solid #57b86f;
-  border-right: 4px solid #1c5f33;
-  border-bottom: 4px solid #1c5f33;
+  background: linear-gradient(180deg, #9a5adc 0%, #8149c4 30%, #6a3aa8 65%, #4a2a7a 100%);
+  border-top: 3px solid #c48af0;
+  border-left: 3px solid #c48af0;
+  border-right: 3px solid #2a1660;
+  border-bottom: 3px solid #2a1660;
   box-shadow:
-    inset 0 6px 0 rgba(255, 255, 255, 0.12),
-    inset 0 -6px 0 rgba(8, 30, 16, 0.3),
-    6px 6px 0 rgba(0, 0, 0, 0.5);
-  color: #ffffff;
-  text-shadow: 2px 2px 0 rgba(8, 30, 16, 0.9);
+    inset 0 4px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -4px 0 rgba(10, 6, 20, 0.35),
+    5px 5px 0 rgba(0, 0, 0, 0.6);
+  color: #f0e6c8;
+  text-shadow: 2px 2px 0 #14143c;
   transition: background 80ms steps(2), transform 80ms steps(2), box-shadow 80ms steps(2);
 }
 .mainmenu-dark .rpg-btn::before {
   content: "";
   pointer-events: none;
   position: absolute;
-  left: 4px;
-  right: 4px;
-  top: 4px;
-  bottom: 4px;
-  background: repeating-conic-gradient(rgba(255, 255, 255, 0.07) 0% 25%, rgba(0, 0, 0, 0.07) 0% 50%) 0 0 / 6px 6px;
+  left: 3px;
+  right: 3px;
+  top: 3px;
+  bottom: 3px;
+  background: repeating-conic-gradient(rgba(255, 255, 255, 0.06) 0% 25%, rgba(0, 0, 0, 0.06) 0% 50%) 0 0 / 5px 5px;
 }
-.mainmenu-dark .rpg-btn:hover { background: #3aa35c; color: #ffffff; }
+.mainmenu-dark .rpg-btn:hover {
+  background: linear-gradient(180deg, #b06ef5 0%, #9a5adc 30%, #8149c4 65%, #6a3aa8 100%);
+  color: #ffffff;
+}
 .mainmenu-dark .rpg-btn:active {
   transform: translate(3px, 3px);
   box-shadow:
-    inset 0 6px 0 rgba(8, 30, 16, 0.25),
-    inset 0 -4px 0 rgba(255, 255, 255, 0.08),
-    3px 3px 0 rgba(0, 0, 0, 0.5);
-  border-top: 4px solid #1c5f33;
-  border-left: 4px solid #1c5f33;
-  border-right: 4px solid #57b86f;
-  border-bottom: 4px solid #57b86f;
+    inset 0 4px 0 rgba(10, 6, 20, 0.25),
+    inset 0 -3px 0 rgba(255, 255, 255, 0.08),
+    2px 2px 0 rgba(0, 0, 0, 0.6);
+  border-top: 3px solid #2a1660;
+  border-left: 3px solid #2a1660;
+  border-right: 3px solid #c48af0;
+  border-bottom: 3px solid #c48af0;
 }
 
 .mainmenu-dark .rpg-diff-btn {
   position: relative;
-  background: linear-gradient(180deg, #3d3a2f, #2c2920);
-  border: 4px solid #5d3b1e;
-  outline: 4px solid #36220f;
-  outline-offset: -8px;
+  background: linear-gradient(180deg, #2a2440 0%, #1c2030 55%, #14162a 100%);
+  border-top: 3px solid #3a3060;
+  border-left: 3px solid #3a3060;
+  border-right: 3px solid #0a0c18;
+  border-bottom: 3px solid #0a0c18;
+  outline: 2px solid #4a3a5e;
+  outline-offset: -7px;
   box-shadow:
     inset 0 4px 0 rgba(255, 255, 255, 0.07),
     inset 0 -4px 0 rgba(0, 0, 0, 0.28),
-    4px 4px 0 rgba(0, 0, 0, 0.35);
+    4px 4px 0 rgba(0, 0, 0, 0.4);
   color: #9a8f72;
   text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.55);
   transition: background 80ms steps(2), transform 80ms steps(2), box-shadow 80ms steps(2);
 }
+.mainmenu-dark .rpg-diff-btn:hover { border-top-color: #f5d87a; border-left-color: #f5d87a; }
 .mainmenu-dark .rpg-diff-btn.selected {
-  background: linear-gradient(180deg, #2f8f4f, #256f3d);
-  border: 4px solid #57b86f;
-  outline: 4px solid #1c5f33;
+  background: linear-gradient(180deg, #9a5adc 0%, #6a3aa8 60%, #4a2a7a 100%);
+  border-top: 3px solid #f5d87a;
+  border-left: 3px solid #f5d87a;
+  border-right: 3px solid #2a1660;
+  border-bottom: 3px solid #2a1660;
+  outline: 2px solid #14143c;
   box-shadow:
     inset 0 4px 0 rgba(255, 255, 255, 0.12),
-    inset 0 -4px 0 rgba(8, 30, 16, 0.3),
-    4px 4px 0 rgba(0, 0, 0, 0.35);
+    inset 0 -4px 0 rgba(10, 6, 20, 0.3),
+    4px 4px 0 rgba(0, 0, 0, 0.4);
   color: #f0e6c8;
 }
+.mainmenu-dark .rpg-diff-btn:active { transform: translate(2px, 2px); }
 
 .mainmenu-dark .rpg-divider,
 .mainmenu-dark .rpg-divider-thin { background: #e8c04a; }
 
 .mainmenu-dark .rpg-star { color: #e8c04a; }
+
+/* ── Modal (Vertical Stack menu) ─────────────────────────────── */
+.mainmenu-modal {
+  background: linear-gradient(180deg, rgba(26, 30, 56, 0.97), rgba(16, 18, 40, 0.97));
+  border: 4px solid #6a3aa8;
+  outline: 4px solid #14143c;
+  outline-offset: -8px;
+  box-shadow: 6px 6px 0 rgba(0, 0, 0, 0.5);
+  color: #f0e6c8;
+  padding: 20px;
+}
+
+.mainmenu-modal .rpg-btn {
+  position: relative;
+  background: linear-gradient(180deg, #9a5adc 0%, #8149c4 30%, #6a3aa8 65%, #4a2a7a 100%);
+  border-top: 3px solid #c48af0;
+  border-left: 3px solid #c48af0;
+  border-right: 3px solid #2a1660;
+  border-bottom: 3px solid #2a1660;
+  box-shadow:
+    inset 0 4px 0 rgba(255, 255, 255, 0.14),
+    inset 0 -4px 0 rgba(10, 6, 20, 0.35),
+    5px 5px 0 rgba(0, 0, 0, 0.6);
+  color: #f0e6c8;
+  text-shadow: 2px 2px 0 #14143c;
+  transition: background 80ms steps(2), transform 80ms steps(2), box-shadow 80ms steps(2);
+}
+.mainmenu-modal .rpg-btn:hover {
+  background: linear-gradient(180deg, #b06ef5 0%, #9a5adc 30%, #8149c4 65%, #6a3aa8 100%);
+  color: #ffffff;
+}
+.mainmenu-modal .rpg-btn:active {
+  transform: translate(3px, 3px);
+  box-shadow:
+    inset 0 4px 0 rgba(10, 6, 20, 0.25),
+    inset 0 -3px 0 rgba(255, 255, 255, 0.08),
+    2px 2px 0 rgba(0, 0, 0, 0.6);
+  border-top: 3px solid #2a1660;
+  border-left: 3px solid #2a1660;
+  border-right: 3px solid #c48af0;
+  border-bottom: 3px solid #c48af0;
+}
+
+.mainmenu-modal .rpg-diff-btn {
+  position: relative;
+  background: linear-gradient(180deg, #2a2440 0%, #1c2030 55%, #14162a 100%);
+  border-top: 3px solid #3a3060;
+  border-left: 3px solid #3a3060;
+  border-right: 3px solid #0a0c18;
+  border-bottom: 3px solid #0a0c18;
+  outline: 2px solid #4a3a5e;
+  outline-offset: -7px;
+  box-shadow:
+    inset 0 4px 0 rgba(255, 255, 255, 0.07),
+    inset 0 -4px 0 rgba(0, 0, 0, 0.28),
+    4px 4px 0 rgba(0, 0, 0, 0.4);
+  color: #9a8f72;
+  text-shadow: 2px 2px 0 rgba(0, 0, 0, 0.55);
+  transition: background 80ms steps(2), transform 80ms steps(2), box-shadow 80ms steps(2);
+}
+.mainmenu-modal .rpg-diff-btn:hover { border-top-color: #f5d87a; border-left-color: #f5d87a; }
+.mainmenu-modal .rpg-diff-btn.selected {
+  background: linear-gradient(180deg, #9a5adc 0%, #6a3aa8 60%, #4a2a7a 100%);
+  border-top: 3px solid #f5d87a;
+  border-left: 3px solid #f5d87a;
+  border-right: 3px solid #2a1660;
+  border-bottom: 3px solid #2a1660;
+  outline: 2px solid #14143c;
+  box-shadow:
+    inset 0 4px 0 rgba(255, 255, 255, 0.12),
+    inset 0 -4px 0 rgba(10, 6, 20, 0.3),
+    4px 4px 0 rgba(0, 0, 0, 0.4);
+  color: #f0e6c8;
+}
+.mainmenu-modal .rpg-diff-btn:active { transform: translate(2px, 2px); }

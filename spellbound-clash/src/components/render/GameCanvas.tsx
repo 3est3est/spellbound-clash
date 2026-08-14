@@ -70,7 +70,7 @@ export default function GameCanvas() {
   const [nearGateZone, setNearGateZone] = useState<2 | 3 | 4 | null>(null);
   const nearGateZoneRef = useRef<2 | 3 | 4 | null>(null);
   const respawnTickTimer = useRef(0);
-  
+
   const gameState = useGameStore((s) => s.gameState);
   const enemies = useGameStore((s) => s.enemies);
   const battleResult = useGameStore((s) => s.battleResult);
@@ -639,13 +639,12 @@ export default function GameCanvas() {
       {nearGateZone != null && gameState === "EXPLORE" && (
         <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-bounce">
           <div
-            className={`px-4 py-2 text-center text-xs font-pixel shadow-[4px_4px_0_rgba(0,0,0,0.5)] pointer-events-auto border-4 ${
-              adminMode
-                ? "bg-[#2a2418] border-[#f5d87a] outline outline-4 outline-[#1c5f33] -outline-offset-8 text-[#f5d87a]"
-                : (useGameStore.getState().coins ?? 0) >= (GATE_UNLOCK_PRICES[nearGateZone] ?? 0)
-                  ? "bg-[#2a2418] border-[#39d98a] outline outline-4 outline-[#1c5f33] -outline-offset-8 text-[#39d98a]"
-                  : "bg-[#2a2418] border-[#ff6050] outline outline-4 outline-[#1c5f33] -outline-offset-8 text-[#ff6050]"
-            }`}
+            className={`px-4 py-2 text-center text-xs font-pixel shadow-[4px_4px_0_rgba(0,0,0,0.5)] pointer-events-auto border-4 ${adminMode
+              ? "bg-[#2a2418] border-[#f5d87a] outline outline-4 outline-[#1c5f33] -outline-offset-8 text-[#f5d87a]"
+              : (useGameStore.getState().coins ?? 0) >= (GATE_UNLOCK_PRICES[nearGateZone] ?? 0)
+                ? "bg-[#2a2418] border-[#39d98a] outline outline-4 outline-[#1c5f33] -outline-offset-8 text-[#39d98a]"
+                : "bg-[#2a2418] border-[#ff6050] outline outline-4 outline-[#1c5f33] -outline-offset-8 text-[#ff6050]"
+              }`}
           >
             {adminMode ? (
               <>⭐ ADMIN: ประตูสู่โซน {nearGateZone} ปลดล็อคฟรี! กด{" "}

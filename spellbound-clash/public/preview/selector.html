@@ -1,0 +1,97 @@
+<!doctype html>
+<html lang="th">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>เลือกช่องแม่มดซ้ำ</title>
+<style>
+  body { margin: 0; background: #141414; color: #fff; font-family: sans-serif; }
+  .wrap { padding: 20px; max-width: 1300px; margin: 0 auto; }
+  h2 { font-size: 18px; margin: 0 0 12px; }
+  .stage { position: relative; display: inline-block; }
+  .stage img { display: block; width: 100%; }
+  .grid { position: absolute; inset: 0; display: grid; }
+  .cell { border: 1px solid rgba(255,255,255,0.25); background: transparent; cursor: pointer; position: relative; }
+  .cell.selected { background: rgba(255, 80, 200, 0.45); border-color: #ff50c8; }
+  .cell.selected::after { content: "✖"; position: absolute; inset: 0; display: flex; align-items: center; justify-content: center; font-size: 18px; color: #fff; text-shadow: 1px 1px 0 #000; }
+  .result { margin-top: 14px; background: #222; border: 2px solid #444; border-radius: 8px; padding: 12px 16px; font-size: 15px; line-height: 1.7; }
+  .result b { color: #f5d87a; }
+  .btn { margin-top: 8px; padding: 8px 16px; background: #3aa35c; color: #fff; border: none; border-radius: 6px; cursor: pointer; font-size: 14px; }
+  .hint { color: #aaa; font-size: 13px; margin-top: 8px; }
+</style>
+</head>
+<body>
+<div class="wrap">
+  <h2>คลิกเลือกช่องที่ทับแม่มดน้อยตัวซ้ำฝั่งขวา (เลือกครบแล้วอ่านตัวเลขด้านล่าง)</h2>
+  <div class="stage">
+    <img id="bg" src="/assets/gen/main-menu-3.png" alt="menu 3" />
+    <div id="grid" class="grid"></div>
+  </div>
+  <div class="result" id="result">ยังไม่ได้เลือกช่อง</div>
+  <button class="btn" id="clear">ล้างช่องทั้งหมด</button>
+  <p class="hint">💡 คลิก/กดค้างลากข้ามช่องเพื่อเลือกหลายช่อง · คลิกช่องที่เลือกแล้วอีกที = ยกเลิก · เลือกเฉพาะช่องที่ทับตัวแม่มดขวาเท่านั้น (ไม่รวมตัวอื่น)</p>
+</div>
+
+<script>
+  const COLS = 16, ROWS = 9;
+  const img = document.getElementById('bg');
+  const grid = document.getElementById('grid');
+  const result = document.getElementById('result');
+  const clearBtn = document.getElementById('clear');
+
+  grid.style.gridTemplateColumns = `repeat(${COLS}, 1fr)`;
+  grid.style.gridTemplateRows = `repeat(${ROWS}, 1fr)`;
+
+  const cells = [];
+  const selected = new Set();
+  let dragPaint = false;
+
+  function makeCell(r, c) {
+    const cell = document.createElement('div');
+    cell.className = 'cell';
+    cell.dataset.r = r; cell.dataset.c = c;
+    cell.addEventListener('click', () => {
+      const key = `${r},${c}`;
+      if (selected.has(key)) selected.delete(key); else selected.add(key);
+      cell.classList.toggle('selected', selected.has(key));
+      updateResult();
+    });
+    cell.addEventListener('mousedown', () => { dragPaint = !selected.has(`${r},${c}`); });
+    cell.addEventListener('mouseenter', () => {
+      if (dragPaint) {
+        const key = `${r},${c}`;
+        selected.add(key);
+        cell.classList.add('selected');
+        updateResult();
+      }
+    });
+    grid.appendChild(cell);
+    cells.push(cell);
+  }
+  document.addEventListener('mouseup', () => { dragPaint = false; });
+
+  for (let r = 0; r < ROWS; r++) for (let c = 0; c < COLS; c++) makeCell(r, c);
+
+  function updateResult() {
+    if (selected.size === 0) { result.innerHTML = 'ยังไม่ได้เลือกช่อง'; return; }
+    let minC = COLS, maxC = -1, minR = ROWS, maxR = -1;
+    selected.forEach(k => {
+      const [r, c] = k.split(',').map(Number);
+      minC = Math.min(minC, c); maxC = Math.max(maxC, c);
+      minR = Math.min(minR, r); maxR = Math.max(maxR, r);
+    });
+    const x0 = Math.round(minC / COLS * 100);
+    const x1 = Math.round((maxC + 1) / COLS * 100);
+    const y0 = Math.round(minR / ROWS * 100);
+    const y1 = Math.round((maxR + 1) / ROWS * 100);
+    result.innerHTML = `เลือกแล้ว <b>${selected.size}</b> ช่อง → พิกัด: <b>x ${x0}% → ${x1}%</b>, <b>y ${y0}% → ${y1}%</b><br><span style="color:#aaa">ส่งตัวเลขนี้ให้ผม (เช่น "x ${x0}-${x1}, y ${y0}-${y1}")</span>`;
+  }
+
+  clearBtn.addEventListener('click', () => {
+    selected.clear();
+    cells.forEach(cell => cell.classList.remove('selected'));
+    updateResult();
+  });
+</script>
+</body>
+</html>

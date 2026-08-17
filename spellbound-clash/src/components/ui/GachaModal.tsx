@@ -164,12 +164,12 @@ export default function GachaModal() {
         <div
             className="fixed inset-0 flex items-center justify-center z-[200] p-4 bg-black/60 backdrop-blur-sm"
         >
-            <div className="relative w-full max-w-sm rounded-[32px] border-[6px] border-white bg-[#f8fbff] p-5 shadow-[0_16px_36px_rgba(0,0,0,0.35),0_0_0_4px_#38bdf8] animate-pop-in">
+            <div className="relative w-full max-w-sm rpg-panel animate-pop-in" style={{ padding: '18px' }}>
                 {/* Close Button X */}
                 <button
                     onClick={() => setGachaOpen(false)}
                     disabled={isRolling}
-                    className="absolute -top-3 -right-3 w-8 h-8 rounded-full bg-red-500 border-4 border-white text-white font-pixel font-bold flex items-center justify-center shadow-md hover:bg-red-600 active:scale-95 transition-all text-[8px] z-[210] cursor-pointer disabled:opacity-50"
+                    className="absolute -top-3 -right-3 w-8 h-8 rpg-btn-red font-pixel font-bold text-[10px] flex items-center justify-center z-[210] cursor-pointer disabled:opacity-50"
                 >
                     ✕
                 </button>
@@ -177,18 +177,18 @@ export default function GachaModal() {
                 {isRolling ? (
                     /* Rolling State screen */
                     <div className="flex flex-col items-center justify-center py-10 min-h-[300px]">
-                        <div className="relative w-24 h-24 rounded-2xl bg-gradient-to-b from-[#e2e8f0] to-[#cbd5e1] border-4 border-white shadow-lg flex items-center justify-center overflow-hidden animate-bounce mb-4">
+                        <div className="relative w-24 h-24 bg-[#26221c] border-4 border-[#6b4423] outline outline-4 outline-[#b98d2a] -outline-offset-8 shadow-[4px_4px_0_rgba(0,0,0,0.45)] flex items-center justify-center overflow-hidden animate-bounce mb-4">
                             <PetSprite kind={cyclePetId} silhouette={true} size={64} />
-                            <div className="absolute inset-0 flex items-center justify-center bg-black/10">
-                                <span className="font-pixel font-bold text-4xl text-white opacity-40">?</span>
+                            <div className="absolute inset-0 flex items-center justify-center bg-black/20">
+                                <span className="font-pixel font-bold text-4xl text-[#e8c04a] opacity-50">?</span>
                             </div>
                         </div>
-                        <p className="font-pixel text-[10px] text-[#38bdf8] font-bold animate-pulse">กำลังสุ่มสัตว์เลี้ยง...</p>
+                        <p className="font-pixel text-[10px] text-[#e8c04a] font-bold animate-pulse">กำลังสุ่มสัตว์เลี้ยง...</p>
                     </div>
                 ) : rolledResults ? (
                     /* Results State overlay */
                     <div className="flex flex-col items-center justify-center py-6 min-h-[300px]">
-                        <h3 className="font-pixel text-[#ea580c] font-black text-center text-[11px] mb-4 animate-bounce" style={{ textShadow: '1px 1px 0px rgba(0,0,0,0.1)' }}>
+                        <h3 className="font-pixel rpg-title-gold font-black text-center text-[11px] mb-4 animate-bounce">
                             🎉 ได้รับสัตว์เลี้ยง!
                         </h3>
 
@@ -198,12 +198,12 @@ export default function GachaModal() {
                                 return (
                                     <div
                                         key={`${petId}-${i}`}
-                                        className={`aspect-square w-[75px] rounded-[16px] p-1 flex flex-col items-center justify-center relative overflow-hidden border-[3px] border-white shadow-[0_4px_10px_rgba(0,0,0,0.15)] animate-pop-in ${getBgGradient(petId)}`}
+                                        className={`aspect-square w-[75px] rounded-[8px] p-1 flex flex-col items-center justify-center relative overflow-hidden border-[3px] border-[#1f2937] shadow-[4px_4px_0_rgba(0,0,0,0.45)] animate-pop-in ${getBgGradient(petId)}`}
                                         style={{ animationDelay: `${i * 150}ms` }}
                                     >
                                         <PetSprite kind={petId as any} silhouette={false} size={48} />
                                         <span
-                                            className="absolute bottom-1 font-pixel font-bold text-[7px] text-white tracking-widest text-center px-0.5 line-clamp-1 w-full"
+                                            className="absolute bottom-0 left-0 right-0 bg-[#1f2937]/70 font-pixel font-bold text-[7px] text-white tracking-widest text-center px-0.5 py-0.5 line-clamp-1 w-full"
                                             style={{
                                                 textShadow: '1px 1px 0px #000, -1px 1px 0px #000, 1px -1px 0px #000, -1px -1px 0px #000',
                                             }}
@@ -216,14 +216,14 @@ export default function GachaModal() {
                         </div>
 
                         {rolledResults.length === 1 && (
-                            <p className="font-pixel text-[9px] font-bold text-center mt-3 text-[#1e293b]">
+                            <p className="font-pixel text-[9px] font-bold text-center mt-3 text-[#e8dcc0]">
                                 ยินดีด้วย! ได้รับ {petMeta[rolledResults[0]]?.name}
                             </p>
                         )}
 
                         <button
                             onClick={() => setRolledResults(null)}
-                            className="mt-6 w-full h-11 bg-gradient-to-b from-[#8ade24] to-[#45a305] border-[3px] border-white rounded-[16px] text-white font-pixel font-bold text-[10px] shadow-[0_4px_6px_rgba(0,0,0,0.15)] hover:brightness-110 active:scale-95 transition-all cursor-pointer"
+                            className="mt-6 w-full h-11 rpg-btn-green font-pixel font-bold text-[10px] rounded-[8px]"
                         >
                             ตกลง (OK)
                         </button>
@@ -233,28 +233,29 @@ export default function GachaModal() {
                     <>
                         {/* Title Header */}
                         <div className="text-center mb-3">
-                            <h2 className="font-pixel font-black text-center text-[#1e293b] text-[13px] tracking-tight">
+                            <h2 className="font-pixel font-black text-center rpg-title-gold text-[13px] tracking-tight">
                                 สุ่มคู่หูออกรบ
                             </h2>
-                            <p className="font-pixel text-[7px] text-[#64748b] mt-1 font-bold">
+                            <div className="rpg-divider my-2" />
+                            <p className="font-pixel text-[7px] text-[#b8a888] mt-1 font-bold">
                                 สะสมสัตว์เลี้ยงช่วยต่อสู้โซนต่างๆ
                             </p>
                         </div>
 
                         {/* Coin balance panel */}
-                        <div className="flex justify-between items-center bg-white border-2 border-[#e2e8f0] px-4 py-2.5 rounded-[18px] mb-3 shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]">
-                            <span className="font-pixel text-[7px] text-[#64748b] font-bold">เหรียญของคุณ:</span>
-                            <span className="font-pixel text-[9px] text-[#0f172a] font-bold">🪙 {coins.toLocaleString()}</span>
+                        <div className="flex justify-between items-center bg-[#26221c] border-4 border-[#6b4423] outline outline-4 outline-[#1c5f33] -outline-offset-8 px-4 py-2.5 mb-3 shadow-[3px_3px_0_rgba(0,0,0,0.4)]">
+                            <span className="font-pixel text-[7px] text-[#e8c04a] font-bold">เหรียญของคุณ:</span>
+                            <span className="font-pixel text-[9px] text-white font-bold">🪙 {coins.toLocaleString()}</span>
                         </div>
 
                         {/* 3x3 Grid of pets */}
-                        <div className="grid grid-cols-3 gap-2 bg-white border-[3px] border-[#f1f5f9] p-3 rounded-[24px] shadow-[inset_0_2px_8px_rgba(0,0,0,0.05)]">
+                        <div className="grid grid-cols-3 gap-2 bg-[#26201a]/60 border-4 border-[#6b4423] p-3 shadow-inner">
                             {GACHA_PETS.map((pet, idx) => {
                                 if ('isEmpty' in pet) {
                                     return (
                                         <div
                                             key={`empty-${idx}`}
-                                            className="aspect-square bg-[#f8fafc] border-2 border-dashed border-[#e2e8f0] rounded-[18px] shadow-[inset_0_2px_4px_rgba(0,0,0,0.02)]"
+                                            className="aspect-square bg-[#1f1b14] border-2 border-dashed border-[#6b5a4a] shadow-[inset_0_2px_4px_rgba(0,0,0,0.3)]"
                                         />
                                     );
                                 }
@@ -263,7 +264,7 @@ export default function GachaModal() {
                                 return (
                                     <div
                                         key={pet.id}
-                                        className={`aspect-square rounded-[18px] p-1 flex flex-col items-center justify-center relative overflow-hidden border-[3px] border-white shadow-[0_4px_10px_rgba(0,0,0,0.08),inset_0_-4px_0_rgba(0,0,0,0.15)] transition-all ${getBgGradient(
+                                        className={`aspect-square rounded-[8px] p-1 flex flex-col items-center justify-center relative overflow-hidden border-[3px] border-[#1f2937] shadow-[4px_4px_0_rgba(0,0,0,0.45),inset_0_-4px_0_rgba(0,0,0,0.2)] transition-all ${getBgGradient(
                                             pet.id
                                         )}`}
                                     >
@@ -271,7 +272,7 @@ export default function GachaModal() {
 
                                         {/* Rate Text */}
                                         <span
-                                            className="absolute bottom-1 font-pixel font-bold text-[8px] text-white tracking-widest"
+                                            className="absolute bottom-0 left-0 right-0 bg-[#1f2937]/70 font-pixel font-bold text-[8px] text-white tracking-widest text-center py-0.5"
                                             style={{
                                                 textShadow:
                                                     '1.2px 1.2px 0px #000, -1.2px 1.2px 0px #000, 1.2px -1.2px 0px #000, -1.2px -1.2px 0px #000',
@@ -287,9 +288,9 @@ export default function GachaModal() {
 
                         {/* Cost Display Button ("🖱️ 5sp") */}
                         <div className="my-3 flex justify-center">
-                            <div className="bg-[#00a8ff] border-[3px] border-white outline outline-2 outline-[#00a8ff] rounded-full px-6 py-1.5 flex items-center justify-center gap-1.5 shadow-[0_4px_10px_rgba(0,168,255,0.25)]">
+                            <div className="bg-[#26221c] border-4 border-[#6b4423] outline outline-2 outline-[#b98d2a] -outline-offset-4 px-6 py-1.5 flex items-center justify-center gap-1.5 shadow-[3px_3px_0_rgba(0,0,0,0.4)]">
                                 <span
-                                    className="font-pixel text-[9px] font-bold text-white tracking-widest animate-pulse"
+                                    className="font-pixel text-[9px] font-bold text-[#e8c04a] tracking-widest animate-pulse"
                                     style={{ textShadow: '1.5px 1.5px 0px rgba(0,0,0,0.15)' }}
                                 >
                                     🖱️ 5sp
@@ -303,42 +304,58 @@ export default function GachaModal() {
                             <div className="flex flex-col items-center flex-1">
                                 <button
                                     onClick={() => handleRoll(1)}
-                                    className="w-full h-10 bg-gradient-to-b from-[#8ade24] to-[#45a305] border-[3px] border-white rounded-[16px] text-white font-pixel font-bold text-[8px] shadow-[0_4px_8px_rgba(69,163,5,0.25)] hover:brightness-105 active:scale-95 transition-all cursor-pointer"
+                                    className="w-full h-10 rpg-btn-green font-pixel font-bold text-[8px] rounded-[8px]"
                                     style={{ textShadow: '1px 1px 0px rgba(0,0,0,0.2)' }}
                                 >
                                     Hatch 1
                                 </button>
-                                <span className="font-pixel font-bold text-[6px] text-[#94a3b8] mt-1 whitespace-nowrap">E (5🪙)</span>
+                                <span className="font-pixel font-bold text-[6px] text-[#b8a888] mt-1 whitespace-nowrap">E (5🪙)</span>
                             </div>
 
                             {/* x3 (R) */}
                             <div className="flex flex-col items-center flex-1">
                                 <button
                                     onClick={() => handleRoll(3)}
-                                    className="w-full h-10 bg-gradient-to-b from-[#fca904] to-[#f45c05] border-[3px] border-white rounded-[16px] text-white font-pixel font-bold text-[9px] shadow-[0_4px_8px_rgba(244,92,5,0.25)] hover:brightness-105 active:scale-95 transition-all cursor-pointer"
-                                    style={{ textShadow: '1px 1px 0px rgba(0,0,0,0.2)' }}
+                                    className="w-full h-10 font-pixel font-bold text-[9px] rounded-[8px] text-white cursor-pointer transition-all active:translate-x-[2px] active:translate-y-[2px]"
+                                    style={{
+                                        background: '#f45c05',
+                                        borderTop: '4px solid #fca904',
+                                        borderLeft: '4px solid #fca904',
+                                        borderRight: '4px solid #b84204',
+                                        borderBottom: '4px solid #b84204',
+                                        boxShadow: 'inset 0 6px 0 rgba(255,255,255,0.12), inset 0 -6px 0 rgba(0,0,0,0.3), 4px 4px 0 rgba(0,0,0,0.5)',
+                                        textShadow: '1px 1px 0px rgba(0,0,0,0.2)',
+                                    }}
                                 >
                                     x3
                                 </button>
-                                <span className="font-pixel font-bold text-[6px] text-[#94a3b8] mt-1 whitespace-nowrap">R (15🪙)</span>
+                                <span className="font-pixel font-bold text-[6px] text-[#b8a888] mt-1 whitespace-nowrap">R (15🪙)</span>
                             </div>
 
                             {/* x8 (T) */}
                             <div className="flex flex-col items-center flex-1">
                                 <button
                                     onClick={() => handleRoll(8)}
-                                    className="w-full h-10 bg-gradient-to-b from-[#c084fc] via-[#e879f9] to-[#f472b6] border-[3px] border-white rounded-[16px] text-white font-pixel font-bold text-[9px] shadow-[0_4px_8px_rgba(232,121,249,0.25)] hover:brightness-105 active:scale-95 transition-all cursor-pointer"
-                                    style={{ textShadow: '1px 1px 0px rgba(0,0,0,0.2)' }}
+                                    className="w-full h-10 font-pixel font-bold text-[9px] rounded-[8px] text-white cursor-pointer transition-all active:translate-x-[2px] active:translate-y-[2px]"
+                                    style={{
+                                        background: '#a855f7',
+                                        borderTop: '4px solid #d8b4fe',
+                                        borderLeft: '4px solid #d8b4fe',
+                                        borderRight: '4px solid #7e22ce',
+                                        borderBottom: '4px solid #7e22ce',
+                                        boxShadow: 'inset 0 6px 0 rgba(255,255,255,0.12), inset 0 -6px 0 rgba(0,0,0,0.3), 4px 4px 0 rgba(0,0,0,0.5)',
+                                        textShadow: '1px 1px 0px rgba(0,0,0,0.2)',
+                                    }}
                                 >
                                     x8
                                 </button>
-                                <span className="font-pixel font-bold text-[6px] text-[#94a3b8] mt-1 whitespace-nowrap">T (40🪙)</span>
+                                <span className="font-pixel font-bold text-[6px] text-[#b8a888] mt-1 whitespace-nowrap">T (40🪙)</span>
                             </div>
                         </div>
 
                         {/* Error Msg Display */}
                         {errorMsg && (
-                            <div className="absolute bottom-20 left-4 right-4 text-center font-pixel font-bold text-[7px] text-[#ef4444] bg-[#fee2e2] border border-[#fca5a5] py-2 rounded-xl animate-bounce">
+                            <div className="mt-3 text-center font-pixel font-bold text-[7px] text-[#ff7a5c] bg-[#331c17] border-2 border-[#8f2418] py-2 shadow-[3px_3px_0_rgba(0,0,0,0.4)] animate-bounce">
                                 {errorMsg}
                             </div>
                         )}

@@ -1,0 +1,2808 @@
+[
+ {
+  "word": "Take",
+  "phonetic": "/teɪk/",
+  "choices": [
+   {
+    "text": "นำไป / หยิบไป",
+    "isCorrect": true
+   },
+   {
+    "text": "วางไว้",
+    "isCorrect": false
+   },
+   {
+    "text": "ทิ้ง",
+    "isCorrect": false
+   },
+   {
+    "text": "ยืม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Come",
+  "phonetic": "/kʌm/",
+  "choices": [
+   {
+    "text": "มา",
+    "isCorrect": true
+   },
+   {
+    "text": "ไป",
+    "isCorrect": false
+   },
+   {
+    "text": "กลับ",
+    "isCorrect": false
+   },
+   {
+    "text": "ขึ้น",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Go",
+  "phonetic": "/ɡoʊ/",
+  "choices": [
+   {
+    "text": "ไป",
+    "isCorrect": true
+   },
+   {
+    "text": "มา",
+    "isCorrect": false
+   },
+   {
+    "text": "อยู่",
+    "isCorrect": false
+   },
+   {
+    "text": "หยุด",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Get",
+  "phonetic": "/ɡet/",
+  "choices": [
+   {
+    "text": "ได้มา / รับมา",
+    "isCorrect": true
+   },
+   {
+    "text": "มอบให้",
+    "isCorrect": false
+   },
+   {
+    "text": "ขโมย",
+    "isCorrect": false
+   },
+   {
+    "text": "หายไป",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Want",
+  "phonetic": "/wɑːnt/",
+  "choices": [
+   {
+    "text": "อยากได้",
+    "isCorrect": true
+   },
+   {
+    "text": "ไม่เอา",
+    "isCorrect": false
+   },
+   {
+    "text": "เฉยเมย",
+    "isCorrect": false
+   },
+   {
+    "text": "กลัว",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Have",
+  "phonetic": "/hæv/",
+  "choices": [
+   {
+    "text": "มี",
+    "isCorrect": true
+   },
+   {
+    "text": "ไม่มี",
+    "isCorrect": false
+   },
+   {
+    "text": "ให้",
+    "isCorrect": false
+   },
+   {
+    "text": "ยืม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Do",
+  "phonetic": "/duː/",
+  "choices": [
+   {
+    "text": "ทำ",
+    "isCorrect": true
+   },
+   {
+    "text": "คิด",
+    "isCorrect": false
+   },
+   {
+    "text": "ดู",
+    "isCorrect": false
+   },
+   {
+    "text": "รู้",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "See",
+  "phonetic": "/siː/",
+  "choices": [
+   {
+    "text": "เห็น",
+    "isCorrect": true
+   },
+   {
+    "text": "ได้ยิน",
+    "isCorrect": false
+   },
+   {
+    "text": "ได้กลิ่น",
+    "isCorrect": false
+   },
+   {
+    "text": "สัมผัส",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Hear",
+  "phonetic": "/hɪr/",
+  "choices": [
+   {
+    "text": "ได้ยิน",
+    "isCorrect": true
+   },
+   {
+    "text": "เห็น",
+    "isCorrect": false
+   },
+   {
+    "text": "ได้กลิ่น",
+    "isCorrect": false
+   },
+   {
+    "text": "ลิ้มรส",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Smell",
+  "phonetic": "/smel/",
+  "choices": [
+   {
+    "text": "ได้กลิ่น",
+    "isCorrect": true
+   },
+   {
+    "text": "ได้ยิน",
+    "isCorrect": false
+   },
+   {
+    "text": "มองเห็น",
+    "isCorrect": false
+   },
+   {
+    "text": "ลิ้มรส",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Feel",
+  "phonetic": "/fiːl/",
+  "choices": [
+   {
+    "text": "รู้สึก / สัมผัส",
+    "isCorrect": true
+   },
+   {
+    "text": "ได้ยิน",
+    "isCorrect": false
+   },
+   {
+    "text": "มองเห็น",
+    "isCorrect": false
+   },
+   {
+    "text": "ได้กลิ่น",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Taste",
+  "phonetic": "/teɪst/",
+  "choices": [
+   {
+    "text": "ชิม / ลิ้มรส",
+    "isCorrect": true
+   },
+   {
+    "text": "ดม",
+    "isCorrect": false
+   },
+   {
+    "text": "ฟัง",
+    "isCorrect": false
+   },
+   {
+    "text": "มอง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Think",
+  "phonetic": "/θɪŋk/",
+  "choices": [
+   {
+    "text": "คิด",
+    "isCorrect": true
+   },
+   {
+    "text": "พูด",
+    "isCorrect": false
+   },
+   {
+    "text": "ทำ",
+    "isCorrect": false
+   },
+   {
+    "text": "นอน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Know",
+  "phonetic": "/noʊ/",
+  "choices": [
+   {
+    "text": "รู้",
+    "isCorrect": true
+   },
+   {
+    "text": "สงสัย",
+    "isCorrect": false
+   },
+   {
+    "text": "ลืม",
+    "isCorrect": false
+   },
+   {
+    "text": "เดา",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Buy",
+  "phonetic": "/baɪ/",
+  "choices": [
+   {
+    "text": "ซื้อ",
+    "isCorrect": true
+   },
+   {
+    "text": "ขาย",
+    "isCorrect": false
+   },
+   {
+    "text": "ยืม",
+    "isCorrect": false
+   },
+   {
+    "text": "เช่า",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Sell",
+  "phonetic": "/sel/",
+  "choices": [
+   {
+    "text": "ขาย",
+    "isCorrect": true
+   },
+   {
+    "text": "ซื้อ",
+    "isCorrect": false
+   },
+   {
+    "text": "ให้เช่า",
+    "isCorrect": false
+   },
+   {
+    "text": "แลกเปลี่ยน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Pay",
+  "phonetic": "/peɪ/",
+  "choices": [
+   {
+    "text": "จ่ายเงิน",
+    "isCorrect": true
+   },
+   {
+    "text": "เก็บเงิน",
+    "isCorrect": false
+   },
+   {
+    "text": "ทอนเงิน",
+    "isCorrect": false
+   },
+   {
+    "text": "ยืมเงิน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Borrow",
+  "phonetic": "/ˈbɑːroʊ/",
+  "choices": [
+   {
+    "text": "ยืม",
+    "isCorrect": true
+   },
+   {
+    "text": "ให้ยืม",
+    "isCorrect": false
+   },
+   {
+    "text": "คืน",
+    "isCorrect": false
+   },
+   {
+    "text": "ทวง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Lend",
+  "phonetic": "/lend/",
+  "choices": [
+   {
+    "text": "ให้ยืม",
+    "isCorrect": true
+   },
+   {
+    "text": "ยืม",
+    "isCorrect": false
+   },
+   {
+    "text": "ขาย",
+    "isCorrect": false
+   },
+   {
+    "text": "บริจาค",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Return",
+  "phonetic": "/rɪˈtɜːrn/",
+  "choices": [
+   {
+    "text": "กลับมา / คืน",
+    "isCorrect": true
+   },
+   {
+    "text": "ไปต่อ",
+    "isCorrect": false
+   },
+   {
+    "text": "หยุด",
+    "isCorrect": false
+   },
+   {
+    "text": "จากลา",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Ask",
+  "phonetic": "/æsk/",
+  "choices": [
+   {
+    "text": "ถาม / ขอร้อง",
+    "isCorrect": true
+   },
+   {
+    "text": "ตอบ",
+    "isCorrect": false
+   },
+   {
+    "text": "สั่ง",
+    "isCorrect": false
+   },
+   {
+    "text": "ปฏิเสธ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Answer",
+  "phonetic": "/ˈænsər/",
+  "choices": [
+   {
+    "text": "ตอบ",
+    "isCorrect": true
+   },
+   {
+    "text": "ถาม",
+    "isCorrect": false
+   },
+   {
+    "text": "ตะโกน",
+    "isCorrect": false
+   },
+   {
+    "text": "เงียบ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Cook",
+  "phonetic": "/kʊk/",
+  "choices": [
+   {
+    "text": "ทำอาหาร",
+    "isCorrect": true
+   },
+   {
+    "text": "อบขนม",
+    "isCorrect": false
+   },
+   {
+    "text": "ปิ้งย่าง",
+    "isCorrect": false
+   },
+   {
+    "text": "ทอด",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Eat",
+  "phonetic": "/iːt/",
+  "choices": [
+   {
+    "text": "กิน",
+    "isCorrect": true
+   },
+   {
+    "text": "ดื่ม",
+    "isCorrect": false
+   },
+   {
+    "text": "เคี้ยว",
+    "isCorrect": false
+   },
+   {
+    "text": "กลืน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Drink",
+  "phonetic": "/drɪŋk/",
+  "choices": [
+   {
+    "text": "ดื่ม",
+    "isCorrect": true
+   },
+   {
+    "text": "กิน",
+    "isCorrect": false
+   },
+   {
+    "text": "จิบ",
+    "isCorrect": false
+   },
+   {
+    "text": "อม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Sleep",
+  "phonetic": "/sliːp/",
+  "choices": [
+   {
+    "text": "นอนหลับ",
+    "isCorrect": true
+   },
+   {
+    "text": "ตื่น",
+    "isCorrect": false
+   },
+   {
+    "text": "ฝัน",
+    "isCorrect": false
+   },
+   {
+    "text": "งีบหลับ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Wake",
+  "phonetic": "/weɪk/",
+  "choices": [
+   {
+    "text": "ตื่นนอน",
+    "isCorrect": true
+   },
+   {
+    "text": "หลับ",
+    "isCorrect": false
+   },
+   {
+    "text": "ฝัน",
+    "isCorrect": false
+   },
+   {
+    "text": "ง่วง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Speak",
+  "phonetic": "/spiːk/",
+  "choices": [
+   {
+    "text": "พูด",
+    "isCorrect": true
+   },
+   {
+    "text": "ฟัง",
+    "isCorrect": false
+   },
+   {
+    "text": "อ่าน",
+    "isCorrect": false
+   },
+   {
+    "text": "เขียน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Listen",
+  "phonetic": "/ˈlɪsn/",
+  "choices": [
+   {
+    "text": "ฟัง",
+    "isCorrect": true
+   },
+   {
+    "text": "พูด",
+    "isCorrect": false
+   },
+   {
+    "text": "มอง",
+    "isCorrect": false
+   },
+   {
+    "text": "ดม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Read",
+  "phonetic": "/riːd/",
+  "choices": [
+   {
+    "text": "อ่าน",
+    "isCorrect": true
+   },
+   {
+    "text": "เขียน",
+    "isCorrect": false
+   },
+   {
+    "text": "พิมพ์",
+    "isCorrect": false
+   },
+   {
+    "text": "ท่องจำ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Write",
+  "phonetic": "/raɪt/",
+  "choices": [
+   {
+    "text": "เขียน",
+    "isCorrect": true
+   },
+   {
+    "text": "อ่าน",
+    "isCorrect": false
+   },
+   {
+    "text": "วาด",
+    "isCorrect": false
+   },
+   {
+    "text": "พิมพ์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Draw",
+  "phonetic": "/drɔː/",
+  "choices": [
+   {
+    "text": "วาดรูป",
+    "isCorrect": true
+   },
+   {
+    "text": "ระบายสี",
+    "isCorrect": false
+   },
+   {
+    "text": "พิมพ์",
+    "isCorrect": false
+   },
+   {
+    "text": "ขีดเขียน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Paint",
+  "phonetic": "/peɪnt/",
+  "choices": [
+   {
+    "text": "ทาสี / ระบายสี",
+    "isCorrect": true
+   },
+   {
+    "text": "วาดเส้น",
+    "isCorrect": false
+   },
+   {
+    "text": "พิมพ์",
+    "isCorrect": false
+   },
+   {
+    "text": "ปะติด",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Sing",
+  "phonetic": "/sɪŋ/",
+  "choices": [
+   {
+    "text": "ร้องเพลง",
+    "isCorrect": true
+   },
+   {
+    "text": "เต้น",
+    "isCorrect": false
+   },
+   {
+    "text": "เล่นดนตรี",
+    "isCorrect": false
+   },
+   {
+    "text": "บรรเลง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Dance",
+  "phonetic": "/dæns/",
+  "choices": [
+   {
+    "text": "เต้น",
+    "isCorrect": true
+   },
+   {
+    "text": "ร้องเพลง",
+    "isCorrect": false
+   },
+   {
+    "text": "เดินแบบ",
+    "isCorrect": false
+   },
+   {
+    "text": "กระโดดเชือก",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Walk",
+  "phonetic": "/wɔːk/",
+  "choices": [
+   {
+    "text": "เดิน",
+    "isCorrect": true
+   },
+   {
+    "text": "วิ่ง",
+    "isCorrect": false
+   },
+   {
+    "text": "กระโดด",
+    "isCorrect": false
+   },
+   {
+    "text": "คลาน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Run",
+  "phonetic": "/rʌn/",
+  "choices": [
+   {
+    "text": "วิ่ง",
+    "isCorrect": true
+   },
+   {
+    "text": "เดิน",
+    "isCorrect": false
+   },
+   {
+    "text": "ยืน",
+    "isCorrect": false
+   },
+   {
+    "text": "นั่ง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Climb",
+  "phonetic": "/klaɪm/",
+  "choices": [
+   {
+    "text": "ปีน",
+    "isCorrect": true
+   },
+   {
+    "text": "กระโดด",
+    "isCorrect": false
+   },
+   {
+    "text": "ไต่",
+    "isCorrect": false
+   },
+   {
+    "text": "เลื่อน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Catch",
+  "phonetic": "/kætʃ/",
+  "choices": [
+   {
+    "text": "จับ / รับ",
+    "isCorrect": true
+   },
+   {
+    "text": "โยน",
+    "isCorrect": false
+   },
+   {
+    "text": "เตะ",
+    "isCorrect": false
+   },
+   {
+    "text": "ตี",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Throw",
+  "phonetic": "/θroʊ/",
+  "choices": [
+   {
+    "text": "โยน",
+    "isCorrect": true
+   },
+   {
+    "text": "รับ",
+    "isCorrect": false
+   },
+   {
+    "text": "จับ",
+    "isCorrect": false
+   },
+   {
+    "text": "ถือ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Kick",
+  "phonetic": "/kɪk/",
+  "choices": [
+   {
+    "text": "เตะ",
+    "isCorrect": true
+   },
+   {
+    "text": "ต่อย",
+    "isCorrect": false
+   },
+   {
+    "text": "ตบ",
+    "isCorrect": false
+   },
+   {
+    "text": "กด",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Hit",
+  "phonetic": "/hɪt/",
+  "choices": [
+   {
+    "text": "ตี / ชน",
+    "isCorrect": true
+   },
+   {
+    "text": "หลบ",
+    "isCorrect": false
+   },
+   {
+    "text": "จับ",
+    "isCorrect": false
+   },
+   {
+    "text": "ยก",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Push",
+  "phonetic": "/pʊʃ/",
+  "choices": [
+   {
+    "text": "ผลัก",
+    "isCorrect": true
+   },
+   {
+    "text": "ดึง",
+    "isCorrect": false
+   },
+   {
+    "text": "ยก",
+    "isCorrect": false
+   },
+   {
+    "text": "กด",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Pull",
+  "phonetic": "/pʊl/",
+  "choices": [
+   {
+    "text": "ดึง",
+    "isCorrect": true
+   },
+   {
+    "text": "ผลัก",
+    "isCorrect": false
+   },
+   {
+    "text": "ยก",
+    "isCorrect": false
+   },
+   {
+    "text": "ทิ้ง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Lift",
+  "phonetic": "/lɪft/",
+  "choices": [
+   {
+    "text": "ยก",
+    "isCorrect": true
+   },
+   {
+    "text": "วาง",
+    "isCorrect": false
+   },
+   {
+    "text": "ดัน",
+    "isCorrect": false
+   },
+   {
+    "text": "ลาก",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Carry",
+  "phonetic": "/ˈkæri/",
+  "choices": [
+   {
+    "text": "ถือ / แบก",
+    "isCorrect": true
+   },
+   {
+    "text": "ลาก",
+    "isCorrect": false
+   },
+   {
+    "text": "โยน",
+    "isCorrect": false
+   },
+   {
+    "text": "ขว้าง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Open",
+  "phonetic": "/ˈoʊpən/",
+  "choices": [
+   {
+    "text": "เปิด",
+    "isCorrect": true
+   },
+   {
+    "text": "ปิด",
+    "isCorrect": false
+   },
+   {
+    "text": "ล็อก",
+    "isCorrect": false
+   },
+   {
+    "text": "พัง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Close",
+  "phonetic": "/kloʊz/",
+  "choices": [
+   {
+    "text": "ปิด",
+    "isCorrect": true
+   },
+   {
+    "text": "เปิด",
+    "isCorrect": false
+   },
+   {
+    "text": "ผลัก",
+    "isCorrect": false
+   },
+   {
+    "text": "เลื่อน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Clean",
+  "phonetic": "/kliːn/",
+  "choices": [
+   {
+    "text": "ทำความสะอาด",
+    "isCorrect": true
+   },
+   {
+    "text": "ทำให้สกปรก",
+    "isCorrect": false
+   },
+   {
+    "text": "ทิ้งขยะ",
+    "isCorrect": false
+   },
+   {
+    "text": "จัดเรียง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Wash",
+  "phonetic": "/wɑːʃ/",
+  "choices": [
+   {
+    "text": "ล้าง",
+    "isCorrect": true
+   },
+   {
+    "text": "เช็ด",
+    "isCorrect": false
+   },
+   {
+    "text": "ถู",
+    "isCorrect": false
+   },
+   {
+    "text": "แช่",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Wait",
+  "phonetic": "/weɪt/",
+  "choices": [
+   {
+    "text": "รอ",
+    "isCorrect": true
+   },
+   {
+    "text": "รีบ",
+    "isCorrect": false
+   },
+   {
+    "text": "ไปก่อน",
+    "isCorrect": false
+   },
+   {
+    "text": "กลับ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Watch",
+  "phonetic": "/wɑːtʃ/",
+  "choices": [
+   {
+    "text": "ดู",
+    "isCorrect": true
+   },
+   {
+    "text": "ฟัง",
+    "isCorrect": false
+   },
+   {
+    "text": "อ่าน",
+    "isCorrect": false
+   },
+   {
+    "text": "เขียน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Study",
+  "phonetic": "/ˈstʌdi/",
+  "choices": [
+   {
+    "text": "เรียน / ศึกษา",
+    "isCorrect": true
+   },
+   {
+    "text": "สอน",
+    "isCorrect": false
+   },
+   {
+    "text": "เล่น",
+    "isCorrect": false
+   },
+   {
+    "text": "ทำงาน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Learn",
+  "phonetic": "/lɜːrn/",
+  "choices": [
+   {
+    "text": "เรียนรู้",
+    "isCorrect": true
+   },
+   {
+    "text": "สอน",
+    "isCorrect": false
+   },
+   {
+    "text": "ลืม",
+    "isCorrect": false
+   },
+   {
+    "text": "ท่อง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Teach",
+  "phonetic": "/tiːtʃ/",
+  "choices": [
+   {
+    "text": "สอน",
+    "isCorrect": true
+   },
+   {
+    "text": "เรียน",
+    "isCorrect": false
+   },
+   {
+    "text": "ฝึก",
+    "isCorrect": false
+   },
+   {
+    "text": "สั่ง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Test",
+  "phonetic": "/test/",
+  "choices": [
+   {
+    "text": "สอบ / ทดสอบ",
+    "isCorrect": true
+   },
+   {
+    "text": "เรียน",
+    "isCorrect": false
+   },
+   {
+    "text": "ฝึกซ้อม",
+    "isCorrect": false
+   },
+   {
+    "text": "ทบทวน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Remember",
+  "phonetic": "/rɪˈmembər/",
+  "choices": [
+   {
+    "text": "จำได้",
+    "isCorrect": true
+   },
+   {
+    "text": "ลืม",
+    "isCorrect": false
+   },
+   {
+    "text": "นึก",
+    "isCorrect": false
+   },
+   {
+    "text": "คาดเดา",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Forget",
+  "phonetic": "/fərˈɡet/",
+  "choices": [
+   {
+    "text": "ลืม",
+    "isCorrect": true
+   },
+   {
+    "text": "จำได้",
+    "isCorrect": false
+   },
+   {
+    "text": "นึกออก",
+    "isCorrect": false
+   },
+   {
+    "text": "รู้จัก",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Find",
+  "phonetic": "/faɪnd/",
+  "choices": [
+   {
+    "text": "หา / พบ",
+    "isCorrect": true
+   },
+   {
+    "text": "ทำหาย",
+    "isCorrect": false
+   },
+   {
+    "text": "ซ่อน",
+    "isCorrect": false
+   },
+   {
+    "text": "ขโมย",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Lose",
+  "phonetic": "/luːz/",
+  "choices": [
+   {
+    "text": "ทำหาย / แพ้",
+    "isCorrect": true
+   },
+   {
+    "text": "ชนะ",
+    "isCorrect": false
+   },
+   {
+    "text": "พบ",
+    "isCorrect": false
+   },
+   {
+    "text": "เก็บ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Win",
+  "phonetic": "/wɪn/",
+  "choices": [
+   {
+    "text": "ชนะ",
+    "isCorrect": true
+   },
+   {
+    "text": "แพ้",
+    "isCorrect": false
+   },
+   {
+    "text": "เสมอ",
+    "isCorrect": false
+   },
+   {
+    "text": "ถอนตัว",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Give",
+  "phonetic": "/ɡɪv/",
+  "choices": [
+   {
+    "text": "ให้",
+    "isCorrect": true
+   },
+   {
+    "text": "รับ",
+    "isCorrect": false
+   },
+   {
+    "text": "ขอ",
+    "isCorrect": false
+   },
+   {
+    "text": "ยืม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Send",
+  "phonetic": "/send/",
+  "choices": [
+   {
+    "text": "ส่ง",
+    "isCorrect": true
+   },
+   {
+    "text": "รับ",
+    "isCorrect": false
+   },
+   {
+    "text": "เปิด",
+    "isCorrect": false
+   },
+   {
+    "text": "ปิด",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Receive",
+  "phonetic": "/rɪˈsiːv/",
+  "choices": [
+   {
+    "text": "ได้รับ",
+    "isCorrect": true
+   },
+   {
+    "text": "ส่งออก",
+    "isCorrect": false
+   },
+   {
+    "text": "ปฏิเสธ",
+    "isCorrect": false
+   },
+   {
+    "text": "คืน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Call",
+  "phonetic": "/kɔːl/",
+  "choices": [
+   {
+    "text": "โทรหา / เรียก",
+    "isCorrect": true
+   },
+   {
+    "text": "ส่งข้อความ",
+    "isCorrect": false
+   },
+   {
+    "text": "เขียนจดหมาย",
+    "isCorrect": false
+   },
+   {
+    "text": "ตอบกลับ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Visit",
+  "phonetic": "/ˈvɪzɪt/",
+  "choices": [
+   {
+    "text": "ไปเยี่ยม",
+    "isCorrect": true
+   },
+   {
+    "text": "อยู่บ้าน",
+    "isCorrect": false
+   },
+   {
+    "text": "หนี",
+    "isCorrect": false
+   },
+   {
+    "text": "ย้าย",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Stay",
+  "phonetic": "/steɪ/",
+  "choices": [
+   {
+    "text": "พัก / อยู่",
+    "isCorrect": true
+   },
+   {
+    "text": "ไป",
+    "isCorrect": false
+   },
+   {
+    "text": "ออก",
+    "isCorrect": false
+   },
+   {
+    "text": "หนี",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Leave",
+  "phonetic": "/liːv/",
+  "choices": [
+   {
+    "text": "จากไป / ออกไป",
+    "isCorrect": true
+   },
+   {
+    "text": "อยู่ต่อ",
+    "isCorrect": false
+   },
+   {
+    "text": "กลับมา",
+    "isCorrect": false
+   },
+   {
+    "text": "นอน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Arrive",
+  "phonetic": "/əˈraɪv/",
+  "choices": [
+   {
+    "text": "มาถึง",
+    "isCorrect": true
+   },
+   {
+    "text": "ออกเดิน",
+    "isCorrect": false
+   },
+   {
+    "text": "รอคอย",
+    "isCorrect": false
+   },
+   {
+    "text": "หลงทาง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Turn",
+  "phonetic": "/tɜːrn/",
+  "choices": [
+   {
+    "text": "เลี้ยว / หมุน",
+    "isCorrect": true
+   },
+   {
+    "text": "ตรงไป",
+    "isCorrect": false
+   },
+   {
+    "text": "หยุด",
+    "isCorrect": false
+   },
+   {
+    "text": "ถอย",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Stop",
+  "phonetic": "/stɑːp/",
+  "choices": [
+   {
+    "text": "หยุด",
+    "isCorrect": true
+   },
+   {
+    "text": "วิ่ง",
+    "isCorrect": false
+   },
+   {
+    "text": "เดิน",
+    "isCorrect": false
+   },
+   {
+    "text": "ไปต่อ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Start",
+  "phonetic": "/stɑːrt/",
+  "choices": [
+   {
+    "text": "เริ่ม",
+    "isCorrect": true
+   },
+   {
+    "text": "จบ",
+    "isCorrect": false
+   },
+   {
+    "text": "หยุด",
+    "isCorrect": false
+   },
+   {
+    "text": "พัก",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Finish",
+  "phonetic": "/ˈfɪnɪʃ/",
+  "choices": [
+   {
+    "text": "เสร็จสิ้น",
+    "isCorrect": true
+   },
+   {
+    "text": "เริ่มต้น",
+    "isCorrect": false
+   },
+   {
+    "text": "ค้างอยู่",
+    "isCorrect": false
+   },
+   {
+    "text": "หยุดชั่วคราว",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Begin",
+  "phonetic": "/bɪˈɡɪn/",
+  "choices": [
+   {
+    "text": "เริ่มต้น",
+    "isCorrect": true
+   },
+   {
+    "text": "จบสิ้น",
+    "isCorrect": false
+   },
+   {
+    "text": "หยุด",
+    "isCorrect": false
+   },
+   {
+    "text": "ล่าช้า",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Change",
+  "phonetic": "/tʃeɪndʒ/",
+  "choices": [
+   {
+    "text": "เปลี่ยน",
+    "isCorrect": true
+   },
+   {
+    "text": "คงเดิม",
+    "isCorrect": false
+   },
+   {
+    "text": "หยุด",
+    "isCorrect": false
+   },
+   {
+    "text": "เก็บ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Move",
+  "phonetic": "/muːv/",
+  "choices": [
+   {
+    "text": "เคลื่อนที่",
+    "isCorrect": true
+   },
+   {
+    "text": "หยุดนิ่ง",
+    "isCorrect": false
+   },
+   {
+    "text": "นั่ง",
+    "isCorrect": false
+   },
+   {
+    "text": "หลับ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Fix",
+  "phonetic": "/fɪks/",
+  "choices": [
+   {
+    "text": "ซ่อม",
+    "isCorrect": true
+   },
+   {
+    "text": "พัง",
+    "isCorrect": false
+   },
+   {
+    "text": "ทิ้ง",
+    "isCorrect": false
+   },
+   {
+    "text": "ขาย",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Cut",
+  "phonetic": "/kʌt/",
+  "choices": [
+   {
+    "text": "ตัด",
+    "isCorrect": true
+   },
+   {
+    "text": "ผูก",
+    "isCorrect": false
+   },
+   {
+    "text": "เย็บ",
+    "isCorrect": false
+   },
+   {
+    "text": "เจาะ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Break",
+  "phonetic": "/breɪk/",
+  "choices": [
+   {
+    "text": "ทำให้แตก / พัง",
+    "isCorrect": true
+   },
+   {
+    "text": "ซ่อม",
+    "isCorrect": false
+   },
+   {
+    "text": "เชื่อม",
+    "isCorrect": false
+   },
+   {
+    "text": "ติด",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Build",
+  "phonetic": "/bɪld/",
+  "choices": [
+   {
+    "text": "สร้าง",
+    "isCorrect": true
+   },
+   {
+    "text": "รื้อ",
+    "isCorrect": false
+   },
+   {
+    "text": "ทุบ",
+    "isCorrect": false
+   },
+   {
+    "text": "ซ่อม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Fall",
+  "phonetic": "/fɔːl/",
+  "choices": [
+   {
+    "text": "ล้ม / ตก",
+    "isCorrect": true
+   },
+   {
+    "text": "ลุกขึ้น",
+    "isCorrect": false
+   },
+   {
+    "text": "กระโดด",
+    "isCorrect": false
+   },
+   {
+    "text": "ปีน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Fly",
+  "phonetic": "/flaɪ/",
+  "choices": [
+   {
+    "text": "บิน",
+    "isCorrect": true
+   },
+   {
+    "text": "ลอย",
+    "isCorrect": false
+   },
+   {
+    "text": "ร่อน",
+    "isCorrect": false
+   },
+   {
+    "text": "ว่าย",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Swim",
+  "phonetic": "/swɪm/",
+  "choices": [
+   {
+    "text": "ว่ายน้ำ",
+    "isCorrect": true
+   },
+   {
+    "text": "ดำน้ำ",
+    "isCorrect": false
+   },
+   {
+    "text": "ลอยน้ำ",
+    "isCorrect": false
+   },
+   {
+    "text": "พายเรือ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Sit",
+  "phonetic": "/sɪt/",
+  "choices": [
+   {
+    "text": "นั่ง",
+    "isCorrect": true
+   },
+   {
+    "text": "ยืน",
+    "isCorrect": false
+   },
+   {
+    "text": "นอน",
+    "isCorrect": false
+   },
+   {
+    "text": "หมอบ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Lie",
+  "phonetic": "/laɪ/",
+  "choices": [
+   {
+    "text": "นอนราบ",
+    "isCorrect": true
+   },
+   {
+    "text": "ยืน",
+    "isCorrect": false
+   },
+   {
+    "text": "นั่ง",
+    "isCorrect": false
+   },
+   {
+    "text": "คุกเข่า",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Roll",
+  "phonetic": "/roʊl/",
+  "choices": [
+   {
+    "text": "กลิ้ง",
+    "isCorrect": true
+   },
+   {
+    "text": "ลื่นไถล",
+    "isCorrect": false
+   },
+   {
+    "text": "หมุนวน",
+    "isCorrect": false
+   },
+   {
+    "text": "เด้ง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Touch",
+  "phonetic": "/tʌtʃ/",
+  "choices": [
+   {
+    "text": "สัมผัส / แตะ",
+    "isCorrect": true
+   },
+   {
+    "text": "ตี",
+    "isCorrect": false
+   },
+   {
+    "text": "ถือ",
+    "isCorrect": false
+   },
+   {
+    "text": "ดัน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Hold",
+  "phonetic": "/hoʊld/",
+  "choices": [
+   {
+    "text": "ถือ",
+    "isCorrect": true
+   },
+   {
+    "text": "วาง",
+    "isCorrect": false
+   },
+   {
+    "text": "โยน",
+    "isCorrect": false
+   },
+   {
+    "text": "ผลัก",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Cry",
+  "phonetic": "/kraɪ/",
+  "choices": [
+   {
+    "text": "ร้องไห้",
+    "isCorrect": true
+   },
+   {
+    "text": "หัวเราะ",
+    "isCorrect": false
+   },
+   {
+    "text": "ยิ้ม",
+    "isCorrect": false
+   },
+   {
+    "text": "โกรธ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Laugh",
+  "phonetic": "/læf/",
+  "choices": [
+   {
+    "text": "หัวเราะ",
+    "isCorrect": true
+   },
+   {
+    "text": "ร้องไห้",
+    "isCorrect": false
+   },
+   {
+    "text": "สะอื้น",
+    "isCorrect": false
+   },
+   {
+    "text": "ถอนหายใจ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Smile",
+  "phonetic": "/smaɪl/",
+  "choices": [
+   {
+    "text": "ยิ้ม",
+    "isCorrect": true
+   },
+   {
+    "text": "ขมวดคิ้ว",
+    "isCorrect": false
+   },
+   {
+    "text": "น้ำตาร่วง",
+    "isCorrect": false
+   },
+   {
+    "text": "ทำหน้าตึง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Shout",
+  "phonetic": "/ʃaʊt/",
+  "choices": [
+   {
+    "text": "ตะโกน",
+    "isCorrect": true
+   },
+   {
+    "text": "กระซิบ",
+    "isCorrect": false
+   },
+   {
+    "text": "เงียบ",
+    "isCorrect": false
+   },
+   {
+    "text": "พึมพำ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Whisper",
+  "phonetic": "/ˈwɪspər/",
+  "choices": [
+   {
+    "text": "กระซิบ",
+    "isCorrect": true
+   },
+   {
+    "text": "ตะโกน",
+    "isCorrect": false
+   },
+   {
+    "text": "ร้องเพลง",
+    "isCorrect": false
+   },
+   {
+    "text": "ประกาศ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Thank",
+  "phonetic": "/θæŋk/",
+  "choices": [
+   {
+    "text": "ขอบคุณ",
+    "isCorrect": true
+   },
+   {
+    "text": "ขอโทษ",
+    "isCorrect": false
+   },
+   {
+    "text": "ทักทาย",
+    "isCorrect": false
+   },
+   {
+    "text": "อวยพร",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Sorry",
+  "phonetic": "/ˈsɑːri/",
+  "choices": [
+   {
+    "text": "ขอโทษ",
+    "isCorrect": true
+   },
+   {
+    "text": "ขอบคุณ",
+    "isCorrect": false
+   },
+   {
+    "text": "ลาก่อน",
+    "isCorrect": false
+   },
+   {
+    "text": "ยินดีต้อนรับ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Please",
+  "phonetic": "/pliːz/",
+  "choices": [
+   {
+    "text": "ได้โปรด",
+    "isCorrect": true
+   },
+   {
+    "text": "ขอบคุณ",
+    "isCorrect": false
+   },
+   {
+    "text": "ขอโทษ",
+    "isCorrect": false
+   },
+   {
+    "text": "ลาก่อน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Hello",
+  "phonetic": "/həˈloʊ/",
+  "choices": [
+   {
+    "text": "สวัสดี",
+    "isCorrect": true
+   },
+   {
+    "text": "ลาก่อน",
+    "isCorrect": false
+   },
+   {
+    "text": "ยินดีที่ได้รู้จัก",
+    "isCorrect": false
+   },
+   {
+    "text": "ราตรีสวัสดิ์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Goodbye",
+  "phonetic": "/ɡʊdˈbaɪ/",
+  "choices": [
+   {
+    "text": "ลาก่อน",
+    "isCorrect": true
+   },
+   {
+    "text": "สวัสดี",
+    "isCorrect": false
+   },
+   {
+    "text": "ยินดีต้อนรับ",
+    "isCorrect": false
+   },
+   {
+    "text": "เจอกันใหม่",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Yes",
+  "phonetic": "/jes/",
+  "choices": [
+   {
+    "text": "ใช่",
+    "isCorrect": true
+   },
+   {
+    "text": "ไม่ใช่",
+    "isCorrect": false
+   },
+   {
+    "text": "บางที",
+    "isCorrect": false
+   },
+   {
+    "text": "ไม่รู้",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "No",
+  "phonetic": "/noʊ/",
+  "choices": [
+   {
+    "text": "ไม่",
+    "isCorrect": true
+   },
+   {
+    "text": "ใช่",
+    "isCorrect": false
+   },
+   {
+    "text": "อาจจะ",
+    "isCorrect": false
+   },
+   {
+    "text": "แน่นอน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Maybe",
+  "phonetic": "/ˈmeɪbi/",
+  "choices": [
+   {
+    "text": "อาจจะ",
+    "isCorrect": true
+   },
+   {
+    "text": "แน่นอน",
+    "isCorrect": false
+   },
+   {
+    "text": "ไม่เคย",
+    "isCorrect": false
+   },
+   {
+    "text": "เสมอ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Today",
+  "phonetic": "/təˈdeɪ/",
+  "choices": [
+   {
+    "text": "วันนี้",
+    "isCorrect": true
+   },
+   {
+    "text": "เมื่อวาน",
+    "isCorrect": false
+   },
+   {
+    "text": "พรุ่งนี้",
+    "isCorrect": false
+   },
+   {
+    "text": "มะรืนนี้",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Tomorrow",
+  "phonetic": "/təˈmɑːroʊ/",
+  "choices": [
+   {
+    "text": "พรุ่งนี้",
+    "isCorrect": true
+   },
+   {
+    "text": "วันนี้",
+    "isCorrect": false
+   },
+   {
+    "text": "เมื่อวาน",
+    "isCorrect": false
+   },
+   {
+    "text": "สัปดาห์หน้า",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Yesterday",
+  "phonetic": "/ˈjestərdeɪ/",
+  "choices": [
+   {
+    "text": "เมื่อวาน",
+    "isCorrect": true
+   },
+   {
+    "text": "พรุ่งนี้",
+    "isCorrect": false
+   },
+   {
+    "text": "วันนี้",
+    "isCorrect": false
+   },
+   {
+    "text": "เมื่อวานซืน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Morning",
+  "phonetic": "/ˈmɔːrnɪŋ/",
+  "choices": [
+   {
+    "text": "ตอนเช้า",
+    "isCorrect": true
+   },
+   {
+    "text": "ตอนบ่าย",
+    "isCorrect": false
+   },
+   {
+    "text": "ตอนเย็น",
+    "isCorrect": false
+   },
+   {
+    "text": "ตอนกลางคืน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Afternoon",
+  "phonetic": "/ˌæftərˈnuːn/",
+  "choices": [
+   {
+    "text": "ตอนบ่าย",
+    "isCorrect": true
+   },
+   {
+    "text": "ตอนเช้า",
+    "isCorrect": false
+   },
+   {
+    "text": "ตอนเย็น",
+    "isCorrect": false
+   },
+   {
+    "text": "เที่ยงคืน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Evening",
+  "phonetic": "/ˈiːvnɪŋ/",
+  "choices": [
+   {
+    "text": "ตอนเย็น",
+    "isCorrect": true
+   },
+   {
+    "text": "ตอนเช้า",
+    "isCorrect": false
+   },
+   {
+    "text": "ตอนบ่าย",
+    "isCorrect": false
+   },
+   {
+    "text": "ตอนเที่ยง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Night",
+  "phonetic": "/naɪt/",
+  "choices": [
+   {
+    "text": "กลางคืน",
+    "isCorrect": true
+   },
+   {
+    "text": "กลางวัน",
+    "isCorrect": false
+   },
+   {
+    "text": "เช้าตรู่",
+    "isCorrect": false
+   },
+   {
+    "text": "พลบค่ำ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Hour",
+  "phonetic": "/ˈaʊər/",
+  "choices": [
+   {
+    "text": "ชั่วโมง",
+    "isCorrect": true
+   },
+   {
+    "text": "นาที",
+    "isCorrect": false
+   },
+   {
+    "text": "วินาที",
+    "isCorrect": false
+   },
+   {
+    "text": "วัน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Minute",
+  "phonetic": "/ˈmɪnɪt/",
+  "choices": [
+   {
+    "text": "นาที",
+    "isCorrect": true
+   },
+   {
+    "text": "ชั่วโมง",
+    "isCorrect": false
+   },
+   {
+    "text": "วินาที",
+    "isCorrect": false
+   },
+   {
+    "text": "สัปดาห์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Second",
+  "phonetic": "/ˈsekənd/",
+  "choices": [
+   {
+    "text": "วินาที",
+    "isCorrect": true
+   },
+   {
+    "text": "นาที",
+    "isCorrect": false
+   },
+   {
+    "text": "ชั่วโมง",
+    "isCorrect": false
+   },
+   {
+    "text": "วัน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Day",
+  "phonetic": "/deɪ/",
+  "choices": [
+   {
+    "text": "วัน",
+    "isCorrect": true
+   },
+   {
+    "text": "สัปดาห์",
+    "isCorrect": false
+   },
+   {
+    "text": "เดือน",
+    "isCorrect": false
+   },
+   {
+    "text": "ปี",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Week",
+  "phonetic": "/wiːk/",
+  "choices": [
+   {
+    "text": "สัปดาห์",
+    "isCorrect": true
+   },
+   {
+    "text": "เดือน",
+    "isCorrect": false
+   },
+   {
+    "text": "ปี",
+    "isCorrect": false
+   },
+   {
+    "text": "วัน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Month",
+  "phonetic": "/mʌnθ/",
+  "choices": [
+   {
+    "text": "เดือน",
+    "isCorrect": true
+   },
+   {
+    "text": "สัปดาห์",
+    "isCorrect": false
+   },
+   {
+    "text": "ปี",
+    "isCorrect": false
+   },
+   {
+    "text": "ฤดู",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Year",
+  "phonetic": "/jɪr/",
+  "choices": [
+   {
+    "text": "ปี",
+    "isCorrect": true
+   },
+   {
+    "text": "เดือน",
+    "isCorrect": false
+   },
+   {
+    "text": "สัปดาห์",
+    "isCorrect": false
+   },
+   {
+    "text": "ทศวรรษ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Monday",
+  "phonetic": "/ˈmʌndeɪ/",
+  "choices": [
+   {
+    "text": "วันจันทร์",
+    "isCorrect": true
+   },
+   {
+    "text": "วันอังคาร",
+    "isCorrect": false
+   },
+   {
+    "text": "วันพุธ",
+    "isCorrect": false
+   },
+   {
+    "text": "วันศุกร์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Tuesday",
+  "phonetic": "/ˈtuːzdeɪ/",
+  "choices": [
+   {
+    "text": "วันอังคาร",
+    "isCorrect": true
+   },
+   {
+    "text": "วันจันทร์",
+    "isCorrect": false
+   },
+   {
+    "text": "วันพุธ",
+    "isCorrect": false
+   },
+   {
+    "text": "วันอาทิตย์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Wednesday",
+  "phonetic": "/ˈwenzdeɪ/",
+  "choices": [
+   {
+    "text": "วันพุธ",
+    "isCorrect": true
+   },
+   {
+    "text": "วันพฤหัสบดี",
+    "isCorrect": false
+   },
+   {
+    "text": "วันอังคาร",
+    "isCorrect": false
+   },
+   {
+    "text": "วันเสาร์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Thursday",
+  "phonetic": "/ˈθɜːrzdeɪ/",
+  "choices": [
+   {
+    "text": "วันพฤหัสบดี",
+    "isCorrect": true
+   },
+   {
+    "text": "วันพุธ",
+    "isCorrect": false
+   },
+   {
+    "text": "วันศุกร์",
+    "isCorrect": false
+   },
+   {
+    "text": "วันจันทร์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Friday",
+  "phonetic": "/ˈfraɪdeɪ/",
+  "choices": [
+   {
+    "text": "วันศุกร์",
+    "isCorrect": true
+   },
+   {
+    "text": "วันเสาร์",
+    "isCorrect": false
+   },
+   {
+    "text": "วันอาทิตย์",
+    "isCorrect": false
+   },
+   {
+    "text": "วันพุธ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Saturday",
+  "phonetic": "/ˈsætərdeɪ/",
+  "choices": [
+   {
+    "text": "วันเสาร์",
+    "isCorrect": true
+   },
+   {
+    "text": "วันอาทิตย์",
+    "isCorrect": false
+   },
+   {
+    "text": "วันศุกร์",
+    "isCorrect": false
+   },
+   {
+    "text": "วันอังคาร",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ },
+ {
+  "word": "Sunday",
+  "phonetic": "/ˈsʌndeɪ/",
+  "choices": [
+   {
+    "text": "วันอาทิตย์",
+    "isCorrect": true
+   },
+   {
+    "text": "วันจันทร์",
+    "isCorrect": false
+   },
+   {
+    "text": "วันเสาร์",
+    "isCorrect": false
+   },
+   {
+    "text": "วันพฤหัสบดี",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "basic"
+ }
+]

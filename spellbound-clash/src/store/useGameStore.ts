@@ -184,16 +184,19 @@ function shuffleArray<T>(array: T[]): T[] {
 
 function getRandomQuestions(count: number, vocabLevel: string, usedIds: number[]): VocabQuestion[] {
   const allQuestions = vocabData as VocabQuestion[];
+  const pool = allQuestions.filter((q) => q.difficulty === vocabLevel);
 
-  let available = allQuestions.filter((q) => q.difficulty === vocabLevel && !usedIds.includes(q.id));
-
-  if (available.length < count) {
-    const otherQuestions = allQuestions.filter((q) => q.difficulty !== vocabLevel && !usedIds.includes(q.id));
-    available = [...available, ...otherQuestions];
+  const unused = shuffleArray(pool.filter((q) => !usedIds.includes(q.id)));
+  if (unused.length >= count) {
+    return unused.slice(0, count).map((q) => ({
+      ...q,
+      choices: shuffleArray(q.choices),
+    }));
   }
 
-  const shuffled = shuffleArray(available);
-  return shuffled.slice(0, count).map((q) => ({
+  const recycled = shuffleArray(pool.filter((q) => usedIds.includes(q.id)));
+  const available = [...unused, ...recycled];
+  return available.slice(0, count).map((q) => ({
     ...q,
     choices: shuffleArray(q.choices),
   }));

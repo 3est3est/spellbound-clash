@@ -1,0 +1,8972 @@
+[
+  {
+    "word": "Abolish",
+    "phonetic": "/əˈbɑːlɪʃ/",
+    "choices": [
+      {
+        "text": "ยกเลิก",
+        "isCorrect": true
+      },
+      {
+        "text": "สถาปนา",
+        "isCorrect": false
+      },
+      {
+        "text": "ก่อตั้ง",
+        "isCorrect": false
+      },
+      {
+        "text": "บังคับใช้",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Absorb",
+    "phonetic": "/əbˈzɔːrb/",
+    "choices": [
+      {
+        "text": "ดูดซึม",
+        "isCorrect": true
+      },
+      {
+        "text": "ขับออก",
+        "isCorrect": false
+      },
+      {
+        "text": "สะท้อน",
+        "isCorrect": false
+      },
+      {
+        "text": "ปล่อยผ่าน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Abstract",
+    "phonetic": "/ˈæbstrækt/",
+    "choices": [
+      {
+        "text": "นามธรรม",
+        "isCorrect": true
+      },
+      {
+        "text": "รูปธรรม",
+        "isCorrect": false
+      },
+      {
+        "text": "เป็นจริง",
+        "isCorrect": false
+      },
+      {
+        "text": "จับต้องได้",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Accessible",
+    "phonetic": "/əkˈsesəbl/",
+    "choices": [
+      {
+        "text": "เข้าถึงได้",
+        "isCorrect": true
+      },
+      {
+        "text": "เข้าถึงยาก",
+        "isCorrect": false
+      },
+      {
+        "text": "ปิดกั้น",
+        "isCorrect": false
+      },
+      {
+        "text": "ห้ามเข้า",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Accomplice",
+    "phonetic": "/əˈkɑːmplɪs/",
+    "choices": [
+      {
+        "text": "ผู้ร่วมขบวนการ",
+        "isCorrect": true
+      },
+      {
+        "text": "ผู้บริสุทธิ์",
+        "isCorrect": false
+      },
+      {
+        "text": "พยาน",
+        "isCorrect": false
+      },
+      {
+        "text": "เหยื่อ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Accommodation",
+    "phonetic": "/əˌkɑːməˈdeɪʃn/",
+    "choices": [
+      {
+        "text": "ที่พัก",
+        "isCorrect": true
+      },
+      {
+        "text": "การเดินทาง",
+        "isCorrect": false
+      },
+      {
+        "text": "อาหาร",
+        "isCorrect": false
+      },
+      {
+        "text": "สถานที่ท่องเที่ยว",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Accountable",
+    "phonetic": "/əˈkaʊntəbl/",
+    "choices": [
+      {
+        "text": "ต้องรับผิดชอบ",
+        "isCorrect": true
+      },
+      {
+        "text": "ไม่ต้องรับผิด",
+        "isCorrect": false
+      },
+      {
+        "text": "พ้นผิด",
+        "isCorrect": false
+      },
+      {
+        "text": "รับรอง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Acquaintance",
+    "phonetic": "/əˈkweɪntəns/",
+    "choices": [
+      {
+        "text": "คนรู้จัก",
+        "isCorrect": true
+      },
+      {
+        "text": "เพื่อนสนิท",
+        "isCorrect": false
+      },
+      {
+        "text": "ญาติ",
+        "isCorrect": false
+      },
+      {
+        "text": "ครอบครัว",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Acute",
+    "phonetic": "/əˈkjuːt/",
+    "choices": [
+      {
+        "text": "เฉียบพลัน",
+        "isCorrect": true
+      },
+      {
+        "text": "เรื้อรัง",
+        "isCorrect": false
+      },
+      {
+        "text": "ยืดเยื้อ",
+        "isCorrect": false
+      },
+      {
+        "text": "ทื่อ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Adapt",
+    "phonetic": "/əˈdæpt/",
+    "choices": [
+      {
+        "text": "ปรับตัว",
+        "isCorrect": true
+      },
+      {
+        "text": "ยึดติด",
+        "isCorrect": false
+      },
+      {
+        "text": "ต่อต้าน",
+        "isCorrect": false
+      },
+      {
+        "text": "ดื้อรั้น",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Adept",
+    "phonetic": "/əˈdept/",
+    "choices": [
+      {
+        "text": "เชี่ยวชาญ",
+        "isCorrect": true
+      },
+      {
+        "text": "มือใหม่",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่ชำนาญ",
+        "isCorrect": false
+      },
+      {
+        "text": "อ่อนหัด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Adjacent",
+    "phonetic": "/əˈdʒeɪsnt/",
+    "choices": [
+      {
+        "text": "ติดกัน",
+        "isCorrect": true
+      },
+      {
+        "text": "ห่างไกล",
+        "isCorrect": false
+      },
+      {
+        "text": "แยกกัน",
+        "isCorrect": false
+      },
+      {
+        "text": "ตรงข้าม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Administer",
+    "phonetic": "/ədˈmɪnɪstər/",
+    "choices": [
+      {
+        "text": "บริหาร",
+        "isCorrect": true
+      },
+      {
+        "text": "เพิกเฉย",
+        "isCorrect": false
+      },
+      {
+        "text": "ละเลย",
+        "isCorrect": false
+      },
+      {
+        "text": "ทิ้งขว้าง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Adolescent",
+    "phonetic": "/ˌædəˈlesnt/",
+    "choices": [
+      {
+        "text": "วัยรุ่น",
+        "isCorrect": true
+      },
+      {
+        "text": "เด็ก",
+        "isCorrect": false
+      },
+      {
+        "text": "ผู้ใหญ่",
+        "isCorrect": false
+      },
+      {
+        "text": "คนชรา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Adorn",
+    "phonetic": "/əˈdɔːrn/",
+    "choices": [
+      {
+        "text": "ประดับประดา",
+        "isCorrect": true
+      },
+      {
+        "text": "ถอดออก",
+        "isCorrect": false
+      },
+      {
+        "text": "ลดทอน",
+        "isCorrect": false
+      },
+      {
+        "text": "เรียบง่าย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Adverse",
+    "phonetic": "/ˈædvɜːrs/",
+    "choices": [
+      {
+        "text": "ไม่เอื้ออำนวย",
+        "isCorrect": true
+      },
+      {
+        "text": "เกื้อกูล",
+        "isCorrect": false
+      },
+      {
+        "text": "เอื้อเฟื้อ",
+        "isCorrect": false
+      },
+      {
+        "text": "สนับสนุน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Affluent",
+    "phonetic": "/ˈæfluənt/",
+    "choices": [
+      {
+        "text": "มั่งคั่ง",
+        "isCorrect": true
+      },
+      {
+        "text": "ยากจน",
+        "isCorrect": false
+      },
+      {
+        "text": "ขัดสน",
+        "isCorrect": false
+      },
+      {
+        "text": "จนตรอก",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Agitate",
+    "phonetic": "/ˈædʒɪteɪt/",
+    "choices": [
+      {
+        "text": "ปลุกปั่น",
+        "isCorrect": true
+      },
+      {
+        "text": "สงบ",
+        "isCorrect": false
+      },
+      {
+        "text": "บรรเทา",
+        "isCorrect": false
+      },
+      {
+        "text": "ระงับ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Agony",
+    "phonetic": "/ˈæɡəni/",
+    "choices": [
+      {
+        "text": "ความเจ็บปวดทรมาน",
+        "isCorrect": true
+      },
+      {
+        "text": "ความสุข",
+        "isCorrect": false
+      },
+      {
+        "text": "ความสบาย",
+        "isCorrect": false
+      },
+      {
+        "text": "ความสงบ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Alien",
+    "phonetic": "/ˈeɪliən/",
+    "choices": [
+      {
+        "text": "คนต่างถิ่น",
+        "isCorrect": true
+      },
+      {
+        "text": "คนท้องถิ่น",
+        "isCorrect": false
+      },
+      {
+        "text": "พลเมือง",
+        "isCorrect": false
+      },
+      {
+        "text": "เจ้าของถิ่น",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Allocate",
+    "phonetic": "/ˈæləkeɪt/",
+    "choices": [
+      {
+        "text": "จัดสรร",
+        "isCorrect": true
+      },
+      {
+        "text": "กักตุน",
+        "isCorrect": false
+      },
+      {
+        "text": "รวมศูนย์",
+        "isCorrect": false
+      },
+      {
+        "text": "ยึดครอง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Amass",
+    "phonetic": "/əˈmæs/",
+    "choices": [
+      {
+        "text": "สะสมรวบรวม",
+        "isCorrect": true
+      },
+      {
+        "text": "กระจาย",
+        "isCorrect": false
+      },
+      {
+        "text": "แบ่งสรร",
+        "isCorrect": false
+      },
+      {
+        "text": "ใช้หมด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Amenable",
+    "phonetic": "/əˈmiːnəbl/",
+    "choices": [
+      {
+        "text": "ยอมรับฟัง",
+        "isCorrect": true
+      },
+      {
+        "text": "ดื้อรั้น",
+        "isCorrect": false
+      },
+      {
+        "text": "หัวแข็ง",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่ยอม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Appalling",
+    "phonetic": "/əˈpɔːlɪŋ/",
+    "choices": [
+      {
+        "text": "น่าตกใจ",
+        "isCorrect": true
+      },
+      {
+        "text": "น่ายินดี",
+        "isCorrect": false
+      },
+      {
+        "text": "น่าพอใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "น่าชื่นชม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Appeal",
+    "phonetic": "/əˈpiːl/",
+    "choices": [
+      {
+        "text": "ดึงดูด / อุทธรณ์",
+        "isCorrect": true
+      },
+      {
+        "text": "ขับไล่",
+        "isCorrect": false
+      },
+      {
+        "text": "ผลักไส",
+        "isCorrect": false
+      },
+      {
+        "text": "น่ารังเกียจ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Apprehensive",
+    "phonetic": "/ˌæprɪˈhensɪv/",
+    "choices": [
+      {
+        "text": "กังวลใจ",
+        "isCorrect": true
+      },
+      {
+        "text": "สบายใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "มั่นใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "ผ่อนคลาย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Approximate",
+    "phonetic": "/əˈprɑːksɪmət/",
+    "choices": [
+      {
+        "text": "โดยประมาณ",
+        "isCorrect": true
+      },
+      {
+        "text": "แม่นยำ",
+        "isCorrect": false
+      },
+      {
+        "text": "เที่ยงตรง",
+        "isCorrect": false
+      },
+      {
+        "text": "ชัดเจน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Apt",
+    "phonetic": "/æpt/",
+    "choices": [
+      {
+        "text": "มีแนวโน้ม",
+        "isCorrect": true
+      },
+      {
+        "text": "ไม่มีทาง",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่น่าจะ",
+        "isCorrect": false
+      },
+      {
+        "text": "แน่นอนไม่",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Archaic",
+    "phonetic": "/ɑːrˈkeɪɪk/",
+    "choices": [
+      {
+        "text": "โบราณเก่าแก่",
+        "isCorrect": true
+      },
+      {
+        "text": "ทันสมัย",
+        "isCorrect": false
+      },
+      {
+        "text": "ล้ำสมัย",
+        "isCorrect": false
+      },
+      {
+        "text": "ร่วมสมัย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Assault",
+    "phonetic": "/əˈsɔːlt/",
+    "choices": [
+      {
+        "text": "จู่โจม",
+        "isCorrect": true
+      },
+      {
+        "text": "ป้องกัน",
+        "isCorrect": false
+      },
+      {
+        "text": "ปกป้อง",
+        "isCorrect": false
+      },
+      {
+        "text": "คุ้มครอง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Assess",
+    "phonetic": "/əˈses/",
+    "choices": [
+      {
+        "text": "ประเมิน",
+        "isCorrect": true
+      },
+      {
+        "text": "เพิกเฉย",
+        "isCorrect": false
+      },
+      {
+        "text": "ละเลย",
+        "isCorrect": false
+      },
+      {
+        "text": "มองข้าม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Asset",
+    "phonetic": "/ˈæset/",
+    "choices": [
+      {
+        "text": "ทรัพย์สิน",
+        "isCorrect": true
+      },
+      {
+        "text": "หนี้สิน",
+        "isCorrect": false
+      },
+      {
+        "text": "ค่าใช้จ่าย",
+        "isCorrect": false
+      },
+      {
+        "text": "ภาระ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Assiduous",
+    "phonetic": "/əˈsɪdʒuəs/",
+    "choices": [
+      {
+        "text": "ขยันหมั่นเพียร",
+        "isCorrect": true
+      },
+      {
+        "text": "ขี้เกียจ",
+        "isCorrect": false
+      },
+      {
+        "text": "เกียจคร้าน",
+        "isCorrect": false
+      },
+      {
+        "text": "ละเลย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Atrocity",
+    "phonetic": "/əˈtrɑːsəti/",
+    "choices": [
+      {
+        "text": "การกระทำโหดร้ายทารุณ",
+        "isCorrect": true
+      },
+      {
+        "text": "การทำความดี",
+        "isCorrect": false
+      },
+      {
+        "text": "ความเมตตา",
+        "isCorrect": false
+      },
+      {
+        "text": "ความกรุณา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Attain",
+    "phonetic": "/əˈteɪn/",
+    "choices": [
+      {
+        "text": "บรรลุถึง",
+        "isCorrect": true
+      },
+      {
+        "text": "พลาดเป้า",
+        "isCorrect": false
+      },
+      {
+        "text": "ล้มเหลว",
+        "isCorrect": false
+      },
+      {
+        "text": "ถอย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Audit",
+    "phonetic": "/ˈɔːdɪt/",
+    "choices": [
+      {
+        "text": "ตรวจสอบบัญชี",
+        "isCorrect": true
+      },
+      {
+        "text": "ปิดบัญชี",
+        "isCorrect": false
+      },
+      {
+        "text": "ทุจริต",
+        "isCorrect": false
+      },
+      {
+        "text": "กู้เงิน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Augment",
+    "phonetic": "/ɔːɡˈment/",
+    "choices": [
+      {
+        "text": "เพิ่มขยาย",
+        "isCorrect": true
+      },
+      {
+        "text": "ลดลง",
+        "isCorrect": false
+      },
+      {
+        "text": "หดตัว",
+        "isCorrect": false
+      },
+      {
+        "text": "ตัดทอน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Authenticate",
+    "phonetic": "/ɔːˈθentɪkeɪt/",
+    "choices": [
+      {
+        "text": "พิสูจน์ความแท้",
+        "isCorrect": true
+      },
+      {
+        "text": "ปลอมแปลง",
+        "isCorrect": false
+      },
+      {
+        "text": "สงสัย",
+        "isCorrect": false
+      },
+      {
+        "text": "ปฏิเสธ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Autonomy",
+    "phonetic": "/ɔːˈtɑːnəmi/",
+    "choices": [
+      {
+        "text": "การปกครองตนเอง",
+        "isCorrect": true
+      },
+      {
+        "text": "การถูกครอบงำ",
+        "isCorrect": false
+      },
+      {
+        "text": "การพึ่งพา",
+        "isCorrect": false
+      },
+      {
+        "text": "การถูกบังคับ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Avert",
+    "phonetic": "/əˈvɜːrt/",
+    "choices": [
+      {
+        "text": "หลีกเลี่ยง",
+        "isCorrect": true
+      },
+      {
+        "text": "เผชิญหน้า",
+        "isCorrect": false
+      },
+      {
+        "text": "ประสบ",
+        "isCorrect": false
+      },
+      {
+        "text": "พบเจอ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Axiom",
+    "phonetic": "/ˈæksiəm/",
+    "choices": [
+      {
+        "text": "สัจพจน์",
+        "isCorrect": true
+      },
+      {
+        "text": "ข้อสงสัย",
+        "isCorrect": false
+      },
+      {
+        "text": "สมมติฐาน",
+        "isCorrect": false
+      },
+      {
+        "text": "การคาดเดา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Barren",
+    "phonetic": "/ˈbærən/",
+    "choices": [
+      {
+        "text": "แห้งแล้ง",
+        "isCorrect": true
+      },
+      {
+        "text": "อุดมสมบูรณ์",
+        "isCorrect": false
+      },
+      {
+        "text": "อุดม",
+        "isCorrect": false
+      },
+      {
+        "text": "เขียวชอุ่ม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Befriend",
+    "phonetic": "/bɪˈfrend/",
+    "choices": [
+      {
+        "text": "คบเป็นเพื่อน",
+        "isCorrect": true
+      },
+      {
+        "text": "เป็นศัตรู",
+        "isCorrect": false
+      },
+      {
+        "text": "หลีกหนี",
+        "isCorrect": false
+      },
+      {
+        "text": "ปฏิเสธ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Bewilder",
+    "phonetic": "/bɪˈwɪldər/",
+    "choices": [
+      {
+        "text": "ทำให้งงงวย",
+        "isCorrect": true
+      },
+      {
+        "text": "ทำให้กระจ่าง",
+        "isCorrect": false
+      },
+      {
+        "text": "ทำให้ชัดเจน",
+        "isCorrect": false
+      },
+      {
+        "text": "ทำให้เข้าใจ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Blunder",
+    "phonetic": "/ˈblʌndər/",
+    "choices": [
+      {
+        "text": "ความผิดพลาดพลาด",
+        "isCorrect": true
+      },
+      {
+        "text": "ความสำเร็จ",
+        "isCorrect": false
+      },
+      {
+        "text": "ความแม่นยำ",
+        "isCorrect": false
+      },
+      {
+        "text": "ชัยชนะ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Bondage",
+    "phonetic": "/ˈbɑːndɪdʒ/",
+    "choices": [
+      {
+        "text": "การเป็นทาส",
+        "isCorrect": true
+      },
+      {
+        "text": "อิสรภาพ",
+        "isCorrect": false
+      },
+      {
+        "text": "เสรีภาพ",
+        "isCorrect": false
+      },
+      {
+        "text": "การปลดปล่อย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Boast",
+    "phonetic": "/boʊst/",
+    "choices": [
+      {
+        "text": "โอ้อวด",
+        "isCorrect": true
+      },
+      {
+        "text": "ถ่อมตัว",
+        "isCorrect": false
+      },
+      {
+        "text": "เงียบ",
+        "isCorrect": false
+      },
+      {
+        "text": "เก็บงำ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Brilliant",
+    "phonetic": "/ˈbrɪliənt/",
+    "choices": [
+      {
+        "text": "ยอดเยี่ยม",
+        "isCorrect": true
+      },
+      {
+        "text": "ธรรมดา",
+        "isCorrect": false
+      },
+      {
+        "text": "จืดชืด",
+        "isCorrect": false
+      },
+      {
+        "text": "ไร้ความสามารถ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Brittle",
+    "phonetic": "/ˈbrɪtl/",
+    "choices": [
+      {
+        "text": "เปราะแตกง่าย",
+        "isCorrect": true
+      },
+      {
+        "text": "ยืดหยุ่น",
+        "isCorrect": false
+      },
+      {
+        "text": "แข็งแรง",
+        "isCorrect": false
+      },
+      {
+        "text": "อ่อนนุ่ม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Bulk",
+    "phonetic": "/bʌlk/",
+    "choices": [
+      {
+        "text": "ก้อนใหญ่",
+        "isCorrect": true
+      },
+      {
+        "text": "ชิ้นเล็ก",
+        "isCorrect": false
+      },
+      {
+        "text": "ละออง",
+        "isCorrect": false
+      },
+      {
+        "text": "ผง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Burden",
+    "phonetic": "/ˈbɜːrdn/",
+    "choices": [
+      {
+        "text": "ภาระ",
+        "isCorrect": true
+      },
+      {
+        "text": "ของว่าง",
+        "isCorrect": false
+      },
+      {
+        "text": "ความสะดวก",
+        "isCorrect": false
+      },
+      {
+        "text": "การผ่อนคลาย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Catastrophic",
+    "phonetic": "/ˌkætəˈstrɑːfɪk/",
+    "choices": [
+      {
+        "text": "ร้ายแรงหายนะ",
+        "isCorrect": true
+      },
+      {
+        "text": "เล็กน้อย",
+        "isCorrect": false
+      },
+      {
+        "text": "สำเร็จ",
+        "isCorrect": false
+      },
+      {
+        "text": "น่ายินดี",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Cease",
+    "phonetic": "/siːs/",
+    "choices": [
+      {
+        "text": "ยุติ",
+        "isCorrect": true
+      },
+      {
+        "text": "เริ่มต้น",
+        "isCorrect": false
+      },
+      {
+        "text": "ดำเนินต่อไป",
+        "isCorrect": false
+      },
+      {
+        "text": "ริเริ่ม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Cessation",
+    "phonetic": "/seˈseɪʃn/",
+    "choices": [
+      {
+        "text": "การยุติ",
+        "isCorrect": true
+      },
+      {
+        "text": "การเริ่มต้น",
+        "isCorrect": false
+      },
+      {
+        "text": "การดำเนินต่อ",
+        "isCorrect": false
+      },
+      {
+        "text": "การริเริ่ม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Chronicle",
+    "phonetic": "/ˈkrɑːnɪkl/",
+    "choices": [
+      {
+        "text": "บันทึกเหตุการณ์",
+        "isCorrect": true
+      },
+      {
+        "text": "บทกวี",
+        "isCorrect": false
+      },
+      {
+        "text": "ตำราอาหาร",
+        "isCorrect": false
+      },
+      {
+        "text": "นวนิยาย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Circumstance",
+    "phonetic": "/ˈsɜːrkəmstæns/",
+    "choices": [
+      {
+        "text": "สถานการณ์แวดล้อม",
+        "isCorrect": true
+      },
+      {
+        "text": "เจตนา",
+        "isCorrect": false
+      },
+      {
+        "text": "ความตั้งใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "ผลลัพธ์",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Clarify",
+    "phonetic": "/ˈklærəfaɪ/",
+    "choices": [
+      {
+        "text": "ทำให้ชัดเจน",
+        "isCorrect": true
+      },
+      {
+        "text": "ทำให้สับสน",
+        "isCorrect": false
+      },
+      {
+        "text": "ทำให้มัว",
+        "isCorrect": false
+      },
+      {
+        "text": "ปกปิด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Coerce",
+    "phonetic": "/koʊˈɜːrs/",
+    "choices": [
+      {
+        "text": "บังคับขู่เข็ญ",
+        "isCorrect": true
+      },
+      {
+        "text": "เชิญชวน",
+        "isCorrect": false
+      },
+      {
+        "text": "โน้มน้าว",
+        "isCorrect": false
+      },
+      {
+        "text": "ขอร้อง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Cognition",
+    "phonetic": "/kɑːɡˈnɪʃn/",
+    "choices": [
+      {
+        "text": "กระบวนการรับรู้",
+        "isCorrect": true
+      },
+      {
+        "text": "การกระทำ",
+        "isCorrect": false
+      },
+      {
+        "text": "อารมณ์",
+        "isCorrect": false
+      },
+      {
+        "text": "พฤติกรรม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Cohesive",
+    "phonetic": "/koʊˈhiːsɪv/",
+    "choices": [
+      {
+        "text": "เกาะกลุ่มเป็นหนึ่ง",
+        "isCorrect": true
+      },
+      {
+        "text": "แตกแยก",
+        "isCorrect": false
+      },
+      {
+        "text": "กระจัดกระจาย",
+        "isCorrect": false
+      },
+      {
+        "text": "แยกจาก",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Collapse",
+    "phonetic": "/kəˈlæps/",
+    "choices": [
+      {
+        "text": "ล้มสลาย",
+        "isCorrect": true
+      },
+      {
+        "text": "ยืนหยัด",
+        "isCorrect": false
+      },
+      {
+        "text": "เจริญรุ่งเรือง",
+        "isCorrect": false
+      },
+      {
+        "text": "มั่นคง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Collide",
+    "phonetic": "/kəˈlaɪd/",
+    "choices": [
+      {
+        "text": "ชนกัน",
+        "isCorrect": true
+      },
+      {
+        "text": "แยกจาก",
+        "isCorrect": false
+      },
+      {
+        "text": "หลบหลีก",
+        "isCorrect": false
+      },
+      {
+        "text": "เบี่ยงเบน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Commit",
+    "phonetic": "/kəˈmɪt/",
+    "choices": [
+      {
+        "text": "มุ่งมั่น / กระทำ",
+        "isCorrect": true
+      },
+      {
+        "text": "เพิกเฉย",
+        "isCorrect": false
+      },
+      {
+        "text": "หลีกเลี่ยง",
+        "isCorrect": false
+      },
+      {
+        "text": "ปฏิเสธ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Commodity",
+    "phonetic": "/kəˈmɑːdəti/",
+    "choices": [
+      {
+        "text": "สินค้าโภคภัณฑ์",
+        "isCorrect": true
+      },
+      {
+        "text": "บริการ",
+        "isCorrect": false
+      },
+      {
+        "text": "เงินสด",
+        "isCorrect": false
+      },
+      {
+        "text": "แรงงาน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Compatible",
+    "phonetic": "/kəmˈpætəbl/",
+    "choices": [
+      {
+        "text": "เข้ากันได้",
+        "isCorrect": true
+      },
+      {
+        "text": "ขัดแย้ง",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่ลงรอย",
+        "isCorrect": false
+      },
+      {
+        "text": "เข้ากันไม่ได้",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Compensate",
+    "phonetic": "/ˈkɑːmpenseɪt/",
+    "choices": [
+      {
+        "text": "ชดเชย",
+        "isCorrect": true
+      },
+      {
+        "text": "ลงโทษ",
+        "isCorrect": false
+      },
+      {
+        "text": "ริบ",
+        "isCorrect": false
+      },
+      {
+        "text": "ยึด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Compile",
+    "phonetic": "/kəmˈpaɪl/",
+    "choices": [
+      {
+        "text": "รวบรวม",
+        "isCorrect": true
+      },
+      {
+        "text": "แยกย่อย",
+        "isCorrect": false
+      },
+      {
+        "text": "กระจาย",
+        "isCorrect": false
+      },
+      {
+        "text": "ลบ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Comply",
+    "phonetic": "/kəmˈplaɪ/",
+    "choices": [
+      {
+        "text": "ปฏิบัติตาม",
+        "isCorrect": true
+      },
+      {
+        "text": "ขัดขืน",
+        "isCorrect": false
+      },
+      {
+        "text": "ละเมิด",
+        "isCorrect": false
+      },
+      {
+        "text": "ฝ่าฝืน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Comprehensive",
+    "phonetic": "/ˌkɑːmprɪˈhensɪv/",
+    "choices": [
+      {
+        "text": "ครอบคลุม",
+        "isCorrect": true
+      },
+      {
+        "text": "แคบ",
+        "isCorrect": false
+      },
+      {
+        "text": "จำกัด",
+        "isCorrect": false
+      },
+      {
+        "text": "บางส่วน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Compulsory",
+    "phonetic": "/kəmˈpʌlsəri/",
+    "choices": [
+      {
+        "text": "บังคับ",
+        "isCorrect": true
+      },
+      {
+        "text": "สมัครใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "เลือกได้",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่จำเป็น",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Conceive",
+    "phonetic": "/kənˈsiːv/",
+    "choices": [
+      {
+        "text": "คิดค้น",
+        "isCorrect": true
+      },
+      {
+        "text": "คัดลอก",
+        "isCorrect": false
+      },
+      {
+        "text": "เลียนแบบ",
+        "isCorrect": false
+      },
+      {
+        "text": "ท่องจำ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Conducive",
+    "phonetic": "/kənˈduːsɪv/",
+    "choices": [
+      {
+        "text": "เอื้ออำนวย",
+        "isCorrect": true
+      },
+      {
+        "text": "ขัดขวาง",
+        "isCorrect": false
+      },
+      {
+        "text": "เป็นอุปสรรค",
+        "isCorrect": false
+      },
+      {
+        "text": "กีดกัน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Confine",
+    "phonetic": "/kənˈfaɪn/",
+    "choices": [
+      {
+        "text": "จำกัดขอบเขต",
+        "isCorrect": true
+      },
+      {
+        "text": "ปลดปล่อย",
+        "isCorrect": false
+      },
+      {
+        "text": "ปล่อยอิสระ",
+        "isCorrect": false
+      },
+      {
+        "text": "ขยาย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Confront",
+    "phonetic": "/kənˈfrʌnt/",
+    "choices": [
+      {
+        "text": "เผชิญหน้า",
+        "isCorrect": true
+      },
+      {
+        "text": "หลบหนี",
+        "isCorrect": false
+      },
+      {
+        "text": "เลี่ยง",
+        "isCorrect": false
+      },
+      {
+        "text": "หนีหน้า",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Consecutive",
+    "phonetic": "/kənˈsekjətɪv/",
+    "choices": [
+      {
+        "text": "ติดต่อกัน",
+        "isCorrect": true
+      },
+      {
+        "text": "สลับ",
+        "isCorrect": false
+      },
+      {
+        "text": "เว้นวรรค",
+        "isCorrect": false
+      },
+      {
+        "text": "แยกห่าง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Consent",
+    "phonetic": "/kənˈsent/",
+    "choices": [
+      {
+        "text": "ยินยอม",
+        "isCorrect": true
+      },
+      {
+        "text": "ปฏิเสธ",
+        "isCorrect": false
+      },
+      {
+        "text": "คัดค้าน",
+        "isCorrect": false
+      },
+      {
+        "text": "คัดค้าน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Conserve",
+    "phonetic": "/kənˈsɜːrv/",
+    "choices": [
+      {
+        "text": "อนุรักษ์",
+        "isCorrect": true
+      },
+      {
+        "text": "ทำลาย",
+        "isCorrect": false
+      },
+      {
+        "text": "ผลาญ",
+        "isCorrect": false
+      },
+      {
+        "text": "สิ้นเปลือง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Consolidate",
+    "phonetic": "/kənˈsɑːlɪdeɪt/",
+    "choices": [
+      {
+        "text": "รวมเข้าด้วยกัน",
+        "isCorrect": true
+      },
+      {
+        "text": "แตกแยก",
+        "isCorrect": false
+      },
+      {
+        "text": "กระจัดกระจาย",
+        "isCorrect": false
+      },
+      {
+        "text": "แยกส่วน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Constraint",
+    "phonetic": "/kənˈstreɪnt/",
+    "choices": [
+      {
+        "text": "ข้อจำกัด",
+        "isCorrect": true
+      },
+      {
+        "text": "อิสรภาพ",
+        "isCorrect": false
+      },
+      {
+        "text": "อิสระ",
+        "isCorrect": false
+      },
+      {
+        "text": "การปลดปล่อย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Contemplate",
+    "phonetic": "/ˈkɑːntəmpleɪt/",
+    "choices": [
+      {
+        "text": "ครุ่นคิด",
+        "isCorrect": true
+      },
+      {
+        "text": "ตัดสินใจเด็ดขาด",
+        "isCorrect": false
+      },
+      {
+        "text": "เพิกเฉย",
+        "isCorrect": false
+      },
+      {
+        "text": "เลินเล่อ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Contempt",
+    "phonetic": "/kənˈtempt/",
+    "choices": [
+      {
+        "text": "การดูหมิ่น",
+        "isCorrect": true
+      },
+      {
+        "text": "ความเคารพ",
+        "isCorrect": false
+      },
+      {
+        "text": "ความนับถือ",
+        "isCorrect": false
+      },
+      {
+        "text": "ความเลื่อมใส",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Contend",
+    "phonetic": "/kənˈtend/",
+    "choices": [
+      {
+        "text": "แข่งขัน",
+        "isCorrect": true
+      },
+      {
+        "text": "ยอมแพ้",
+        "isCorrect": false
+      },
+      {
+        "text": "ถอย",
+        "isCorrect": false
+      },
+      {
+        "text": "สละสิทธิ์",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Contingency",
+    "phonetic": "/kənˈtɪndʒənsi/",
+    "choices": [
+      {
+        "text": "กรณีไม่คาดฝัน",
+        "isCorrect": true
+      },
+      {
+        "text": "เหตุการณ์ปกติ",
+        "isCorrect": false
+      },
+      {
+        "text": "การวางแผน",
+        "isCorrect": false
+      },
+      {
+        "text": "ความแน่นอน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Contradictory",
+    "phonetic": "/ˌkɑːntrəˈdɪktəri/",
+    "choices": [
+      {
+        "text": "ขัดแย้งกัน",
+        "isCorrect": true
+      },
+      {
+        "text": "สอดคล้อง",
+        "isCorrect": false
+      },
+      {
+        "text": "ตรงกัน",
+        "isCorrect": false
+      },
+      {
+        "text": "กลมกลืน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Cultivate",
+    "phonetic": "/ˈkʌltɪveɪt/",
+    "choices": [
+      {
+        "text": "เพาะปลูก / ปลูกฝัง",
+        "isCorrect": true
+      },
+      {
+        "text": "ทำลาย",
+        "isCorrect": false
+      },
+      {
+        "text": "ถอนราก",
+        "isCorrect": false
+      },
+      {
+        "text": "ทิ้งร้าง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Cumbersome",
+    "phonetic": "/ˈkʌmbərsəm/",
+    "choices": [
+      {
+        "text": "เทอะทะ",
+        "isCorrect": true
+      },
+      {
+        "text": "เบาบาง",
+        "isCorrect": false
+      },
+      {
+        "text": "คล่องตัว",
+        "isCorrect": false
+      },
+      {
+        "text": "สะดวก",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Curtail",
+    "phonetic": "/kɜːrˈteɪl/",
+    "choices": [
+      {
+        "text": "ตัดทอน",
+        "isCorrect": true
+      },
+      {
+        "text": "ขยาย",
+        "isCorrect": false
+      },
+      {
+        "text": "เพิ่ม",
+        "isCorrect": false
+      },
+      {
+        "text": "ยืดขยาย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Daunting",
+    "phonetic": "/ˈdɔːntɪŋ/",
+    "choices": [
+      {
+        "text": "น่ากลัวท้อใจ",
+        "isCorrect": true
+      },
+      {
+        "text": "ง่ายดาย",
+        "isCorrect": false
+      },
+      {
+        "text": "สะดวกสบาย",
+        "isCorrect": false
+      },
+      {
+        "text": "เบาสบาย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Decay",
+    "phonetic": "/dɪˈkeɪ/",
+    "choices": [
+      {
+        "text": "เน่าเปื่อย",
+        "isCorrect": true
+      },
+      {
+        "text": "สดใหม่",
+        "isCorrect": false
+      },
+      {
+        "text": "คงทน",
+        "isCorrect": false
+      },
+      {
+        "text": "ถาวร",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Decipher",
+    "phonetic": "/dɪˈsaɪfər/",
+    "choices": [
+      {
+        "text": "ถอดรหัส",
+        "isCorrect": true
+      },
+      {
+        "text": "เข้ารหัส",
+        "isCorrect": false
+      },
+      {
+        "text": "ปิดบัง",
+        "isCorrect": false
+      },
+      {
+        "text": "ซ่อน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Deficit",
+    "phonetic": "/ˈdefɪsɪt/",
+    "choices": [
+      {
+        "text": "การขาดดุล",
+        "isCorrect": true
+      },
+      {
+        "text": "ส่วนเกิน",
+        "isCorrect": false
+      },
+      {
+        "text": "กำไร",
+        "isCorrect": false
+      },
+      {
+        "text": "เงินเหลือ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Degrade",
+    "phonetic": "/dɪˈɡreɪd/",
+    "choices": [
+      {
+        "text": "ทำให้เสื่อมลง",
+        "isCorrect": true
+      },
+      {
+        "text": "ยกระดับ",
+        "isCorrect": false
+      },
+      {
+        "text": "พัฒนาขึ้น",
+        "isCorrect": false
+      },
+      {
+        "text": "เลื่อนขั้น",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Deliberately",
+    "phonetic": "/dɪˈlɪbərətli/",
+    "choices": [
+      {
+        "text": "โดยเจตนา",
+        "isCorrect": true
+      },
+      {
+        "text": "โดยบังเอิญ",
+        "isCorrect": false
+      },
+      {
+        "text": "โดยไม่ได้ตั้งใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "โดยไม่รู้ตัว",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Delicacy",
+    "phonetic": "/ˈdelɪkəsi/",
+    "choices": [
+      {
+        "text": "อาหารเลิศรส",
+        "isCorrect": true
+      },
+      {
+        "text": "อาหารจานด่วน",
+        "isCorrect": false
+      },
+      {
+        "text": "อาหารข้างทาง",
+        "isCorrect": false
+      },
+      {
+        "text": "อาหารกระป๋อง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Delineate",
+    "phonetic": "/dɪˈlɪnieɪt/",
+    "choices": [
+      {
+        "text": "กำหนดขอบเขต",
+        "isCorrect": true
+      },
+      {
+        "text": "คลุมเครือ",
+        "isCorrect": false
+      },
+      {
+        "text": "เลือนราง",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่ชัดเจน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Demise",
+    "phonetic": "/dɪˈmaɪz/",
+    "choices": [
+      {
+        "text": "การล่มสลาย",
+        "isCorrect": true
+      },
+      {
+        "text": "การเจริญรุ่งเรือง",
+        "isCorrect": false
+      },
+      {
+        "text": "ความเฟื่องฟู",
+        "isCorrect": false
+      },
+      {
+        "text": "การเติบโต",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Demolish",
+    "phonetic": "/dɪˈmɑːlɪʃ/",
+    "choices": [
+      {
+        "text": "รื้อถอน",
+        "isCorrect": true
+      },
+      {
+        "text": "ก่อสร้าง",
+        "isCorrect": false
+      },
+      {
+        "text": "สร้างใหม่",
+        "isCorrect": false
+      },
+      {
+        "text": "บูรณะ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Depict",
+    "phonetic": "/dɪˈpɪkt/",
+    "choices": [
+      {
+        "text": "วาดภาพพรรณนา",
+        "isCorrect": true
+      },
+      {
+        "text": "บิดเบือน",
+        "isCorrect": false
+      },
+      {
+        "text": "ปกปิด",
+        "isCorrect": false
+      },
+      {
+        "text": "ซ่อนเร้น",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Deplore",
+    "phonetic": "/dɪˈplɔːr/",
+    "choices": [
+      {
+        "text": "ประณาม",
+        "isCorrect": true
+      },
+      {
+        "text": "ชื่นชม",
+        "isCorrect": false
+      },
+      {
+        "text": "ยกย่อง",
+        "isCorrect": false
+      },
+      {
+        "text": "สรรเสริญ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Devoid",
+    "phonetic": "/dɪˈvɔɪd/",
+    "choices": [
+      {
+        "text": "ปราศจาก",
+        "isCorrect": true
+      },
+      {
+        "text": "เต็มไปด้วย",
+        "isCorrect": false
+      },
+      {
+        "text": "อุดมด้วย",
+        "isCorrect": false
+      },
+      {
+        "text": "เปี่ยมล้น",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Devout",
+    "phonetic": "/dɪˈvaʊt/",
+    "choices": [
+      {
+        "text": "เคร่งครัด",
+        "isCorrect": true
+      },
+      {
+        "text": "ละเลย",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่สนใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "ทอดทิ้ง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Dexterity",
+    "phonetic": "/dekˈsterəti/",
+    "choices": [
+      {
+        "text": "ความคล่องแคล่ว",
+        "isCorrect": true
+      },
+      {
+        "text": "ความเชื่องช้า",
+        "isCorrect": false
+      },
+      {
+        "text": "ความงุ่มง่าม",
+        "isCorrect": false
+      },
+      {
+        "text": "ความซุ่มซ่าม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Digest",
+    "phonetic": "/daɪˈdʒest/",
+    "choices": [
+      {
+        "text": "ย่อยอาหาร",
+        "isCorrect": true
+      },
+      {
+        "text": "สำรอก",
+        "isCorrect": false
+      },
+      {
+        "text": "อาเจียน",
+        "isCorrect": false
+      },
+      {
+        "text": "ดูดซึม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Diligent",
+    "phonetic": "/ˈdɪlɪdʒənt/",
+    "choices": [
+      {
+        "text": "ขยัน",
+        "isCorrect": true
+      },
+      {
+        "text": "ขี้เกียจ",
+        "isCorrect": false
+      },
+      {
+        "text": "เฉื่อยชา",
+        "isCorrect": false
+      },
+      {
+        "text": "ผัดวันประกันพรุ่ง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Diminutive",
+    "phonetic": "/dɪˈmɪnjətɪv/",
+    "choices": [
+      {
+        "text": "เล็กจิ๋ว",
+        "isCorrect": true
+      },
+      {
+        "text": "ใหญ่โต",
+        "isCorrect": false
+      },
+      {
+        "text": "มหึมา",
+        "isCorrect": false
+      },
+      {
+        "text": "กว้างใหญ่",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Discrepancy",
+    "phonetic": "/dɪsˈkrepənsi/",
+    "choices": [
+      {
+        "text": "ความไม่สอดคล้อง",
+        "isCorrect": true
+      },
+      {
+        "text": "ความตรงกัน",
+        "isCorrect": false
+      },
+      {
+        "text": "ความกลมกลืน",
+        "isCorrect": false
+      },
+      {
+        "text": "ความสม่ำเสมอ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Discriminate",
+    "phonetic": "/dɪˈskrɪmɪneɪt/",
+    "choices": [
+      {
+        "text": "เลือกปฏิบัติ",
+        "isCorrect": true
+      },
+      {
+        "text": "ปฏิบัติเสมอภาค",
+        "isCorrect": false
+      },
+      {
+        "text": "เท่าเทียม",
+        "isCorrect": false
+      },
+      {
+        "text": "ยุติธรรม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Disdain",
+    "phonetic": "/dɪsˈdeɪn/",
+    "choices": [
+      {
+        "text": "ดูแคลน",
+        "isCorrect": true
+      },
+      {
+        "text": "เคารพ",
+        "isCorrect": false
+      },
+      {
+        "text": "นับถือ",
+        "isCorrect": false
+      },
+      {
+        "text": "เลื่อมใส",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Disguise",
+    "phonetic": "/dɪsˈɡaɪz/",
+    "choices": [
+      {
+        "text": "ปลอมตัว",
+        "isCorrect": true
+      },
+      {
+        "text": "เผยตัว",
+        "isCorrect": false
+      },
+      {
+        "text": "เปิดเผย",
+        "isCorrect": false
+      },
+      {
+        "text": "โชว์ตัว",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Disrupt",
+    "phonetic": "/dɪsˈrʌpt/",
+    "choices": [
+      {
+        "text": "ขัดขวาง",
+        "isCorrect": true
+      },
+      {
+        "text": "สนับสนุน",
+        "isCorrect": false
+      },
+      {
+        "text": "ช่วยเหลือ",
+        "isCorrect": false
+      },
+      {
+        "text": "เอื้ออำนวย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Dissolve",
+    "phonetic": "/dɪˈzɑːlv/",
+    "choices": [
+      {
+        "text": "ละลาย",
+        "isCorrect": true
+      },
+      {
+        "text": "แข็งตัว",
+        "isCorrect": false
+      },
+      {
+        "text": "ตกผลึก",
+        "isCorrect": false
+      },
+      {
+        "text": "จับตัว",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Distinct",
+    "phonetic": "/dɪˈstɪŋkt/",
+    "choices": [
+      {
+        "text": "ชัดเจนแตกต่าง",
+        "isCorrect": true
+      },
+      {
+        "text": "คลุมเครือ",
+        "isCorrect": false
+      },
+      {
+        "text": "เลือนราง",
+        "isCorrect": false
+      },
+      {
+        "text": "เหมือนกัน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Distress",
+    "phonetic": "/dɪˈstres/",
+    "choices": [
+      {
+        "text": "ความทุกข์ใจ",
+        "isCorrect": true
+      },
+      {
+        "text": "ความสุข",
+        "isCorrect": false
+      },
+      {
+        "text": "ความสบาย",
+        "isCorrect": false
+      },
+      {
+        "text": "ความสงบ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Divulge",
+    "phonetic": "/daɪˈvʌldʒ/",
+    "choices": [
+      {
+        "text": "เปิดเผย",
+        "isCorrect": true
+      },
+      {
+        "text": "ปกปิด",
+        "isCorrect": false
+      },
+      {
+        "text": "ซ่อน",
+        "isCorrect": false
+      },
+      {
+        "text": "เก็บเป็นความลับ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Dormant",
+    "phonetic": "/ˈdɔːrmənt/",
+    "choices": [
+      {
+        "text": "สงบนิ่ง",
+        "isCorrect": true
+      },
+      {
+        "text": "ตื่นตัว",
+        "isCorrect": false
+      },
+      {
+        "text": "คึกคัก",
+        "isCorrect": false
+      },
+      {
+        "text": "เคลื่อนไหว",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Dubious",
+    "phonetic": "/ˈduːbiəs/",
+    "choices": [
+      {
+        "text": "กังขา",
+        "isCorrect": true
+      },
+      {
+        "text": "มั่นใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "เชื่อถือ",
+        "isCorrect": false
+      },
+      {
+        "text": "ไว้วางใจ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Durable",
+    "phonetic": "/ˈdʊrəbl/",
+    "choices": [
+      {
+        "text": "ทนทาน",
+        "isCorrect": true
+      },
+      {
+        "text": "เปราะบาง",
+        "isCorrect": false
+      },
+      {
+        "text": "แตกง่าย",
+        "isCorrect": false
+      },
+      {
+        "text": "ฉีกขาด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Ebb",
+    "phonetic": "/eb/",
+    "choices": [
+      {
+        "text": "ลดถอย",
+        "isCorrect": true
+      },
+      {
+        "text": "เพิ่มขึ้น",
+        "isCorrect": false
+      },
+      {
+        "text": "พุ่งขึ้น",
+        "isCorrect": false
+      },
+      {
+        "text": "เฟื่องฟู",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Edible",
+    "phonetic": "/ˈedəbl/",
+    "choices": [
+      {
+        "text": "กินได้",
+        "isCorrect": true
+      },
+      {
+        "text": "กินไม่ได้",
+        "isCorrect": false
+      },
+      {
+        "text": "มีพิษ",
+        "isCorrect": false
+      },
+      {
+        "text": "เน่าเสีย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Elaborate",
+    "phonetic": "/ɪˈlæbərət/",
+    "choices": [
+      {
+        "text": "ละเอียดลออ",
+        "isCorrect": true
+      },
+      {
+        "text": "หยาบง่าย",
+        "isCorrect": false
+      },
+      {
+        "text": "เรียบง่าย",
+        "isCorrect": false
+      },
+      {
+        "text": "พื้น ๆ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Elicit",
+    "phonetic": "/ɪˈlɪsɪt/",
+    "choices": [
+      {
+        "text": "ดึงออกมา",
+        "isCorrect": true
+      },
+      {
+        "text": "เก็บกด",
+        "isCorrect": false
+      },
+      {
+        "text": "ซ่อน",
+        "isCorrect": false
+      },
+      {
+        "text": "ระงับ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Elude",
+    "phonetic": "/ɪˈluːd/",
+    "choices": [
+      {
+        "text": "หลบหลีก",
+        "isCorrect": true
+      },
+      {
+        "text": "เผชิญ",
+        "isCorrect": false
+      },
+      {
+        "text": "ตามทัน",
+        "isCorrect": false
+      },
+      {
+        "text": "จับได้",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Encompass",
+    "phonetic": "/ɪnˈkʌmpəs/",
+    "choices": [
+      {
+        "text": "ครอบคลุม",
+        "isCorrect": true
+      },
+      {
+        "text": "กีดกัน",
+        "isCorrect": false
+      },
+      {
+        "text": "แยกออก",
+        "isCorrect": false
+      },
+      {
+        "text": "จำกัด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Endeavor",
+    "phonetic": "/ɪnˈdevər/",
+    "choices": [
+      {
+        "text": "ความพยายาม",
+        "isCorrect": true
+      },
+      {
+        "text": "ความย่อท้อ",
+        "isCorrect": false
+      },
+      {
+        "text": "การยอมแพ้",
+        "isCorrect": false
+      },
+      {
+        "text": "ความท้อถอย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Enmity",
+    "phonetic": "/ˈenməti/",
+    "choices": [
+      {
+        "text": "ความเป็นศัตรู",
+        "isCorrect": true
+      },
+      {
+        "text": "มิตรภาพ",
+        "isCorrect": false
+      },
+      {
+        "text": "ความเป็นเพื่อน",
+        "isCorrect": false
+      },
+      {
+        "text": "ความปรองดอง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Entail",
+    "phonetic": "/ɪnˈteɪl/",
+    "choices": [
+      {
+        "text": "ส่งผลให้เกิด",
+        "isCorrect": true
+      },
+      {
+        "text": "หลีกเลี่ยง",
+        "isCorrect": false
+      },
+      {
+        "text": "ป้องกัน",
+        "isCorrect": false
+      },
+      {
+        "text": "ขัดขวาง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Entitle",
+    "phonetic": "/ɪnˈtaɪtl/",
+    "choices": [
+      {
+        "text": "มีสิทธิ์",
+        "isCorrect": true
+      },
+      {
+        "text": "ถูกเพิกถอนสิทธิ์",
+        "isCorrect": false
+      },
+      {
+        "text": "ถูกตัดสิทธิ์",
+        "isCorrect": false
+      },
+      {
+        "text": "ถูกจำกัด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Envy",
+    "phonetic": "/ˈenvi/",
+    "choices": [
+      {
+        "text": "ความอิจฉา",
+        "isCorrect": true
+      },
+      {
+        "text": "ความพอใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "ความภูมิใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "ความสงบ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Erode",
+    "phonetic": "/ɪˈroʊd/",
+    "choices": [
+      {
+        "text": "กัดกร่อน",
+        "isCorrect": true
+      },
+      {
+        "text": "สะสม",
+        "isCorrect": false
+      },
+      {
+        "text": "ทับถม",
+        "isCorrect": false
+      },
+      {
+        "text": "เสริมสร้าง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Esteem",
+    "phonetic": "/ɪˈstiːm/",
+    "choices": [
+      {
+        "text": "ความนับถือ",
+        "isCorrect": true
+      },
+      {
+        "text": "ความดูถูก",
+        "isCorrect": false
+      },
+      {
+        "text": "การดูแคลน",
+        "isCorrect": false
+      },
+      {
+        "text": "การหมิ่นประมาท",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Evade",
+    "phonetic": "/ɪˈveɪd/",
+    "choices": [
+      {
+        "text": "หลบหนี",
+        "isCorrect": true
+      },
+      {
+        "text": "เผชิญ",
+        "isCorrect": false
+      },
+      {
+        "text": "เข้าใกล้",
+        "isCorrect": false
+      },
+      {
+        "text": "ตามหา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Exacerbate",
+    "phonetic": "/ɪɡˈzæsərbeɪt/",
+    "choices": [
+      {
+        "text": "ทำให้แย่ลง",
+        "isCorrect": true
+      },
+      {
+        "text": "ทำให้ดีขึ้น",
+        "isCorrect": false
+      },
+      {
+        "text": "บรรเทา",
+        "isCorrect": false
+      },
+      {
+        "text": "เยียวยา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Exotic",
+    "phonetic": "/ɪɡˈzɑːtɪk/",
+    "choices": [
+      {
+        "text": "แปลกใหม่",
+        "isCorrect": true
+      },
+      {
+        "text": "คุ้นเคย",
+        "isCorrect": false
+      },
+      {
+        "text": "พื้นเมือง",
+        "isCorrect": false
+      },
+      {
+        "text": "ธรรมดา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Explicit",
+    "phonetic": "/ɪkˈsplɪsɪt/",
+    "choices": [
+      {
+        "text": "ตรงไปตรงมา",
+        "isCorrect": true
+      },
+      {
+        "text": "คลุมเครือ",
+        "isCorrect": false
+      },
+      {
+        "text": "อ้อมค้อม",
+        "isCorrect": false
+      },
+      {
+        "text": "โดยนัย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Exquisite",
+    "phonetic": "/ɪkˈskwɪzɪt/",
+    "choices": [
+      {
+        "text": "งดงามประณีต",
+        "isCorrect": true
+      },
+      {
+        "text": "หยาบ",
+        "isCorrect": false
+      },
+      {
+        "text": "ธรรมดา",
+        "isCorrect": false
+      },
+      {
+        "text": "ขรุขระ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Extensive",
+    "phonetic": "/ɪkˈstensɪv/",
+    "choices": [
+      {
+        "text": "กว้างขวาง",
+        "isCorrect": true
+      },
+      {
+        "text": "จำกัด",
+        "isCorrect": false
+      },
+      {
+        "text": "แคบ",
+        "isCorrect": false
+      },
+      {
+        "text": "เพียงเล็กน้อย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Extinguish",
+    "phonetic": "/ɪkˈstɪŋɡwɪʃ/",
+    "choices": [
+      {
+        "text": "ดับ",
+        "isCorrect": true
+      },
+      {
+        "text": "จุดไฟ",
+        "isCorrect": false
+      },
+      {
+        "text": "ก่อไฟ",
+        "isCorrect": false
+      },
+      {
+        "text": "ลุกโชน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Extract",
+    "phonetic": "/ɪkˈstrækt/",
+    "choices": [
+      {
+        "text": "สกัด",
+        "isCorrect": true
+      },
+      {
+        "text": "ใส่เข้า",
+        "isCorrect": false
+      },
+      {
+        "text": "ผสม",
+        "isCorrect": false
+      },
+      {
+        "text": "เติม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Extravagant",
+    "phonetic": "/ɪkˈstrævəɡənt/",
+    "choices": [
+      {
+        "text": "ฟุ่มเฟือย",
+        "isCorrect": true
+      },
+      {
+        "text": "มัธยัสถ์",
+        "isCorrect": false
+      },
+      {
+        "text": "ประหยัด",
+        "isCorrect": false
+      },
+      {
+        "text": "พอประมาณ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Fabricate",
+    "phonetic": "/ˈfæbrɪkeɪt/",
+    "choices": [
+      {
+        "text": "ประดิษฐ์ / กุเรื่อง",
+        "isCorrect": true
+      },
+      {
+        "text": "เล่าเรื่องจริง",
+        "isCorrect": false
+      },
+      {
+        "text": "เปิดเผยความจริง",
+        "isCorrect": false
+      },
+      {
+        "text": "ยอมรับ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Famine",
+    "phonetic": "/ˈfæmɪn/",
+    "choices": [
+      {
+        "text": "ทุพภิกขภัย",
+        "isCorrect": true
+      },
+      {
+        "text": "ความอุดมสมบูรณ์",
+        "isCorrect": false
+      },
+      {
+        "text": "ความมั่งคั่ง",
+        "isCorrect": false
+      },
+      {
+        "text": "การเก็บเกี่ยวอุดม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Fathom",
+    "phonetic": "/ˈfæðəm/",
+    "choices": [
+      {
+        "text": "หยั่งรู้",
+        "isCorrect": true
+      },
+      {
+        "text": "เพิกเฉย",
+        "isCorrect": false
+      },
+      {
+        "text": "มองข้าม",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่เข้าใจ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Favor",
+    "phonetic": "/ˈfeɪvər/",
+    "choices": [
+      {
+        "text": "ความชื่นชอบ",
+        "isCorrect": true
+      },
+      {
+        "text": "ความเกลียด",
+        "isCorrect": false
+      },
+      {
+        "text": "ความรังเกียจ",
+        "isCorrect": false
+      },
+      {
+        "text": "ความไม่พอใจ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Feasible",
+    "phonetic": "/ˈfiːzəbl/",
+    "choices": [
+      {
+        "text": "เป็นไปได้",
+        "isCorrect": true
+      },
+      {
+        "text": "เป็นไปไม่ได้",
+        "isCorrect": false
+      },
+      {
+        "text": "เพ้อฝัน",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่จริง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Fervent",
+    "phonetic": "/ˈfɜːrvənt/",
+    "choices": [
+      {
+        "text": "แรงกล้า",
+        "isCorrect": true
+      },
+      {
+        "text": "เย็นชา",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่แยแส",
+        "isCorrect": false
+      },
+      {
+        "text": "เฉยเมย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Fickle",
+    "phonetic": "/ˈfɪkl/",
+    "choices": [
+      {
+        "text": "ไม่แน่นอน",
+        "isCorrect": true
+      },
+      {
+        "text": "มั่นคง",
+        "isCorrect": false
+      },
+      {
+        "text": "สม่ำเสมอ",
+        "isCorrect": false
+      },
+      {
+        "text": "คงเส้นคงวา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Fidelity",
+    "phonetic": "/fɪˈdeləti/",
+    "choices": [
+      {
+        "text": "ความภักดี",
+        "isCorrect": true
+      },
+      {
+        "text": "การทรยศ",
+        "isCorrect": false
+      },
+      {
+        "text": "การนอกใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "การหักหลัง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Flaw",
+    "phonetic": "/flɔː/",
+    "choices": [
+      {
+        "text": "ข้อบกพร่อง",
+        "isCorrect": true
+      },
+      {
+        "text": "ข้อดี",
+        "isCorrect": false
+      },
+      {
+        "text": "ความสมบูรณ์",
+        "isCorrect": false
+      },
+      {
+        "text": "คุณสมบัติ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Fledgling",
+    "phonetic": "/ˈfledʒlɪŋ/",
+    "choices": [
+      {
+        "text": "มือใหม่",
+        "isCorrect": true
+      },
+      {
+        "text": "ผู้ชำนาญ",
+        "isCorrect": false
+      },
+      {
+        "text": "ผู้เชี่ยวชาญ",
+        "isCorrect": false
+      },
+      {
+        "text": "กูรู",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Fluctuate",
+    "phonetic": "/ˈflʌktʃueɪt/",
+    "choices": [
+      {
+        "text": "ขึ้น ๆ ลง ๆ",
+        "isCorrect": true
+      },
+      {
+        "text": "คงที่",
+        "isCorrect": false
+      },
+      {
+        "text": "มั่นคง",
+        "isCorrect": false
+      },
+      {
+        "text": "นิ่ง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Foremost",
+    "phonetic": "/ˈfɔːrmoʊst/",
+    "choices": [
+      {
+        "text": "สำคัญที่สุด",
+        "isCorrect": true
+      },
+      {
+        "text": "รองลงมา",
+        "isCorrect": false
+      },
+      {
+        "text": "น้อยที่สุด",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่สำคัญ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Formidable",
+    "phonetic": "/ˈfɔːrmɪdəbl/",
+    "choices": [
+      {
+        "text": "น่าเกรงขาม",
+        "isCorrect": true
+      },
+      {
+        "text": "อ่อนแอ",
+        "isCorrect": false
+      },
+      {
+        "text": "ไร้พลัง",
+        "isCorrect": false
+      },
+      {
+        "text": "ง่ายดาย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Fragile",
+    "phonetic": "/ˈfrædʒl/",
+    "choices": [
+      {
+        "text": "เปราะบาง",
+        "isCorrect": true
+      },
+      {
+        "text": "แข็งแกร่ง",
+        "isCorrect": false
+      },
+      {
+        "text": "แข็งแรง",
+        "isCorrect": false
+      },
+      {
+        "text": "คงทน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Frantic",
+    "phonetic": "/ˈfræntɪk/",
+    "choices": [
+      {
+        "text": "ตื่นตระหนก",
+        "isCorrect": true
+      },
+      {
+        "text": "สงบ",
+        "isCorrect": false
+      },
+      {
+        "text": "นิ่ง",
+        "isCorrect": false
+      },
+      {
+        "text": "สุขุม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Fraud",
+    "phonetic": "/frɔːd/",
+    "choices": [
+      {
+        "text": "การฉ้อโกง",
+        "isCorrect": true
+      },
+      {
+        "text": "ความซื่อสัตย์",
+        "isCorrect": false
+      },
+      {
+        "text": "ความจริงใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "การเปิดเผย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Friction",
+    "phonetic": "/ˈfrɪkʃn/",
+    "choices": [
+      {
+        "text": "ความขัดแย้ง",
+        "isCorrect": true
+      },
+      {
+        "text": "ความสามัคคี",
+        "isCorrect": false
+      },
+      {
+        "text": "ความกลมเกลียว",
+        "isCorrect": false
+      },
+      {
+        "text": "ความปรองดอง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Fruitful",
+    "phonetic": "/ˈfruːtfl/",
+    "choices": [
+      {
+        "text": "บังเกิดผล",
+        "isCorrect": true
+      },
+      {
+        "text": "ไร้ผล",
+        "isCorrect": false
+      },
+      {
+        "text": "ล้มเหลว",
+        "isCorrect": false
+      },
+      {
+        "text": "สูญเปล่า",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Furious",
+    "phonetic": "/ˈfjʊriəs/",
+    "choices": [
+      {
+        "text": "โกรธมาก",
+        "isCorrect": true
+      },
+      {
+        "text": "สงบ",
+        "isCorrect": false
+      },
+      {
+        "text": "ยินดี",
+        "isCorrect": false
+      },
+      {
+        "text": "เฉยเมย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Gamble",
+    "phonetic": "/ˈɡæmbl/",
+    "choices": [
+      {
+        "text": "เสี่ยงโชค",
+        "isCorrect": true
+      },
+      {
+        "text": "การลงทุนปลอดภัย",
+        "isCorrect": false
+      },
+      {
+        "text": "การออม",
+        "isCorrect": false
+      },
+      {
+        "text": "การประกัน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Genuine",
+    "phonetic": "/ˈdʒenjuɪn/",
+    "choices": [
+      {
+        "text": "แท้จริง",
+        "isCorrect": true
+      },
+      {
+        "text": "ปลอม",
+        "isCorrect": false
+      },
+      {
+        "text": "เสแสร้ง",
+        "isCorrect": false
+      },
+      {
+        "text": "เทียม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Glut",
+    "phonetic": "/ɡlʌt/",
+    "choices": [
+      {
+        "text": "ล้นตลาด",
+        "isCorrect": true
+      },
+      {
+        "text": "ขาดแคลน",
+        "isCorrect": false
+      },
+      {
+        "text": "หายาก",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่เพียงพอ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Gracious",
+    "phonetic": "/ˈɡreɪʃəs/",
+    "choices": [
+      {
+        "text": "มีเมตตา",
+        "isCorrect": true
+      },
+      {
+        "text": "ใจร้าย",
+        "isCorrect": false
+      },
+      {
+        "text": "หยาบคาย",
+        "isCorrect": false
+      },
+      {
+        "text": "ร้ายกาจ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Grim",
+    "phonetic": "/ɡrɪm/",
+    "choices": [
+      {
+        "text": "น่ากลัว",
+        "isCorrect": true
+      },
+      {
+        "text": "ร่าเริง",
+        "isCorrect": false
+      },
+      {
+        "text": "สดใส",
+        "isCorrect": false
+      },
+      {
+        "text": "เบิกบาน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Hail",
+    "phonetic": "/heɪl/",
+    "choices": [
+      {
+        "text": "เรียก / ทักทาย",
+        "isCorrect": true
+      },
+      {
+        "text": "ขับไล่",
+        "isCorrect": false
+      },
+      {
+        "text": "ไล่ต้อน",
+        "isCorrect": false
+      },
+      {
+        "text": "ผลักไส",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Harbor",
+    "phonetic": "/ˈhɑːrbər/",
+    "choices": [
+      {
+        "text": "ท่าเรือ",
+        "isCorrect": true
+      },
+      {
+        "text": "สนามบิน",
+        "isCorrect": false
+      },
+      {
+        "text": "สถานีรถไฟ",
+        "isCorrect": false
+      },
+      {
+        "text": "จัตุรัส",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Harsh",
+    "phonetic": "/hɑːrʃ/",
+    "choices": [
+      {
+        "text": "รุนแรง",
+        "isCorrect": true
+      },
+      {
+        "text": "นุ่มนวล",
+        "isCorrect": false
+      },
+      {
+        "text": "อ่อนโยน",
+        "isCorrect": false
+      },
+      {
+        "text": "เมตตา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Haunt",
+    "phonetic": "/hɔːnt/",
+    "choices": [
+      {
+        "text": "หลอกหลอน",
+        "isCorrect": true
+      },
+      {
+        "text": "ปลอบโยน",
+        "isCorrect": false
+      },
+      {
+        "text": "สงบใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "ปลดปล่อย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Hazard",
+    "phonetic": "/ˈhæzərd/",
+    "choices": [
+      {
+        "text": "ภัยอันตราย",
+        "isCorrect": true
+      },
+      {
+        "text": "ความปลอดภัย",
+        "isCorrect": false
+      },
+      {
+        "text": "การป้องกัน",
+        "isCorrect": false
+      },
+      {
+        "text": "ความมั่นคง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Henceforth",
+    "phonetic": "/ˌhensˈfɔːrθ/",
+    "choices": [
+      {
+        "text": "ตั้งแต่นี้ไป",
+        "isCorrect": true
+      },
+      {
+        "text": "แต่ก่อน",
+        "isCorrect": false
+      },
+      {
+        "text": "ในอดีต",
+        "isCorrect": false
+      },
+      {
+        "text": "ที่ผ่านมา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Hinder",
+    "phonetic": "/ˈhɪndər/",
+    "choices": [
+      {
+        "text": "ขัดขวาง",
+        "isCorrect": true
+      },
+      {
+        "text": "ช่วยเหลือ",
+        "isCorrect": false
+      },
+      {
+        "text": "สนับสนุน",
+        "isCorrect": false
+      },
+      {
+        "text": "เอื้ออำนวย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Hostile",
+    "phonetic": "/ˈhɑːstaɪl/",
+    "choices": [
+      {
+        "text": "เป็นศัตรู",
+        "isCorrect": true
+      },
+      {
+        "text": "เป็นมิตร",
+        "isCorrect": false
+      },
+      {
+        "text": "สนิทสนม",
+        "isCorrect": false
+      },
+      {
+        "text": "เป็นกลาง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Humane",
+    "phonetic": "/hjuːˈmeɪn/",
+    "choices": [
+      {
+        "text": "มีมนุษยธรรม",
+        "isCorrect": true
+      },
+      {
+        "text": "โหดร้าย",
+        "isCorrect": false
+      },
+      {
+        "text": "ทารุณ",
+        "isCorrect": false
+      },
+      {
+        "text": "ใจร้าย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Humble",
+    "phonetic": "/ˈhʌmbl/",
+    "choices": [
+      {
+        "text": "ถ่อมตัว",
+        "isCorrect": true
+      },
+      {
+        "text": "เย่อหยิ่ง",
+        "isCorrect": false
+      },
+      {
+        "text": "อวดดี",
+        "isCorrect": false
+      },
+      {
+        "text": "วางมาด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Idle",
+    "phonetic": "/ˈaɪdl/",
+    "choices": [
+      {
+        "text": "เกียจคร้าน",
+        "isCorrect": true
+      },
+      {
+        "text": "ขยัน",
+        "isCorrect": false
+      },
+      {
+        "text": "กระตือรือร้น",
+        "isCorrect": false
+      },
+      {
+        "text": "เอาการเอางาน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Immerse",
+    "phonetic": "/ɪˈmɜːrs/",
+    "choices": [
+      {
+        "text": "หมกมุ่น",
+        "isCorrect": true
+      },
+      {
+        "text": "เพิกเฉย",
+        "isCorrect": false
+      },
+      {
+        "text": "แยกตัว",
+        "isCorrect": false
+      },
+      {
+        "text": "ปลีกตัว",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Imminent",
+    "phonetic": "/ˈɪmɪnənt/",
+    "choices": [
+      {
+        "text": "ใกล้จะถึง",
+        "isCorrect": true
+      },
+      {
+        "text": "ไกลโพ้น",
+        "isCorrect": false
+      },
+      {
+        "text": "เลยผ่านไป",
+        "isCorrect": false
+      },
+      {
+        "text": "ล่าช้า",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Immutable",
+    "phonetic": "/ɪˈmjuːtəbl/",
+    "choices": [
+      {
+        "text": "ไม่เปลี่ยนแปลง",
+        "isCorrect": true
+      },
+      {
+        "text": "แปรเปลี่ยน",
+        "isCorrect": false
+      },
+      {
+        "text": "ผันแปร",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่แน่นอน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Impeccable",
+    "phonetic": "/ɪmˈpekəbl/",
+    "choices": [
+      {
+        "text": "ไร้ที่ติ",
+        "isCorrect": true
+      },
+      {
+        "text": "บกพร่อง",
+        "isCorrect": false
+      },
+      {
+        "text": "มีตำหนิ",
+        "isCorrect": false
+      },
+      {
+        "text": "ข้อบกพร่อง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Impediment",
+    "phonetic": "/ɪmˈpedɪmənt/",
+    "choices": [
+      {
+        "text": "อุปสรรค",
+        "isCorrect": true
+      },
+      {
+        "text": "ตัวช่วย",
+        "isCorrect": false
+      },
+      {
+        "text": "แรงส่ง",
+        "isCorrect": false
+      },
+      {
+        "text": "ผู้สนับสนุน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Imperative",
+    "phonetic": "/ɪmˈperətɪv/",
+    "choices": [
+      {
+        "text": "จำเป็นอย่างยิ่ง",
+        "isCorrect": true
+      },
+      {
+        "text": "ไม่จำเป็น",
+        "isCorrect": false
+      },
+      {
+        "text": "เล็กน้อย",
+        "isCorrect": false
+      },
+      {
+        "text": "เป็นทางเลือก",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Impetus",
+    "phonetic": "/ˈɪmpɪtəs/",
+    "choices": [
+      {
+        "text": "แรงผลักดัน",
+        "isCorrect": true
+      },
+      {
+        "text": "แรงฉุด",
+        "isCorrect": false
+      },
+      {
+        "text": "อุปสรรค",
+        "isCorrect": false
+      },
+      {
+        "text": "ข้อขัดขวาง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Implement",
+    "phonetic": "/ˈɪmplɪment/",
+    "choices": [
+      {
+        "text": "นำไปปฏิบัติ",
+        "isCorrect": true
+      },
+      {
+        "text": "ละเลย",
+        "isCorrect": false
+      },
+      {
+        "text": "ยกเลิก",
+        "isCorrect": false
+      },
+      {
+        "text": "เลื่อน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Implication",
+    "phonetic": "/ˌɪmplɪˈkeɪʃn/",
+    "choices": [
+      {
+        "text": "นัย",
+        "isCorrect": true
+      },
+      {
+        "text": "ความหมายตรงตัว",
+        "isCorrect": false
+      },
+      {
+        "text": "ข้อเท็จจริง",
+        "isCorrect": false
+      },
+      {
+        "text": "หลักฐาน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Implore",
+    "phonetic": "/ɪmˈplɔːr/",
+    "choices": [
+      {
+        "text": "วิงวอน",
+        "isCorrect": true
+      },
+      {
+        "text": "สั่งการ",
+        "isCorrect": false
+      },
+      {
+        "text": "บังคับ",
+        "isCorrect": false
+      },
+      {
+        "text": "ข่มขู่",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Impose",
+    "phonetic": "/ɪmˈpoʊz/",
+    "choices": [
+      {
+        "text": "ยัดเยียด",
+        "isCorrect": true
+      },
+      {
+        "text": "ยกเว้น",
+        "isCorrect": false
+      },
+      {
+        "text": "ถอน",
+        "isCorrect": false
+      },
+      {
+        "text": "ปลด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Impoverished",
+    "phonetic": "/ɪmˈpɑːvərɪʃt/",
+    "choices": [
+      {
+        "text": "ยากจนข้นแค้น",
+        "isCorrect": true
+      },
+      {
+        "text": "มั่งคั่ง",
+        "isCorrect": false
+      },
+      {
+        "text": "ร่ำรวย",
+        "isCorrect": false
+      },
+      {
+        "text": "มั่งมี",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Inadvertently",
+    "phonetic": "/ˌɪnədˈvɜːrtəntli/",
+    "choices": [
+      {
+        "text": "โดยไม่ตั้งใจ",
+        "isCorrect": true
+      },
+      {
+        "text": "โดยเจตนา",
+        "isCorrect": false
+      },
+      {
+        "text": "จงใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "โดยจงใจ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Inception",
+    "phonetic": "/ɪnˈsepʃn/",
+    "choices": [
+      {
+        "text": "จุดเริ่มต้น",
+        "isCorrect": true
+      },
+      {
+        "text": "จุดสิ้นสุด",
+        "isCorrect": false
+      },
+      {
+        "text": "บทสรุป",
+        "isCorrect": false
+      },
+      {
+        "text": "ปลายทาง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Inclination",
+    "phonetic": "/ˌɪnklɪˈneɪʃn/",
+    "choices": [
+      {
+        "text": "ความโน้มเอียง",
+        "isCorrect": true
+      },
+      {
+        "text": "ความเฉยเมย",
+        "isCorrect": false
+      },
+      {
+        "text": "การไม่สนใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "ความขัดขืน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Incompetent",
+    "phonetic": "/ɪnˈkɑːmpɪtənt/",
+    "choices": [
+      {
+        "text": "ไร้ความสามารถ",
+        "isCorrect": true
+      },
+      {
+        "text": "มีความสามารถ",
+        "isCorrect": false
+      },
+      {
+        "text": "เชี่ยวชาญ",
+        "isCorrect": false
+      },
+      {
+        "text": "ชำนาญ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Incorporate",
+    "phonetic": "/ɪnˈkɔːrpəreɪt/",
+    "choices": [
+      {
+        "text": "ผนวกรวม",
+        "isCorrect": true
+      },
+      {
+        "text": "แยกออก",
+        "isCorrect": false
+      },
+      {
+        "text": "ตัดออก",
+        "isCorrect": false
+      },
+      {
+        "text": "กีดกัน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Incur",
+    "phonetic": "/ɪnˈkɜːr/",
+    "choices": [
+      {
+        "text": "ก่อให้เกิด",
+        "isCorrect": true
+      },
+      {
+        "text": "หลีกเลี่ยง",
+        "isCorrect": false
+      },
+      {
+        "text": "ป้องกัน",
+        "isCorrect": false
+      },
+      {
+        "text": "ขัดขวาง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Indebted",
+    "phonetic": "/ɪnˈdetɪd/",
+    "choices": [
+      {
+        "text": "เป็นหนี้บุญคุณ",
+        "isCorrect": true
+      },
+      {
+        "text": "ไร้หนี้",
+        "isCorrect": false
+      },
+      {
+        "text": "อิสระ",
+        "isCorrect": false
+      },
+      {
+        "text": "เป็นไท",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Indignant",
+    "phonetic": "/ɪnˈdɪɡnənt/",
+    "choices": [
+      {
+        "text": "ไม่พอใจโกรธแค้น",
+        "isCorrect": true
+      },
+      {
+        "text": "พอใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "ยินดี",
+        "isCorrect": false
+      },
+      {
+        "text": "สงบ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Induce",
+    "phonetic": "/ɪnˈduːs/",
+    "choices": [
+      {
+        "text": "ทำให้เกิด",
+        "isCorrect": true
+      },
+      {
+        "text": "ยับยั้ง",
+        "isCorrect": false
+      },
+      {
+        "text": "ป้องกัน",
+        "isCorrect": false
+      },
+      {
+        "text": "ยับยั้งไว้",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Infallible",
+    "phonetic": "/ɪnˈfæləbl/",
+    "choices": [
+      {
+        "text": "ไม่มีวันผิดพลาด",
+        "isCorrect": true
+      },
+      {
+        "text": "ผิดพลาดได้",
+        "isCorrect": false
+      },
+      {
+        "text": "พลาดง่าย",
+        "isCorrect": false
+      },
+      {
+        "text": "บกพร่อง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Inflate",
+    "phonetic": "/ɪnˈfleɪt/",
+    "choices": [
+      {
+        "text": "พองขึ้น",
+        "isCorrect": true
+      },
+      {
+        "text": "ยุบลง",
+        "isCorrect": false
+      },
+      {
+        "text": "แฟบ",
+        "isCorrect": false
+      },
+      {
+        "text": "หดตัว",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Influx",
+    "phonetic": "/ˈɪnflʌks/",
+    "choices": [
+      {
+        "text": "การหลั่งไหลเข้ามา",
+        "isCorrect": true
+      },
+      {
+        "text": "การไหลออก",
+        "isCorrect": false
+      },
+      {
+        "text": "การระบาย",
+        "isCorrect": false
+      },
+      {
+        "text": "การหนีออก",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Ingenuity",
+    "phonetic": "/ˌɪndʒəˈnuːəti/",
+    "choices": [
+      {
+        "text": "ความช่างคิด",
+        "isCorrect": true
+      },
+      {
+        "text": "ความทื่อ",
+        "isCorrect": false
+      },
+      {
+        "text": "ความโง่เขลา",
+        "isCorrect": false
+      },
+      {
+        "text": "ความซ้ำซาก",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Inherent",
+    "phonetic": "/ɪnˈhɪrənt/",
+    "choices": [
+      {
+        "text": "โดยธรรมชาติ",
+        "isCorrect": true
+      },
+      {
+        "text": "จากภายนอก",
+        "isCorrect": false
+      },
+      {
+        "text": "ที่เรียนรู้",
+        "isCorrect": false
+      },
+      {
+        "text": "ที่ได้มา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Initiative",
+    "phonetic": "/ɪˈnɪʃətɪv/",
+    "choices": [
+      {
+        "text": "การริเริ่ม",
+        "isCorrect": true
+      },
+      {
+        "text": "การรอรับคำสั่ง",
+        "isCorrect": false
+      },
+      {
+        "text": "ความเฉื่อย",
+        "isCorrect": false
+      },
+      {
+        "text": "การตามหลัง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Innate",
+    "phonetic": "/ɪˈneɪt/",
+    "choices": [
+      {
+        "text": "ติดตัวมาแต่กำเนิด",
+        "isCorrect": true
+      },
+      {
+        "text": "เรียนรู้ภายหลัง",
+        "isCorrect": false
+      },
+      {
+        "text": "ได้มาจากการฝึก",
+        "isCorrect": false
+      },
+      {
+        "text": "สั่งสม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Innocuous",
+    "phonetic": "/ɪˈnɑːkjuəs/",
+    "choices": [
+      {
+        "text": "ไร้พิษภัย",
+        "isCorrect": true
+      },
+      {
+        "text": "อันตราย",
+        "isCorrect": false
+      },
+      {
+        "text": "เป็นภัย",
+        "isCorrect": false
+      },
+      {
+        "text": "ร้ายแรง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Inquiry",
+    "phonetic": "/ɪnˈkwaɪəri/",
+    "choices": [
+      {
+        "text": "การสอบสวน",
+        "isCorrect": true
+      },
+      {
+        "text": "ข้อสรุป",
+        "isCorrect": false
+      },
+      {
+        "text": "การตัดสินใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "ข้อเสนอแนะ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Insolvent",
+    "phonetic": "/ɪnˈsɑːlvənt/",
+    "choices": [
+      {
+        "text": "ล้มละลาย",
+        "isCorrect": true
+      },
+      {
+        "text": "ร่ำรวย",
+        "isCorrect": false
+      },
+      {
+        "text": "มั่งคั่ง",
+        "isCorrect": false
+      },
+      {
+        "text": "มีฐานะดี",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Instigate",
+    "phonetic": "/ˈɪnstɪɡeɪt/",
+    "choices": [
+      {
+        "text": "ยั่วยุ",
+        "isCorrect": true
+      },
+      {
+        "text": "สงบ",
+        "isCorrect": false
+      },
+      {
+        "text": "ระงับ",
+        "isCorrect": false
+      },
+      {
+        "text": "ยุติ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Integral",
+    "phonetic": "/ˈɪntɪɡrəl/",
+    "choices": [
+      {
+        "text": "เป็นส่วนสำคัญ",
+        "isCorrect": true
+      },
+      {
+        "text": "ไม่จำเป็น",
+        "isCorrect": false
+      },
+      {
+        "text": "เล็กน้อย",
+        "isCorrect": false
+      },
+      {
+        "text": "ปลีกย่อย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Integrate",
+    "phonetic": "/ˈɪntɪɡreɪt/",
+    "choices": [
+      {
+        "text": "บูรณาการ",
+        "isCorrect": true
+      },
+      {
+        "text": "แยกส่วน",
+        "isCorrect": false
+      },
+      {
+        "text": "แบ่งแยก",
+        "isCorrect": false
+      },
+      {
+        "text": "ตัดขาด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Interfere",
+    "phonetic": "/ˌɪntərˈfɪr/",
+    "choices": [
+      {
+        "text": "ก้าวก่าย",
+        "isCorrect": true
+      },
+      {
+        "text": "ปล่อยวาง",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่ยุ่ง",
+        "isCorrect": false
+      },
+      {
+        "text": "เคารพ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Intimidate",
+    "phonetic": "/ɪnˈtɪmɪdeɪt/",
+    "choices": [
+      {
+        "text": "ข่มขู่",
+        "isCorrect": true
+      },
+      {
+        "text": "ปลอบโยน",
+        "isCorrect": false
+      },
+      {
+        "text": "ให้กำลังใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "หนุนใจ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Intolerant",
+    "phonetic": "/ɪnˈtɑːlərənt/",
+    "choices": [
+      {
+        "text": "ไม่ยอมรับฟัง",
+        "isCorrect": true
+      },
+      {
+        "text": "ใจกว้าง",
+        "isCorrect": false
+      },
+      {
+        "text": "อดทน",
+        "isCorrect": false
+      },
+      {
+        "text": "เปิดใจ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Intrigue",
+    "phonetic": "/ɪnˈtriːɡ/",
+    "choices": [
+      {
+        "text": "ทำให้สนใจ",
+        "isCorrect": true
+      },
+      {
+        "text": "ทำให้เบื่อ",
+        "isCorrect": false
+      },
+      {
+        "text": "ทำให้รำคาญ",
+        "isCorrect": false
+      },
+      {
+        "text": "ทำให้ง่วง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Intrinsic",
+    "phonetic": "/ɪnˈtrɪnsɪk/",
+    "choices": [
+      {
+        "text": "ภายในแท้",
+        "isCorrect": true
+      },
+      {
+        "text": "ภายนอก",
+        "isCorrect": false
+      },
+      {
+        "text": "ผิวนอก",
+        "isCorrect": false
+      },
+      {
+        "text": "เปลือกนอก",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Invaluable",
+    "phonetic": "/ɪnˈvæljuəbl/",
+    "choices": [
+      {
+        "text": "ล้ำค่าอย่างยิ่ง",
+        "isCorrect": true
+      },
+      {
+        "text": "ไร้ค่า",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่มีค่า",
+        "isCorrect": false
+      },
+      {
+        "text": "ราคาถูก",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Invariably",
+    "phonetic": "/ɪnˈveriəbli/",
+    "choices": [
+      {
+        "text": "เสมอไป",
+        "isCorrect": true
+      },
+      {
+        "text": "บางครั้ง",
+        "isCorrect": false
+      },
+      {
+        "text": "นาน ๆ ครั้ง",
+        "isCorrect": false
+      },
+      {
+        "text": "แทบไม่เคย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Invasive",
+    "phonetic": "/ɪnˈveɪsɪv/",
+    "choices": [
+      {
+        "text": "ลุกล้ำ",
+        "isCorrect": true
+      },
+      {
+        "text": "เคารพ",
+        "isCorrect": false
+      },
+      {
+        "text": "รักษาเขต",
+        "isCorrect": false
+      },
+      {
+        "text": "สุภาพ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Invert",
+    "phonetic": "/ɪnˈvɜːrt/",
+    "choices": [
+      {
+        "text": "กลับด้าน",
+        "isCorrect": true
+      },
+      {
+        "text": "เรียงตามเดิม",
+        "isCorrect": false
+      },
+      {
+        "text": "คงสภาพ",
+        "isCorrect": false
+      },
+      {
+        "text": "ตั้งตรง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Invoke",
+    "phonetic": "/ɪnˈvoʊk/",
+    "choices": [
+      {
+        "text": "ร้องขอ",
+        "isCorrect": true
+      },
+      {
+        "text": "ปฏิเสธ",
+        "isCorrect": false
+      },
+      {
+        "text": "เพิกเฉย",
+        "isCorrect": false
+      },
+      {
+        "text": "ละเลย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Irrelevant",
+    "phonetic": "/ɪˈreləvənt/",
+    "choices": [
+      {
+        "text": "ไม่เกี่ยวข้อง",
+        "isCorrect": true
+      },
+      {
+        "text": "เกี่ยวข้อง",
+        "isCorrect": false
+      },
+      {
+        "text": "สำคัญ",
+        "isCorrect": false
+      },
+      {
+        "text": "ตรงประเด็น",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Irreversible",
+    "phonetic": "/ˌɪrɪˈvɜːrsəbl/",
+    "choices": [
+      {
+        "text": "ย้อนกลับไม่ได้",
+        "isCorrect": true
+      },
+      {
+        "text": "ย้อนกลับได้",
+        "isCorrect": false
+      },
+      {
+        "text": "แก้ไขได้",
+        "isCorrect": false
+      },
+      {
+        "text": "พลิกฟื้นได้",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Jeopardize",
+    "phonetic": "/ˈdʒepərdaɪz/",
+    "choices": [
+      {
+        "text": "ทำให้เสี่ยง",
+        "isCorrect": true
+      },
+      {
+        "text": "คุ้มครอง",
+        "isCorrect": false
+      },
+      {
+        "text": "ปกป้อง",
+        "isCorrect": false
+      },
+      {
+        "text": "รักษา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Jubilant",
+    "phonetic": "/ˈdʒuːbɪlənt/",
+    "choices": [
+      {
+        "text": "ดีใจล้นพ้น",
+        "isCorrect": true
+      },
+      {
+        "text": "เศร้าโศก",
+        "isCorrect": false
+      },
+      {
+        "text": "หดหู่",
+        "isCorrect": false
+      },
+      {
+        "text": "ซึมเศร้า",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Lack",
+    "phonetic": "/læk/",
+    "choices": [
+      {
+        "text": "ขาดแคลน",
+        "isCorrect": true
+      },
+      {
+        "text": "อุดมสมบูรณ์",
+        "isCorrect": false
+      },
+      {
+        "text": "เพียบพร้อม",
+        "isCorrect": false
+      },
+      {
+        "text": "เต็มเปี่ยม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Laden",
+    "phonetic": "/ˈleɪdn/",
+    "choices": [
+      {
+        "text": "แบกหนัก",
+        "isCorrect": true
+      },
+      {
+        "text": "เบา",
+        "isCorrect": false
+      },
+      {
+        "text": "โล่ง",
+        "isCorrect": false
+      },
+      {
+        "text": "ว่างเปล่า",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Lament",
+    "phonetic": "/ləˈment/",
+    "choices": [
+      {
+        "text": "คร่ำครวญ",
+        "isCorrect": true
+      },
+      {
+        "text": "ยินดี",
+        "isCorrect": false
+      },
+      {
+        "text": "เบิกบาน",
+        "isCorrect": false
+      },
+      {
+        "text": "เฉลิมฉลอง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Lavish",
+    "phonetic": "/ˈlævɪʃ/",
+    "choices": [
+      {
+        "text": "หรูหราฟุ่มเฟือย",
+        "isCorrect": true
+      },
+      {
+        "text": "เรียบง่าย",
+        "isCorrect": false
+      },
+      {
+        "text": "มัธยัสถ์",
+        "isCorrect": false
+      },
+      {
+        "text": "ประหยัด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Lethargy",
+    "phonetic": "/ˈleθərdʒi/",
+    "choices": [
+      {
+        "text": "ความเฉื่อยชา",
+        "isCorrect": true
+      },
+      {
+        "text": "ความกระฉับกระเฉง",
+        "isCorrect": false
+      },
+      {
+        "text": "ความตื่นตัว",
+        "isCorrect": false
+      },
+      {
+        "text": "พลัง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Liable",
+    "phonetic": "/ˈlaɪəbl/",
+    "choices": [
+      {
+        "text": "มีแนวโน้ม / ต้องรับผิด",
+        "isCorrect": true
+      },
+      {
+        "text": "ไม่มีทาง",
+        "isCorrect": false
+      },
+      {
+        "text": "ปลอดภัย",
+        "isCorrect": false
+      },
+      {
+        "text": "แน่ใจไม่",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Lucid",
+    "phonetic": "/ˈluːsɪd/",
+    "choices": [
+      {
+        "text": "แจ่มชัด",
+        "isCorrect": true
+      },
+      {
+        "text": "คลุมเครือ",
+        "isCorrect": false
+      },
+      {
+        "text": "มัว",
+        "isCorrect": false
+      },
+      {
+        "text": "สับสน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Lure",
+    "phonetic": "/lʊr/",
+    "choices": [
+      {
+        "text": "ล่อลวง",
+        "isCorrect": true
+      },
+      {
+        "text": "ขับไล่",
+        "isCorrect": false
+      },
+      {
+        "text": "เตือนภัย",
+        "isCorrect": false
+      },
+      {
+        "text": "ขู่",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Magnitude",
+    "phonetic": "/ˈmæɡnɪtuːd/",
+    "choices": [
+      {
+        "text": "ขนาดใหญ่",
+        "isCorrect": true
+      },
+      {
+        "text": "ขนาดเล็ก",
+        "isCorrect": false
+      },
+      {
+        "text": "ความน้อย",
+        "isCorrect": false
+      },
+      {
+        "text": "ปริมาณน้อย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Mandatory",
+    "phonetic": "/ˈmændətɔːri/",
+    "choices": [
+      {
+        "text": "บังคับ",
+        "isCorrect": true
+      },
+      {
+        "text": "สมัครใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่จำเป็น",
+        "isCorrect": false
+      },
+      {
+        "text": "เลือกได้",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Manipulate",
+    "phonetic": "/məˈnɪpjuleɪt/",
+    "choices": [
+      {
+        "text": "บงการ",
+        "isCorrect": true
+      },
+      {
+        "text": "ปล่อยอิสระ",
+        "isCorrect": false
+      },
+      {
+        "text": "เคารพ",
+        "isCorrect": false
+      },
+      {
+        "text": "ปล่อยวาง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Martial",
+    "phonetic": "/ˈmɑːrʃl/",
+    "choices": [
+      {
+        "text": "เกี่ยวกับการทหาร",
+        "isCorrect": true
+      },
+      {
+        "text": "เกี่ยวกับพลเรือน",
+        "isCorrect": false
+      },
+      {
+        "text": "เกี่ยวกับการค้า",
+        "isCorrect": false
+      },
+      {
+        "text": "เกี่ยวกับกฎหมาย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Mastery",
+    "phonetic": "/ˈmæstəri/",
+    "choices": [
+      {
+        "text": "ความเชี่ยวชาญ",
+        "isCorrect": true
+      },
+      {
+        "text": "ความอ่อนหัด",
+        "isCorrect": false
+      },
+      {
+        "text": "มือใหม่",
+        "isCorrect": false
+      },
+      {
+        "text": "ความไม่ชำนาญ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Menace",
+    "phonetic": "/ˈmenəs/",
+    "choices": [
+      {
+        "text": "ภัยคุกคาม",
+        "isCorrect": true
+      },
+      {
+        "text": "ความปลอดภัย",
+        "isCorrect": false
+      },
+      {
+        "text": "การคุ้มครอง",
+        "isCorrect": false
+      },
+      {
+        "text": "ผู้พิทักษ์",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Mere",
+    "phonetic": "/mɪr/",
+    "choices": [
+      {
+        "text": "เพียงเท่านั้น",
+        "isCorrect": true
+      },
+      {
+        "text": "มากมาย",
+        "isCorrect": false
+      },
+      {
+        "text": "มหาศาล",
+        "isCorrect": false
+      },
+      {
+        "text": "ล้นเหลือ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Merit",
+    "phonetic": "/ˈmerɪt/",
+    "choices": [
+      {
+        "text": "คุณค่า",
+        "isCorrect": true
+      },
+      {
+        "text": "ข้อเสีย",
+        "isCorrect": false
+      },
+      {
+        "text": "ข้อบกพร่อง",
+        "isCorrect": false
+      },
+      {
+        "text": "จุดอ่อน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Meticulous",
+    "phonetic": "/məˈtɪkjələs/",
+    "choices": [
+      {
+        "text": "พิถีพิถัน",
+        "isCorrect": true
+      },
+      {
+        "text": "สะเพร่า",
+        "isCorrect": false
+      },
+      {
+        "text": "เลินเล่อ",
+        "isCorrect": false
+      },
+      {
+        "text": "หยาบคาย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Modest",
+    "phonetic": "/ˈmɑːdɪst/",
+    "choices": [
+      {
+        "text": "ถ่อมตัว",
+        "isCorrect": true
+      },
+      {
+        "text": "เย่อหยิ่ง",
+        "isCorrect": false
+      },
+      {
+        "text": "อวดดี",
+        "isCorrect": false
+      },
+      {
+        "text": "โอ้อวด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Morale",
+    "phonetic": "/məˈræl/",
+    "choices": [
+      {
+        "text": "ขวัญกำลังใจ",
+        "isCorrect": true
+      },
+      {
+        "text": "ความท้อแท้",
+        "isCorrect": false
+      },
+      {
+        "text": "ความสิ้นหวัง",
+        "isCorrect": false
+      },
+      {
+        "text": "ความหดหู่",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Mortal",
+    "phonetic": "/ˈmɔːrtl/",
+    "choices": [
+      {
+        "text": "ต้องตายได้",
+        "isCorrect": true
+      },
+      {
+        "text": "อมตะ",
+        "isCorrect": false
+      },
+      {
+        "text": "นิรันดร์",
+        "isCorrect": false
+      },
+      {
+        "text": "อยู่ยงคงกระพัน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Murky",
+    "phonetic": "/ˈmɜːrki/",
+    "choices": [
+      {
+        "text": "ขุ่นมัว",
+        "isCorrect": true
+      },
+      {
+        "text": "ใสสะอาด",
+        "isCorrect": false
+      },
+      {
+        "text": "กระจ่าง",
+        "isCorrect": false
+      },
+      {
+        "text": "โปร่งใส",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Nefarious",
+    "phonetic": "/nɪˈferiəs/",
+    "choices": [
+      {
+        "text": "ชั่วช้า",
+        "isCorrect": true
+      },
+      {
+        "text": "ดีงาม",
+        "isCorrect": false
+      },
+      {
+        "text": "ซื่อสัตย์",
+        "isCorrect": false
+      },
+      {
+        "text": "มีคุณธรรม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Negate",
+    "phonetic": "/nɪˈɡeɪt/",
+    "choices": [
+      {
+        "text": "ลบล้าง",
+        "isCorrect": true
+      },
+      {
+        "text": "ยืนยัน",
+        "isCorrect": false
+      },
+      {
+        "text": "สนับสนุน",
+        "isCorrect": false
+      },
+      {
+        "text": "รับรอง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Nominal",
+    "phonetic": "/ˈnɑːmɪnl/",
+    "choices": [
+      {
+        "text": "เพียงเล็กน้อย",
+        "isCorrect": true
+      },
+      {
+        "text": "มากมาย",
+        "isCorrect": false
+      },
+      {
+        "text": "มหาศาล",
+        "isCorrect": false
+      },
+      {
+        "text": "ล้นเหลือ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Nonchalant",
+    "phonetic": "/ˌnɑːnʃəˈlɑːnt/",
+    "choices": [
+      {
+        "text": "ไม่แยแส",
+        "isCorrect": true
+      },
+      {
+        "text": "เอาใจใส่",
+        "isCorrect": false
+      },
+      {
+        "text": "กระตือรือร้น",
+        "isCorrect": false
+      },
+      {
+        "text": "สนใจ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Notify",
+    "phonetic": "/ˈnoʊtɪfaɪ/",
+    "choices": [
+      {
+        "text": "แจ้งเตือน",
+        "isCorrect": true
+      },
+      {
+        "text": "ปกปิด",
+        "isCorrect": false
+      },
+      {
+        "text": "ซ่อนเร้น",
+        "isCorrect": false
+      },
+      {
+        "text": "ปิดบัง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Notion",
+    "phonetic": "/ˈnoʊʃn/",
+    "choices": [
+      {
+        "text": "แนวคิด",
+        "isCorrect": true
+      },
+      {
+        "text": "ข้อเท็จจริง",
+        "isCorrect": false
+      },
+      {
+        "text": "หลักฐาน",
+        "isCorrect": false
+      },
+      {
+        "text": "กฎเกณฑ์",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Nurture",
+    "phonetic": "/ˈnɜːrtʃər/",
+    "choices": [
+      {
+        "text": "เลี้ยงดู",
+        "isCorrect": true
+      },
+      {
+        "text": "ทำร้าย",
+        "isCorrect": false
+      },
+      {
+        "text": "ทอดทิ้ง",
+        "isCorrect": false
+      },
+      {
+        "text": "ละเลย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Obstinate",
+    "phonetic": "/ˈɑːbstɪnət/",
+    "choices": [
+      {
+        "text": "ดื้อรั้น",
+        "isCorrect": true
+      },
+      {
+        "text": "ยืดหยุ่น",
+        "isCorrect": false
+      },
+      {
+        "text": "ยอมง่าย",
+        "isCorrect": false
+      },
+      {
+        "text": "ว่าง่าย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Obstruct",
+    "phonetic": "/əbˈstrʌkt/",
+    "choices": [
+      {
+        "text": "กีดขวาง",
+        "isCorrect": true
+      },
+      {
+        "text": "อำนวยความสะดวก",
+        "isCorrect": false
+      },
+      {
+        "text": "ช่วยเหลือ",
+        "isCorrect": false
+      },
+      {
+        "text": "สนับสนุน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Offset",
+    "phonetic": "/ˈɔːfset/",
+    "choices": [
+      {
+        "text": "หักล้าง",
+        "isCorrect": true
+      },
+      {
+        "text": "เพิ่มทวี",
+        "isCorrect": false
+      },
+      {
+        "text": "ขยาย",
+        "isCorrect": false
+      },
+      {
+        "text": "เสริม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Omit",
+    "phonetic": "/oʊˈmɪt/",
+    "choices": [
+      {
+        "text": "ละเว้น",
+        "isCorrect": true
+      },
+      {
+        "text": "รวมเข้า",
+        "isCorrect": false
+      },
+      {
+        "text": "บรรจุ",
+        "isCorrect": false
+      },
+      {
+        "text": "ใส่ไว้",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Onerous",
+    "phonetic": "/ˈɑːnərəs/",
+    "choices": [
+      {
+        "text": "หนักหนาสาหัส",
+        "isCorrect": true
+      },
+      {
+        "text": "เบาสบาย",
+        "isCorrect": false
+      },
+      {
+        "text": "สะดวก",
+        "isCorrect": false
+      },
+      {
+        "text": "ง่ายดาย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Ominous",
+    "phonetic": "/ˈɑːmɪnəs/",
+    "choices": [
+      {
+        "text": "เป็นลางร้าย",
+        "isCorrect": true
+      },
+      {
+        "text": "เป็นมงคล",
+        "isCorrect": false
+      },
+      {
+        "text": "เป็นสิริมงคล",
+        "isCorrect": false
+      },
+      {
+        "text": "โชคดี",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Opponent",
+    "phonetic": "/əˈpoʊnənt/",
+    "choices": [
+      {
+        "text": "คู่แข่ง",
+        "isCorrect": true
+      },
+      {
+        "text": "พันธมิตร",
+        "isCorrect": false
+      },
+      {
+        "text": "เพื่อนร่วมทีม",
+        "isCorrect": false
+      },
+      {
+        "text": "ผู้สนับสนุน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Opt",
+    "phonetic": "/ɑːpt/",
+    "choices": [
+      {
+        "text": "เลือก",
+        "isCorrect": true
+      },
+      {
+        "text": "ปฏิเสธ",
+        "isCorrect": false
+      },
+      {
+        "text": "หลีกเลี่ยง",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่สนใจ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Ordeal",
+    "phonetic": "/ɔːrˈdiːl/",
+    "choices": [
+      {
+        "text": "ความทุกข์ยาก",
+        "isCorrect": true
+      },
+      {
+        "text": "ความสะดวก",
+        "isCorrect": false
+      },
+      {
+        "text": "ความสบาย",
+        "isCorrect": false
+      },
+      {
+        "text": "ความสำราญ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Outbreak",
+    "phonetic": "/ˈaʊtbreɪk/",
+    "choices": [
+      {
+        "text": "การระบาด",
+        "isCorrect": true
+      },
+      {
+        "text": "การควบคุม",
+        "isCorrect": false
+      },
+      {
+        "text": "การยับยั้ง",
+        "isCorrect": false
+      },
+      {
+        "text": "การกำจัด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Outdated",
+    "phonetic": "/ˌaʊtˈdeɪtɪd/",
+    "choices": [
+      {
+        "text": "ล้าสมัย",
+        "isCorrect": true
+      },
+      {
+        "text": "ทันสมัย",
+        "isCorrect": false
+      },
+      {
+        "text": "ใหม่ล่าสุด",
+        "isCorrect": false
+      },
+      {
+        "text": "ล้ำยุค",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Overwhelm",
+    "phonetic": "/ˌoʊvərˈwelm/",
+    "choices": [
+      {
+        "text": "ท่วมท้น",
+        "isCorrect": true
+      },
+      {
+        "text": "เล็กน้อย",
+        "isCorrect": false
+      },
+      {
+        "text": "น้อยนิด",
+        "isCorrect": false
+      },
+      {
+        "text": "จาง ๆ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Panacea",
+    "phonetic": "/ˌpænəˈsiːə/",
+    "choices": [
+      {
+        "text": "ยารักษาทุกโรค",
+        "isCorrect": true
+      },
+      {
+        "text": "ยาเฉพาะโรค",
+        "isCorrect": false
+      },
+      {
+        "text": "ยาประคอง",
+        "isCorrect": false
+      },
+      {
+        "text": "ยาป้องกัน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Paramount",
+    "phonetic": "/ˈpærəmaʊnt/",
+    "choices": [
+      {
+        "text": "สำคัญที่สุด",
+        "isCorrect": true
+      },
+      {
+        "text": "รองลงมา",
+        "isCorrect": false
+      },
+      {
+        "text": "น้อยที่สุด",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่สำคัญ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Penalty",
+    "phonetic": "/ˈpenəlti/",
+    "choices": [
+      {
+        "text": "บทลงโทษ",
+        "isCorrect": true
+      },
+      {
+        "text": "รางวัล",
+        "isCorrect": false
+      },
+      {
+        "text": "ของขวัญ",
+        "isCorrect": false
+      },
+      {
+        "text": "การชมเชย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Pensive",
+    "phonetic": "/ˈpensɪv/",
+    "choices": [
+      {
+        "text": "ครุ่นคิด",
+        "isCorrect": true
+      },
+      {
+        "text": "เหม่อลอย",
+        "isCorrect": false
+      },
+      {
+        "text": "ร่าเริง",
+        "isCorrect": false
+      },
+      {
+        "text": "เบิกบาน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Peril",
+    "phonetic": "/ˈperəl/",
+    "choices": [
+      {
+        "text": "อันตราย",
+        "isCorrect": true
+      },
+      {
+        "text": "ความปลอดภัย",
+        "isCorrect": false
+      },
+      {
+        "text": "ความมั่นคง",
+        "isCorrect": false
+      },
+      {
+        "text": "ความสงบ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Perpetual",
+    "phonetic": "/pərˈpetʃuəl/",
+    "choices": [
+      {
+        "text": "ไม่รู้จบ",
+        "isCorrect": true
+      },
+      {
+        "text": "ชั่วคราว",
+        "isCorrect": false
+      },
+      {
+        "text": "ชั่วครู่",
+        "isCorrect": false
+      },
+      {
+        "text": "ระยะสั้น",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Persist",
+    "phonetic": "/pərˈsɪst/",
+    "choices": [
+      {
+        "text": "ยืนหยัด",
+        "isCorrect": true
+      },
+      {
+        "text": "ยอมแพ้",
+        "isCorrect": false
+      },
+      {
+        "text": "ถอย",
+        "isCorrect": false
+      },
+      {
+        "text": "ท้อถอย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Pertinent",
+    "phonetic": "/ˈpɜːrtnənt/",
+    "choices": [
+      {
+        "text": "ตรงประเด็น",
+        "isCorrect": true
+      },
+      {
+        "text": "ไม่เกี่ยวข้อง",
+        "isCorrect": false
+      },
+      {
+        "text": "นอกเรื่อง",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่ตรง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Pinnacle",
+    "phonetic": "/ˈpɪnəkl/",
+    "choices": [
+      {
+        "text": "จุดสูงสุด",
+        "isCorrect": true
+      },
+      {
+        "text": "จุดต่ำสุด",
+        "isCorrect": false
+      },
+      {
+        "text": "ฐาน",
+        "isCorrect": false
+      },
+      {
+        "text": "รากฐาน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Plague",
+    "phonetic": "/pleɪɡ/",
+    "choices": [
+      {
+        "text": "โรคระบาด",
+        "isCorrect": true
+      },
+      {
+        "text": "สุขภาพดี",
+        "isCorrect": false
+      },
+      {
+        "text": "การป้องกัน",
+        "isCorrect": false
+      },
+      {
+        "text": "ภูมิคุ้มกัน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Ponder",
+    "phonetic": "/ˈpɑːndər/",
+    "choices": [
+      {
+        "text": "ไตร่ตรอง",
+        "isCorrect": true
+      },
+      {
+        "text": "รีบด่วนสรุป",
+        "isCorrect": false
+      },
+      {
+        "text": "ตัดสินใจทันที",
+        "isCorrect": false
+      },
+      {
+        "text": "เพิกเฉย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Posterity",
+    "phonetic": "/pɑːˈsterəti/",
+    "choices": [
+      {
+        "text": "ลูกหลานภายภาคหน้า",
+        "isCorrect": true
+      },
+      {
+        "text": "บรรพบุรุษ",
+        "isCorrect": false
+      },
+      {
+        "text": "คนรุ่นเก่า",
+        "isCorrect": false
+      },
+      {
+        "text": "ผู้ใหญ่",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Potential",
+    "phonetic": "/pəˈtenʃl/",
+    "choices": [
+      {
+        "text": "ศักยภาพ",
+        "isCorrect": true
+      },
+      {
+        "text": "ข้อจำกัด",
+        "isCorrect": false
+      },
+      {
+        "text": "จุดอ่อน",
+        "isCorrect": false
+      },
+      {
+        "text": "อุปสรรค",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Precise",
+    "phonetic": "/prɪˈsaɪs/",
+    "choices": [
+      {
+        "text": "แม่นยำ",
+        "isCorrect": true
+      },
+      {
+        "text": "คลาดเคลื่อน",
+        "isCorrect": false
+      },
+      {
+        "text": "หยาบ",
+        "isCorrect": false
+      },
+      {
+        "text": "โดยประมาณ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Predicament",
+    "phonetic": "/prɪˈdɪkəmənt/",
+    "choices": [
+      {
+        "text": "สภาพกลืนไม่เข้าคายไม่ออก",
+        "isCorrect": true
+      },
+      {
+        "text": "ทางออกชัดเจน",
+        "isCorrect": false
+      },
+      {
+        "text": "สถานการณ์สบาย",
+        "isCorrect": false
+      },
+      {
+        "text": "ความสะดวก",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Prelude",
+    "phonetic": "/ˈpreɪluːd/",
+    "choices": [
+      {
+        "text": "บทนำ",
+        "isCorrect": true
+      },
+      {
+        "text": "บทส่งท้าย",
+        "isCorrect": false
+      },
+      {
+        "text": "บทสรุป",
+        "isCorrect": false
+      },
+      {
+        "text": "บทลงท้าย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Prevalent",
+    "phonetic": "/ˈprevələnt/",
+    "choices": [
+      {
+        "text": "แพร่หลาย",
+        "isCorrect": true
+      },
+      {
+        "text": "หายาก",
+        "isCorrect": false
+      },
+      {
+        "text": "จำกัด",
+        "isCorrect": false
+      },
+      {
+        "text": "พบน้อย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Probe",
+    "phonetic": "/proʊb/",
+    "choices": [
+      {
+        "text": "ตรวจสอบเจาะลึก",
+        "isCorrect": true
+      },
+      {
+        "text": "มองผ่าน ๆ",
+        "isCorrect": false
+      },
+      {
+        "text": "เพิกเฉย",
+        "isCorrect": false
+      },
+      {
+        "text": "ละเลย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Proclaim",
+    "phonetic": "/prəˈkleɪm/",
+    "choices": [
+      {
+        "text": "ประกาศ",
+        "isCorrect": true
+      },
+      {
+        "text": "ปิดบัง",
+        "isCorrect": false
+      },
+      {
+        "text": "ซ่อนเร้น",
+        "isCorrect": false
+      },
+      {
+        "text": "ระงับ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Proficient",
+    "phonetic": "/prəˈfɪʃnt/",
+    "choices": [
+      {
+        "text": "ชำนาญ",
+        "isCorrect": true
+      },
+      {
+        "text": "ไม่ชำนาญ",
+        "isCorrect": false
+      },
+      {
+        "text": "มือใหม่",
+        "isCorrect": false
+      },
+      {
+        "text": "อ่อนหัด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Profound",
+    "phonetic": "/prəˈfaʊnd/",
+    "choices": [
+      {
+        "text": "ลึกซึ้ง",
+        "isCorrect": true
+      },
+      {
+        "text": "ตื้นเขิน",
+        "isCorrect": false
+      },
+      {
+        "text": "ผิวเผิน",
+        "isCorrect": false
+      },
+      {
+        "text": "ตื้น ๆ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Prohibitive",
+    "phonetic": "/prəˈhɪbətɪv/",
+    "choices": [
+      {
+        "text": "สูงเกินจะจ่ายได้",
+        "isCorrect": true
+      },
+      {
+        "text": "ถูก",
+        "isCorrect": false
+      },
+      {
+        "text": "พอจ่ายได้",
+        "isCorrect": false
+      },
+      {
+        "text": "ย่อมเยา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Prolific",
+    "phonetic": "/prəˈlɪfɪk/",
+    "choices": [
+      {
+        "text": "อุดมสมบูรณ์",
+        "isCorrect": true
+      },
+      {
+        "text": "แห้งแล้ง",
+        "isCorrect": false
+      },
+      {
+        "text": "ขาดแคลน",
+        "isCorrect": false
+      },
+      {
+        "text": "น้อย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Prolong",
+    "phonetic": "/prəˈlɔːŋ/",
+    "choices": [
+      {
+        "text": "ยืดเวลา",
+        "isCorrect": true
+      },
+      {
+        "text": "ย่นเวลา",
+        "isCorrect": false
+      },
+      {
+        "text": "ทำให้สั้น",
+        "isCorrect": false
+      },
+      {
+        "text": "เร่งรัด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Proportion",
+    "phonetic": "/prəˈpɔːrʃn/",
+    "choices": [
+      {
+        "text": "สัดส่วน",
+        "isCorrect": true
+      },
+      {
+        "text": "จำนวนแน่นอน",
+        "isCorrect": false
+      },
+      {
+        "text": "ปริมาณรวม",
+        "isCorrect": false
+      },
+      {
+        "text": "ตัวเลขทั้งหมด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Prosecute",
+    "phonetic": "/ˈprɑːsɪkjuːt/",
+    "choices": [
+      {
+        "text": "ฟ้องร้อง",
+        "isCorrect": true
+      },
+      {
+        "text": "ยกฟ้อง",
+        "isCorrect": false
+      },
+      {
+        "text": "ปล่อยตัว",
+        "isCorrect": false
+      },
+      {
+        "text": "พ้นผิด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Prototype",
+    "phonetic": "/ˈproʊtətaɪp/",
+    "choices": [
+      {
+        "text": "ต้นแบบ",
+        "isCorrect": true
+      },
+      {
+        "text": "สินค้าสำเร็จรูป",
+        "isCorrect": false
+      },
+      {
+        "text": "ผลิตภัณฑ์จริง",
+        "isCorrect": false
+      },
+      {
+        "text": "ของเลียนแบบ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Provoke",
+    "phonetic": "/prəˈvoʊk/",
+    "choices": [
+      {
+        "text": "ยั่วยุ",
+        "isCorrect": true
+      },
+      {
+        "text": "สงบ",
+        "isCorrect": false
+      },
+      {
+        "text": "ระงับ",
+        "isCorrect": false
+      },
+      {
+        "text": "บรรเทา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Punctual",
+    "phonetic": "/ˈpʌŋktʃuəl/",
+    "choices": [
+      {
+        "text": "ตรงต่อเวลา",
+        "isCorrect": true
+      },
+      {
+        "text": "สายเสมอ",
+        "isCorrect": false
+      },
+      {
+        "text": "เลท",
+        "isCorrect": false
+      },
+      {
+        "text": "ช้าเป็นประจำ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Quandary",
+    "phonetic": "/ˈkwɑːndəri/",
+    "choices": [
+      {
+        "text": "ภาวะลังเลใจ",
+        "isCorrect": true
+      },
+      {
+        "text": "ความมั่นใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "การตัดสินใจง่าย",
+        "isCorrect": false
+      },
+      {
+        "text": "ความชัดเจน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Quench",
+    "phonetic": "/kwentʃ/",
+    "choices": [
+      {
+        "text": "ดับกระหาย",
+        "isCorrect": true
+      },
+      {
+        "text": "เพิ่มความกระหาย",
+        "isCorrect": false
+      },
+      {
+        "text": "แห้งผาก",
+        "isCorrect": false
+      },
+      {
+        "text": "กระหายมาก",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Radiant",
+    "phonetic": "/ˈreɪdiənt/",
+    "choices": [
+      {
+        "text": "เจิดจ้า",
+        "isCorrect": true
+      },
+      {
+        "text": "มืดมัว",
+        "isCorrect": false
+      },
+      {
+        "text": "หม่นหมอง",
+        "isCorrect": false
+      },
+      {
+        "text": "อับแสง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Rapture",
+    "phonetic": "/ˈræptʃər/",
+    "choices": [
+      {
+        "text": "ความปลื้มปีติ",
+        "isCorrect": true
+      },
+      {
+        "text": "ความทุกข์",
+        "isCorrect": false
+      },
+      {
+        "text": "ความโศก",
+        "isCorrect": false
+      },
+      {
+        "text": "ความหดหู่",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Ravenous",
+    "phonetic": "/ˈrævənəs/",
+    "choices": [
+      {
+        "text": "หิวมาก",
+        "isCorrect": true
+      },
+      {
+        "text": "อิ่ม",
+        "isCorrect": false
+      },
+      {
+        "text": "จุก",
+        "isCorrect": false
+      },
+      {
+        "text": "พอดี",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Rebuke",
+    "phonetic": "/rɪˈbjuːk/",
+    "choices": [
+      {
+        "text": "ตำหนิ",
+        "isCorrect": true
+      },
+      {
+        "text": "ยกย่อง",
+        "isCorrect": false
+      },
+      {
+        "text": "ชมเชย",
+        "isCorrect": false
+      },
+      {
+        "text": "สรรเสริญ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Reciprocate",
+    "phonetic": "/rɪˈsɪprəkeɪt/",
+    "choices": [
+      {
+        "text": "ตอบแทน",
+        "isCorrect": true
+      },
+      {
+        "text": "เพิกเฉย",
+        "isCorrect": false
+      },
+      {
+        "text": "ละเลย",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่ตอบสนอง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Recollect",
+    "phonetic": "/ˌrekəˈlekt/",
+    "choices": [
+      {
+        "text": "นึกย้อน",
+        "isCorrect": true
+      },
+      {
+        "text": "ลืมเลือน",
+        "isCorrect": false
+      },
+      {
+        "text": "หลงลืม",
+        "isCorrect": false
+      },
+      {
+        "text": "ลบเลือน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Rectify",
+    "phonetic": "/ˈrektɪfaɪ/",
+    "choices": [
+      {
+        "text": "แก้ไขให้ถูกต้อง",
+        "isCorrect": true
+      },
+      {
+        "text": "ทำให้ผิด",
+        "isCorrect": false
+      },
+      {
+        "text": "ปล่อยไว้",
+        "isCorrect": false
+      },
+      {
+        "text": "ละเลย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Redeem",
+    "phonetic": "/rɪˈdiːm/",
+    "choices": [
+      {
+        "text": "ไถ่ถอน",
+        "isCorrect": true
+      },
+      {
+        "text": "ละทิ้ง",
+        "isCorrect": false
+      },
+      {
+        "text": "สละ",
+        "isCorrect": false
+      },
+      {
+        "text": "ทอดทิ้ง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Refrain",
+    "phonetic": "/rɪˈfreɪn/",
+    "choices": [
+      {
+        "text": "งดเว้น",
+        "isCorrect": true
+      },
+      {
+        "text": "ยินยอม",
+        "isCorrect": false
+      },
+      {
+        "text": "เต็มใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "ร่วมด้วย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Refute",
+    "phonetic": "/rɪˈfjuːt/",
+    "choices": [
+      {
+        "text": "หักล้าง",
+        "isCorrect": true
+      },
+      {
+        "text": "ยืนยัน",
+        "isCorrect": false
+      },
+      {
+        "text": "สนับสนุน",
+        "isCorrect": false
+      },
+      {
+        "text": "เห็นด้วย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Regime",
+    "phonetic": "/reɪˈʒiːm/",
+    "choices": [
+      {
+        "text": "ระบอบการปกครอง",
+        "isCorrect": true
+      },
+      {
+        "text": "ประชากร",
+        "isCorrect": false
+      },
+      {
+        "text": "ชาติ",
+        "isCorrect": false
+      },
+      {
+        "text": "ดินแดน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Reluctant",
+    "phonetic": "/rɪˈlʌktənt/",
+    "choices": [
+      {
+        "text": "ไม่เต็มใจ",
+        "isCorrect": true
+      },
+      {
+        "text": "เต็มใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "ยินดี",
+        "isCorrect": false
+      },
+      {
+        "text": "กระตือรือร้น",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Remnant",
+    "phonetic": "/ˈremnənt/",
+    "choices": [
+      {
+        "text": "เศษเหลือ",
+        "isCorrect": true
+      },
+      {
+        "text": "ทั้งก้อน",
+        "isCorrect": false
+      },
+      {
+        "text": "ทั้งหมด",
+        "isCorrect": false
+      },
+      {
+        "text": "ส่วนใหญ่",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Render",
+    "phonetic": "/ˈrendər/",
+    "choices": [
+      {
+        "text": "ทำให้กลายเป็น",
+        "isCorrect": true
+      },
+      {
+        "text": "คงสภาพ",
+        "isCorrect": false
+      },
+      {
+        "text": "เก็บไว้",
+        "isCorrect": false
+      },
+      {
+        "text": "รักษาไว้",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Rendering",
+    "phonetic": "/ˈrendərɪŋ/",
+    "choices": [
+      {
+        "text": "การทำให้เป็น",
+        "isCorrect": true
+      },
+      {
+        "text": "การคงเดิม",
+        "isCorrect": false
+      },
+      {
+        "text": "การเก็บรักษา",
+        "isCorrect": false
+      },
+      {
+        "text": "การรักษาสภาพ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Renounce",
+    "phonetic": "/rɪˈnaʊns/",
+    "choices": [
+      {
+        "text": "สละ",
+        "isCorrect": true
+      },
+      {
+        "text": "ยึดถือ",
+        "isCorrect": false
+      },
+      {
+        "text": "รักษา",
+        "isCorrect": false
+      },
+      {
+        "text": "คงไว้",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Repel",
+    "phonetic": "/rɪˈpel/",
+    "choices": [
+      {
+        "text": "ขับไล่",
+        "isCorrect": true
+      },
+      {
+        "text": "ต้อนรับ",
+        "isCorrect": false
+      },
+      {
+        "text": "เชิญชวน",
+        "isCorrect": false
+      },
+      {
+        "text": "ดึงดูด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Reprehensible",
+    "phonetic": "/ˌreprɪˈhensəbl/",
+    "choices": [
+      {
+        "text": "น่าตำหนิ",
+        "isCorrect": true
+      },
+      {
+        "text": "น่าชื่นชม",
+        "isCorrect": false
+      },
+      {
+        "text": "น่ายกย่อง",
+        "isCorrect": false
+      },
+      {
+        "text": "น่าสรรเสริญ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Reprieve",
+    "phonetic": "/rɪˈpriːv/",
+    "choices": [
+      {
+        "text": "การยับยั้งชั่งใจ",
+        "isCorrect": true
+      },
+      {
+        "text": "การลงโทษ",
+        "isCorrect": false
+      },
+      {
+        "text": "การตัดสิน",
+        "isCorrect": false
+      },
+      {
+        "text": "การประหาร",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Resent",
+    "phonetic": "/rɪˈzent/",
+    "choices": [
+      {
+        "text": "ขุ่นเคือง",
+        "isCorrect": true
+      },
+      {
+        "text": "พอใจ",
+        "isCorrect": false
+      },
+      {
+        "text": "ยินดี",
+        "isCorrect": false
+      },
+      {
+        "text": "ปลื้มใจ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Reside",
+    "phonetic": "/rɪˈzaɪd/",
+    "choices": [
+      {
+        "text": "พำนักอาศัย",
+        "isCorrect": true
+      },
+      {
+        "text": "เดินทาง",
+        "isCorrect": false
+      },
+      {
+        "text": "ย้ายถิ่น",
+        "isCorrect": false
+      },
+      {
+        "text": "เยี่ยมเยียน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Resign",
+    "phonetic": "/rɪˈzaɪn/",
+    "choices": [
+      {
+        "text": "ลาออก",
+        "isCorrect": true
+      },
+      {
+        "text": "รับตำแหน่ง",
+        "isCorrect": false
+      },
+      {
+        "text": "เริ่มงาน",
+        "isCorrect": false
+      },
+      {
+        "text": "เข้ารับงาน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Resolute",
+    "phonetic": "/ˈrezəluːt/",
+    "choices": [
+      {
+        "text": "แน่วแน่",
+        "isCorrect": true
+      },
+      {
+        "text": "โลเล",
+        "isCorrect": false
+      },
+      {
+        "text": "ลังเล",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่แน่ใจ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Retaliate",
+    "phonetic": "/rɪˈtælieɪt/",
+    "choices": [
+      {
+        "text": "โต้กลับ",
+        "isCorrect": true
+      },
+      {
+        "text": "ยอมรับ",
+        "isCorrect": false
+      },
+      {
+        "text": "ปล่อยวาง",
+        "isCorrect": false
+      },
+      {
+        "text": "ให้อภัย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Reveal",
+    "phonetic": "/rɪˈviːl/",
+    "choices": [
+      {
+        "text": "เปิดเผย",
+        "isCorrect": true
+      },
+      {
+        "text": "ปกปิด",
+        "isCorrect": false
+      },
+      {
+        "text": "ซ่อน",
+        "isCorrect": false
+      },
+      {
+        "text": "เก็บงำ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Revere",
+    "phonetic": "/rɪˈvɪr/",
+    "choices": [
+      {
+        "text": "เคารพบูชา",
+        "isCorrect": true
+      },
+      {
+        "text": "ดูหมิ่น",
+        "isCorrect": false
+      },
+      {
+        "text": "เหยียดหยาม",
+        "isCorrect": false
+      },
+      {
+        "text": "ดูแคลน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Revive",
+    "phonetic": "/rɪˈvaɪv/",
+    "choices": [
+      {
+        "text": "ฟื้นคืน",
+        "isCorrect": true
+      },
+      {
+        "text": "ดับสิ้น",
+        "isCorrect": false
+      },
+      {
+        "text": "หมดลง",
+        "isCorrect": false
+      },
+      {
+        "text": "สิ้นสุด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Rigid",
+    "phonetic": "/ˈrɪdʒɪd/",
+    "choices": [
+      {
+        "text": "แข็งทื่อ",
+        "isCorrect": true
+      },
+      {
+        "text": "ยืดหยุ่น",
+        "isCorrect": false
+      },
+      {
+        "text": "ยืดยาด",
+        "isCorrect": false
+      },
+      {
+        "text": "ยืดหยุ่นได้",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Rival",
+    "phonetic": "/ˈraɪvl/",
+    "choices": [
+      {
+        "text": "คู่แข่ง",
+        "isCorrect": true
+      },
+      {
+        "text": "พันธมิตร",
+        "isCorrect": false
+      },
+      {
+        "text": "เพื่อนร่วมทีม",
+        "isCorrect": false
+      },
+      {
+        "text": "ผู้สนับสนุน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Rouse",
+    "phonetic": "/raʊz/",
+    "choices": [
+      {
+        "text": "ปลุกเร้า",
+        "isCorrect": true
+      },
+      {
+        "text": "ทำให้สงบ",
+        "isCorrect": false
+      },
+      {
+        "text": "ระงับ",
+        "isCorrect": false
+      },
+      {
+        "text": "กล่อม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Salient",
+    "phonetic": "/ˈseɪliənt/",
+    "choices": [
+      {
+        "text": "โดดเด่น",
+        "isCorrect": true
+      },
+      {
+        "text": "จางหาย",
+        "isCorrect": false
+      },
+      {
+        "text": "ซ่อนเร้น",
+        "isCorrect": false
+      },
+      {
+        "text": "ธรรมดา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Sanction",
+    "phonetic": "/ˈsæŋkʃn/",
+    "choices": [
+      {
+        "text": "มาตรการคว่ำบาตร",
+        "isCorrect": true
+      },
+      {
+        "text": "การสนับสนุน",
+        "isCorrect": false
+      },
+      {
+        "text": "การยกย่อง",
+        "isCorrect": false
+      },
+      {
+        "text": "การชมเชย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Saturate",
+    "phonetic": "/ˈsætʃəreɪt/",
+    "choices": [
+      {
+        "text": "ทำให้อิ่มตัว",
+        "isCorrect": true
+      },
+      {
+        "text": "ทำให้ขาด",
+        "isCorrect": false
+      },
+      {
+        "text": "ทำให้ว่าง",
+        "isCorrect": false
+      },
+      {
+        "text": "ทำให้แห้ง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Scarcity",
+    "phonetic": "/ˈskersəti/",
+    "choices": [
+      {
+        "text": "ความขาดแคลน",
+        "isCorrect": true
+      },
+      {
+        "text": "ความอุดมสมบูรณ์",
+        "isCorrect": false
+      },
+      {
+        "text": "ความเหลือเฟือ",
+        "isCorrect": false
+      },
+      {
+        "text": "ความล้นเหลือ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Scorn",
+    "phonetic": "/skɔːrn/",
+    "choices": [
+      {
+        "text": "ดูหมิ่น",
+        "isCorrect": true
+      },
+      {
+        "text": "เคารพ",
+        "isCorrect": false
+      },
+      {
+        "text": "นับถือ",
+        "isCorrect": false
+      },
+      {
+        "text": "เลื่อมใส",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Scrutiny",
+    "phonetic": "/ˈskruːtəni/",
+    "choices": [
+      {
+        "text": "การตรวจสอบอย่างเข้มงวด",
+        "isCorrect": true
+      },
+      {
+        "text": "การมองข้าม",
+        "isCorrect": false
+      },
+      {
+        "text": "การละเลย",
+        "isCorrect": false
+      },
+      {
+        "text": "การเพิกเฉย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Sedentary",
+    "phonetic": "/ˈsednteri/",
+    "choices": [
+      {
+        "text": "นั่งเฉย ๆ",
+        "isCorrect": true
+      },
+      {
+        "text": "เคลื่อนไหวตลอด",
+        "isCorrect": false
+      },
+      {
+        "text": "กระฉับกระเฉง",
+        "isCorrect": false
+      },
+      {
+        "text": "คล่องแคล่ว",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Segment",
+    "phonetic": "/ˈseɡmənt/",
+    "choices": [
+      {
+        "text": "ส่วน",
+        "isCorrect": true
+      },
+      {
+        "text": "ทั้งหมด",
+        "isCorrect": false
+      },
+      {
+        "text": "ทั้งก้อน",
+        "isCorrect": false
+      },
+      {
+        "text": "เต็มหน่วย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Seize",
+    "phonetic": "/siːz/",
+    "choices": [
+      {
+        "text": "ยึด",
+        "isCorrect": true
+      },
+      {
+        "text": "ปล่อย",
+        "isCorrect": false
+      },
+      {
+        "text": "คืน",
+        "isCorrect": false
+      },
+      {
+        "text": "ส่งคืน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Sensational",
+    "phonetic": "/senˈseɪʃənl/",
+    "choices": [
+      {
+        "text": "น่าตื่นตาตื่นใจ",
+        "isCorrect": true
+      },
+      {
+        "text": "น่าเบื่อ",
+        "isCorrect": false
+      },
+      {
+        "text": "ซ้ำซาก",
+        "isCorrect": false
+      },
+      {
+        "text": "ธรรมดา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Shrewd",
+    "phonetic": "/ʃruːd/",
+    "choices": [
+      {
+        "text": "ฉลาดแกมโกง",
+        "isCorrect": true
+      },
+      {
+        "text": "โง่เขลา",
+        "isCorrect": false
+      },
+      {
+        "text": "ทื่อ",
+        "isCorrect": false
+      },
+      {
+        "text": "เชื่องช้า",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Simultaneously",
+    "phonetic": "/ˌsaɪmlˈteɪniəsli/",
+    "choices": [
+      {
+        "text": "พร้อมกัน",
+        "isCorrect": true
+      },
+      {
+        "text": "ต่อเนื่องกัน",
+        "isCorrect": false
+      },
+      {
+        "text": "ทีละขั้น",
+        "isCorrect": false
+      },
+      {
+        "text": "ตามลำดับ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Sluggish",
+    "phonetic": "/ˈslʌɡɪʃ/",
+    "choices": [
+      {
+        "text": "เชื่องช้า",
+        "isCorrect": true
+      },
+      {
+        "text": "รวดเร็ว",
+        "isCorrect": false
+      },
+      {
+        "text": "คล่องแคล่ว",
+        "isCorrect": false
+      },
+      {
+        "text": "กระฉับกระเฉง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Solidarity",
+    "phonetic": "/ˌsɑːlɪˈdærəti/",
+    "choices": [
+      {
+        "text": "ความเป็นน้ำหนึ่งใจเดียว",
+        "isCorrect": true
+      },
+      {
+        "text": "ความแตกแยก",
+        "isCorrect": false
+      },
+      {
+        "text": "การแบ่งฝักแบ่งฝ่าย",
+        "isCorrect": false
+      },
+      {
+        "text": "ความขัดแย้ง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Solicit",
+    "phonetic": "/səˈlɪsɪt/",
+    "choices": [
+      {
+        "text": "วิงวอนขอ",
+        "isCorrect": true
+      },
+      {
+        "text": "บังคับ",
+        "isCorrect": false
+      },
+      {
+        "text": "สั่งการ",
+        "isCorrect": false
+      },
+      {
+        "text": "ข่มขู่",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Sparse",
+    "phonetic": "/spɑːrs/",
+    "choices": [
+      {
+        "text": "เบาบาง",
+        "isCorrect": true
+      },
+      {
+        "text": "หนาแน่น",
+        "isCorrect": false
+      },
+      {
+        "text": "แน่นแฟ้น",
+        "isCorrect": false
+      },
+      {
+        "text": "อุดม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Sprawl",
+    "phonetic": "/sprɔːl/",
+    "choices": [
+      {
+        "text": "ขยายออกกระจัดกระจาย",
+        "isCorrect": true
+      },
+      {
+        "text": "รวมศูนย์",
+        "isCorrect": false
+      },
+      {
+        "text": "เกาะกลุ่ม",
+        "isCorrect": false
+      },
+      {
+        "text": "แน่นหนา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Sporadic",
+    "phonetic": "/spəˈrædɪk/",
+    "choices": [
+      {
+        "text": "เป็นพัก ๆ",
+        "isCorrect": true
+      },
+      {
+        "text": "ต่อเนื่อง",
+        "isCorrect": false
+      },
+      {
+        "text": "สม่ำเสมอ",
+        "isCorrect": false
+      },
+      {
+        "text": "เป็นประจำ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Stature",
+    "phonetic": "/ˈstætʃər/",
+    "choices": [
+      {
+        "text": "ความสูง / ชื่อเสียง",
+        "isCorrect": true
+      },
+      {
+        "text": "ความต่ำ",
+        "isCorrect": false
+      },
+      {
+        "text": "ความเล็ก",
+        "isCorrect": false
+      },
+      {
+        "text": "น้ำหนัก",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Stimulate",
+    "phonetic": "/ˈstɪmjuleɪt/",
+    "choices": [
+      {
+        "text": "กระตุ้น",
+        "isCorrect": true
+      },
+      {
+        "text": "ทำให้สงบ",
+        "isCorrect": false
+      },
+      {
+        "text": "ระงับ",
+        "isCorrect": false
+      },
+      {
+        "text": "ยับยั้ง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Strive",
+    "phonetic": "/straɪv/",
+    "choices": [
+      {
+        "text": "มุ่งมั่น",
+        "isCorrect": true
+      },
+      {
+        "text": "ยอมแพ้",
+        "isCorrect": false
+      },
+      {
+        "text": "ท้อถอย",
+        "isCorrect": false
+      },
+      {
+        "text": "หยุดนิ่ง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Subdue",
+    "phonetic": "/səbˈduː/",
+    "choices": [
+      {
+        "text": "ปราบ",
+        "isCorrect": true
+      },
+      {
+        "text": "ปล่อย",
+        "isCorrect": false
+      },
+      {
+        "text": "ปลดปล่อย",
+        "isCorrect": false
+      },
+      {
+        "text": "สนับสนุน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Subordinate",
+    "phonetic": "/səˈbɔːrdɪnət/",
+    "choices": [
+      {
+        "text": "ผู้ใต้บังคับบัญชา",
+        "isCorrect": true
+      },
+      {
+        "text": "หัวหน้า",
+        "isCorrect": false
+      },
+      {
+        "text": "ผู้บังคับบัญชา",
+        "isCorrect": false
+      },
+      {
+        "text": "เจ้านาย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Subsequent",
+    "phonetic": "/ˈsʌbsɪkwənt/",
+    "choices": [
+      {
+        "text": "ภายหลัง",
+        "isCorrect": true
+      },
+      {
+        "text": "ก่อนหน้า",
+        "isCorrect": false
+      },
+      {
+        "text": "ก่อนหน้านี้",
+        "isCorrect": false
+      },
+      {
+        "text": "แรกเริ่ม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Subside",
+    "phonetic": "/səbˈsaɪd/",
+    "choices": [
+      {
+        "text": "ลดลง",
+        "isCorrect": true
+      },
+      {
+        "text": "เพิ่มขึ้น",
+        "isCorrect": false
+      },
+      {
+        "text": "พุ่งสูง",
+        "isCorrect": false
+      },
+      {
+        "text": "ระเบิด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Substantial",
+    "phonetic": "/səbˈstænʃl/",
+    "choices": [
+      {
+        "text": "มากมาย",
+        "isCorrect": true
+      },
+      {
+        "text": "เล็กน้อย",
+        "isCorrect": false
+      },
+      {
+        "text": "น้อยนิด",
+        "isCorrect": false
+      },
+      {
+        "text": "เพียงเล็กน้อย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Subtle",
+    "phonetic": "/ˈsʌtl/",
+    "choices": [
+      {
+        "text": "ละเอียดลึกซึ้ง",
+        "isCorrect": true
+      },
+      {
+        "text": "หยาบ",
+        "isCorrect": false
+      },
+      {
+        "text": "ชัดเจนโจ่งแจ้ง",
+        "isCorrect": false
+      },
+      {
+        "text": "ดิบ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Summon",
+    "phonetic": "/ˈsʌmən/",
+    "choices": [
+      {
+        "text": "เรียกประชุม",
+        "isCorrect": true
+      },
+      {
+        "text": "เลื่อนประชุม",
+        "isCorrect": false
+      },
+      {
+        "text": "ยกเลิก",
+        "isCorrect": false
+      },
+      {
+        "text": "ระงับ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Superb",
+    "phonetic": "/suːˈpɜːrb/",
+    "choices": [
+      {
+        "text": "ยอดเยี่ยม",
+        "isCorrect": true
+      },
+      {
+        "text": "ธรรมดา",
+        "isCorrect": false
+      },
+      {
+        "text": "แย่",
+        "isCorrect": false
+      },
+      {
+        "text": "ต่ำ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Suppress",
+    "phonetic": "/səˈpres/",
+    "choices": [
+      {
+        "text": "ปราบปราม",
+        "isCorrect": true
+      },
+      {
+        "text": "ส่งเสริม",
+        "isCorrect": false
+      },
+      {
+        "text": "สนับสนุน",
+        "isCorrect": false
+      },
+      {
+        "text": "หนุนช่วย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Surplus",
+    "phonetic": "/ˈsɜːrplʌs/",
+    "choices": [
+      {
+        "text": "ส่วนเกิน",
+        "isCorrect": true
+      },
+      {
+        "text": "การขาดดุล",
+        "isCorrect": false
+      },
+      {
+        "text": "การขาดแคลน",
+        "isCorrect": false
+      },
+      {
+        "text": "การพร่อง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Surpass",
+    "phonetic": "/sərˈpæs/",
+    "choices": [
+      {
+        "text": "เหนือกว่า",
+        "isCorrect": true
+      },
+      {
+        "text": "ต่ำกว่า",
+        "isCorrect": false
+      },
+      {
+        "text": "น้อยกว่า",
+        "isCorrect": false
+      },
+      {
+        "text": "ตามหลัง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Suspense",
+    "phonetic": "/səˈspens/",
+    "choices": [
+      {
+        "text": "ความตื่นเต้นลุ้นระทึก",
+        "isCorrect": true
+      },
+      {
+        "text": "ความเบื่อหน่าย",
+        "isCorrect": false
+      },
+      {
+        "text": "ความสงบ",
+        "isCorrect": false
+      },
+      {
+        "text": "ความจืดชืด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Tacit",
+    "phonetic": "/ˈtæsɪt/",
+    "choices": [
+      {
+        "text": "โดยปริยาย",
+        "isCorrect": true
+      },
+      {
+        "text": "ชัดเจน",
+        "isCorrect": false
+      },
+      {
+        "text": "เปิดเผย",
+        "isCorrect": false
+      },
+      {
+        "text": "โจ่งแจ้ง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Tactful",
+    "phonetic": "/ˈtæktfl/",
+    "choices": [
+      {
+        "text": "มีไหวพริบ",
+        "isCorrect": true
+      },
+      {
+        "text": "หยาบคาย",
+        "isCorrect": false
+      },
+      {
+        "text": "ตรงเผ็ดร้อน",
+        "isCorrect": false
+      },
+      {
+        "text": "ดิบ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Tangible",
+    "phonetic": "/ˈtændʒəbl/",
+    "choices": [
+      {
+        "text": "จับต้องได้",
+        "isCorrect": true
+      },
+      {
+        "text": "นามธรรม",
+        "isCorrect": false
+      },
+      {
+        "text": "ไม่มีตัวตน",
+        "isCorrect": false
+      },
+      {
+        "text": "จับต้องไม่ได้",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Tarnish",
+    "phonetic": "/ˈtɑːrnɪʃ/",
+    "choices": [
+      {
+        "text": "ทำให้หมอง",
+        "isCorrect": true
+      },
+      {
+        "text": "ทำให้แวววาว",
+        "isCorrect": false
+      },
+      {
+        "text": "ทำให้สดใส",
+        "isCorrect": false
+      },
+      {
+        "text": "ขัดเงา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Tempt",
+    "phonetic": "/tempt/",
+    "choices": [
+      {
+        "text": "ยั่วยวน",
+        "isCorrect": true
+      },
+      {
+        "text": "ขัดขวาง",
+        "isCorrect": false
+      },
+      {
+        "text": "ยับยั้ง",
+        "isCorrect": false
+      },
+      {
+        "text": "เตือนสติ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Tense",
+    "phonetic": "/tens/",
+    "choices": [
+      {
+        "text": "ตึงเครียด",
+        "isCorrect": true
+      },
+      {
+        "text": "ผ่อนคลาย",
+        "isCorrect": false
+      },
+      {
+        "text": "สงบ",
+        "isCorrect": false
+      },
+      {
+        "text": "สบาย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Terminate",
+    "phonetic": "/ˈtɜːrmɪneɪt/",
+    "choices": [
+      {
+        "text": "ยุติ",
+        "isCorrect": true
+      },
+      {
+        "text": "เริ่มต้น",
+        "isCorrect": false
+      },
+      {
+        "text": "ดำเนินต่อไป",
+        "isCorrect": false
+      },
+      {
+        "text": "ริเริ่ม",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Testify",
+    "phonetic": "/ˈtestɪfaɪ/",
+    "choices": [
+      {
+        "text": "เป็นพยาน",
+        "isCorrect": true
+      },
+      {
+        "text": "ปิดบัง",
+        "isCorrect": false
+      },
+      {
+        "text": "ซ่อน",
+        "isCorrect": false
+      },
+      {
+        "text": "นิ่งเงียบ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Threshold",
+    "phonetic": "/ˈθreʃhoʊld/",
+    "choices": [
+      {
+        "text": "เกณฑ์ขั้นต่ำ",
+        "isCorrect": true
+      },
+      {
+        "text": "เพดานสูงสุด",
+        "isCorrect": false
+      },
+      {
+        "text": "ขีดจำกัดบน",
+        "isCorrect": false
+      },
+      {
+        "text": "จุดสูงสุด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Timid",
+    "phonetic": "/ˈtɪmɪd/",
+    "choices": [
+      {
+        "text": "ขี้อาย",
+        "isCorrect": true
+      },
+      {
+        "text": "กล้าหาญ",
+        "isCorrect": false
+      },
+      {
+        "text": "อาจหาญ",
+        "isCorrect": false
+      },
+      {
+        "text": "มั่นใจ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Tolerate",
+    "phonetic": "/ˈtɑːləreɪt/",
+    "choices": [
+      {
+        "text": "อดทนต่อ",
+        "isCorrect": true
+      },
+      {
+        "text": "ต่อต้าน",
+        "isCorrect": false
+      },
+      {
+        "text": "ขัดขืน",
+        "isCorrect": false
+      },
+      {
+        "text": "ประท้วง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Torrent",
+    "phonetic": "/ˈtɔːrənt/",
+    "choices": [
+      {
+        "text": "กระแสไหลเชี่ยว",
+        "isCorrect": true
+      },
+      {
+        "text": "สายน้ำนิ่ง",
+        "isCorrect": false
+      },
+      {
+        "text": "ลำธารเล็ก",
+        "isCorrect": false
+      },
+      {
+        "text": "หยดน้ำ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Trajectory",
+    "phonetic": "/trəˈdʒektəri/",
+    "choices": [
+      {
+        "text": "วิถีโคจร",
+        "isCorrect": true
+      },
+      {
+        "text": "จุดหยุดนิ่ง",
+        "isCorrect": false
+      },
+      {
+        "text": "ตำแหน่งคงที่",
+        "isCorrect": false
+      },
+      {
+        "text": "เส้นตรงแนวนอน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Tranquil",
+    "phonetic": "/ˈtræŋkwɪl/",
+    "choices": [
+      {
+        "text": "สงบเงียบ",
+        "isCorrect": true
+      },
+      {
+        "text": "วุ่นวาย",
+        "isCorrect": false
+      },
+      {
+        "text": "อึกทึก",
+        "isCorrect": false
+      },
+      {
+        "text": "ปั่นป่วน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Transcend",
+    "phonetic": "/trænˈsend/",
+    "choices": [
+      {
+        "text": "เหนือกว่า",
+        "isCorrect": true
+      },
+      {
+        "text": "ต่ำกว่า",
+        "isCorrect": false
+      },
+      {
+        "text": "เท่ากัน",
+        "isCorrect": false
+      },
+      {
+        "text": "อยู่ในระดับเดียวกัน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Transgress",
+    "phonetic": "/trænzˈɡres/",
+    "choices": [
+      {
+        "text": "ละเมิด",
+        "isCorrect": true
+      },
+      {
+        "text": "ปฏิบัติตาม",
+        "isCorrect": false
+      },
+      {
+        "text": "เคารพ",
+        "isCorrect": false
+      },
+      {
+        "text": "ยึดมั่น",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Trauma",
+    "phonetic": "/ˈtrɔːmə/",
+    "choices": [
+      {
+        "text": "บาดแผลทางใจ",
+        "isCorrect": true
+      },
+      {
+        "text": "ความสุข",
+        "isCorrect": false
+      },
+      {
+        "text": "ความสงบ",
+        "isCorrect": false
+      },
+      {
+        "text": "การเยียวยา",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Tremendous",
+    "phonetic": "/trəˈmendəs/",
+    "choices": [
+      {
+        "text": "มหาศาล",
+        "isCorrect": true
+      },
+      {
+        "text": "เล็กน้อย",
+        "isCorrect": false
+      },
+      {
+        "text": "น้อยนิด",
+        "isCorrect": false
+      },
+      {
+        "text": "จาง ๆ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Turbulent",
+    "phonetic": "/ˈtɜːrbjələnt/",
+    "choices": [
+      {
+        "text": "ปั่นป่วนวุ่นวาย",
+        "isCorrect": true
+      },
+      {
+        "text": "สงบนิ่ง",
+        "isCorrect": false
+      },
+      {
+        "text": "ราบรื่น",
+        "isCorrect": false
+      },
+      {
+        "text": "เงียบสงบ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Turmoil",
+    "phonetic": "/ˈtɜːrmɔɪl/",
+    "choices": [
+      {
+        "text": "ความวุ่นวาย",
+        "isCorrect": true
+      },
+      {
+        "text": "ความสงบ",
+        "isCorrect": false
+      },
+      {
+        "text": "ระเบียบ",
+        "isCorrect": false
+      },
+      {
+        "text": "ความเงียบ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Uphold",
+    "phonetic": "/ʌpˈhoʊld/",
+    "choices": [
+      {
+        "text": "ยึดถือ",
+        "isCorrect": true
+      },
+      {
+        "text": "ละเมิด",
+        "isCorrect": false
+      },
+      {
+        "text": "ล้มล้าง",
+        "isCorrect": false
+      },
+      {
+        "text": "ทำลาย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Utter",
+    "phonetic": "/ˈʌtər/",
+    "choices": [
+      {
+        "text": "เอ่ยพูด",
+        "isCorrect": true
+      },
+      {
+        "text": "นิ่งเงียบ",
+        "isCorrect": false
+      },
+      {
+        "text": "เพิกเฉย",
+        "isCorrect": false
+      },
+      {
+        "text": "เก็บงำ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Vast",
+    "phonetic": "/væst/",
+    "choices": [
+      {
+        "text": "กว้างใหญ่ไพศาล",
+        "isCorrect": true
+      },
+      {
+        "text": "แคบ",
+        "isCorrect": false
+      },
+      {
+        "text": "เล็ก",
+        "isCorrect": false
+      },
+      {
+        "text": "จำกัด",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Verify",
+    "phonetic": "/ˈverɪfaɪ/",
+    "choices": [
+      {
+        "text": "ตรวจสอบยืนยัน",
+        "isCorrect": true
+      },
+      {
+        "text": "สงสัย",
+        "isCorrect": false
+      },
+      {
+        "text": "ปฏิเสธ",
+        "isCorrect": false
+      },
+      {
+        "text": "หักล้าง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Veto",
+    "phonetic": "/ˈviːtoʊ/",
+    "choices": [
+      {
+        "text": "สิทธิ์ยับยั้ง",
+        "isCorrect": true
+      },
+      {
+        "text": "สิทธิ์ลงคะแนน",
+        "isCorrect": false
+      },
+      {
+        "text": "สิทธิ์เสนอกฎหมาย",
+        "isCorrect": false
+      },
+      {
+        "text": "สิทธิ์ออกเสียง",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Vicious",
+    "phonetic": "/ˈvɪʃəs/",
+    "choices": [
+      {
+        "text": "ดุร้าย",
+        "isCorrect": true
+      },
+      {
+        "text": "อ่อนโยน",
+        "isCorrect": false
+      },
+      {
+        "text": "อ่อนน้อม",
+        "isCorrect": false
+      },
+      {
+        "text": "สุภาพ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Vigilant",
+    "phonetic": "/ˈvɪdʒɪlənt/",
+    "choices": [
+      {
+        "text": "เฝ้าระวัง",
+        "isCorrect": true
+      },
+      {
+        "text": "เลินเล่อ",
+        "isCorrect": false
+      },
+      {
+        "text": "สะเพร่า",
+        "isCorrect": false
+      },
+      {
+        "text": "ละเลย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Virtue",
+    "phonetic": "/ˈvɜːrtʃuː/",
+    "choices": [
+      {
+        "text": "คุณธรรม",
+        "isCorrect": true
+      },
+      {
+        "text": "ความชั่ว",
+        "isCorrect": false
+      },
+      {
+        "text": "ความเลว",
+        "isCorrect": false
+      },
+      {
+        "text": "อบายมุข",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Vivid",
+    "phonetic": "/ˈvɪvɪd/",
+    "choices": [
+      {
+        "text": "สดใส",
+        "isCorrect": true
+      },
+      {
+        "text": "หม่นหมอง",
+        "isCorrect": false
+      },
+      {
+        "text": "จาง",
+        "isCorrect": false
+      },
+      {
+        "text": "มัว",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Vow",
+    "phonetic": "/vaʊ/",
+    "choices": [
+      {
+        "text": "ปฏิญาณ",
+        "isCorrect": true
+      },
+      {
+        "text": "ละเมิด",
+        "isCorrect": false
+      },
+      {
+        "text": "เพิกถอน",
+        "isCorrect": false
+      },
+      {
+        "text": "ลืมเลือน",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Withdraw",
+    "phonetic": "/wɪðˈdrɔː/",
+    "choices": [
+      {
+        "text": "ถอนตัว",
+        "isCorrect": true
+      },
+      {
+        "text": "เข้าร่วม",
+        "isCorrect": false
+      },
+      {
+        "text": "มีส่วนร่วม",
+        "isCorrect": false
+      },
+      {
+        "text": "คงอยู่",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Wretched",
+    "phonetic": "/ˈretʃɪd/",
+    "choices": [
+      {
+        "text": "น่าสังเวช",
+        "isCorrect": true
+      },
+      {
+        "text": "น่าอภิรมย์",
+        "isCorrect": false
+      },
+      {
+        "text": "น่ายินดี",
+        "isCorrect": false
+      },
+      {
+        "text": "น่าพึงพอใจ",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Yearn",
+    "phonetic": "/jɜːrn/",
+    "choices": [
+      {
+        "text": "โหยหา",
+        "isCorrect": true
+      },
+      {
+        "text": "เกลียดชัง",
+        "isCorrect": false
+      },
+      {
+        "text": "รังเกียจ",
+        "isCorrect": false
+      },
+      {
+        "text": "เพิกเฉย",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  },
+  {
+    "word": "Yield",
+    "phonetic": "/jiːld/",
+    "choices": [
+      {
+        "text": "ให้ผลผลิต",
+        "isCorrect": true
+      },
+      {
+        "text": "ขาดทุน",
+        "isCorrect": false
+      },
+      {
+        "text": "สูญเสีย",
+        "isCorrect": false
+      },
+      {
+        "text": "ไร้ผล",
+        "isCorrect": false
+      }
+    ],
+    "difficulty": "advanced"
+  }
+]

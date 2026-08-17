@@ -1,0 +1,2440 @@
+[
+ {
+  "word": "Access",
+  "phonetic": "/ˈækses/",
+  "choices": [
+   {
+    "text": "การเข้าถึง",
+    "isCorrect": true
+   },
+   {
+    "text": "การปิดกั้น",
+    "isCorrect": false
+   },
+   {
+    "text": "การห้าม",
+    "isCorrect": false
+   },
+   {
+    "text": "การซ่อน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Accident",
+  "phonetic": "/ˈæksɪdənt/",
+  "choices": [
+   {
+    "text": "อุบัติเหตุ",
+    "isCorrect": true
+   },
+   {
+    "text": "การวางแผน",
+    "isCorrect": false
+   },
+   {
+    "text": "การเฉลิมฉลอง",
+    "isCorrect": false
+   },
+   {
+    "text": "เหตุการณ์ปกติ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Account",
+  "phonetic": "/əˈkaʊnt/",
+  "choices": [
+   {
+    "text": "บัญชี",
+    "isCorrect": true
+   },
+   {
+    "text": "รายงาน",
+    "isCorrect": false
+   },
+   {
+    "text": "ใบเสร็จ",
+    "isCorrect": false
+   },
+   {
+    "text": "สัญญา",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Activity",
+  "phonetic": "/ækˈtɪvəti/",
+  "choices": [
+   {
+    "text": "กิจกรรม",
+    "isCorrect": true
+   },
+   {
+    "text": "การพักผ่อน",
+    "isCorrect": false
+   },
+   {
+    "text": "การนอน",
+    "isCorrect": false
+   },
+   {
+    "text": "การรอคอย",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Advertise",
+  "phonetic": "/ˈædvərtaɪz/",
+  "choices": [
+   {
+    "text": "โฆษณา",
+    "isCorrect": true
+   },
+   {
+    "text": "ซ่อน",
+    "isCorrect": false
+   },
+   {
+    "text": "ประกาศ",
+    "isCorrect": false
+   },
+   {
+    "text": "ประชาสัมพันธ์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Agriculture",
+  "phonetic": "/ˈæɡrɪkʌltʃər/",
+  "choices": [
+   {
+    "text": "เกษตรกรรม",
+    "isCorrect": true
+   },
+   {
+    "text": "อุตสาหกรรม",
+    "isCorrect": false
+   },
+   {
+    "text": "พาณิชยกรรม",
+    "isCorrect": false
+   },
+   {
+    "text": "การท่องเที่ยว",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Architect",
+  "phonetic": "/ˈɑːrkɪtekt/",
+  "choices": [
+   {
+    "text": "สถาปนิก",
+    "isCorrect": true
+   },
+   {
+    "text": "วิศวกร",
+    "isCorrect": false
+   },
+   {
+    "text": "ช่างก่อสร้าง",
+    "isCorrect": false
+   },
+   {
+    "text": "นักออกแบบภายใน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Article",
+  "phonetic": "/ˈɑːrtɪkl/",
+  "choices": [
+   {
+    "text": "บทความ",
+    "isCorrect": true
+   },
+   {
+    "text": "หนังสือ",
+    "isCorrect": false
+   },
+   {
+    "text": "นิตยสาร",
+    "isCorrect": false
+   },
+   {
+    "text": "บทกวี",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Audience",
+  "phonetic": "/ˈɔːdiəns/",
+  "choices": [
+   {
+    "text": "ผู้ชม",
+    "isCorrect": true
+   },
+   {
+    "text": "ผู้แสดง",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้กำกับ",
+    "isCorrect": false
+   },
+   {
+    "text": "นักร้อง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Author",
+  "phonetic": "/ˈɔːθər/",
+  "choices": [
+   {
+    "text": "นักเขียน",
+    "isCorrect": true
+   },
+   {
+    "text": "นักอ่าน",
+    "isCorrect": false
+   },
+   {
+    "text": "บรรณาธิการ",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้พิมพ์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Background",
+  "phonetic": "/ˈbækɡraʊnd/",
+  "choices": [
+   {
+    "text": "ฉากหลัง / ภูมิหลัง",
+    "isCorrect": true
+   },
+   {
+    "text": "ฉากหน้า",
+    "isCorrect": false
+   },
+   {
+    "text": "ขอบภาพ",
+    "isCorrect": false
+   },
+   {
+    "text": "พื้นหน้า",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Barrier",
+  "phonetic": "/ˈbæriər/",
+  "choices": [
+   {
+    "text": "อุปสรรค / สิ่งกีดขวาง",
+    "isCorrect": true
+   },
+   {
+    "text": "ทางผ่าน",
+    "isCorrect": false
+   },
+   {
+    "text": "สะพาน",
+    "isCorrect": false
+   },
+   {
+    "text": "เส้นทาง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Benefit",
+  "phonetic": "/ˈbenɪfɪt/",
+  "choices": [
+   {
+    "text": "ผลประโยชน์",
+    "isCorrect": true
+   },
+   {
+    "text": "ผลเสีย",
+    "isCorrect": false
+   },
+   {
+    "text": "อันตราย",
+    "isCorrect": false
+   },
+   {
+    "text": "ความเสี่ยง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Bicycle",
+  "phonetic": "/ˈbaɪsɪkl/",
+  "choices": [
+   {
+    "text": "จักรยาน",
+    "isCorrect": true
+   },
+   {
+    "text": "มอเตอร์ไซค์",
+    "isCorrect": false
+   },
+   {
+    "text": "รถยนต์",
+    "isCorrect": false
+   },
+   {
+    "text": "สกู๊ตเตอร์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Board",
+  "phonetic": "/bɔːrd/",
+  "choices": [
+   {
+    "text": "กระดาน",
+    "isCorrect": true
+   },
+   {
+    "text": "โต๊ะ",
+    "isCorrect": false
+   },
+   {
+    "text": "เก้าอี้",
+    "isCorrect": false
+   },
+   {
+    "text": "ชั้นวาง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Branch",
+  "phonetic": "/bræntʃ/",
+  "choices": [
+   {
+    "text": "กิ่งไม้ / สาขา",
+    "isCorrect": true
+   },
+   {
+    "text": "ลำต้น",
+    "isCorrect": false
+   },
+   {
+    "text": "ราก",
+    "isCorrect": false
+   },
+   {
+    "text": "ใบไม้",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Cancer",
+  "phonetic": "/ˈkænsər/",
+  "choices": [
+   {
+    "text": "มะเร็ง",
+    "isCorrect": true
+   },
+   {
+    "text": "ไข้หวัด",
+    "isCorrect": false
+   },
+   {
+    "text": "โรคหัวใจ",
+    "isCorrect": false
+   },
+   {
+    "text": "เบาหวาน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Career",
+  "phonetic": "/kəˈrɪr/",
+  "choices": [
+   {
+    "text": "อาชีพ",
+    "isCorrect": true
+   },
+   {
+    "text": "งานอดิเรก",
+    "isCorrect": false
+   },
+   {
+    "text": "การเรียน",
+    "isCorrect": false
+   },
+   {
+    "text": "ภารกิจ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Cause",
+  "phonetic": "/kɔːz/",
+  "choices": [
+   {
+    "text": "สาเหตุ",
+    "isCorrect": true
+   },
+   {
+    "text": "ผลลัพธ์",
+    "isCorrect": false
+   },
+   {
+    "text": "ผลกระทบ",
+    "isCorrect": false
+   },
+   {
+    "text": "จุดหมาย",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Ceremony",
+  "phonetic": "/ˈserəmoʊni/",
+  "choices": [
+   {
+    "text": "พิธี",
+    "isCorrect": true
+   },
+   {
+    "text": "งานเลี้ยง",
+    "isCorrect": false
+   },
+   {
+    "text": "การประชุม",
+    "isCorrect": false
+   },
+   {
+    "text": "การอบรม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Champion",
+  "phonetic": "/ˈtʃæmpiən/",
+  "choices": [
+   {
+    "text": "แชมป์เปี้ยน",
+    "isCorrect": true
+   },
+   {
+    "text": "รองแชมป์",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้ตัดสิน",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้ชม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Channel",
+  "phonetic": "/ˈtʃænl/",
+  "choices": [
+   {
+    "text": "ช่องทาง",
+    "isCorrect": true
+   },
+   {
+    "text": "กำแพง",
+    "isCorrect": false
+   },
+   {
+    "text": "ท่อ",
+    "isCorrect": false
+   },
+   {
+    "text": "สะพาน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Chapter",
+  "phonetic": "/ˈtʃæptər/",
+  "choices": [
+   {
+    "text": "บท",
+    "isCorrect": true
+   },
+   {
+    "text": "หน้า",
+    "isCorrect": false
+   },
+   {
+    "text": "เล่ม",
+    "isCorrect": false
+   },
+   {
+    "text": "หัวเรื่อง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Chief",
+  "phonetic": "/tʃiːf/",
+  "choices": [
+   {
+    "text": "หัวหน้า",
+    "isCorrect": true
+   },
+   {
+    "text": "ลูกน้อง",
+    "isCorrect": false
+   },
+   {
+    "text": "เพื่อนร่วมงาน",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้ช่วย",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Chip",
+  "phonetic": "/tʃɪp/",
+  "choices": [
+   {
+    "text": "ชิป / เศษชิ้น",
+    "isCorrect": true
+   },
+   {
+    "text": "เหรียญ",
+    "isCorrect": false
+   },
+   {
+    "text": "แผ่น",
+    "isCorrect": false
+   },
+   {
+    "text": "กล่อง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Citizen",
+  "phonetic": "/ˈsɪtɪzn/",
+  "choices": [
+   {
+    "text": "พลเมือง",
+    "isCorrect": true
+   },
+   {
+    "text": "นักท่องเที่ยว",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้ย้ายถิ่น",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้ลี้ภัย",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Coal",
+  "phonetic": "/koʊl/",
+  "choices": [
+   {
+    "text": "ถ่านหิน",
+    "isCorrect": true
+   },
+   {
+    "text": "น้ำมัน",
+    "isCorrect": false
+   },
+   {
+    "text": "ก๊าซธรรมชาติ",
+    "isCorrect": false
+   },
+   {
+    "text": "ไม้ฟืน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Criminal",
+  "phonetic": "/ˈkrɪmɪnl/",
+  "choices": [
+   {
+    "text": "อาชญากร",
+    "isCorrect": true
+   },
+   {
+    "text": "ตำรวจ",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้พิพากษา",
+    "isCorrect": false
+   },
+   {
+    "text": "ทนาย",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Currency",
+  "phonetic": "/ˈkɜːrənsi/",
+  "choices": [
+   {
+    "text": "สกุลเงิน",
+    "isCorrect": true
+   },
+   {
+    "text": "เหรียญ",
+    "isCorrect": false
+   },
+   {
+    "text": "ธนบัตร",
+    "isCorrect": false
+   },
+   {
+    "text": "ทองคำ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Danger",
+  "phonetic": "/ˈdeɪndʒər/",
+  "choices": [
+   {
+    "text": "อันตราย",
+    "isCorrect": true
+   },
+   {
+    "text": "ความปลอดภัย",
+    "isCorrect": false
+   },
+   {
+    "text": "ความสงบ",
+    "isCorrect": false
+   },
+   {
+    "text": "ความมั่นคง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Debt",
+  "phonetic": "/det/",
+  "choices": [
+   {
+    "text": "หนี้สิน",
+    "isCorrect": true
+   },
+   {
+    "text": "ทรัพย์สิน",
+    "isCorrect": false
+   },
+   {
+    "text": "เงินออม",
+    "isCorrect": false
+   },
+   {
+    "text": "กำไร",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Design",
+  "phonetic": "/dɪˈzaɪn/",
+  "choices": [
+   {
+    "text": "การออกแบบ",
+    "isCorrect": true
+   },
+   {
+    "text": "การผลิต",
+    "isCorrect": false
+   },
+   {
+    "text": "การก่อสร้าง",
+    "isCorrect": false
+   },
+   {
+    "text": "การซ่อม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Document",
+  "phonetic": "/ˈdɑːkjumənt/",
+  "choices": [
+   {
+    "text": "เอกสาร",
+    "isCorrect": true
+   },
+   {
+    "text": "หนังสือ",
+    "isCorrect": false
+   },
+   {
+    "text": "บทความ",
+    "isCorrect": false
+   },
+   {
+    "text": "จดหมาย",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Economy",
+  "phonetic": "/ɪˈkɑːnəmi/",
+  "choices": [
+   {
+    "text": "เศรษฐกิจ",
+    "isCorrect": true
+   },
+   {
+    "text": "การเมือง",
+    "isCorrect": false
+   },
+   {
+    "text": "สังคม",
+    "isCorrect": false
+   },
+   {
+    "text": "วัฒนธรรม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Editor",
+  "phonetic": "/ˈedɪtər/",
+  "choices": [
+   {
+    "text": "บรรณาธิการ",
+    "isCorrect": true
+   },
+   {
+    "text": "นักเขียน",
+    "isCorrect": false
+   },
+   {
+    "text": "นักอ่าน",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้จัดพิมพ์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Engineer",
+  "phonetic": "/ˌendʒɪˈnɪr/",
+  "choices": [
+   {
+    "text": "วิศวกร",
+    "isCorrect": true
+   },
+   {
+    "text": "สถาปนิก",
+    "isCorrect": false
+   },
+   {
+    "text": "ช่างเทคนิค",
+    "isCorrect": false
+   },
+   {
+    "text": "นักวิทยาศาสตร์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Expense",
+  "phonetic": "/ɪkˈspens/",
+  "choices": [
+   {
+    "text": "ค่าใช้จ่าย",
+    "isCorrect": true
+   },
+   {
+    "text": "รายได้",
+    "isCorrect": false
+   },
+   {
+    "text": "กำไร",
+    "isCorrect": false
+   },
+   {
+    "text": "เงินออม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Fashion",
+  "phonetic": "/ˈfæʃn/",
+  "choices": [
+   {
+    "text": "แฟชั่น",
+    "isCorrect": true
+   },
+   {
+    "text": "ประเพณี",
+    "isCorrect": false
+   },
+   {
+    "text": "วัฒนธรรม",
+    "isCorrect": false
+   },
+   {
+    "text": "ธรรมเนียม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Fence",
+  "phonetic": "/fens/",
+  "choices": [
+   {
+    "text": "รั้ว",
+    "isCorrect": true
+   },
+   {
+    "text": "กำแพง",
+    "isCorrect": false
+   },
+   {
+    "text": "ประตู",
+    "isCorrect": false
+   },
+   {
+    "text": "สะพาน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Foundation",
+  "phonetic": "/faʊnˈdeɪʃn/",
+  "choices": [
+   {
+    "text": "รากฐาน",
+    "isCorrect": true
+   },
+   {
+    "text": "หลังคา",
+    "isCorrect": false
+   },
+   {
+    "text": "ชั้นบนสุด",
+    "isCorrect": false
+   },
+   {
+    "text": "ปลายยอด",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Fuel",
+  "phonetic": "/ˈfjuːəl/",
+  "choices": [
+   {
+    "text": "เชื้อเพลิง",
+    "isCorrect": true
+   },
+   {
+    "text": "พลังงาน",
+    "isCorrect": false
+   },
+   {
+    "text": "แบตเตอรี่",
+    "isCorrect": false
+   },
+   {
+    "text": "เครื่องยนต์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Function",
+  "phonetic": "/ˈfʌŋkʃn/",
+  "choices": [
+   {
+    "text": "การทำงาน",
+    "isCorrect": true
+   },
+   {
+    "text": "การพัง",
+    "isCorrect": false
+   },
+   {
+    "text": "การหยุดชะงัก",
+    "isCorrect": false
+   },
+   {
+    "text": "การขัดข้อง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Gift",
+  "phonetic": "/ɡɪft/",
+  "choices": [
+   {
+    "text": "ของขวัญ",
+    "isCorrect": true
+   },
+   {
+    "text": "ของใช้",
+    "isCorrect": false
+   },
+   {
+    "text": "สิ่งประดิษฐ์",
+    "isCorrect": false
+   },
+   {
+    "text": "ของสะสม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Grade",
+  "phonetic": "/ɡreɪd/",
+  "choices": [
+   {
+    "text": "ระดับ / คะแนน",
+    "isCorrect": true
+   },
+   {
+    "text": "ลำดับ",
+    "isCorrect": false
+   },
+   {
+    "text": "ตำแหน่ง",
+    "isCorrect": false
+   },
+   {
+    "text": "ประเภท",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Gym",
+  "phonetic": "/dʒɪm/",
+  "choices": [
+   {
+    "text": "ห้องออกกำลังกาย",
+    "isCorrect": true
+   },
+   {
+    "text": "สนามกีฬา",
+    "isCorrect": false
+   },
+   {
+    "text": "สระว่ายน้ำ",
+    "isCorrect": false
+   },
+   {
+    "text": "สนามเด็กเล่น",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Health",
+  "phonetic": "/helθ/",
+  "choices": [
+   {
+    "text": "สุขภาพ",
+    "isCorrect": true
+   },
+   {
+    "text": "โรคภัย",
+    "isCorrect": false
+   },
+   {
+    "text": "ความเจ็บป่วย",
+    "isCorrect": false
+   },
+   {
+    "text": "ความเหนื่อยล้า",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Heat",
+  "phonetic": "/hiːt/",
+  "choices": [
+   {
+    "text": "ความร้อน",
+    "isCorrect": true
+   },
+   {
+    "text": "ความเย็น",
+    "isCorrect": false
+   },
+   {
+    "text": "ความชื้น",
+    "isCorrect": false
+   },
+   {
+    "text": "ความแห้ง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Hero",
+  "phonetic": "/ˈhɪroʊ/",
+  "choices": [
+   {
+    "text": "ฮีโร่",
+    "isCorrect": true
+   },
+   {
+    "text": "ผู้ร้าย",
+    "isCorrect": false
+   },
+   {
+    "text": "ตัวประกอบ",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้ชม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Issue",
+  "phonetic": "/ˈɪʃuː/",
+  "choices": [
+   {
+    "text": "ประเด็น / ปัญหา",
+    "isCorrect": true
+   },
+   {
+    "text": "วิธีแก้",
+    "isCorrect": false
+   },
+   {
+    "text": "ทางออก",
+    "isCorrect": false
+   },
+   {
+    "text": "โอกาส",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Item",
+  "phonetic": "/ˈaɪtəm/",
+  "choices": [
+   {
+    "text": "รายการ / สิ่งของ",
+    "isCorrect": true
+   },
+   {
+    "text": "หมวดหมู่",
+    "isCorrect": false
+   },
+   {
+    "text": "ประเภท",
+    "isCorrect": false
+   },
+   {
+    "text": "จำนวน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Judge",
+  "phonetic": "/dʒʌdʒ/",
+  "choices": [
+   {
+    "text": "ผู้พิพากษา",
+    "isCorrect": true
+   },
+   {
+    "text": "ทนาย",
+    "isCorrect": false
+   },
+   {
+    "text": "ตำรวจ",
+    "isCorrect": false
+   },
+   {
+    "text": "พยาน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Level",
+  "phonetic": "/ˈlevl/",
+  "choices": [
+   {
+    "text": "ระดับ",
+    "isCorrect": true
+   },
+   {
+    "text": "ขั้นบันได",
+    "isCorrect": false
+   },
+   {
+    "text": "ชั้น",
+    "isCorrect": false
+   },
+   {
+    "text": "ตำแหน่ง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Magazine",
+  "phonetic": "/ˈmæɡəziːn/",
+  "choices": [
+   {
+    "text": "นิตยสาร",
+    "isCorrect": true
+   },
+   {
+    "text": "หนังสือพิมพ์",
+    "isCorrect": false
+   },
+   {
+    "text": "หนังสือเรียน",
+    "isCorrect": false
+   },
+   {
+    "text": "สมุดภาพ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Medicine",
+  "phonetic": "/ˈmedɪsn/",
+  "choices": [
+   {
+    "text": "ยา",
+    "isCorrect": true
+   },
+   {
+    "text": "วิตามิน",
+    "isCorrect": false
+   },
+   {
+    "text": "อาหารเสริม",
+    "isCorrect": false
+   },
+   {
+    "text": "สมุนไพร",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Metal",
+  "phonetic": "/ˈmetl/",
+  "choices": [
+   {
+    "text": "โลหะ",
+    "isCorrect": true
+   },
+   {
+    "text": "พลาสติก",
+    "isCorrect": false
+   },
+   {
+    "text": "ไม้",
+    "isCorrect": false
+   },
+   {
+    "text": "แก้ว",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Novel",
+  "phonetic": "/ˈnɑːvl/",
+  "choices": [
+   {
+    "text": "นวนิยาย",
+    "isCorrect": true
+   },
+   {
+    "text": "สารคดี",
+    "isCorrect": false
+   },
+   {
+    "text": "บทกวี",
+    "isCorrect": false
+   },
+   {
+    "text": "บทความ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Object",
+  "phonetic": "/ˈɑːbdʒekt/",
+  "choices": [
+   {
+    "text": "วัตถุ / สิ่งของ",
+    "isCorrect": true
+   },
+   {
+    "text": "สิ่งมีชีวิต",
+    "isCorrect": false
+   },
+   {
+    "text": "บุคคล",
+    "isCorrect": false
+   },
+   {
+    "text": "สถานที่",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Officer",
+  "phonetic": "/ˈɔːfɪsər/",
+  "choices": [
+   {
+    "text": "เจ้าหน้าที่",
+    "isCorrect": true
+   },
+   {
+    "text": "ลูกค้า",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้มาเยือน",
+    "isCorrect": false
+   },
+   {
+    "text": "ประชาชน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Owner",
+  "phonetic": "/ˈoʊnər/",
+  "choices": [
+   {
+    "text": "เจ้าของ",
+    "isCorrect": true
+   },
+   {
+    "text": "ผู้เช่า",
+    "isCorrect": false
+   },
+   {
+    "text": "พนักงาน",
+    "isCorrect": false
+   },
+   {
+    "text": "ลูกค้า",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Package",
+  "phonetic": "/ˈpækɪdʒ/",
+  "choices": [
+   {
+    "text": "พัสดุ / แพ็กเกจ",
+    "isCorrect": true
+   },
+   {
+    "text": "จดหมาย",
+    "isCorrect": false
+   },
+   {
+    "text": "ซอง",
+    "isCorrect": false
+   },
+   {
+    "text": "เอกสาร",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Passenger",
+  "phonetic": "/ˈpæsɪndʒər/",
+  "choices": [
+   {
+    "text": "ผู้โดยสาร",
+    "isCorrect": true
+   },
+   {
+    "text": "คนขับ",
+    "isCorrect": false
+   },
+   {
+    "text": "พนักงานต้อนรับ",
+    "isCorrect": false
+   },
+   {
+    "text": "เจ้าหน้าที่",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Percent",
+  "phonetic": "/pərˈsent/",
+  "choices": [
+   {
+    "text": "เปอร์เซ็นต์",
+    "isCorrect": true
+   },
+   {
+    "text": "อัตราส่วน",
+    "isCorrect": false
+   },
+   {
+    "text": "สัดส่วน",
+    "isCorrect": false
+   },
+   {
+    "text": "เศษส่วน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Permission",
+  "phonetic": "/pərˈmɪʃn/",
+  "choices": [
+   {
+    "text": "การอนุญาต",
+    "isCorrect": true
+   },
+   {
+    "text": "การห้าม",
+    "isCorrect": false
+   },
+   {
+    "text": "การปฏิเสธ",
+    "isCorrect": false
+   },
+   {
+    "text": "การยับยั้ง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Picture",
+  "phonetic": "/ˈpɪktʃər/",
+  "choices": [
+   {
+    "text": "ภาพ",
+    "isCorrect": true
+   },
+   {
+    "text": "กรอบ",
+    "isCorrect": false
+   },
+   {
+    "text": "โปสเตอร์",
+    "isCorrect": false
+   },
+   {
+    "text": "ภาพยนตร์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Pollution",
+  "phonetic": "/pəˈluːʃn/",
+  "choices": [
+   {
+    "text": "มลพิษ",
+    "isCorrect": true
+   },
+   {
+    "text": "ธรรมชาติ",
+    "isCorrect": false
+   },
+   {
+    "text": "สิ่งแวดล้อม",
+    "isCorrect": false
+   },
+   {
+    "text": "สภาพอากาศ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Power",
+  "phonetic": "/ˈpaʊər/",
+  "choices": [
+   {
+    "text": "อำนาจ / พลัง",
+    "isCorrect": true
+   },
+   {
+    "text": "ความอ่อนแอ",
+    "isCorrect": false
+   },
+   {
+    "text": "การขาด",
+    "isCorrect": false
+   },
+   {
+    "text": "การจำกัด",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Practice",
+  "phonetic": "/ˈpræktɪs/",
+  "choices": [
+   {
+    "text": "การฝึกฝน",
+    "isCorrect": true
+   },
+   {
+    "text": "การสอบ",
+    "isCorrect": false
+   },
+   {
+    "text": "การแข่งขัน",
+    "isCorrect": false
+   },
+   {
+    "text": "การแสดง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Price",
+  "phonetic": "/praɪs/",
+  "choices": [
+   {
+    "text": "ราคา",
+    "isCorrect": true
+   },
+   {
+    "text": "คุณค่า",
+    "isCorrect": false
+   },
+   {
+    "text": "ค่าธรรมเนียม",
+    "isCorrect": false
+   },
+   {
+    "text": "ต้นทุน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Problem",
+  "phonetic": "/ˈprɑːbləm/",
+  "choices": [
+   {
+    "text": "ปัญหา",
+    "isCorrect": true
+   },
+   {
+    "text": "วิธีแก้",
+    "isCorrect": false
+   },
+   {
+    "text": "ทางออก",
+    "isCorrect": false
+   },
+   {
+    "text": "โอกาส",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Process",
+  "phonetic": "/ˈprɑːses/",
+  "choices": [
+   {
+    "text": "กระบวนการ",
+    "isCorrect": true
+   },
+   {
+    "text": "ผลลัพธ์",
+    "isCorrect": false
+   },
+   {
+    "text": "เป้าหมาย",
+    "isCorrect": false
+   },
+   {
+    "text": "จุดเริ่มต้น",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Product",
+  "phonetic": "/ˈprɑːdʌkt/",
+  "choices": [
+   {
+    "text": "ผลิตภัณฑ์",
+    "isCorrect": true
+   },
+   {
+    "text": "บริการ",
+    "isCorrect": false
+   },
+   {
+    "text": "เครื่องมือ",
+    "isCorrect": false
+   },
+   {
+    "text": "อุปกรณ์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Profit",
+  "phonetic": "/ˈprɑːfɪt/",
+  "choices": [
+   {
+    "text": "กำไร",
+    "isCorrect": true
+   },
+   {
+    "text": "ขาดทุน",
+    "isCorrect": false
+   },
+   {
+    "text": "รายจ่าย",
+    "isCorrect": false
+   },
+   {
+    "text": "ต้นทุน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Program",
+  "phonetic": "/ˈproʊɡræm/",
+  "choices": [
+   {
+    "text": "โปรแกรม",
+    "isCorrect": true
+   },
+   {
+    "text": "อุปกรณ์",
+    "isCorrect": false
+   },
+   {
+    "text": "เครื่องจักร",
+    "isCorrect": false
+   },
+   {
+    "text": "ระบบ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Purpose",
+  "phonetic": "/ˈpɜːrpəs/",
+  "choices": [
+   {
+    "text": "จุดประสงค์",
+    "isCorrect": true
+   },
+   {
+    "text": "เหตุผล",
+    "isCorrect": false
+   },
+   {
+    "text": "วิธีการ",
+    "isCorrect": false
+   },
+   {
+    "text": "ผลลัพธ์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Reason",
+  "phonetic": "/ˈriːzn/",
+  "choices": [
+   {
+    "text": "เหตุผล",
+    "isCorrect": true
+   },
+   {
+    "text": "ข้อสงสัย",
+    "isCorrect": false
+   },
+   {
+    "text": "ปัญหา",
+    "isCorrect": false
+   },
+   {
+    "text": "อุปสรรค",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Result",
+  "phonetic": "/rɪˈzʌlt/",
+  "choices": [
+   {
+    "text": "ผลลัพธ์",
+    "isCorrect": true
+   },
+   {
+    "text": "สาเหตุ",
+    "isCorrect": false
+   },
+   {
+    "text": "จุดเริ่มต้น",
+    "isCorrect": false
+   },
+   {
+    "text": "วิธีการ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Salary",
+  "phonetic": "/ˈsæləri/",
+  "choices": [
+   {
+    "text": "เงินเดือน",
+    "isCorrect": true
+   },
+   {
+    "text": "เงินโบนัส",
+    "isCorrect": false
+   },
+   {
+    "text": "เงินบำนาญ",
+    "isCorrect": false
+   },
+   {
+    "text": "เงินค่าล่วงเวลา",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Scientist",
+  "phonetic": "/ˈsaɪəntɪst/",
+  "choices": [
+   {
+    "text": "นักวิทยาศาสตร์",
+    "isCorrect": true
+   },
+   {
+    "text": "วิศวกร",
+    "isCorrect": false
+   },
+   {
+    "text": "นักวิจัย",
+    "isCorrect": false
+   },
+   {
+    "text": "ศาสตราจารย์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Secretary",
+  "phonetic": "/ˈsekrəteri/",
+  "choices": [
+   {
+    "text": "เลขานุการ",
+    "isCorrect": true
+   },
+   {
+    "text": "ผู้จัดการ",
+    "isCorrect": false
+   },
+   {
+    "text": "พนักงานบัญชี",
+    "isCorrect": false
+   },
+   {
+    "text": "เจ้าหน้าที่บุคคล",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Security",
+  "phonetic": "/sɪˈkjʊrəti/",
+  "choices": [
+   {
+    "text": "ความมั่นคง",
+    "isCorrect": true
+   },
+   {
+    "text": "ความเสี่ยง",
+    "isCorrect": false
+   },
+   {
+    "text": "อันตราย",
+    "isCorrect": false
+   },
+   {
+    "text": "ภัยคุกคาม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Service",
+  "phonetic": "/ˈsɜːrvɪs/",
+  "choices": [
+   {
+    "text": "บริการ",
+    "isCorrect": true
+   },
+   {
+    "text": "สินค้า",
+    "isCorrect": false
+   },
+   {
+    "text": "ผลิตภัณฑ์",
+    "isCorrect": false
+   },
+   {
+    "text": "วัตถุดิบ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Skill",
+  "phonetic": "/skɪl/",
+  "choices": [
+   {
+    "text": "ทักษะ",
+    "isCorrect": true
+   },
+   {
+    "text": "ความรู้",
+    "isCorrect": false
+   },
+   {
+    "text": "ความฉลาด",
+    "isCorrect": false
+   },
+   {
+    "text": "ประสบการณ์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Society",
+  "phonetic": "/səˈsaɪəti/",
+  "choices": [
+   {
+    "text": "สังคม",
+    "isCorrect": true
+   },
+   {
+    "text": "ครอบครัว",
+    "isCorrect": false
+   },
+   {
+    "text": "ชุมชน",
+    "isCorrect": false
+   },
+   {
+    "text": "ประเทศ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Staff",
+  "phonetic": "/stæf/",
+  "choices": [
+   {
+    "text": "เจ้าหน้าที่ / พนักงาน",
+    "isCorrect": true
+   },
+   {
+    "text": "ลูกค้า",
+    "isCorrect": false
+   },
+   {
+    "text": "ลูกค้าประจำ",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้มาเยือน",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Strategy",
+  "phonetic": "/ˈstrætədʒi/",
+  "choices": [
+   {
+    "text": "กลยุทธ์",
+    "isCorrect": true
+   },
+   {
+    "text": "แผนการ",
+    "isCorrect": false
+   },
+   {
+    "text": "ขั้นตอน",
+    "isCorrect": false
+   },
+   {
+    "text": "วิธีการ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Stress",
+  "phonetic": "/stres/",
+  "choices": [
+   {
+    "text": "ความเครียด",
+    "isCorrect": true
+   },
+   {
+    "text": "ความผ่อนคลาย",
+    "isCorrect": false
+   },
+   {
+    "text": "ความสงบ",
+    "isCorrect": false
+   },
+   {
+    "text": "ความสุข",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Structure",
+  "phonetic": "/ˈstrʌktʃər/",
+  "choices": [
+   {
+    "text": "โครงสร้าง",
+    "isCorrect": true
+   },
+   {
+    "text": "พื้นผิว",
+    "isCorrect": false
+   },
+   {
+    "text": "ลวดลาย",
+    "isCorrect": false
+   },
+   {
+    "text": "องค์ประกอบ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Subject",
+  "phonetic": "/ˈsʌbdʒekt/",
+  "choices": [
+   {
+    "text": "วิชา / หัวข้อ",
+    "isCorrect": true
+   },
+   {
+    "text": "ห้องเรียน",
+    "isCorrect": false
+   },
+   {
+    "text": "ชั้นเรียน",
+    "isCorrect": false
+   },
+   {
+    "text": "ตำรา",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Summer",
+  "phonetic": "/ˈsʌmər/",
+  "choices": [
+   {
+    "text": "ฤดูร้อน",
+    "isCorrect": true
+   },
+   {
+    "text": "ฤดูหนาว",
+    "isCorrect": false
+   },
+   {
+    "text": "ฤดูฝน",
+    "isCorrect": false
+   },
+   {
+    "text": "ฤดูใบไม้ร่วง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Target",
+  "phonetic": "/ˈtɑːrɡɪt/",
+  "choices": [
+   {
+    "text": "เป้าหมาย",
+    "isCorrect": true
+   },
+   {
+    "text": "จุดเริ่มต้น",
+    "isCorrect": false
+   },
+   {
+    "text": "เส้นทาง",
+    "isCorrect": false
+   },
+   {
+    "text": "ผลลัพธ์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Tax",
+  "phonetic": "/tæks/",
+  "choices": [
+   {
+    "text": "ภาษี",
+    "isCorrect": true
+   },
+   {
+    "text": "ค่าธรรมเนียม",
+    "isCorrect": false
+   },
+   {
+    "text": "ค่าเช่า",
+    "isCorrect": false
+   },
+   {
+    "text": "ค่าปรับ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Team",
+  "phonetic": "/tiːm/",
+  "choices": [
+   {
+    "text": "ทีม",
+    "isCorrect": true
+   },
+   {
+    "text": "กลุ่ม",
+    "isCorrect": false
+   },
+   {
+    "text": "ชมรม",
+    "isCorrect": false
+   },
+   {
+    "text": "สมาคม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Topic",
+  "phonetic": "/ˈtɑːpɪk/",
+  "choices": [
+   {
+    "text": "หัวข้อ",
+    "isCorrect": true
+   },
+   {
+    "text": "บทสรุป",
+    "isCorrect": false
+   },
+   {
+    "text": "เนื้อเรื่อง",
+    "isCorrect": false
+   },
+   {
+    "text": "โครงเรื่อง",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Tourist",
+  "phonetic": "/ˈtʊrɪst/",
+  "choices": [
+   {
+    "text": "นักท่องเที่ยว",
+    "isCorrect": true
+   },
+   {
+    "text": "คนท้องถิ่น",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้ย้ายถิ่น",
+    "isCorrect": false
+   },
+   {
+    "text": "นักเดินทางไกล",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Traffic",
+  "phonetic": "/ˈtræfɪk/",
+  "choices": [
+   {
+    "text": "การจราจร",
+    "isCorrect": true
+   },
+   {
+    "text": "ถนน",
+    "isCorrect": false
+   },
+   {
+    "text": "เส้นทาง",
+    "isCorrect": false
+   },
+   {
+    "text": "ป้ายจราจร",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Uniform",
+  "phonetic": "/ˈjuːnɪfɔːrm/",
+  "choices": [
+   {
+    "text": "เครื่องแบบ",
+    "isCorrect": true
+   },
+   {
+    "text": "เครื่องแต่งกาย",
+    "isCorrect": false
+   },
+   {
+    "text": "เครื่องประดับ",
+    "isCorrect": false
+   },
+   {
+    "text": "เครื่องนุ่งห่ม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Victim",
+  "phonetic": "/ˈvɪktɪm/",
+  "choices": [
+   {
+    "text": "เหยื่อ",
+    "isCorrect": true
+   },
+   {
+    "text": "ผู้ร้าย",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้บาดเจ็บ",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้เคราะห์ร้าย",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "View",
+  "phonetic": "/vjuː/",
+  "choices": [
+   {
+    "text": "ทัศนียภาพ / มุมมอง",
+    "isCorrect": true
+   },
+   {
+    "text": "เสียง",
+    "isCorrect": false
+   },
+   {
+    "text": "กลิ่น",
+    "isCorrect": false
+   },
+   {
+    "text": "สัมผัส",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Village",
+  "phonetic": "/ˈvɪlɪdʒ/",
+  "choices": [
+   {
+    "text": "หมู่บ้าน",
+    "isCorrect": true
+   },
+   {
+    "text": "เมือง",
+    "isCorrect": false
+   },
+   {
+    "text": "ชุมชน",
+    "isCorrect": false
+   },
+   {
+    "text": "ชนบท",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Weight",
+  "phonetic": "/weɪt/",
+  "choices": [
+   {
+    "text": "น้ำหนัก",
+    "isCorrect": true
+   },
+   {
+    "text": "ส่วนสูง",
+    "isCorrect": false
+   },
+   {
+    "text": "ความยาว",
+    "isCorrect": false
+   },
+   {
+    "text": "ปริมาตร",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Winner",
+  "phonetic": "/ˈwɪnər/",
+  "choices": [
+   {
+    "text": "ผู้ชนะ",
+    "isCorrect": true
+   },
+   {
+    "text": "ผู้แพ้",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้ตัดสิน",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้ชม",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Winter",
+  "phonetic": "/ˈwɪntər/",
+  "choices": [
+   {
+    "text": "ฤดูหนาว",
+    "isCorrect": true
+   },
+   {
+    "text": "ฤดูร้อน",
+    "isCorrect": false
+   },
+   {
+    "text": "ฤดูฝน",
+    "isCorrect": false
+   },
+   {
+    "text": "ฤดูใบไม้ผลิ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Worker",
+  "phonetic": "/ˈwɜːrkər/",
+  "choices": [
+   {
+    "text": "คนงาน",
+    "isCorrect": true
+   },
+   {
+    "text": "นายจ้าง",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้จัดการ",
+    "isCorrect": false
+   },
+   {
+    "text": "เจ้าของ",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "World",
+  "phonetic": "/wɜːrld/",
+  "choices": [
+   {
+    "text": "โลก",
+    "isCorrect": true
+   },
+   {
+    "text": "ประเทศ",
+    "isCorrect": false
+   },
+   {
+    "text": "ทวีป",
+    "isCorrect": false
+   },
+   {
+    "text": "จักรวาล",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Writer",
+  "phonetic": "/ˈraɪtər/",
+  "choices": [
+   {
+    "text": "นักเขียน",
+    "isCorrect": true
+   },
+   {
+    "text": "นักอ่าน",
+    "isCorrect": false
+   },
+   {
+    "text": "บรรณาธิการ",
+    "isCorrect": false
+   },
+   {
+    "text": "ผู้จัดพิมพ์",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ },
+ {
+  "word": "Youth",
+  "phonetic": "/juːθ/",
+  "choices": [
+   {
+    "text": "เยาวชน",
+    "isCorrect": true
+   },
+   {
+    "text": "ผู้สูงอายุ",
+    "isCorrect": false
+   },
+   {
+    "text": "วัยกลางคน",
+    "isCorrect": false
+   },
+   {
+    "text": "ทารก",
+    "isCorrect": false
+   }
+  ],
+  "difficulty": "intermediate"
+ }
+]

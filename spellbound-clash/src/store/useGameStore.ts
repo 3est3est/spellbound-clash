@@ -15,6 +15,39 @@ import { ADMIN_CODE } from "../game/constants";
 
 const SAVE_KEY = "spellbound_save";
 const LEADERBOARD_KEY = "spellbound_leaderboard";
+const SETTINGS_KEY = "spellbound_settings";
+
+interface AudioSettings {
+  bgmVolume: number;
+  isMuted: boolean;
+}
+
+const defaultSettings: AudioSettings = {
+  bgmVolume: 0.5,
+  isMuted: false,
+};
+
+function readSettings(): AudioSettings {
+  try {
+    const raw = localStorage.getItem(SETTINGS_KEY);
+    if (!raw) return defaultSettings;
+    const parsed = JSON.parse(raw);
+    return {
+      bgmVolume: typeof parsed.bgmVolume === 'number' ? parsed.bgmVolume : 0.6,
+      isMuted: typeof parsed.isMuted === 'boolean' ? parsed.isMuted : false,
+    };
+  } catch {
+    return defaultSettings;
+  }
+}
+
+function writeSettings(s: AudioSettings) {
+  try {
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify(s));
+  } catch {
+    /* ignore */
+  }
+}
 
 // ราคาซื้อปลดล็อคประตูไปโซนถัดไป (key = โซนที่ต้องการปลด)
 export const GATE_UNLOCK_PRICES: Record<number, number> = { 2: 10, 3: 30, 4: 60 };
@@ -22,6 +55,10 @@ export const GATE_UNLOCK_PRICES: Record<number, number> = { 2: 10, 3: 30, 4: 60 
 // ===== Store Interface =====
 
 interface GameStore {
+  // Audio Settings
+  bgmVolume: number;
+  isMuted: boolean;
+
   // Core State
   gameState: GameState;
   difficulty: Difficulty;
@@ -90,6 +127,7 @@ interface GameStore {
   isGachaOpen: boolean;
   isInventoryOpen: boolean;
   buyGacha: () => string | null;
+  buyGachaMultiple: (count: number) => string[] | null;
   equipPet: (pet: string | null) => void;
   setGachaOpen: (open: boolean) => void;
   setInventoryOpen: (open: boolean) => void;
@@ -113,6 +151,9 @@ interface GameStore {
   adminAddCoins: (amount?: number) => void;
   unlockGateAdmin: (zone: 2 | 3 | 4) => boolean;
   clearAdminMode: () => void;
+
+  setBgmVolume: (vol: number) => void;
+  toggleMute: () => void;
 }
 
 // ===== Helper: Get random questions =====
@@ -241,6 +282,8 @@ function uniqueName(base: string): string {
 
 export const useGameStore = create<GameStore>((set, get) => ({
   // Initial State
+  bgmVolume: readSettings().bgmVolume,
+  isMuted: readSettings().isMuted,
   gameState: "MENU",
   difficulty: "EASY",
 
@@ -287,6 +330,17 @@ export const useGameStore = create<GameStore>((set, get) => ({
   gameStartedAt: null,
 
   // ===== Actions =====
+
+  setBgmVolume: (bgmVolume) => {
+    set({ bgmVolume });
+    writeSettings({ bgmVolume, isMuted: get().isMuted });
+  },
+
+  toggleMute: () => {
+    const isMuted = !get().isMuted;
+    set({ isMuted });
+    writeSettings({ bgmVolume: get().bgmVolume, isMuted });
+  },
 
   setIsPaused: (isPaused) => {
     set({ isPaused });
@@ -387,10 +441,15 @@ export const useGameStore = create<GameStore>((set, get) => ({
   answerQuestion: (isCorrect) => {
     const state = get();
     if (isCorrect) {
-      const isCatEquipped = state.equippedPet === "cat";
+      const equippedPet = state.equippedPet;
+      let petDmgBonus = 0;
+      if (equippedPet === "cat" || equippedPet === "frog") petDmgBonus = 1;
+      else if (equippedPet === "octopus" || equippedPet === "phoenix") petDmgBonus = 2;
+      else if (equippedPet === "shadow") petDmgBonus = 3;
+
       const isSwordEquipped = state.equippedSword === "sword";
       const swordBonus = isSwordEquipped ? (1 + (state.swordUpgradeLevel > 0 ? 0.5 + state.swordUpgradeLevel * 0.5 : 0)) : 0;
-      const dmg = (isCatEquipped ? 2 : 1) + swordBonus;
+      const dmg = 1 + petDmgBonus + swordBonus;
       const newEnemyHP = Math.max(0, state.enemyHP - dmg);
       set({
         enemyHP: newEnemyHP,
@@ -469,11 +528,12 @@ export const useGameStore = create<GameStore>((set, get) => ({
     const defeatedEnemyZone = state.currentEnemy.zone;
     const rewardMap: Record<number, number> = { 1: 2, 2: 5, 3: 10, 4: 15 };
     const reward = rewardMap[defeatedEnemyZone] || 2;
-    const isPigEquipped = state.equippedPet === 'pig';
-    const finalCoinReward = isPigEquipped ? reward * 2 : reward;
+    const doubleCoinPet = state.equippedPet === 'pig' || state.equippedPet === 'cow' || state.equippedPet === 'phoenix' || state.equippedPet === 'shadow';
+    const finalCoinReward = doubleCoinPet ? reward * 2 : reward;
 
     let finalPlayerHP = state.playerHP;
-    if (state.equippedPet === 'dog') {
+    const isHealerPet = state.equippedPet === 'dog' || state.equippedPet === 'shadow' || state.equippedPet === 'crab';
+    if (isHealerPet) {
       const healAmount = state.playerHP <= 2 ? 2 : 1;
       finalPlayerHP = Math.min(state.maxPlayerHP, state.playerHP + healAmount);
     }
@@ -641,8 +701,28 @@ export const useGameStore = create<GameStore>((set, get) => ({
     if (!state.adminMode && state.coins < 5) return null;
 
     const newCoins = state.adminMode ? state.coins : state.coins - 5;
-    const pets = ["dog", "cat", "pig"];
-    const pulledPet = pets[Math.floor(Math.random() * pets.length)];
+
+    // Exact probabilities matching the gacha sheet:
+    // Crab (36%), Cow (36%), Frog (16%), Octopus (6.2%), Dog (3.1%), Phoenix (2.1%), Shadow (0.6%)
+    const rand = Math.random() * 100;
+    let pulledPet = "crab";
+
+    if (rand < 36) {
+      pulledPet = "crab";
+    } else if (rand < 72) {
+      pulledPet = "cow";
+    } else if (rand < 88) {
+      pulledPet = "frog";
+    } else if (rand < 94.2) {
+      pulledPet = "octopus";
+    } else if (rand < 97.3) {
+      pulledPet = "dog";
+    } else if (rand < 99.4) {
+      pulledPet = "phoenix";
+    } else {
+      pulledPet = "shadow";
+    }
+
     const newPets = [...(get().petsOwned || []), pulledPet];
 
     set({
@@ -652,6 +732,50 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
     get().saveProgress();
     return pulledPet;
+  },
+
+  buyGachaMultiple: (count) => {
+    const state = get();
+    let cost = count * 5;
+    if (count === 3) cost = 15;
+    else if (count === 8) cost = 40;
+
+    if (!state.adminMode && state.coins < cost) return null;
+
+    const newCoins = state.adminMode ? state.coins : state.coins - cost;
+    const pulledPets: string[] = [];
+
+    for (let i = 0; i < count; i++) {
+      const rand = Math.random() * 100;
+      let pulledPet = "crab";
+
+      if (rand < 36) {
+        pulledPet = "crab";
+      } else if (rand < 72) {
+        pulledPet = "cow";
+      } else if (rand < 88) {
+        pulledPet = "frog";
+      } else if (rand < 94.2) {
+        pulledPet = "octopus";
+      } else if (rand < 97.3) {
+        pulledPet = "dog";
+      } else if (rand < 99.4) {
+        pulledPet = "phoenix";
+      } else {
+        pulledPet = "shadow";
+      }
+      pulledPets.push(pulledPet);
+    }
+
+    const newPets = [...(get().petsOwned || []), ...pulledPets];
+
+    set({
+      coins: newCoins,
+      petsOwned: newPets,
+    });
+
+    get().saveProgress();
+    return pulledPets;
   },
 
   equipPet: (pet) => {

@@ -409,7 +409,7 @@ export default function GameCanvas() {
         fy: number;
         kind: "hero" | "enemy" | "pet" | "tall";
         id?: string;
-        petKind?: 'dog' | 'cat' | 'pig';
+        petKind?: 'dog' | 'cat' | 'pig' | 'crab' | 'cow' | 'frog' | 'octopus' | 'phoenix' | 'shadow';
         petDir?: Dir;
         code?: number;
       };
@@ -491,7 +491,7 @@ export default function GameCanvas() {
           fx: petPos.tx,
           fy: petPos.ty,
           kind: "pet",
-          petKind: equippedPet as 'dog' | 'cat' | 'pig',
+          petKind: equippedPet as any,
           petDir: petPos.dir
         });
       }

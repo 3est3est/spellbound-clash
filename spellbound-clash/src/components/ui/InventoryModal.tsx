@@ -21,6 +21,12 @@ export default function InventoryModal() {
         dog: { name: '🐶 น้องสุนัขแสนซน (ฟื้นฟู HP)', desc: 'ความสามารถ [รักษาใจ]: ฟื้นฟู HP 1 หน่วยทันทีเมื่อชนะการต่อสู้ (หากเลือดเหลือ 2 หรือน้อยกว่า จะฟื้นฟูแรงเป็น 2 หน่วย!)', color: '#d97706' },
         cat: { name: '🐱 น้องแมวขี้อ้อน (เพิ่มดาเมจ)', desc: 'ความสามารถ [พลัง爪]: เพิ่มดาเมจที่ทำได้ต่อมอนสเตอร์ 1 หน่วย (ทำให้ตีมอนสเตอร์ลดเลือดรอบละ 2 หน่วยแทนที่จะลด 1)', color: '#ea580c' },
         pig: { name: '🐷 น้องหมูนำโชค (เหรียญ x2)', desc: 'ความสามารถ [โชครับทรัพย์]: ทวีคูณเหรียญทองที่ได้รับหลังปราบมอนสเตอร์สำเร็จในแต่ละโซนแบบคูณ 2 (x2)!', color: '#ec4899' },
+        crab: { name: '🦀 น้องปูนักก้ามโต (ฟื้นฟู HP)', desc: 'ความสามารถ [ก้ามฟื้นฟู]: ฟื้นฟู HP 1 หน่วยทันทีเมื่อชนะการต่อสู้ (หากเลือดเหลือ 2 หรือน้อยกว่า จะฟื้นฟูแรงเป็น 2 หน่วย!)', color: '#dc2626' },
+        cow: { name: '🐮 น้องวัวลายจุด (เหรียญ x2)', desc: 'ความสามารถ [ผลผลิตทวีคูณ]: ทวีคูณเหรียญทองที่ได้รับหลังปราบมอนสเตอร์สำเร็จในแต่ละโซนแบบคูณ 2 (x2)!', color: '#a1a1aa' },
+        frog: { name: '🐸 น้องกบเขียว (เพิ่มดาเมจ)', desc: 'ความสามารถ [พลังกระโดด]: เพิ่มดาเมจที่ทำได้ต่อมอนสเตอร์ 1 หน่วย (ทำให้ตีมอนสเตอร์ลดเลือดรอบละ 2 หน่วยแทนที่จะลด 1)', color: '#22c55e' },
+        octopus: { name: '🐙 น้องหมึกม่วง (เพิ่มดาเมจ x2)', desc: 'ความสามารถ [หนวดโจมตี]: เพิ่มดาเมจที่ทำได้ต่อมอนสเตอร์ 2 หน่วย (ทำให้ตีมอนสเตอร์ลดเลือดรอบละ 3 หน่วยแทนที่จะลด 1)', color: '#a855f7' },
+        phoenix: { name: '🔥 น้องฟีนิกซ์เปลวเพลิง (ดาเมจ x2 & เหรียญ x2)', desc: 'ความสามารถ [เพลิงผลาญ]: เพิ่มดาเมจโจมตีมอนสเตอร์ 2 หน่วย และได้รับเหรียญรางวัลคูณสอง (x2) เมื่อปราบมอนสเตอร์ได้!', color: '#f97316' },
+        shadow: { name: '👾 น้องเงาปริศนา (พลังมหากาฬ)', desc: 'ความสามารถ [ผู้พิทักษ์เงา]: สุดยอดสัตว์เลี้ยงคู่กาย! บวกลบดาเมจ 3 หน่วย, ได้รับเหรียญสองเท่า (x2) และช่วยฟื้น HP ทุกครั้งที่ชนะศึก!', color: '#c084fc' }
     } as Record<string, { name: string; desc: string; color: string }>;
 
     const counts = petsOwned.reduce((acc, pet) => {
@@ -28,7 +34,7 @@ export default function InventoryModal() {
         return acc;
     }, {} as Record<string, number>);
 
-    const uniqueOwned = Object.keys(counts) as Array<'dog' | 'cat' | 'pig'>;
+    const uniqueOwned = Object.keys(counts) as string[];
 
     const handleEquipPet = (p: string) => {
         if (equippedPet === p) {
@@ -93,8 +99,8 @@ export default function InventoryModal() {
                     <button
                         onClick={() => setActiveTab('pets')}
                         className={`flex-1 font-pixel text-[10px] py-2 border-4 outline outline-4 -outline-offset-8 transition-colors font-bold ${activeTab === 'pets'
-                                ? 'bg-[#2f8f4f] border-[#57b86f] outline-[#1c5f33] text-white shadow-[inset_0_4px_0_rgba(255,255,255,0.12),inset_0_-4px_0_rgba(8,30,16,0.3),4px_4px_0_rgba(0,0,0,0.35)]'
-                                : 'bg-[#26221c] border-[#5d3b1e] outline-[#3a362e] text-[#b8a888] shadow-[3px_3px_0_rgba(0,0,0,0.4)]'
+                            ? 'bg-[#2f8f4f] border-[#57b86f] outline-[#1c5f33] text-white shadow-[inset_0_4px_0_rgba(255,255,255,0.12),inset_0_-4px_0_rgba(8,30,16,0.3),4px_4px_0_rgba(0,0,0,0.35)]'
+                            : 'bg-[#26221c] border-[#5d3b1e] outline-[#3a362e] text-[#b8a888] shadow-[3px_3px_0_rgba(0,0,0,0.4)]'
                             }`}
                     >
                         🐾 สัตว์เลี้ยง
@@ -102,8 +108,8 @@ export default function InventoryModal() {
                     <button
                         onClick={() => setActiveTab('equipment')}
                         className={`flex-1 font-pixel text-[10px] py-2 border-4 outline outline-4 -outline-offset-8 transition-colors font-bold ${activeTab === 'equipment'
-                                ? 'bg-[#2f8f4f] border-[#57b86f] outline-[#1c5f33] text-white shadow-[inset_0_4px_0_rgba(255,255,255,0.12),inset_0_-4px_0_rgba(8,30,16,0.3),4px_4px_0_rgba(0,0,0,0.35)]'
-                                : 'bg-[#26221c] border-[#5d3b1e] outline-[#3a362e] text-[#b8a888] shadow-[3px_3px_0_rgba(0,0,0,0.4)]'
+                            ? 'bg-[#2f8f4f] border-[#57b86f] outline-[#1c5f33] text-white shadow-[inset_0_4px_0_rgba(255,255,255,0.12),inset_0_-4px_0_rgba(8,30,16,0.3),4px_4px_0_rgba(0,0,0,0.35)]'
+                            : 'bg-[#26221c] border-[#5d3b1e] outline-[#3a362e] text-[#b8a888] shadow-[3px_3px_0_rgba(0,0,0,0.4)]'
                             }`}
                     >
                         ⚔️ ของสวมใส่

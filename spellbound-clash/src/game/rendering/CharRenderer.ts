@@ -248,7 +248,7 @@ export function drawPet(
   ctx: CanvasRenderingContext2D,
   screenX: number,
   screenY: number,
-  kind: 'dog' | 'cat' | 'pig',
+  kind: 'dog' | 'cat' | 'pig' | 'crab' | 'cow' | 'frog' | 'octopus' | 'phoenix' | 'shadow',
   frame: number,
   dir: Dir
 ) {
@@ -336,6 +336,134 @@ export function drawPet(
     // Tail
     ctx.fillStyle = '#ec4899';
     ctx.fillRect(x + 4 * s, y + 9 * s, 1 * s, 1 * s);
+
+  } else if (kind === 'crab') {
+    // Red Crab
+    ctx.fillStyle = '#dc2626';
+    ctx.fillRect(x + 4 * s, y + 9 * s, 8 * s, 4 * s); // Body
+    // Claws
+    ctx.fillRect(x + 2 * s, y + 7 * s, 2 * s, 3 * s);
+    ctx.fillRect(x + 12 * s, y + 7 * s, 2 * s, 3 * s);
+    // Legs
+    ctx.fillStyle = '#991b1b';
+    ctx.fillRect(x + 3 * s, y + 13 * s, 1 * s, 1 * s);
+    ctx.fillRect(x + 6 * s, y + 13 * s, 1 * s, 1 * s);
+    ctx.fillRect(x + 9 * s, y + 13 * s, 1 * s, 1 * s);
+    ctx.fillRect(x + 12 * s, y + 13 * s, 1 * s, 1 * s);
+    // Eyes
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(x + 5 * s, y + 6 * s, 2 * s, 3 * s);
+    ctx.fillRect(x + 9 * s, y + 6 * s, 2 * s, 3 * s);
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(x + 6 * s, y + 7 * s, 1 * s, 1 * s);
+    ctx.fillRect(x + 10 * s, y + 7 * s, 1 * s, 1 * s);
+
+  } else if (kind === 'cow') {
+    // White cow with black spots
+    ctx.fillStyle = '#f3f4f6';
+    ctx.fillRect(x + 5 * s, y + 8 * s, 7 * s, 5 * s);
+    // Black spots
+    ctx.fillStyle = '#111827';
+    ctx.fillRect(x + 6 * s, y + 9 * s, 2 * s, 2 * s);
+    ctx.fillRect(x + 9 * s, y + 11 * s, 2 * s, 2 * s);
+    // Legs
+    ctx.fillStyle = '#374151';
+    ctx.fillRect(x + 6 * s, y + 12 * s, 1 * s, 2 * s);
+    ctx.fillRect(x + 10 * s, y + 12 * s, 1 * s, 2 * s);
+    // Head
+    ctx.fillStyle = '#f3f4f6';
+    ctx.fillRect(x + 8 * s, y + 4 * s, 5 * s, 5 * s);
+    // Black spot on head
+    ctx.fillStyle = '#111827';
+    ctx.fillRect(x + 8 * s, y + 4 * s, 2 * s, 2 * s);
+    // Snout
+    ctx.fillStyle = '#fda4af';
+    ctx.fillRect(x + 10 * s, y + 7 * s, 4 * s, 2 * s);
+    // Eye
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(x + 11 * s, y + 5 * s, 1 * s, 1 * s);
+
+  } else if (kind === 'frog') {
+    // Green frog
+    ctx.fillStyle = '#22c55e';
+    ctx.fillRect(x + 5 * s, y + 9 * s, 6 * s, 4 * s);
+    // Eyes
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(x + 5 * s, y + 6 * s, 2 * s, 3 * s);
+    ctx.fillRect(x + 9 * s, y + 6 * s, 2 * s, 3 * s);
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(x + 6 * s, y + 7 * s, 1 * s, 1 * s);
+    ctx.fillRect(x + 10 * s, y + 7 * s, 1 * s, 1 * s);
+    // Cheeks
+    ctx.fillStyle = '#ef4444';
+    ctx.fillRect(x + 4 * s, y + 10 * s, 1 * s, 1 * s);
+    ctx.fillRect(x + 11 * s, y + 10 * s, 1 * s, 1 * s);
+    // Legs
+    ctx.fillStyle = '#15803d';
+    ctx.fillRect(x + 4 * s, y + 12 * s, 2 * s, 2 * s);
+    ctx.fillRect(x + 10 * s, y + 12 * s, 2 * s, 2 * s);
+
+  } else if (kind === 'octopus') {
+    // Purple head
+    ctx.fillStyle = '#a855f7';
+    ctx.fillRect(x + 5 * s, y + 6 * s, 6 * s, 6 * s);
+    // Eyes
+    ctx.fillStyle = '#ffffff';
+    ctx.fillRect(x + 6 * s, y + 8 * s, 1 * s, 2 * s);
+    ctx.fillRect(x + 9 * s, y + 8 * s, 1 * s, 2 * s);
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(x + 6 * s, y + 9 * s, 1 * s, 1 * s);
+    ctx.fillRect(x + 9 * s, y + 9 * s, 1 * s, 1 * s);
+    // Tentacles
+    ctx.fillStyle = '#7e22ce';
+    const tentacleOffset = frame % 2 === 0 ? 0 : 1;
+    ctx.fillRect(x + 5 * s, y + 12 * s, 1 * s, 2 * s + tentacleOffset);
+    ctx.fillRect(x + 7 * s, y + 12 * s, 1 * s, 2 * s - tentacleOffset);
+    ctx.fillRect(x + 9 * s, y + 12 * s, 1 * s, 2 * s + tentacleOffset);
+    ctx.fillRect(x + 11 * s, y + 12 * s, 1 * s, 2 * s - tentacleOffset);
+
+  } else if (kind === 'phoenix') {
+    // Red/Orange body
+    ctx.fillStyle = '#ef4444';
+    ctx.fillRect(x + 5 * s, y + 8 * s, 6 * s, 5 * s);
+    // Fire wings
+    ctx.fillStyle = '#f97316';
+    const wingHeight = frame % 2 === 0 ? 3 : 5;
+    ctx.fillRect(x + 3 * s, y + 7 * s, 2 * s, wingHeight);
+    ctx.fillRect(x + 11 * s, y + 7 * s, 2 * s, wingHeight);
+    // Head
+    ctx.fillStyle = '#ef4444';
+    ctx.fillRect(x + 7 * s, y + 4 * s, 4 * s, 4 * s);
+    // Beak
+    ctx.fillStyle = '#facc15';
+    ctx.fillRect(x + 11 * s, y + 6 * s, 2 * s, 1 * s);
+    // Eye
+    ctx.fillStyle = '#000000';
+    ctx.fillRect(x + 9 * s, y + 5 * s, 1 * s, 1 * s);
+    // Tail
+    ctx.fillStyle = '#facc15';
+    ctx.fillRect(x + 2 * s, y + 11 * s, 3 * s, 1 * s);
+
+  } else if (kind === 'shadow') {
+    // Dark body
+    ctx.fillStyle = '#1e1b4b';
+    ctx.fillRect(x + 5 * s, y + 8 * s, 6 * s, 5 * s);
+    // Head
+    ctx.fillStyle = '#0f172a';
+    ctx.fillRect(x + 7 * s, y + 4 * s, 5 * s, 5 * s);
+    // Glowing red eyes
+    ctx.fillStyle = '#f43f5e';
+    ctx.fillRect(x + 9 * s, y + 6 * s, 1 * s, 1 * s);
+    ctx.fillRect(x + 12 * s, y + 6 * s, 1 * s, 1 * s);
+    // Particle drift
+    ctx.fillStyle = '#4c1d95';
+    if (frame % 2 === 0) {
+      ctx.fillRect(x + 4 * s, y + 4 * s, 1 * s, 1 * s);
+      ctx.fillRect(x + 13 * s, y + 9 * s, 1 * s, 1 * s);
+    } else {
+      ctx.fillRect(x + 12 * s, y + 3 * s, 1 * s, 1 * s);
+      ctx.fillRect(x + 3 * s, y + 10 * s, 1 * s, 1 * s);
+    }
   }
 
   ctx.restore();

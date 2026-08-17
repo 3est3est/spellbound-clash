@@ -96,7 +96,7 @@ function PlayerModal({
             className={`flex-1 font-pixel text-xs py-2 border-4 outline outline-4 -outline-offset-8 transition-colors ${mode === m
               ? 'bg-[#6a3aa8] border-[#9a5adc] outline-[#2a1a4c] text-white shadow-[inset_0_4px_0_rgba(255,255,255,0.12),inset_0_-4px_0_rgba(10,6,20,0.3),4px_4px_0_rgba(0,0,0,0.35)] active:translate-x-[3px] active:translate-y-[3px] active:shadow-[2px_2px_0_rgba(0,0,0,0.5)]'
               : 'bg-[#1c2030] border-[#4a3a5e] outline-[#14143c] text-[#9a8f72] shadow-[inset_0_4px_0_rgba(255,255,255,0.07),inset_0_-4px_0_rgba(0,0,0,0.28),4px_4px_0_rgba(0,0,0,0.35)] active:translate-x-[3px] active:translate-y-[3px] active:shadow-none'
-            }`}
+              }`}
           >
             {m === 'new' ? 'ผู้เล่นใหม่' : 'เล่นต่อ'}
           </button>
@@ -280,11 +280,62 @@ function LeaderboardPanel() {
   );
 }
 
+function SettingsModal({
+  onClose,
+}: {
+  onClose: () => void;
+}) {
+  const { bgmVolume, setBgmVolume, isMuted, toggleMute } = useGameStore();
+
+  return (
+    <ModalFrame title="ตั้งค่าระบบเสียง" onClose={onClose}>
+      <div className="flex flex-col gap-4 py-3">
+        {/* Toggle Mute */}
+        <div className="flex items-center justify-between bg-[#191d30] p-3 border-2 border-[#6a3aa8]">
+          <span className="font-pixel text-[11px] text-[#f0e6c8]">ปิดเสียง (MUTE)</span>
+          <button
+            onClick={toggleMute}
+            className={`font-pixel text-[10px] px-3 py-1.5 border-4 outline outline-4 -outline-offset-8 transition-colors cursor-pointer ${isMuted
+                ? 'bg-[#d34b3a] border-[#ff7a5c] outline-[#8f2418] text-white shadow-[inset_0_4px_0_rgba(255,255,255,0.12),inset_0_-4px_0_rgba(10,6,20,0.3)]'
+                : 'bg-[#2f9e53] border-[#61d07f] outline-[#1d6b34] text-white shadow-[inset_0_4px_0_rgba(255,255,255,0.12),inset_0_-4px_0_rgba(10,6,20,0.3)]'
+              }`}
+          >
+            {isMuted ? "🔇 MUTED" : "🔊 ACTIVE"}
+          </button>
+        </div>
+
+        {/* Volume Slider */}
+        <div className="flex flex-col gap-2.5 bg-[#191d30] p-3 border-2 border-[#6a3aa8]">
+          <div className="flex justify-between items-center">
+            <span className="font-pixel text-[11px] text-[#f0e6c8]">ความดังเพลง:</span>
+            <span className="font-pixel text-[11px] text-[#f5d87a]">{Math.round(bgmVolume * 100)}%</span>
+          </div>
+          <input
+            type="range"
+            min="0"
+            max="1"
+            step="0.05"
+            value={bgmVolume}
+            onChange={(e) => setBgmVolume(parseFloat(e.target.value))}
+            className="w-full h-2 bg-[#14143c] border border-[#6a3aa8] accent-[#f5d87a] cursor-pointer"
+          />
+        </div>
+      </div>
+
+      <div className="mt-4">
+        <button onClick={onClose} className="rpg-btn w-full py-3 text-sm">
+          ตกลง
+        </button>
+      </div>
+    </ModalFrame>
+  );
+}
+
 export default function MainMenu() {
   const { difficulty, setDifficulty, startGame, getSavedName, adminMode } = useGameStore();
 
   const savedName = getSavedName();
-  const [modal, setModal] = useState<"player" | "difficulty" | "confirm" | null>(null);
+  const [modal, setModal] = useState<"player" | "difficulty" | "confirm" | "settings" | null>(null);
   const [name, setName] = useState(savedName ?? "");
 
   useEffect(() => {
@@ -330,6 +381,10 @@ export default function MainMenu() {
             {name.trim() || "ใหม่"} ▾
           </span>
         </button>
+        <button onClick={() => setModal("settings")} className="rpg-diff-btn w-full py-1.5 flex items-center justify-between px-4">
+          <span className="font-pixel text-sm text-[#9a8f72]">ตั้งค่าเสียง</span>
+          <span className="font-pixel text-sm" style={{ color: "#f5d87a" }}>⚙ ▾</span>
+        </button>
 
         {adminMode && (
           <p className="font-pixel text-[10px] text-center mt-2 text-[#f5d87a]">
@@ -351,6 +406,9 @@ export default function MainMenu() {
       )}
       {modal === "confirm" && (
         <ConfirmModal name={name} difficulty={difficulty} onConfirm={() => startGame()} onClose={() => setModal(null)} />
+      )}
+      {modal === "settings" && (
+        <SettingsModal onClose={() => setModal(null)} />
       )}
 
     </div>

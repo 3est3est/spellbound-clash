@@ -10,6 +10,7 @@ import GachaModal from './components/ui/GachaModal';
 import InventoryModal from './components/ui/InventoryModal';
 import ShopModal from './components/ui/ShopModal';
 import BackgroundMusic from './components/audio/BackgroundMusic';
+import RotateOverlay from './components/ui/RotateOverlay';
 
 function App() {
   const {
@@ -24,6 +25,7 @@ function App() {
     setBgmVolume,
     isMuted,
     toggleMute,
+    recordScore,
   } = useGameStore();
 
   const [showPauseSettings, setShowPauseSettings] = useState(false);
@@ -49,6 +51,9 @@ function App() {
     <div className="w-screen h-screen overflow-hidden font-sans select-none">
       {/* Background Music System */}
       <BackgroundMusic />
+
+      {/* Force landscape on touch devices */}
+      <RotateOverlay />
 
       {/* 2D Pixel Exploration Scene (renders underneath UI) */}
       {(gameState === 'EXPLORE' || gameState === 'BATTLE_TRANSITION' || gameState === 'BATTLE') && <GameCanvas />}
@@ -152,6 +157,7 @@ function App() {
                   <button
                     onClick={() => {
                       setIsPaused(false);
+                      recordScore();
                       resetGame();
                     }}
                     className="rpg-btn-red py-3 w-full font-bold text-base shadow-[4px_4px_0_rgba(0,0,0,0.2)]"

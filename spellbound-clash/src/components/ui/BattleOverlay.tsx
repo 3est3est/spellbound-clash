@@ -131,7 +131,7 @@ export default function BattleOverlay() {
           <div className="w-full max-w-2xl rpg-panel-frame animate-slide-up" data-zone={currentEnemy?.zone ?? 1}>
 
             {/* หัว: ข้อที่ + เวลา */}
-            <div className="flex justify-between items-center mb-3 gap-4">
+            <div className="flex justify-between items-center mb-2 sm:mb-3 gap-4">
               <span className="font-pixel text-sm font-semibold" style={{ color: 'var(--accent-hi)' }}>
                 ข้อ {questionIndex + 1}/{config.questionCount}
               </span>
@@ -151,13 +151,13 @@ export default function BattleOverlay() {
               </div>
             </div>
 
-            <div className="rpg-divider mb-4" />
+            <div className="rpg-divider mb-2 sm:mb-4" />
             {/* คำศัพท์ */}
-            <div className="text-center mb-6">
+            <div className="text-center mb-3 sm:mb-6">
               <h2
                 className="font-pixel font-black leading-tight rpg-title"
                 style={{
-                  fontSize: 'clamp(28px, 6vw, 42px)',
+                  fontSize: 'clamp(20px, 5vw, 42px)',
                   letterSpacing: '0.04em',
                 }}
               >
@@ -166,7 +166,7 @@ export default function BattleOverlay() {
             </div>
 
             {/* ตัวเลือก */}
-            <div className="grid grid-cols-2 gap-3 w-full">
+            <div className="grid grid-cols-2 gap-2 sm:gap-3 w-full">
               {currentQuestion.choices.map((choice, i) => {
                 const isSelected = selectedChoice === i;
                 const showResult = battleResult !== null;
@@ -185,7 +185,7 @@ export default function BattleOverlay() {
                     className={`rpg-choice-btn flex items-center gap-3 ${extraClass} ${!battleResult ? 'hover:-translate-y-1' : 'cursor-default'}`}
                   >
                     <span
-                      className="font-pixel font-bold shrink-0 w-6 text-center text-sm"
+                      className="font-pixel font-bold shrink-0 w-6 text-center text-xs sm:text-sm"
                       style={{
                         color: extraClass === 'correct' ? '#61d07f'
                           : extraClass === 'wrong' ? '#ff7a5c'
@@ -194,7 +194,7 @@ export default function BattleOverlay() {
                     >
                       {labels[i]}
                     </span>
-                    <span className="font-sans font-semibold text-lg" style={{ color: extraClass === 'dimmed' ? '#847e6f' : 'var(--accent-hi)' }}>
+                    <span className="font-sans font-semibold text-sm sm:text-lg" style={{ color: extraClass === 'dimmed' ? '#847e6f' : 'var(--accent-hi)' }}>
                       {choice.text}
                     </span>
                   </button>

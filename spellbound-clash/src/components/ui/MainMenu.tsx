@@ -236,7 +236,7 @@ function ConfirmModal({
   );
 }
 
-function LeaderboardPanel() {
+function LeaderboardList() {
   const { getLeaderboard } = useGameStore();
   const [board, setBoard] = useState<LeaderboardEntry[]>([]);
   const [boardExpanded, setBoardExpanded] = useState(false);
@@ -259,42 +259,52 @@ function LeaderboardPanel() {
   const shownBoard = boardExpanded ? board : board.slice(0, 5);
 
   return (
-    <div className="hidden lg:flex fixed right-4 top-4 z-50 flex-col w-60 bg-[#12142c]/90 backdrop-blur-sm border-4 border-[#6a3aa8] outline outline-4 outline-[#14143c] -outline-offset-8 shadow-[4px_4px_0_rgba(0,0,0,0.4)]">
-      <div className="flex items-center justify-between gap-2 px-3 py-2 border-b-2 border-[#6a3aa8]">
-        <span className="font-pixel text-[11px] font-bold" style={{ color: "#f5d87a" }}>คะแนนสูงสุด</span>
-        {board.length > 5 && (
+    <div className="w-full">
+      {board.length > 5 && (
+        <div className="flex justify-end pb-1">
           <button
             onClick={() => setBoardExpanded(v => !v)}
             className="font-pixel text-[10px] px-2 py-1 bg-[#1c2030] border-2 border-[#4a3a5e] text-[#f0e6c8] cursor-pointer hover:bg-[#2a2440] active:translate-x-[1px] active:translate-y-[1px]"
           >
             {boardExpanded ? "▲ ซ่อน" : "▼ เพิ่มเติม"}
           </button>
-        )}
+        </div>
+      )}
+      {loading ? (
+        <p className="font-pixel text-[10px] text-center py-3 text-[#9a8f72]">กำลังโหลด...</p>
+      ) : shownBoard.length === 0 ? (
+        <p className="font-pixel text-[10px] text-center py-3 text-[#9a8f72]">ยังไม่มีข้อมูลคะแนน</p>
+      ) : (
+        <ol className={`space-y-1.5 ${boardExpanded ? "max-h-72 overflow-y-auto" : ""}`}>
+          {shownBoard.map((e, i) => (
+            <li
+              key={`${e.name}-${e.difficulty}-${i}`}
+              className="flex justify-between items-center px-2 py-1 bg-[#1c2030] border-2 border-[#4a3a5e]"
+            >
+              <span className="font-pixel text-[10px] flex gap-2">
+                <span className="font-bold text-[#f5d87a] w-5">{i + 1}.</span>
+                <span className="text-[#f0e6c8] truncate max-w-[90px]">{e.name}</span>
+              </span>
+              <span className="font-pixel text-[10px] text-[#f0e6c8]">
+                {e.score.toLocaleString()}{" "}
+                <span className="text-[8px] text-[#9a5adc]">({e.difficulty.substring(0, 1)})</span>
+              </span>
+            </li>
+          ))}
+        </ol>
+      )}
+    </div>
+  );
+}
+
+function LeaderboardPanel() {
+  return (
+    <div className="hidden lg:flex fixed right-4 top-4 z-50 flex-col w-60 bg-[#12142c]/90 backdrop-blur-sm border-4 border-[#6a3aa8] outline outline-4 outline-[#14143c] -outline-offset-8 shadow-[4px_4px_0_rgba(0,0,0,0.4)]">
+      <div className="flex items-center justify-between gap-2 px-3 py-2 border-b-2 border-[#6a3aa8]">
+        <span className="font-pixel text-[11px] font-bold" style={{ color: "#f5d87a" }}>คะแนนสูงสุด</span>
       </div>
-      <div className={`px-2 py-2 ${boardExpanded ? "max-h-72 overflow-y-auto" : ""}`}>
-        {loading ? (
-          <p className="font-pixel text-[10px] text-center py-3 text-[#9a8f72]">กำลังโหลด...</p>
-        ) : shownBoard.length === 0 ? (
-          <p className="font-pixel text-[10px] text-center py-3 text-[#9a8f72]">ยังไม่มีข้อมูลคะแนน</p>
-        ) : (
-          <ol className="space-y-1.5">
-            {shownBoard.map((e, i) => (
-              <li
-                key={`${e.name}-${e.difficulty}-${i}`}
-                className="flex justify-between items-center px-2 py-1 bg-[#1c2030] border-2 border-[#4a3a5e]"
-              >
-                <span className="font-pixel text-[10px] flex gap-2">
-                  <span className="font-bold text-[#f5d87a] w-5">{i + 1}.</span>
-                  <span className="text-[#f0e6c8] truncate max-w-[90px]">{e.name}</span>
-                </span>
-                <span className="font-pixel text-[10px] text-[#f0e6c8]">
-                  {e.score.toLocaleString()}{" "}
-                  <span className="text-[8px] text-[#9a5adc]">({e.difficulty.substring(0, 1)})</span>
-                </span>
-              </li>
-            ))}
-          </ol>
-        )}
+      <div className="px-2 py-2">
+        <LeaderboardList />
       </div>
     </div>
   );
@@ -356,6 +366,7 @@ export default function MainMenu() {
 
   const savedName = getSavedName();
   const [modal, setModal] = useState<"player" | "difficulty" | "confirm" | "settings" | null>(null);
+  const [showBoard, setShowBoard] = useState(false);
   const [name, setName] = useState(savedName ?? "");
 
   useEffect(() => {
@@ -405,6 +416,10 @@ export default function MainMenu() {
           <span className="font-pixel text-sm text-[#9a8f72]">ตั้งค่าเสียง</span>
           <span className="font-pixel text-sm" style={{ color: "#f5d87a" }}>⚙ ▾</span>
         </button>
+        <button onClick={() => setShowBoard(true)} className="lg:hidden rpg-diff-btn w-full py-1.5 flex items-center justify-between px-4">
+          <span className="font-pixel text-sm text-[#9a8f72]">คะแนนสูงสุด</span>
+          <span className="font-pixel text-sm" style={{ color: "#f5d87a" }}>🏆 ▾</span>
+        </button>
 
         {adminMode && (
           <p className="font-pixel text-[10px] text-center mt-2 text-[#f5d87a]">
@@ -429,6 +444,12 @@ export default function MainMenu() {
       )}
       {modal === "settings" && (
         <SettingsModal onClose={() => setModal(null)} />
+      )}
+
+      {showBoard && (
+        <ModalFrame title="คะแนนสูงสุด" onClose={() => setShowBoard(false)}>
+          <LeaderboardList />
+        </ModalFrame>
       )}
 
     </div>

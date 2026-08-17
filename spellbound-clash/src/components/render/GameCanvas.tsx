@@ -1,8 +1,10 @@
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { useGameStore, GATE_UNLOCK_PRICES } from "../../store/useGameStore";
 import { TILE, SCALE, MAP_COLS, MAP_ROWS, T, type Dir } from "../../game/constants";
 import { MAP } from "../../game/tilemap";
 import { ZONE_ENEMY_KEY, type EnemyKey } from "../../game/sprites/enemySprites";
+import VirtualJoystick from "../ui/VirtualJoystick";
+import { useIsTouch } from "../../hooks/useIsTouch";
 import {
   prepareCtx,
   drawForestTile,
@@ -70,6 +72,8 @@ export default function GameCanvas() {
   const [nearGateZone, setNearGateZone] = useState<2 | 3 | 4 | null>(null);
   const nearGateZoneRef = useRef<2 | 3 | 4 | null>(null);
   const respawnTickTimer = useRef(0);
+  const sizeRef = useRef({ vw: 0, vh: 0, viewTilesX: 0, viewTilesY: 0 });
+  const touchVecRef = useRef({ x: 0, y: 0 });
 
   const gameState = useGameStore((s) => s.gameState);
   const enemies = useGameStore((s) => s.enemies);
@@ -80,6 +84,7 @@ export default function GameCanvas() {
   const clearZoneBanner = useGameStore((s) => s.clearZoneBanner);
   const unlockedZonesStore = useGameStore((s) => s.unlockedZones);
   const adminMode = useGameStore((s) => s.adminMode);
+  const isTouch = useIsTouch();
 
   // Seed fog: zones the player can already enter start revealed; a newly
   // unlocked zone starts dark and fades in on first entry (avoiding the old
@@ -167,29 +172,35 @@ export default function GameCanvas() {
     return () => cancelAnimationFrame(raf);
   }, [battleResult]);
 
+  const tryInteract = useCallback(() => {
+    const sp = player.current;
+    if (useGameStore.getState().gameState !== "EXPLORE") return;
+    const dist = Math.hypot(sp.tx - 36, sp.ty - 12);
+    if (dist < 1.6) {
+      useGameStore.getState().setGachaOpen(true);
+      return;
+    }
+    const distShop = Math.hypot(sp.tx - 43, sp.ty - 12);
+    if (distShop < 1.6) {
+      useGameStore.getState().setShopOpen(true);
+      return;
+    }
+    const gateZone = nearGateZoneRef.current;
+    if (gateZone != null) {
+      const store = useGameStore.getState();
+      if (store.adminMode) store.unlockGateAdmin(gateZone);
+      else store.buyGateUnlock(gateZone);
+      return;
+    }
+  }, []);
+  const tryInteractRef = useRef(tryInteract);
+  tryInteractRef.current = tryInteract;
+
   useEffect(() => {
     const onDown = (e: KeyboardEvent) => {
       keys.current[e.code] = true;
       if (e.code === "KeyE" || e.code === "Space" || e.code === "Enter") {
-        const sp = player.current;
-        if (useGameStore.getState().gameState !== "EXPLORE") return;
-        const dist = Math.hypot(sp.tx - 36, sp.ty - 12);
-        if (dist < 1.6) {
-          useGameStore.getState().setGachaOpen(true);
-          return;
-        }
-        const distShop = Math.hypot(sp.tx - 43, sp.ty - 12);
-        if (distShop < 1.6) {
-          useGameStore.getState().setShopOpen(true);
-          return;
-        }
-        const gateZone = nearGateZoneRef.current;
-        if (gateZone != null) {
-          const store = useGameStore.getState();
-          if (store.adminMode) store.unlockGateAdmin(gateZone);
-          else store.buyGateUnlock(gateZone);
-          return;
-        }
+        tryInteractRef.current();
       }
     };
     const onUp = (e: KeyboardEvent) => (keys.current[e.code] = false);
@@ -208,12 +219,21 @@ export default function GameCanvas() {
     if (!ctx) return;
     prepareCtx(ctx);
 
-    const vw = window.innerWidth;
-    const vh = window.innerHeight;
-    const viewTilesX = Math.ceil(vw / (TILE * SCALE));
-    const viewTilesY = Math.ceil(vh / (TILE * SCALE));
-    canvas.width = vw;
-    canvas.height = vh;
+    const applySize = () => {
+      const vw = window.innerWidth;
+      const vh = window.innerHeight;
+      canvas.width = vw;
+      canvas.height = vh;
+      sizeRef.current = {
+        vw,
+        vh,
+        viewTilesX: Math.ceil(vw / (TILE * SCALE)),
+        viewTilesY: Math.ceil(vh / (TILE * SCALE)),
+      };
+    };
+    applySize();
+    window.addEventListener("resize", applySize);
+    window.addEventListener("orientationchange", applySize);
 
     const enterBattleTransition = useGameStore.getState().enterBattleTransition;
     let raf = 0;
@@ -222,6 +242,7 @@ export default function GameCanvas() {
     const loop = (now: number) => {
       const dt = Math.min(0.05, (now - last) / 1000);
       last = now;
+      const { vw, vh, viewTilesX, viewTilesY } = sizeRef.current;
 
       const paused = useGameStore.getState().isPaused;
       if (paused) {
@@ -281,6 +302,12 @@ export default function GameCanvas() {
         if (keys.current["KeyS"] || keys.current["ArrowDown"]) dy += 1;
         if (keys.current["KeyA"] || keys.current["ArrowLeft"]) dx -= 1;
         if (keys.current["KeyD"] || keys.current["ArrowRight"]) dx += 1;
+        const tv = touchVecRef.current;
+        if (tv.x !== 0 || tv.y !== 0) {
+          const len = Math.hypot(tv.x, tv.y) || 1;
+          dx += tv.x / len;
+          dy += tv.y / len;
+        }
 
         if (dx !== 0 || dy !== 0) {
           if (dx !== 0) p.facing = dx > 0 ? "right" : "left";
@@ -598,13 +625,31 @@ export default function GameCanvas() {
       raf = requestAnimationFrame(loop);
     };
 
+    const onCanvasPointerDown = (e: PointerEvent) => {
+      if (e.pointerType === "mouse") return;
+      tryInteractRef.current();
+    };
+    canvas.addEventListener("pointerdown", onCanvasPointerDown);
+
     raf = requestAnimationFrame(loop);
-    return () => cancelAnimationFrame(raf);
+    return () => {
+      cancelAnimationFrame(raf);
+      window.removeEventListener("resize", applySize);
+      window.removeEventListener("orientationchange", applySize);
+      canvas.removeEventListener("pointerdown", onCanvasPointerDown);
+    };
   }, [gameState, currentEnemy, battleResult]);
 
   return (
     <div className="fixed inset-0 z-0 overflow-hidden bg-[#7ec850]">
-      <canvas ref={canvasRef} className="image-rendering-pixelated border-0 block" style={{ width: "100vw", height: "100vh" }} />
+      <canvas ref={canvasRef} className="image-rendering-pixelated border-0 block" style={{ width: "100vw", height: "100dvh" }} />
+
+      {gameState === "EXPLORE" && (
+        <VirtualJoystick onMove={(x, y) => {
+          touchVecRef.current.x = x;
+          touchVecRef.current.y = y;
+        }} />
+      )}
 
       {/* Zone Unlock Notification Banner */}
       {zoneBanner && gameState === "EXPLORE" && (
@@ -619,25 +664,41 @@ export default function GameCanvas() {
 
       {/* Gacha Machine Proximity Interaction Alert */}
       {isNearGacha && gameState === "EXPLORE" && (
-        <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-bounce">
+        <div className={`fixed left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-bounce ${isTouch ? "bottom-44" : "bottom-24"}`}>
           <div className="bg-[#2a2418] border-4 border-[#6b4423] outline outline-4 outline-[#1c5f33] -outline-offset-8 px-4 py-2 text-center text-xs text-[#e8c04a] font-pixel shadow-[4px_4px_0_rgba(0,0,0,0.5)] pointer-events-auto">
-            🪙 ใกล้ตู้สุ่มสัตว์เลี้ยง! กด <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">Space</span> หรือ <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">E</span> หรือ <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">Enter</span> เพื่อเปิดตู้นี้
+            🪙 ใกล้ตู้สุ่มสัตว์เลี้ยง!{" "}
+            {isTouch ? (
+              <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">แตะจอ</span>
+            ) : (
+              <>
+                กด <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">Space</span> หรือ <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">E</span> หรือ <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">Enter</span>
+              </>
+            )}{" "}
+            เพื่อเปิดตู้นี้
           </div>
         </div>
       )}
 
       {/* Shop Proximity Interaction Alert */}
       {isNearShop && gameState === "EXPLORE" && (
-        <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-bounce">
+        <div className={`fixed left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-bounce ${isTouch ? "bottom-44" : "bottom-24"}`}>
           <div className="bg-[#2a2418] border-4 border-[#6b4423] outline outline-4 outline-[#1c5f33] -outline-offset-8 px-4 py-2 text-center text-xs text-[#e8c04a] font-pixel shadow-[4px_4px_0_rgba(0,0,0,0.5)] pointer-events-auto">
-            🛒 ใกล้ร้านค้าอุปกรณ์! กด <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">Space</span> หรือ <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">E</span> หรือ <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">Enter</span> เพื่อเปิดร้านค้า
+            🛒 ใกล้ร้านค้าอุปกรณ์!{" "}
+            {isTouch ? (
+              <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">แตะจอ</span>
+            ) : (
+              <>
+                กด <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">Space</span> หรือ <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">E</span> หรือ <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">Enter</span>
+              </>
+            )}{" "}
+            เพื่อเปิดร้านค้า
           </div>
         </div>
       )}
 
       {/* Gate Unlock Proximity Alert */}
       {nearGateZone != null && gameState === "EXPLORE" && (
-        <div className="fixed bottom-24 left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-bounce">
+        <div className={`fixed left-1/2 -translate-x-1/2 z-50 pointer-events-none animate-bounce ${isTouch ? "bottom-44" : "bottom-24"}`}>
           <div
             className={`px-4 py-2 text-center text-xs font-pixel shadow-[4px_4px_0_rgba(0,0,0,0.5)] pointer-events-auto border-4 ${adminMode
               ? "bg-[#2a2418] border-[#f5d87a] outline outline-4 outline-[#1c5f33] -outline-offset-8 text-[#f5d87a]"
@@ -650,6 +711,10 @@ export default function GameCanvas() {
               <>⭐ ADMIN: ประตูสู่โซน {nearGateZone} ปลดล็อคฟรี! กด{" "}
                 <span className="text-black bg-[#f5d87a] px-1.5 py-0.5 rounded text-[10px]">Enter</span> หรือ{" "}
                 <span className="text-black bg-[#f5d87a] px-1.5 py-0.5 rounded text-[10px]">E</span>{" "}
+              </>
+            ) : isTouch ? (
+              <>🔒 ประตูสู่โซน {nearGateZone}: ต้องใช้ 🪙 {GATE_UNLOCK_PRICES[nearGateZone] ?? "?"} เหรียญ{" "}
+                <span className="text-white bg-[#1c5f33] px-1.5 py-0.5 rounded text-[10px]">แตะจอ</span> เพื่อซื้อปลดล็อค
               </>
             ) : (
               <>🔒 ประตูสู่โซน {nearGateZone}: ต้องใช้ 🪙 {GATE_UNLOCK_PRICES[nearGateZone] ?? "?"} เหรียญ กด{" "}

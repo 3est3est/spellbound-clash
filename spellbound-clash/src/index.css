@@ -10,11 +10,17 @@ body {
   margin: 0;
   padding: 0;
   overflow: hidden;
+  overscroll-behavior: none;
+  -webkit-tap-highlight-color: transparent;
   background: linear-gradient(180deg, #87ceeb 0%, #a4e0a4 100%);
   font-family: 'Kanit', sans-serif;
   image-rendering: pixelated;
   image-rendering: crisp-edges;
   -webkit-font-smoothing: none;
+}
+
+canvas {
+  touch-action: none;
 }
 
 /* ── Font utility ──────────────────────────────── */
@@ -546,3 +552,26 @@ body {
   color: #f0e6c8;
 }
 .mainmenu-modal .rpg-diff-btn:active { transform: translate(2px, 2px); }
+
+/* ================================================================
+   SHORT-SCREEN SAFETY NET (mobile landscape)
+   Panels taller than the viewport scroll internally instead of
+   being clipped / blocking the whole screen. No effect on desktop.
+   ================================================================ */
+@media (max-height: 520px) {
+  .rpg-panel,
+  .rpg-panel-frame,
+  .mainmenu-modal {
+    max-height: calc(100dvh - 2rem);
+    overflow-y: auto;
+  }
+
+  /* Compact battle question panel + choice buttons */
+  .rpg-panel-frame {
+    padding: 8px;
+    border-width: 10px;
+  }
+  .rpg-choice-btn {
+    padding: 8px;
+  }
+}

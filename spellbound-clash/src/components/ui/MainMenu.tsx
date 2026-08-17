@@ -67,23 +67,30 @@ function PlayerModal({
   const [adminStatus, setAdminStatus] = useState<"idle" | "ok" | "invalid">("idle");
   const [mode, setMode] = useState<"new" | "continue">(savedName ? "continue" : "new");
   const [error, setError] = useState("");
+  const [busy, setBusy] = useState(false);
 
   const handleAdminCode = () => {
     const ok = setAdminCode(adminInput);
     setAdminStatus(ok ? "ok" : "invalid");
   };
 
-  const handleConfirm = () => {
+  const handleConfirm = async () => {
     setError("");
     if (!name.trim()) { setError("กรุณาใส่ชื่อผู้เล่นก่อน"); return; }
-    if (mode === "continue") {
-      if (!pin.trim()) { setError("กรุณาใส่ PIN 4 หลัก"); return; }
-      const ok = continueGame(name, pin);
-      if (!ok) { setError("ชื่อหรือ PIN ไม่ถูกต้อง"); return; }
-    } else {
-      createProfile(name, pin || "0000");
+    setBusy(true);
+    try {
+      if (mode === "continue") {
+        if (!pin.trim()) { setError("กรุณาใส่ PIN 4 หลัก"); return; }
+        const res = await continueGame(name, pin);
+        if (!res.ok) { setError(res.error ?? "ชื่อหรือ PIN ไม่ถูกต้อง"); return; }
+      } else {
+        const res = await createProfile(name, pin || "0000");
+        if (!res.ok) { setError(res.error ?? "สร้างผู้เล่นไม่ได้"); return; }
+      }
+      onDone(name.trim());
+    } finally {
+      setBusy(false);
     }
-    onDone(name.trim());
   };
 
   return (
@@ -142,8 +149,8 @@ function PlayerModal({
       )}
 
       <div className="mt-4">
-        <button onClick={handleConfirm} className="rpg-btn w-full py-3 text-sm">
-          {mode === "continue" ? "เล่นต่อ" : "สร้างผู้เล่น"}
+        <button onClick={handleConfirm} disabled={busy} className="rpg-btn w-full py-3 text-sm disabled:opacity-60 disabled:cursor-wait">
+          {busy ? "กำลังเชื่อมต่อ..." : mode === "continue" ? "เล่นต่อ" : "สร้างผู้เล่น"}
         </button>
       </div>
     </ModalFrame>
@@ -233,9 +240,20 @@ function LeaderboardPanel() {
   const { getLeaderboard } = useGameStore();
   const [board, setBoard] = useState<LeaderboardEntry[]>([]);
   const [boardExpanded, setBoardExpanded] = useState(false);
+  const [loading, setLoading] = useState(false);
+
+  const loadBoard = async () => {
+    setLoading(true);
+    try {
+      const b = await getLeaderboard();
+      setBoard(b);
+    } finally {
+      setLoading(false);
+    }
+  };
 
   useEffect(() => {
-    setBoard(getLeaderboard());
+    void loadBoard();
   }, [getLeaderboard]);
 
   const shownBoard = boardExpanded ? board : board.slice(0, 5);
@@ -254,7 +272,9 @@ function LeaderboardPanel() {
         )}
       </div>
       <div className={`px-2 py-2 ${boardExpanded ? "max-h-72 overflow-y-auto" : ""}`}>
-        {shownBoard.length === 0 ? (
+        {loading ? (
+          <p className="font-pixel text-[10px] text-center py-3 text-[#9a8f72]">กำลังโหลด...</p>
+        ) : shownBoard.length === 0 ? (
           <p className="font-pixel text-[10px] text-center py-3 text-[#9a8f72]">ยังไม่มีข้อมูลคะแนน</p>
         ) : (
           <ol className="space-y-1.5">

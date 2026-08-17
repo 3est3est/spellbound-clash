@@ -12,10 +12,24 @@ import {
 import vocabData from "../data/vocabQuestions.json";
 import { ZONE_ENEMIES } from "../game/enemyPlacement";
 import { ADMIN_CODE } from "../game/constants";
+import {
+  registerCloud,
+  loginCloud,
+  saveProgressCloud,
+  loadProgressCloud,
+  submitScoreCloud,
+  getLeaderboardCloud,
+  readStoredToken,
+  storeToken,
+  readStoredUsername,
+} from "../lib/cloud";
+import { isCloudEnabled } from "../lib/supabase";
 
 const SAVE_KEY = "spellbound_save";
 const LEADERBOARD_KEY = "spellbound_leaderboard";
 const SETTINGS_KEY = "spellbound_settings";
+
+let cloudSaveTimer: ReturnType<typeof setTimeout> | null = null;
 
 interface AudioSettings {
   bgmVolume: number;
@@ -111,15 +125,16 @@ interface GameStore {
   clearZoneBanner: () => void;
 
   // Profile / Save
-  createProfile: (name: string, pin: string) => void;
+  sessionToken: string | null;
+  createProfile: (name: string, pin: string) => Promise<{ ok: boolean; error?: string }>;
   hasSave: () => boolean;
   getSavedName: () => string | null;
-  continueGame: (name: string, pin: string) => boolean;
+  continueGame: (name: string, pin: string) => Promise<{ ok: boolean; error?: string }>;
   saveProgress: () => void;
   saveCheckpoint: (tx: number, ty: number) => void;
   clearSave: () => void;
   recordScore: () => void;
-  getLeaderboard: () => LeaderboardEntry[];
+  getLeaderboard: () => Promise<LeaderboardEntry[]>;
 
   // Pets & Gacha System
   petsOwned: string[];
@@ -267,19 +282,6 @@ function updateLeaderboard(entry: LeaderboardEntry) {
   writeLeaderboard(list);
 }
 
-function uniqueName(base: string): string {
-  const existing = readSave();
-  if (!existing) return base;
-  if (existing.name.toLowerCase() !== base.toLowerCase()) return base;
-  let n = 2;
-  let candidate = `${base}${n}`;
-  while (existing.name.toLowerCase() === candidate.toLowerCase()) {
-    n += 1;
-    candidate = `${base}${n}`;
-  }
-  return candidate;
-}
-
 export const useGameStore = create<GameStore>((set, get) => ({
   // Initial State
   bgmVolume: readSettings().bgmVolume,
@@ -294,6 +296,8 @@ export const useGameStore = create<GameStore>((set, get) => ({
   playerName: "",
   pin: "",
   playerPos: { tx: 3, ty: 4 },
+
+  sessionToken: readStoredToken()?.token ?? null,
 
   unlockedZones: [1],
   zoneBanner: null,
@@ -566,20 +570,117 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
   // ===== Profile / Save =====
 
-  createProfile: (name, pin) => {
-    const finalName = uniqueName(name.trim() || "Player");
-    set({ playerName: finalName, pin: pin.trim() });
+  createProfile: async (name, pin) => {
+    const finalName = name.trim() || "Player";
+    const finalPin = pin.trim() || "0000";
+
+    if (isCloudEnabled()) {
+      try {
+        const res = await registerCloud(finalName, finalPin);
+        const tokenRes = await loginCloud(res.username, finalPin);
+        storeToken({ token: tokenRes.token, playerId: tokenRes.player_id, username: tokenRes.username });
+        set({ playerName: res.username, pin: finalPin, sessionToken: tokenRes.token });
+        return { ok: true };
+      } catch (err) {
+        const msg = (err as Error).message;
+        if (msg === "username_taken") {
+          return { ok: false, error: "ชื่อนี้มีผู้ใช้แล้ว กรุณาใช้ชื่ออื่น" };
+        }
+        if (msg === "cloud_disabled") {
+          // fall through to local-only
+        } else {
+          return { ok: false, error: "ไม่สามารถสร้างบัญชีได้ ลองอีกครั้ง" };
+        }
+      }
+    }
+
+    set({ playerName: finalName, pin: finalPin });
+    return { ok: true };
   },
 
   hasSave: () => readSave() !== null,
 
-  getSavedName: () => readSave()?.name ?? null,
+  getSavedName: () => readSave()?.name ?? readStoredUsername(),
 
-  continueGame: (name, pin) => {
+  continueGame: async (name, pin) => {
+    const trimmedName = name.trim();
+    const trimmedPin = pin.trim();
+    if (!trimmedName || !trimmedPin) return { ok: false, error: "กรุณากรอกชื่อและ PIN" };
+
+    if (isCloudEnabled()) {
+      try {
+        const login = await loginCloud(trimmedName, trimmedPin);
+        storeToken({ token: login.token, playerId: login.player_id, username: login.username });
+        set({
+          playerName: login.username,
+          pin: trimmedPin,
+          sessionToken: login.token,
+        });
+
+        // Load cloud save (if any) into the store so startGame can continue it.
+        const cloudSave = await loadProgressCloud(login.token);
+        if (cloudSave) {
+          writeSave(cloudSave);
+          set({
+            playerName: cloudSave.name,
+            pin: cloudSave.pin,
+            difficulty: cloudSave.difficulty,
+            petsOwned: cloudSave.petsOwned ?? [],
+            equippedPet: cloudSave.equippedPet ?? null,
+            isGachaOpen: false,
+            isInventoryOpen: false,
+            itemsOwned: cloudSave.itemsOwned ?? [],
+            equippedHat: cloudSave.equippedHat ?? null,
+            equippedSword: cloudSave.equippedSword ?? null,
+            equippedShoes: cloudSave.equippedShoes ?? null,
+            isShopOpen: false,
+            hatUpgradeLevel: cloudSave.hatUpgradeLevel ?? 0,
+            swordUpgradeLevel: cloudSave.swordUpgradeLevel ?? 0,
+            adminMode: cloudSave.adminMode ?? false,
+          });
+        } else {
+          // No cloud save yet — push the existing local save up if it matches
+          // this account (migration of the pre-cloud save), then reload it.
+          const localSave = readSave();
+          if (localSave && localSave.name.toLowerCase() === trimmedName.toLowerCase() && localSave.pin === trimmedPin) {
+            await saveProgressCloud(login.token, localSave);
+            set({
+              playerName: localSave.name,
+              pin: localSave.pin,
+              difficulty: localSave.difficulty,
+              petsOwned: localSave.petsOwned ?? [],
+              equippedPet: localSave.equippedPet ?? null,
+              isGachaOpen: false,
+              isInventoryOpen: false,
+              itemsOwned: localSave.itemsOwned ?? [],
+              equippedHat: localSave.equippedHat ?? null,
+              equippedSword: localSave.equippedSword ?? null,
+              equippedShoes: localSave.equippedShoes ?? null,
+              isShopOpen: false,
+              hatUpgradeLevel: localSave.hatUpgradeLevel ?? 0,
+              swordUpgradeLevel: localSave.swordUpgradeLevel ?? 0,
+              adminMode: localSave.adminMode ?? false,
+            });
+          }
+        }
+        return { ok: true };
+      } catch (err) {
+        const msg = (err as Error).message;
+        if (msg === "invalid_credentials") {
+          return { ok: false, error: "ชื่อหรือ PIN ไม่ถูกต้อง" };
+        }
+        if (msg === "cloud_disabled") {
+          // fall through to local-only
+        } else {
+          return { ok: false, error: "ไม่สามารถเข้าสู่ระบบได้ ลองอีกครั้ง" };
+        }
+      }
+    }
+
     const saved = readSave();
-    if (!saved) return false;
-    if (saved.name.toLowerCase() !== name.trim().toLowerCase()) return false;
-    if (saved.pin !== pin.trim()) return false;
+    if (!saved) return { ok: false, error: "ยังไม่มีข้อมูลผู้เล่นนี้ในเครื่อง" };
+    if (saved.name.toLowerCase() !== trimmedName.toLowerCase()) return { ok: false, error: "ชื่อหรือ PIN ไม่ถูกต้อง" };
+    if (saved.pin !== trimmedPin) return { ok: false, error: "ชื่อหรือ PIN ไม่ถูกต้อง" };
     set({
       playerName: saved.name,
       pin: saved.pin,
@@ -597,7 +698,7 @@ export const useGameStore = create<GameStore>((set, get) => ({
       swordUpgradeLevel: saved.swordUpgradeLevel ?? 0,
       adminMode: saved.adminMode ?? false,
     });
-    return true;
+    return { ok: true };
   },
 
   saveProgress: () => {
@@ -627,6 +728,17 @@ export const useGameStore = create<GameStore>((set, get) => ({
       adminMode: s.adminMode,
     };
     writeSave(data);
+
+    // Sync to cloud (debounced — saveCheckpoint fires often)
+    if (isCloudEnabled() && s.sessionToken) {
+      if (cloudSaveTimer) clearTimeout(cloudSaveTimer);
+      cloudSaveTimer = setTimeout(() => {
+        cloudSaveTimer = null;
+        saveProgressCloud(s.sessionToken!, data).catch(() => {
+          /* offline — local copy remains */
+        });
+      }, 1500);
+    }
   },
 
   saveCheckpoint: (tx, ty) => {
@@ -638,6 +750,15 @@ export const useGameStore = create<GameStore>((set, get) => ({
 
   clearSave: () => {
     eraseSave();
+    if (isCloudEnabled() && get().sessionToken) {
+      if (cloudSaveTimer) {
+        clearTimeout(cloudSaveTimer);
+        cloudSaveTimer = null;
+      }
+      saveProgressCloud(get().sessionToken!, {} as SaveData).catch(() => {
+        /* ignore */
+      });
+    }
   },
 
   recordScore: () => {
@@ -650,9 +771,31 @@ export const useGameStore = create<GameStore>((set, get) => ({
       enemiesDefeated: s.enemiesDefeated,
       date: new Date().toISOString().slice(0, 10),
     });
+
+    if (isCloudEnabled() && s.sessionToken) {
+      submitScoreCloud(s.sessionToken, s.score, s.difficulty, s.enemiesDefeated).catch(() => {
+        /* ignore — score still saved locally */
+      });
+    }
   },
 
-  getLeaderboard: () => readLeaderboard(),
+  getLeaderboard: async () => {
+    if (isCloudEnabled()) {
+      try {
+        const rows = await getLeaderboardCloud(50);
+        return rows.map((r) => ({
+          name: r.username,
+          score: r.score,
+          difficulty: r.difficulty as Difficulty,
+          enemiesDefeated: r.enemies_defeated,
+          date: r.date,
+        }));
+      } catch {
+        /* fall back to local board */
+      }
+    }
+    return readLeaderboard();
+  },
 
   resetGame: () => {
     set({

@@ -3,10 +3,7 @@ import path from 'node:path';
 import https from 'node:https';
 
 const files = {
-    'menu.mp3': 'https://incompetech.com/music/royalty-free/mp3-royaltyfree/8bit%20Dungeon%20Level.mp3',
-    'explore.mp3': 'https://incompetech.com/music/royalty-free/mp3-royaltyfree/Bit%20Quest.mp3',
-    'battle.mp3': 'https://incompetech.com/music/royalty-free/mp3-royaltyfree/8bit%20Dungeon%20Boss.mp3',
-    'gameover.mp3': 'https://incompetech.com/music/royalty-free/mp3-royaltyfree/Blip%20Stream.mp3'
+    'sound-game.mp3': 'https://incompetech.com/music/royalty-free/mp3-royaltyfree/8bit%20Dungeon%20Level.mp3'
 };
 
 const outputDir = path.resolve('public/audio');

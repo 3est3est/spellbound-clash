@@ -37,15 +37,15 @@ async function run() {
     // Take the first matching file (usually the .mp4 or .mp3)
     const sourceFile = path.join(downloadsDir, matchedFiles[0]);
 
-    // Copy to each scene's BGM file
-    const targets = ['menu.mp3', 'explore.mp3', 'battle.mp3', 'gameover.mp3'];
+    // Copy to the single BGM file
+    const targets = ['sound-game.mp3'];
     for (const targetName of targets) {
         const destPath = path.join(targetDir, targetName);
         console.log(`Copying ${matchedFiles[0]} -> ${destPath}`);
         fs.copyFileSync(sourceFile, destPath);
     }
 
-    console.log('Successfully copied user music files to public/audio!');
+    console.log('Successfully copied user music to public/audio/sound-game.mp3!');
 }
 
 run().catch(console.error);

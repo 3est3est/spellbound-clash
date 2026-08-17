@@ -2,7 +2,7 @@ import { useEffect, useRef } from "react";
 import { useGameStore } from "../../store/useGameStore";
 
 export default function BackgroundMusic() {
-    const { gameState, bgmVolume, isMuted } = useGameStore();
+    const { bgmVolume, isMuted } = useGameStore();
     const audioRef = useRef<HTMLAudioElement | null>(null);
     const userInteractedRef = useRef<boolean>(false);
 
@@ -11,28 +11,12 @@ export default function BackgroundMusic() {
     // =========================================================================
     // 1. สร้างโฟลเดอร์ชื่อ "audio" ไว้ในโฟลเดอร์ "public" (ทางผ่านจะเป็น: public/audio/)
     // 2. นำไฟล์เพลงของคุณมาใส่และตั้งชื่อตามด้านล่างนี้:
-    //    - เพลงหน้าเมนูหลัก: "menu.mp3"         (จะโหลดจาก public/audio/menu.mp3)
-    //    - เพลงตอนเดินแผนที่: "explore.mp3"     (จะโหลดจาก public/audio/explore.mp3)
-    //    - เพลงฉากต่อสู้: "battle.mp3"        (จะโหลดจาก public/audio/battle.mp3)
-    //    - เพลงตอนเกมโอเวอร์: "gameover.mp3"     (จะโหลดจาก public/audio/gameover.mp3)
+    //    - ใช้เพลงเดียวทุกฉาก: "sound-game.mp3" (จะโหลดจาก public/audio/sound-game.mp3)
     // =========================================================================
-    const getMusicSrc = (state: string): string => {
-        switch (state) {
-            case "MENU":
-                return "/audio/menu.mp3"; // ◄◄ ใส่ไฟล์เพลงเมนูที่นี่
-            case "EXPLORE":
-            case "BATTLE_TRANSITION":
-            case "BATTLE":
-                return "/audio/explore.mp3"; // เล่นเพลงสำรวจต่อเนี่องระหว่างฉากและฉากต่อสู้
-            case "GAMEOVER":
-                return "/audio/gameover.mp3"; // ◄◄ ใส่ไฟล์เพลงตอนตาย/จบเกมที่นี่
-            default:
-                return "/audio/menu.mp3";
-        }
-    };
+    const getMusicSrc = (): string => "/audio/sound-game.mp3";
 
     useEffect(() => {
-        const src = getMusicSrc(gameState);
+        const src = getMusicSrc();
 
         // สร้าง หรือ เปลี่ยนไฟล์เสียงเมื่อ Game State มีการเปลี่ยนแปลง
         if (!audioRef.current) {
@@ -76,7 +60,7 @@ export default function BackgroundMusic() {
             window.removeEventListener("click", handleInteraction, { capture: true });
             window.removeEventListener("keydown", handleInteraction, { capture: true });
         };
-    }, [gameState]);
+    }, []);
 
     // ปรับระดับความดังเสียงแบบเรียลไทม์เมื่อมีการเลื่อน Setting Slider หรือปรับ Mute
     useEffect(() => {
